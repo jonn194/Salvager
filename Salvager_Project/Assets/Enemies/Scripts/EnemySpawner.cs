@@ -5,6 +5,9 @@ using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Game State")]
+    public GameState state;
+
     [Header("Parameteres")]
     public float maxPosition;
     public float spawnFrequency = 2;

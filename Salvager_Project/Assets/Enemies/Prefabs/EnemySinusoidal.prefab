@@ -51,10 +51,12 @@ MonoBehaviour:
   damageTint: {r: 1, g: 1, b: 1, a: 0}
   maxLife: 1
   currentLife: 0
+  score: 10
   destroyPosition: -20
   verticalSpeed: 5
   horizontalSpeed: 10
   amplitude: 0.5
+  _sineDirection: 0
 --- !u!65 &5296563044671977198
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -48,9 +48,6 @@ public class Enemy : MonoBehaviour
         //remove life
         currentLife--;
 
-        //score
-        GameManager.instance.currentScore += score;
-
         //change tint
         mesh.material.SetColor("_Tint", damageTint);
 
@@ -61,6 +58,9 @@ public class Enemy : MonoBehaviour
         //check for destroy
         if (currentLife <= 0) 
         {
+            //score
+            GameManager.instance.currentScore += score;
+            //destroy
             DestroyEnemy();
         }
     }

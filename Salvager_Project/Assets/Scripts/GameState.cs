@@ -22,15 +22,32 @@ public class GameState : MonoBehaviour
     public Transform tempParent;
 
     [Header("UI")]
-    public GameObject UIMenu;
-    public GameObject UIGameplay;
-
+    public UIManager UIManager;
 
     private void Start()
     {
         playerOriginalPos = playerStats.transform.position;
 
-        EndGame();
+        Setup();
+    }
+
+    private void Update()
+    {
+        if(playerStats.currentHP <= 0)
+        {
+            EndGame();
+        }
+    }
+
+    void Setup()
+    {
+        //camera
+        cam.transform.position = camMenu.position;
+        cam.transform.rotation = camMenu.rotation;
+        cam.fieldOfView = camAngleMenu;
+
+        //player
+        playerStats.StopPlayer(playerOriginalPos);
     }
 
     public void StartGame()
@@ -48,31 +65,36 @@ public class GameState : MonoBehaviour
         spawner.transform.position = new Vector3(0, 0, 17);
         spawner.transform.eulerAngles = new Vector3(0, 180, 0);
         spawner.StartEnemies();
+        spawner.state = this;
+
+        //score
+        GameManager.instance.currentScore = 0;
 
         //UI
-        UIMenu.SetActive(false);
-        UIGameplay.SetActive(true);
+        UIManager.GameplayStart();
     }
 
     public void EndGame()
     {
-        //camera
-        cam.transform.position = camMenu.position;
-        cam.transform.rotation = camMenu.rotation;
-        cam.fieldOfView = camAngleMenu;
-
-        //player
-        playerStats.StopPlayer(playerOriginalPos);
+        Setup();
 
         //temp objects
         for(int i = 0; i < tempParent.childCount; i++)
         { 
             Transform t = tempParent.GetChild(i);
-            Destroy(t);
+            Destroy(t.gameObject);
         }
 
         //UI
-        UIMenu.SetActive(true);
-        UIGameplay.SetActive(false);
+        CheckHighScore();
+        UIManager.GameplayEnds();
+    }
+
+    void CheckHighScore()
+    {
+        if(GameManager.instance.currentScore > GameManager.instance.highScore)
+        {
+            GameManager.instance.highScore = GameManager.instance.currentScore;
+        }
     }
 }

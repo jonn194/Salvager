@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7706504e7ac0644d8d68be6d3ae6938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: {fileID: 0}
   maxPosition: 9
   spawnFrequency: 1.5
   maxEnemies: 3
@@ -54,3 +55,4 @@ MonoBehaviour:
   - {fileID: 4808106079423537978, guid: 3af5a9399cdd0804892133482e6e2d2c, type: 3}
   - {fileID: 4808106079423537978, guid: 344110ba038eb4d429a0524c140e9ed0, type: 3}
   - {fileID: 4808106079423537978, guid: f2d54247c080f7d4c93d44165fd5ea8a, type: 3}
+  - {fileID: 4808106079423537978, guid: dda04db0b84747d42b0077c3b8ad5547, type: 3}

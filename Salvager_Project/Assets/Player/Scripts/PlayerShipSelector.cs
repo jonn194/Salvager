@@ -11,44 +11,50 @@ public class PlayerShipSelector : MonoBehaviour
 
     [Header("Ships")]
     public Transform shipsContainer;
-    public List<MeshRenderer> ships = new List<MeshRenderer>();
+    MeshRenderer[] _ships;
     public Color lockedColor;
 
     [Header("Selector")]
     float _maxSelectorTime = 0.3f;
     float _currentSelectorTime;
+
+    private void Start()
+    {
+        _ships = shipsContainer.GetComponentsInChildren<MeshRenderer>();
+    }
+
     public void Update()
     {
 
-        for (int i = 0; i < ships.Count; i++)
+        for (int i = 0; i < _ships.Length; i++)
         {
             if (GameManager.instance.shipsState[i])
             {
-                ships[i].material.SetColor("_Tint", Color.white);
+                _ships[i].material.SetColor("_Tint", Color.white);
             }
             else
             {
-                ships[i].material.SetColor("_Tint", lockedColor);
+                _ships[i].material.SetColor("_Tint", lockedColor);
             }
         }
     }
 
     public void DeactivateShips()
     {
-        for (int i = 0; i < ships.Count; i++)
+        for (int i = 0; i < _ships.Length; i++)
         {
             if(i != GameManager.instance.currentShip)
             {
-                ships[i].gameObject.SetActive(false);
+                _ships[i].gameObject.SetActive(false);
             }
         }
     }
 
     public void ActivateShips()
     {
-        for (int i = 0; i < ships.Count; i++)
+        for (int i = 0; i < _ships.Length; i++)
         {
-            ships[i].gameObject.SetActive(true);
+            _ships[i].gameObject.SetActive(true);
         }
     }
 
@@ -62,7 +68,7 @@ public class PlayerShipSelector : MonoBehaviour
             GameManager.instance.currentShip--;
             StartCoroutine(SelectorCoroutine());
         }
-        else if(direction > 0 && GameManager.instance.currentShip < ships.Count - 1)
+        else if(direction > 0 && GameManager.instance.currentShip < _ships.Length - 1)
         {
             _currentSelectorTime = 0;
             buttonLeft.interactable = false;
