@@ -12,6 +12,8 @@ public class PlayerShipSelector : MonoBehaviour
     [Header("Ships")]
     public Transform shipsContainer;
     MeshRenderer[] _ships;
+    public Transform thrustersContainer;
+    public List<ParticleSystem> _thrusters = new List<ParticleSystem>();
     public Color lockedColor;
 
     [Header("Selector")]
@@ -21,6 +23,12 @@ public class PlayerShipSelector : MonoBehaviour
     private void Start()
     {
         _ships = shipsContainer.GetComponentsInChildren<MeshRenderer>();
+
+        for(int i = 0; i < thrustersContainer.childCount; i++)
+        {
+            Transform t = thrustersContainer.GetChild(i);
+            _thrusters.Add(t.GetComponent<ParticleSystem>());
+        }
     }
 
     public void Update()
@@ -46,6 +54,8 @@ public class PlayerShipSelector : MonoBehaviour
             if(i != GameManager.instance.currentShip)
             {
                 _ships[i].gameObject.SetActive(false);
+                _thrusters[i].Stop();
+                _thrusters[i].gameObject.SetActive(false);
             }
         }
     }
@@ -55,6 +65,8 @@ public class PlayerShipSelector : MonoBehaviour
         for (int i = 0; i < _ships.Length; i++)
         {
             _ships[i].gameObject.SetActive(true);
+            _thrusters[i].gameObject.SetActive(true);
+            _thrusters[i].Play();
         }
     }
 

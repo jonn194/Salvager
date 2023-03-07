@@ -25,20 +25,22 @@ public class PlayerStats : MonoBehaviour
 
     public void StartPlayer(Vector3 position)
     {
+        shipSelector.DeactivateShips();
         movement.enabled = true;
+        movement.Setup();
         currentHP = maxHP;
         weapon.gameObject.SetActive(true);
         weapon.StartShooting();
-        shipSelector.DeactivateShips();
         SetOriginalPosition(position);
     }
 
     public void StopPlayer(Vector3 position)
     {
+        shipSelector.ActivateShips();
+        movement.ResetTilt();
         movement.enabled = false;
         currentHP = maxHP;
         weapon.StopShooting();
-        shipSelector.ActivateShips();
         SetOriginalPosition(position);
     }
 
