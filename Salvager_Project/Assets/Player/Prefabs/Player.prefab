@@ -96367,7 +96367,7 @@ MonoBehaviour:
   lerpSpeed: 10
   shipsContainer: {fileID: 5221471223569617136}
   _shipMesh: {fileID: 0}
-  maxTilt: 10
+  maxTilt: 20
 --- !u!65 &6057835867573547250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -96459,7 +96459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  shootTimer: 0.5
+  shootTimer: 0.3
   bulletPool: {fileID: 6057835867877042733}
 --- !u!1 &6803636733110418905
 GameObject:

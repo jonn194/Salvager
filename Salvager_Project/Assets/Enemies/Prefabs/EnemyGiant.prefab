@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5296563044671977192}
-  - component: {fileID: -881888281385916633}
+  - component: {fileID: 5296563044671977193}
   - component: {fileID: 5296563044671977198}
   - component: {fileID: 1475557427571271209}
   m_Layer: 8
-  m_Name: EnemySinusoidal
+  m_Name: EnemyGiant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-881888281385916633
+--- !u!114 &5296563044671977193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,20 +44,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5296563044671977188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1741e952b044cea4a8e954aea845fb9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cae15625b9e389488d66adee0929c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 5296563045185867739}
   damageTint: {r: 1, g: 1, b: 1, a: 0}
-  maxLife: 1
+  maxLife: 6
   currentLife: 0
-  score: 10
+  score: 13
   destroyPosition: -20
   spawner: {fileID: 0}
-  verticalSpeed: 5
-  horizontalSpeed: 10
-  amplitude: 0.5
-  _sineDirection: 0
+  moveSpeed: 6
 --- !u!65 &5296563044671977198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,7 +66,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1475557427571271209
 Rigidbody:
@@ -114,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 5296563045185867732}
   m_LocalRotation: {x: 0.46193978, y: 0.19134173, z: 0.19134173, w: 0.84462327}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5296563044671977192}

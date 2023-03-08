@@ -7,11 +7,23 @@ public class EnemySinusoidal : Enemy
     public float verticalSpeed;
     public float horizontalSpeed;
     public float amplitude;
-    public bool _sineDirection;
+    
+    bool _sineDirection = false;
 
     public override void Start()
     {
         base.Start();
+        RandomDirection();
+    }
+
+    void RandomDirection()
+    {
+        float random = Random.Range(0, 99);
+
+        if(random <= 50)
+        {
+            _sineDirection = true;
+        }
     }
 
     public override void Update()

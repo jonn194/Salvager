@@ -15,6 +15,10 @@ public class Enemy : MonoBehaviour
     public int score;
     public float destroyPosition;
 
+    [Header("Dependencies")]
+    public PlayerStats player;
+    public EnemySpawner spawner;
+
     float _maxColorTime = 0.5f;
     float _currentColorTime;
 
@@ -32,6 +36,7 @@ public class Enemy : MonoBehaviour
     void DestroyEnemy()
     {
         StopAllCoroutines();
+        spawner.RemoveEnemy();
         Destroy(gameObject);
     }
 

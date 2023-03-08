@@ -39,7 +39,7 @@ public class GameState : MonoBehaviour
         }
     }
 
-    void Setup()
+    public void Setup()
     {
         //camera
         cam.transform.position = camMenu.position;
@@ -65,7 +65,7 @@ public class GameState : MonoBehaviour
         spawner.transform.position = new Vector3(0, 0, 17);
         spawner.transform.eulerAngles = new Vector3(0, 180, 0);
         spawner.StartEnemies();
-        spawner.state = this;
+        spawner.player = playerStats;
 
         //score
         GameManager.instance.currentScore = 0;
@@ -76,10 +76,8 @@ public class GameState : MonoBehaviour
 
     public void EndGame()
     {
-        Setup();
-
         //temp objects
-        for(int i = 0; i < tempParent.childCount; i++)
+        for (int i = 0; i < tempParent.childCount; i++)
         { 
             Transform t = tempParent.GetChild(i);
             Destroy(t.gameObject);

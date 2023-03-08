@@ -56,9 +56,10 @@ public class PlayerMovement : MonoBehaviour
 
     void TiltShip(Vector3 mousePos)
     {
-        float dist = mousePos.x - transform.position.x;
+        float distX = mousePos.x - transform.position.x;
+        float distZ = mousePos.z - transform.position.z;
 
-        _shipMesh.transform.eulerAngles = new Vector3 (_defaultRotation.x, _defaultRotation.y, maxTilt * dist);
+        _shipMesh.transform.eulerAngles = new Vector3 (maxTilt * -distZ, _defaultRotation.y, maxTilt * distX);
     }
 
     public void ResetTilt()

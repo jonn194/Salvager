@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Game State")]
-    public GameState state;
+    [Header("Player")]
+    public PlayerStats player;
 
     [Header("Parameteres")]
     public float maxPosition;
@@ -15,7 +15,9 @@ public class EnemySpawner : MonoBehaviour
     int _currentEnemies;
 
     [Header("Enemies")]
-    public List<EnemiesContainer> objectsToSpawn = new List<EnemiesContainer>();
+    public List<Enemy> objectsToSpawn = new List<Enemy>();
+
+    float _randomX;
 
     public void StartEnemies()
     {
@@ -42,12 +44,20 @@ public class EnemySpawner : MonoBehaviour
     {
         int random = Random.Range(0, objectsToSpawn.Count);
 
-        EnemiesContainer newEnemy = Instantiate(objectsToSpawn[random], transform.parent);
-        newEnemy.transform.position = transform.position;
+        Enemy newEnemy = Instantiate(objectsToSpawn[random], transform.parent);
+        newEnemy.transform.position = RandomPosition();
         newEnemy.transform.rotation = transform.rotation;
+        newEnemy.player = player;
         newEnemy.spawner = this;
 
         _currentEnemies++;
+    }
+
+    Vector3 RandomPosition()
+    {
+        _randomX = Random.Range(-maxPosition, maxPosition);
+
+        return new Vector3(_randomX, transform.position.y, transform.position.z);
     }
 
     public void RemoveEnemy()
