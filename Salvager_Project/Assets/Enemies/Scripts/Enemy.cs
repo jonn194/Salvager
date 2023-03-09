@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [Header("Visuals")]
     public MeshRenderer mesh;
     public Color damageTint;
+    public ParticleSystem hitParticles;
     Color _originalTint;
 
     [Header("Stats")]
@@ -53,6 +54,9 @@ public class Enemy : MonoBehaviour
         //remove life
         currentLife--;
 
+        //stop current particles
+        hitParticles.Stop();
+
         //change tint
         mesh.material.SetColor("_Tint", damageTint);
 
@@ -68,6 +72,9 @@ public class Enemy : MonoBehaviour
             //destroy
             DestroyEnemy();
         }
+
+        //play new particles
+        hitParticles.Play();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject UIMenu;
+    public GameObject UICustomize;
     public GameObject UIGameplay;
     public GameObject UIEndgame;
 

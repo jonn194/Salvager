@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Parameteres")]
     public float maxPosition;
+    public float maxAngle = 10;
     public float spawnFrequency = 2;
     public int maxEnemies;
     int _currentEnemies;
@@ -46,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
 
         Enemy newEnemy = Instantiate(objectsToSpawn[random], transform.parent);
         newEnemy.transform.position = RandomPosition();
-        newEnemy.transform.rotation = transform.rotation;
+        newEnemy.transform.eulerAngles = RandomRotation(newEnemy.transform.position.x);
         newEnemy.player = player;
         newEnemy.spawner = this;
 
@@ -58,6 +59,24 @@ public class EnemySpawner : MonoBehaviour
         _randomX = Random.Range(-maxPosition, maxPosition);
 
         return new Vector3(_randomX, transform.position.y, transform.position.z);
+    }
+
+    Vector3 RandomRotation(float xPos)
+    {
+        float _randomY = 0;
+
+        if(xPos > 0)
+        {
+            _randomY = Random.Range(0, maxAngle);
+        }
+        else
+        {
+            _randomY = Random.Range(0, -maxAngle);
+        }
+
+        _randomY += transform.eulerAngles.y;
+
+        return new Vector3(transform.eulerAngles.x, _randomY, transform.eulerAngles.z);
     }
 
     public void RemoveEnemy()

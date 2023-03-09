@@ -12,7 +12,6 @@ public class PlayerShipSelector : MonoBehaviour
     [Header("Ships")]
     public Transform shipsContainer;
     MeshRenderer[] _ships;
-    public Transform thrustersContainer;
     public List<ParticleSystem> _thrusters = new List<ParticleSystem>();
     public Color lockedColor;
 
@@ -24,11 +23,13 @@ public class PlayerShipSelector : MonoBehaviour
     {
         _ships = shipsContainer.GetComponentsInChildren<MeshRenderer>();
 
-        for(int i = 0; i < thrustersContainer.childCount; i++)
+        for(int i = 0; i < _ships.Length; i++)
         {
-            Transform t = thrustersContainer.GetChild(i);
+            Transform t = _ships[i].transform.GetChild(0);
             _thrusters.Add(t.GetComponent<ParticleSystem>());
         }
+
+        DeactivateShips();
     }
 
     public void Update()

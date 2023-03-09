@@ -11,7 +11,9 @@ public class PlayerStats : MonoBehaviour
     [Header("Components")]
     public Shooting weapon;
     public PlayerMovement movement;
-    public PlayerShipSelector shipSelector;
+
+    [Header("Effects")]
+    public ParticleSystem getHitVFX;
 
     private void Start()
     {
@@ -20,12 +22,12 @@ public class PlayerStats : MonoBehaviour
 
     public void GetDamage()
     {
+        getHitVFX.Play();
         currentHP--;
     }
 
     public void StartPlayer(Vector3 position)
     {
-        shipSelector.DeactivateShips();
         movement.enabled = true;
         movement.Setup();
         currentHP = maxHP;
@@ -36,7 +38,6 @@ public class PlayerStats : MonoBehaviour
 
     public void StopPlayer(Vector3 position)
     {
-        shipSelector.ActivateShips();
         movement.ResetTilt();
         movement.enabled = false;
         currentHP = maxHP;
