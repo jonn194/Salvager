@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   maxPosition: 9
-  spawnFrequency: 0.7
+  maxAngle: 15
+  spawnFrequency: 0.6
   maxEnemies: 20
   objectsToSpawn:
   - {fileID: 5296563044671977193, guid: 27c6bd90352366940975f39fb9c2a731, type: 3}

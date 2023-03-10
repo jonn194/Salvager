@@ -67,11 +67,11 @@ public class EnemySpawner : MonoBehaviour
 
         if(xPos > 0)
         {
-            _randomY = Random.Range(0, maxAngle);
+            _randomY = Random.Range(-5, maxAngle);
         }
         else
         {
-            _randomY = Random.Range(0, -maxAngle);
+            _randomY = Random.Range(5, -maxAngle);
         }
 
         _randomY += transform.eulerAngles.y;

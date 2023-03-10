@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     [Header("Visuals")]
     public MeshRenderer mesh;
     public Color damageTint;
-    public ParticleSystem hitParticles;
+    public ParticleSystem hitParticle;
+    public ParticleSystem deadParticle;
     Color _originalTint;
 
     [Header("Stats")]
@@ -55,7 +56,7 @@ public class Enemy : MonoBehaviour
         currentLife--;
 
         //stop current particles
-        hitParticles.Stop();
+        hitParticle.Stop();
 
         //change tint
         mesh.material.SetColor("_Tint", damageTint);
@@ -69,12 +70,16 @@ public class Enemy : MonoBehaviour
         {
             //score
             GameManager.instance.currentScore += score;
+
+            //instanciar particula
+            Instantiate(deadParticle, transform.position, transform.rotation);
+
             //destroy
             DestroyEnemy();
         }
 
         //play new particles
-        hitParticles.Play();
+        hitParticle.Play();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("Ships")]
     public List<bool> shipsState = new List<bool>();
     public List<int> shipsPrices = new List<int>();
+    public List<int> shipsSelectedColor = new List<int>();
     public int currentShip;
 
 
