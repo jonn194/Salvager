@@ -48,5 +48,13 @@ public class Bullet : MonoBehaviour
                 Deactivate();
             }
         }
+        else if(gameObject.layer == K.LAYER_PLAYER_ENEMY)
+        {
+            if (other.gameObject.layer == K.LAYER_PLAYER)
+            {
+                other.GetComponent<PlayerStats>().GetDamage();
+                Deactivate();
+            }
+        }
     }
 }

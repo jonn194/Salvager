@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Effects")]
     public ParticleSystem getHitVFX;
+    public PostProcessHandler postprocess;
 
     private void Start()
     {
@@ -24,6 +27,8 @@ public class PlayerStats : MonoBehaviour
     {
         getHitVFX.Play();
         currentHP--;
+
+        postprocess.SetMaxAberration();
     }
 
     public void StartPlayer(Vector3 position)

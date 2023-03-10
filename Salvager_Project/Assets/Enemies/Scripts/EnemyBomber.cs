@@ -4,20 +4,70 @@ using UnityEngine;
 
 public class EnemyBomber : Enemy
 {
-    public float distanceToExplote;
+    [Header("Bomber")]
+    public float distanceToExplode = 5;
+    public ParticleSystem explosionParticle;
+    public ParticleSystem focusParticle;
+
+    bool _focusing = false;
+    float _playerDistance;
 
     public override void Update()
     {
         base.Update();
+        BasicMovement();
 
-        if(Vector3.Distance(transform.position, player.transform.position) < distanceToExplote)
+        _playerDistance = Vector3.Distance(transform.position, player.transform.position);
+
+        if (_playerDistance < distanceToExplode && !_focusing)
         {
-            Explote();
+            _focusing = true;
+            StartFocus();
         }
     }
 
-    void Explote()
+    void StartFocus()
     {
+        focusParticle.Play();
 
+        StartCoroutine(FocusTimer());
+    }
+
+    IEnumerator FocusTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        Explode();
+    }
+
+    void Explode()
+    {
+        focusParticle.Stop();
+        explosionParticle.Play();
+
+        if (_playerDistance < distanceToExplode)
+        {
+            player.GetDamage();
+        }
+
+        StartCoroutine(Cooldown());
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(1f);
+        _focusing = false;
+    }
+
+    public override void DestroyEnemy()
+    {
+        StopAllCoroutines();
+        base.DestroyEnemy();
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanceToExplode);
     }
 }

@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Visuals")]
     public MeshRenderer mesh;
-    public Color damageTint;
+    public Color damageTint = Color.white;
     public ParticleSystem hitParticle;
     public ParticleSystem deadParticle;
     Color _originalTint;
@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public int maxLife;
     public int currentLife;
     public int score;
+    public float moveSpeed;
     public float destroyPosition;
 
     [Header("Dependencies")]
@@ -35,7 +36,12 @@ public class Enemy : MonoBehaviour
         CheckDistance();
     }
 
-    void DestroyEnemy()
+    protected void BasicMovement()
+    {
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+    }
+
+    public virtual void DestroyEnemy()
     {
         StopAllCoroutines();
         spawner.RemoveEnemy();
@@ -72,7 +78,9 @@ public class Enemy : MonoBehaviour
             GameManager.instance.currentScore += score;
 
             //instanciar particula
-            Instantiate(deadParticle, transform.position, transform.rotation);
+            ParticleSystem particle = Instantiate(deadParticle, transform.parent);
+            particle.transform.position = transform.position;
+            particle.transform.rotation = transform.rotation;
 
             //destroy
             DestroyEnemy();

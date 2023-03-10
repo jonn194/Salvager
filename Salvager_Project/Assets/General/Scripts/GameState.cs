@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameState : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class GameState : MonoBehaviour
 
     [Header("UI")]
     public UIManager UIManager;
+
+
 
     private void Start()
     {
