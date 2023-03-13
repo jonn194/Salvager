@@ -39,6 +39,7 @@ public class GameState : MonoBehaviour
     {
         if(playerStats.currentHP <= 0)
         {
+            playerStats.gameObject.SetActive(false);
             EndGame();
         }
     }

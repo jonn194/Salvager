@@ -54,13 +54,13 @@ MonoBehaviour:
   hitParticle: {fileID: 914895516648097862}
   deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
-  maxLife: 6
+  maxLife: 7
   currentLife: 0
   score: 13
+  moveSpeed: 6
   destroyPosition: -20
   player: {fileID: 0}
   spawner: {fileID: 0}
-  moveSpeed: 6
 --- !u!65 &5296563044671977198
 BoxCollider:
   m_ObjectHideFlags: 0

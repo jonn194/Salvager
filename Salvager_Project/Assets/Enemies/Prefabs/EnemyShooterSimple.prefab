@@ -55,7 +55,7 @@ MonoBehaviour:
   hitParticle: {fileID: 3353801280043008886}
   deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
-  maxLife: 5
+  maxLife: 4
   currentLife: 0
   score: 20
   moveSpeed: 7
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5237808777974190727, guid: 3643466afe449f145831bb731dd6ce75,
     type: 3}
-  amount: 10
+  amount: 5
   spawnedBullets: []
 --- !u!65 &5296563044671977198
 BoxCollider:
