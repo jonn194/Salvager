@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Stats")]
     public int scrapAmount;
+    public int perksAmount;
     public int highScore;
     public int currentScore;
 
@@ -18,7 +20,7 @@ public class GameManager : MonoBehaviour
     public List<int> shipsSelectedColor = new List<int>();
     public int currentShip;
 
-
+    public bool[,] availableColors = new bool[10,4];
 
     private void Awake()
     {
@@ -30,6 +32,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        availableColors[0, 0] = true;
+        availableColors[2, 2] = true;
+        availableColors[5, 0] = true;
+        availableColors[5, 1] = true;
+        availableColors[5, 2] = true;
     }
 
     void SaveGame()

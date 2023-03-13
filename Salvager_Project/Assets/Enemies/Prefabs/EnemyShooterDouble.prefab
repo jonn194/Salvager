@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 1
-  shootTimer: 1
+  shootTimer: 1.25
   bulletPool: {fileID: 2247857454469505161}
 --- !u!1 &7812477996118438133
 GameObject:
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 1
-  shootTimer: 1
+  shootTimer: 1.25
   bulletPool: {fileID: 2247857454469505161}
 --- !u!1001 &3148505518276390735
 PrefabInstance:

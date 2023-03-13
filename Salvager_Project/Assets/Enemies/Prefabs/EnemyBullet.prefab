@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5237808777974190726}
   - component: {fileID: 5237808777974190727}
   - component: {fileID: 5237808777974190721}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f034402a17a785f4eae8c5366246c62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
-  duration: 1
+  speed: 15
+  duration: 1.5
 --- !u!65 &5237808777974190721
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 5237808777987515116}
   - component: {fileID: 5237808777987515113}
   - component: {fileID: 5237808777987515118}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

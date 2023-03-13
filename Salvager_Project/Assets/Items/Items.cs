@@ -20,16 +20,11 @@ public class Items : MonoBehaviour
 
         if(lifetime <= 0)
         {
-            Timeout();
+            DestroyObject();
         }
     }
 
-    void PickedUp()
-    {
-        Destroy(gameObject);
-    }
-
-    void Timeout()
+    void DestroyObject()
     {
         Destroy(gameObject);
     }
@@ -38,7 +33,39 @@ public class Items : MonoBehaviour
     {
         if (other.gameObject.layer == K.LAYER_PLAYER)
         {
-            PickedUp();
+            PlayerItemsHandler itemsHandler = other.GetComponent<PlayerItemsHandler>();
+
+            itemsHandler.PlayEffects();
+
+            switch(type)
+            {
+                case ItemType.scraps:
+                    GameManager.instance.scrapAmount++;
+                    break;
+
+                case ItemType.perk:
+                    GameManager.instance.perksAmount++;
+                    break;
+
+
+                case ItemType.energy:
+                    itemsHandler.EnergyCore();
+                    break;
+                case ItemType.shield:
+                    itemsHandler.Shield();
+                    break;
+                case ItemType.trishot:
+                    itemsHandler.ModuleTrishot();
+                    break;
+                case ItemType.laser:
+                    itemsHandler.ModuleLaser();
+                    break;
+                case ItemType.bomber:
+                    itemsHandler.ModuleBomber();
+                    break;
+            }
+
+            DestroyObject();
         }
     }
 }

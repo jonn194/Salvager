@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public float duration;
-    float _currentDuration;
+    protected float _currentDuration;
     void Update()
     {
         _currentDuration -= Time.deltaTime;
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         _currentDuration = duration;
     }
 
-    void Deactivate()
+    protected void Deactivate()
     {
         gameObject.SetActive(false);
     }
@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
-    void CheckActive()
+    virtual public void CheckActive()
     {
         if(_currentDuration <= 0)
         {
@@ -42,17 +42,22 @@ public class Bullet : MonoBehaviour
     {
         if(gameObject.layer == K.LAYER_PLAYER_BULLET)
         {
-            if(other.gameObject.layer == K.LAYER_PLAYER_ENEMY)
+            if(other.gameObject.layer == K.LAYER_ENEMY)
             {
                 other.GetComponent<Enemy>().GetDamage();
                 Deactivate();
             }
         }
-        else if(gameObject.layer == K.LAYER_PLAYER_ENEMY)
+        else if(gameObject.layer == K.LAYER_ENEMY_BULLET)
         {
             if (other.gameObject.layer == K.LAYER_PLAYER)
             {
                 other.GetComponent<PlayerStats>().GetDamage();
+                Deactivate();
+            }
+            else if (other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
+            {
+                other.GetComponent<PowerShield>().GetHit();
                 Deactivate();
             }
         }

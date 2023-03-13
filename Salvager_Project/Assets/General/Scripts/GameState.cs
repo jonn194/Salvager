@@ -37,7 +37,7 @@ public class GameState : MonoBehaviour
 
     private void Update()
     {
-        if(playerStats.currentHP <= 0)
+        if(playerStats.playerDead)
         {
             playerStats.gameObject.SetActive(false);
             EndGame();
@@ -87,6 +87,8 @@ public class GameState : MonoBehaviour
             Transform t = tempParent.GetChild(i);
             Destroy(t.gameObject);
         }
+
+        playerStats.playerDead = false;
 
         //UI
         CheckHighScore();

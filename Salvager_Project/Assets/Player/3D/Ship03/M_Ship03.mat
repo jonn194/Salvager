@@ -48,6 +48,7 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
+    - _CurrentColor: 0
     - _DstBlend: 0
     - _EmissionIntensity: 20
     - _GlowThreshold: 0.75
@@ -64,6 +65,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
+    - _Hues: {r: 0, g: 0.25, b: 0.5, a: 0.8}
     - _MainColor: {r: 0.7636528, g: 0, b: 1, a: 0}
     - _ShadowColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 0}

@@ -97,6 +97,11 @@ public class Enemy : MonoBehaviour
             other.GetComponent<PlayerStats>().GetDamage();
             DestroyEnemy();
         }
+        else if(other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
+        {
+            other.GetComponent<PowerShield>().GetHit();
+            DestroyEnemy();
+        }
     }
 
     IEnumerator ResetColor()

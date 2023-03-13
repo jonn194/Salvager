@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Stats")]
     public int maxHP;
     public int currentHP;
+    public bool playerDead;
 
     [Header("Components")]
     public Shooting weapon;
@@ -16,11 +17,13 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Effects")]
     public ParticleSystem getHitVFX;
+    public ParticleSystem deadVFX;
     public PostProcessHandler postprocess;
 
     private void Start()
     {
         currentHP = maxHP;
+        playerDead = false;
     }
 
     public void GetDamage()
@@ -28,7 +31,28 @@ public class PlayerStats : MonoBehaviour
         getHitVFX.Play();
         currentHP--;
 
+        if(currentHP <= 0)
+        {
+            PlayerDeath();
+        }
+
         postprocess.SetMaxAberration();
+    }
+
+    public void PlayerDeath()
+    {
+        deadVFX.Play();
+
+        movement.enabled = false;
+        weapon.StopShooting();
+
+        StartCoroutine(SetDead());
+    }
+
+    IEnumerator SetDead()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerDead = true;
     }
 
     public void StartPlayer(Vector3 position)
@@ -52,6 +76,6 @@ public class PlayerStats : MonoBehaviour
 
     public void SetOriginalPosition(Vector3 position)
     {
-        transform.position = position;
+        transform.position = position; 
     }
 }
