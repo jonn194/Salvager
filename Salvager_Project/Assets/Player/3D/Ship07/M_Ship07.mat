@@ -48,10 +48,11 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
-    - _CurrentColor: 1
+    - _CurrentColor: 0
     - _DstBlend: 0
     - _EmissionIntensity: 20
     - _GlowThreshold: 0.75
+    - _HueAsTint: 0
     - _HueOffset: 0
     - _QueueControl: 0
     - _QueueOffset: 0

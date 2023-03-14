@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Effects")]
     public ParticleSystem getHitVFX;
     public ParticleSystem deadVFX;
-    public PostProcessHandler postprocess;
+    public EffectsHandler postprocess;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class PlayerStats : MonoBehaviour
             PlayerDeath();
         }
 
-        postprocess.SetMaxAberration();
+        postprocess.PlayerHitEffects();
     }
 
     public void PlayerDeath()

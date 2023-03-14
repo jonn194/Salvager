@@ -7,6 +7,10 @@ public class PlayerColorSelector : MonoBehaviour
 {
     public List<Button> buttons = new List<Button>();
 
+    [Header("Ships")]
+    public Transform shipsContainer;
+    MeshRenderer[] _ships;
+
     private void Start()
     {
         buttons[0].onClick.AddListener(delegate { ButtonClick(0); });
@@ -14,6 +18,7 @@ public class PlayerColorSelector : MonoBehaviour
         buttons[2].onClick.AddListener(delegate { ButtonClick(2); });
         buttons[3].onClick.AddListener(delegate { ButtonClick(3); });
 
+        _ships = shipsContainer.GetComponentsInChildren<MeshRenderer>();
     }
 
     private void Update()
@@ -31,8 +36,10 @@ public class PlayerColorSelector : MonoBehaviour
         }
     }
 
-    void ButtonClick(float index)
+    void ButtonClick(int index)
     {
-        Debug.Log(index);
+        int currentShip = GameManager.instance.currentShip;
+        _ships[currentShip].material.SetFloat("_CurrentColor", index);
+        GameManager.instance.shipsSelectedColor[currentShip] = index;
     }
 }

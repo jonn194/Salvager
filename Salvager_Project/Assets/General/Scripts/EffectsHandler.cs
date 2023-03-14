@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
 
-public class PostProcessHandler : MonoBehaviour
+public class EffectsHandler : MonoBehaviour
 {
+    [Header("Camera")]
+    public CameraShake camShake;
+
+
+    [Header("Post Process")]
     public Volume volume;
 
     public float aberrationResetSpeed = 1;
@@ -16,8 +21,10 @@ public class PostProcessHandler : MonoBehaviour
         volume.profile.TryGet<ChromaticAberration>(out _chromaticAberration);
     }
 
-    public void SetMaxAberration()
+    public void PlayerHitEffects()
     {
+        camShake.StartShake();
+
         _chromaticAberration.intensity.value = 0.5f;
 
         StartCoroutine(ResetAberration());

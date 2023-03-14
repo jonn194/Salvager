@@ -26,8 +26,6 @@ public class GameState : MonoBehaviour
     [Header("UI")]
     public UIManager UIManager;
 
-
-
     private void Start()
     {
         playerOriginalPos = playerStats.transform.position;
