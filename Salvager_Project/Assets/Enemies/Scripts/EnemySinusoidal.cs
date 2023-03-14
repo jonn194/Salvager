@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySinusoidal : Enemy
 {
+    [Header("Sinusoidal")]
     public float verticalSpeed;
     public float horizontalSpeed;
     public float amplitude;
