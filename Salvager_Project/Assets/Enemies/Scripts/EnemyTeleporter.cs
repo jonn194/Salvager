@@ -13,6 +13,7 @@ public class EnemyTeleporter : Enemy
     public ParticleSystem warningParticle;
     public LineRenderer warningLine;
     public ParticleSystem teleportParticle;
+    public ParticleSystem pointerParticle;
 
     public override void Start()
     {
@@ -25,15 +26,20 @@ public class EnemyTeleporter : Enemy
     {
         yield return new WaitForSeconds(warningTime);
         warningLine.enabled = true;
-        //warningParticle.Play();
+        warningParticle.gameObject.SetActive(true);
+        warningParticle.Play();
         StartCoroutine(TeleportTimer());
     }
 
     IEnumerator TeleportTimer()
     {
         yield return new WaitForSeconds(teleportTime);
-        //teleportParticle.Play();
-        warningLine.enabled= false;
+        
+        warningParticle.gameObject.SetActive(false);
+        warningParticle.Stop();
+        warningLine.enabled = false;
+        
+        teleportParticle.Play();
         Teleport();
     }
 
@@ -43,7 +49,15 @@ public class EnemyTeleporter : Enemy
 
         targetPosition.localPosition = new Vector3(-targetPosition.localPosition.x, targetPosition.localPosition.y, targetPosition.localPosition.z);
         warningLine.SetPosition(1, targetPosition.localPosition);
+        pointerParticle.Play();
 
         StartCoroutine(WarningTimer());
+    }
+
+    public override void DestroyEnemy()
+    {
+        StopAllCoroutines();
+
+        base.DestroyEnemy();
     }
 }
