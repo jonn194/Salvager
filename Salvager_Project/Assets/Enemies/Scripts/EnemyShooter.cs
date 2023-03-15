@@ -69,9 +69,10 @@ public class EnemyShooter : Enemy
         StartCoroutine(DirectionTimer());
     }
 
-    public override void DestroyEnemy()
+    public override void DestroyEnemy(bool byPlayer)
     {
         StopAllCoroutines();
-        base.DestroyEnemy();
+
+        base.DestroyEnemy(byPlayer);
     }
 }

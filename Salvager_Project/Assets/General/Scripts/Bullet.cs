@@ -47,6 +47,11 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<Enemy>().GetDamage();
                 Deactivate();
             }
+            else if (other.gameObject.layer == K.LAYER_ENEMY_SERPENT)
+            {
+                other.GetComponent<EnemySerpentPiece>().DamagePiece();
+                Deactivate();
+            }
         }
         else if(gameObject.layer == K.LAYER_ENEMY_BULLET)
         {

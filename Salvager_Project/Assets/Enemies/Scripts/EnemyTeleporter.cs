@@ -54,10 +54,10 @@ public class EnemyTeleporter : Enemy
         StartCoroutine(WarningTimer());
     }
 
-    public override void DestroyEnemy()
+    public override void DestroyEnemy(bool byPlayer)
     {
         StopAllCoroutines();
 
-        base.DestroyEnemy();
+        base.DestroyEnemy(byPlayer);
     }
 }

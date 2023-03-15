@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,17 +12,28 @@ public class EnemySpawner : MonoBehaviour
     [Header("Parameteres")]
     public float maxPosition;
     public float maxAngle = 10;
-    public float spawnFrequency = 2;
-    public int maxEnemies;
+    public float baseSpawnFrequency = 2;
+    public float minSpawnFrequency = 0.2f;
+
+    float _currentSpawnFrequency;
     int _currentEnemies;
 
     [Header("Enemies")]
     public List<Enemy> objectsToSpawn = new List<Enemy>();
-
     float _randomX;
+
+    [Header("Dificulty")]
+    public int enemiesDestroyedByPlayer;
+    public int currentDificulty;
+    public float frequencyOffset;
+    public List<int> enemiesToChange = new List<int>();
+    public List<int> maxEnemiesAmounts = new List<int>();
+    public List<int> maxEnemyIndex = new List<int>();
 
     public void StartEnemies()
     {
+        _currentSpawnFrequency = baseSpawnFrequency;
+        currentDificulty = 0;
         StartCoroutine(SpawnTimer());
     }
 
@@ -33,8 +45,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnTimer()
     {
-        yield return new WaitForSeconds(spawnFrequency);
-        if(_currentEnemies <= maxEnemies)
+        yield return new WaitForSeconds(_currentSpawnFrequency);
+
+        //check enemies amount of with current dificulty
+        if(_currentEnemies <= maxEnemiesAmounts[currentDificulty])
         {
             SpawnEnemies();
         }
@@ -43,7 +57,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemies()
     {
-        int random = Random.Range(0, objectsToSpawn.Count);
+        //set random enemy according to current dificulty
+        int random = Random.Range(0, maxEnemyIndex[currentDificulty] + 1);
 
         Enemy newEnemy = Instantiate(objectsToSpawn[random], transform.parent);
         newEnemy.transform.position = RandomPosition();
@@ -79,9 +94,53 @@ public class EnemySpawner : MonoBehaviour
         return new Vector3(transform.eulerAngles.x, _randomY, transform.eulerAngles.z);
     }
 
-    public void RemoveEnemy()
+    public void RemoveEnemy(bool byPlayer)
     {
         _currentEnemies--;
+
+        //if enemy destroyed by player
+        if(byPlayer)
+        {
+            enemiesDestroyedByPlayer++;
+
+            CheckDificulty();
+        }
+    }
+
+    void CheckDificulty()
+    {
+        //check if there are more dificulty levels
+        if(enemiesToChange.Count > currentDificulty)
+        {
+            //checks the amount of enemies
+            if (enemiesDestroyedByPlayer >= enemiesToChange[currentDificulty])
+            {
+                //create boss
+                SpawnBoss();
+
+                //increase dificulty
+                currentDificulty++;
+
+                //resets destroyed enemies count
+                enemiesDestroyedByPlayer = 0;
+                
+                //adjust spawn frequency
+                if(_currentSpawnFrequency > minSpawnFrequency)
+                {
+                    _currentSpawnFrequency -= frequencyOffset;
+                }
+                else
+                {
+                    _currentSpawnFrequency = minSpawnFrequency;
+                }
+            }
+        }
+    }
+
+    void SpawnBoss()
+    {
+        //stop spawning enemies
+        //instantiate random boss
     }
 
     private void OnDrawGizmos()

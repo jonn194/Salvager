@@ -47,7 +47,8 @@ MonoBehaviour:
   player: {fileID: 0}
   maxPosition: 9
   maxAngle: 15
-  spawnFrequency: 0.6
+  baseSpawnFrequency: 1.5
+  minSpawnFrequency: 0.2
   maxEnemies: 20
   objectsToSpawn:
   - {fileID: 5296563044671977193, guid: 27c6bd90352366940975f39fb9c2a731, type: 3}
@@ -58,3 +59,10 @@ MonoBehaviour:
   - {fileID: 4734974803506469922, guid: a46c3c58c90d5c64ebba705fb3195cb3, type: 3}
   - {fileID: 4734974803506469922, guid: 8e3cfe3d82d25884cb7f080301c397b3, type: 3}
   - {fileID: 3666207744598338254, guid: aec76052f6064c943aed4fe79addecdd, type: 3}
+  - {fileID: 6231394660449888666, guid: 5cde4b3f32241ab4793cee621ad0fb03, type: 3}
+  enemiesDestroyedByPlayer: 0
+  currentDificulty: 0
+  frequencyOffset: 0.2
+  enemiesToChange: 1e0000003c00000078000000f0000000e0010000
+  maxEnemiesAmounts: 060000000a0000000f0000001400000019000000
+  maxEnemyIndex: 0100000003000000050000000700000008000000

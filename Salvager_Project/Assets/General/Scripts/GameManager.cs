@@ -22,6 +22,22 @@ public class GameManager : MonoBehaviour
 
     public bool[,] availableColors = new bool[10,4];
 
+    [Header("Perks")]
+    public List<bool> perksState = new List<bool>();
+    public int currentPerk;
+
+    [Header("Log Entries")]
+    public List<bool> logItemsState = new List<bool>();
+    public List<bool> logEnemiesState = new List<bool>();
+    public List<bool> logBossesState = new List<bool>();
+
+
+    [Header("Preferences")]
+    public float musicVolume;
+    public bool musicMuted;
+    public float sfxVolume;
+    public bool sfxMuted;
+
     private void Awake()
     {
         if (!instance)
@@ -41,7 +57,8 @@ public class GameManager : MonoBehaviour
 
     void SaveGame()
     {
-
+        SaveData data = new SaveData();
+        string jsonData = JsonUtility.ToJson(data);
     }
 
     void LoadGame()
@@ -49,5 +66,8 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void EraseGame()
+    {
 
+    }
 }

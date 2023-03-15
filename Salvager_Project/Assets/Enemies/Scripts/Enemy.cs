@@ -41,10 +41,10 @@ public class Enemy : MonoBehaviour
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
     }
 
-    public virtual void DestroyEnemy()
+    public virtual void DestroyEnemy(bool byPlayer)
     {
         StopAllCoroutines();
-        spawner.RemoveEnemy();
+        spawner.RemoveEnemy(byPlayer);
         Destroy(gameObject);
     }
 
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.z <= destroyPosition)
         {
-            DestroyEnemy();
+            DestroyEnemy(false);
         }
     }
 
@@ -77,13 +77,13 @@ public class Enemy : MonoBehaviour
             //score
             GameManager.instance.currentScore += score;
 
-            //instanciar particula
+            //create particle
             ParticleSystem particle = Instantiate(deadParticle, transform.parent);
             particle.transform.position = transform.position;
             particle.transform.rotation = transform.rotation;
 
             //destroy
-            DestroyEnemy();
+            DestroyEnemy(true);
         }
 
         //play new particles
@@ -95,12 +95,12 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.layer == K.LAYER_PLAYER)
         {
             other.GetComponent<PlayerStats>().GetDamage();
-            DestroyEnemy();
+            DestroyEnemy(false);
         }
         else if(other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
         {
             other.GetComponent<PowerShield>().GetHit();
-            DestroyEnemy();
+            DestroyEnemy(true);
         }
     }
 
