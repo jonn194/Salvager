@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  verticalSpeed: 0
-  horizontalSpeed: 1
+  verticalSpeed: 1
+  horizontalSpeed: 2
   lifetime: 10
 --- !u!1001 &4204223070536913539
 PrefabInstance:

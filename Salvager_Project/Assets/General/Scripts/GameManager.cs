@@ -48,11 +48,17 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        availableColors[0, 0] = true;
+
+        for (int i = 0; i < 10; i++)
+        {
+            availableColors[i, 0] = true;
+        }
+
         availableColors[2, 2] = true;
-        availableColors[5, 0] = true;
+        availableColors[3, 3] = true;
         availableColors[5, 1] = true;
         availableColors[5, 2] = true;
+        availableColors[9, 3] = true;
     }
 
     void SaveGame()

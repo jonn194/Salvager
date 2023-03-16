@@ -6,8 +6,9 @@ using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Player")]
+    [Header("Dependencies")]
     public PlayerStats player;
+    public ItemSpawner itemSpawn;
 
     [Header("Parameteres")]
     public float maxPosition;

@@ -17,12 +17,14 @@ public class GlossaryManager : MonoBehaviour
 
     [Header("UI Elements")]
     public TMP_Text titleTxt;
+    public TMP_Text valueTxt;
     public TMP_Text descriptionTxt;
     public VerticalLayoutGroup buttonGroup;
     public Button originalButton;
+    public RectTransform scrollArea;
     List<Button> _buttons = new List<Button>();
 
-    public enum WindowType { Enemies, Items}
+    public enum WindowType { Items, Enemies, PrimeEnemies }
 
     WindowType _currentType = WindowType.Items;
     int _currentIndex;
@@ -45,13 +47,15 @@ public class GlossaryManager : MonoBehaviour
         if (_currentType == WindowType.Enemies)
         {
             enemies[_currentIndex].gameObject.SetActive(true);
-            titleTxt.text = enemies[_currentIndex].name;
+            titleTxt.text = enemies[_currentIndex].itemName;
+            valueTxt.text = enemies[_currentIndex].value;
             descriptionTxt.text = enemies[_currentIndex].description;
         }
         else if (_currentType == WindowType.Items)
         {
             items[_currentIndex].gameObject.SetActive(true);
-            titleTxt.text = items[_currentIndex].name;
+            titleTxt.text = items[_currentIndex].itemName;
+            valueTxt.text = items[_currentIndex].value;
             descriptionTxt.text = items[_currentIndex].description;
         }
     }
@@ -98,8 +102,6 @@ public class GlossaryManager : MonoBehaviour
 
     /*void CreateEnemies()
     {
-        enemies.Add(new GlossaryItem("Arrow Head", "This creature moves at a great speed in a straight line and won't stop", 2, enemySprites[0]));
-        enemies.Add(new GlossaryItem("Rouge Head", "This creature moves from one side to the other while looking for scraps", 1, enemySprites[1]));
         enemies.Add(new GlossaryItem("Shield Head", "This creature is very slow, carring a huge shield which is hard to break", 6, enemySprites[2]));
         enemies.Add(new GlossaryItem("Stalker Head", "This creature will not stop until catching it's prey, and it will follow wherever it goes", 1, enemySprites[3]));
         enemies.Add(new GlossaryItem("Bomber Head", "This creature carries a pulse bomb which can cause great damage to it's surroundings", 2, enemySprites[4]));
@@ -133,8 +135,14 @@ public class GlossaryManager : MonoBehaviour
 
     public void ButtonClick(Button btn)
     {
-        items[_currentIndex].gameObject.SetActive(false);
-        enemies[_currentIndex].gameObject.SetActive(false);
+        if(_currentType == WindowType.Items)
+        {
+            items[_currentIndex].gameObject.SetActive(false);
+        }
+        else if(_currentType == WindowType.Enemies)
+        {
+            enemies[_currentIndex].gameObject.SetActive(false);
+        }
 
         _currentIndex = _buttons.IndexOf(btn);
     }
@@ -148,10 +156,12 @@ public class GlossaryManager : MonoBehaviour
 
         if (_currentType == WindowType.Enemies)
         {
+            scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 500);
             ShowEnemies();
         }
         else if(_currentType == WindowType.Items)
         {
+            scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1500);
             ShowItems();
         }
     }

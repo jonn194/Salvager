@@ -119,6 +119,8 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
+    - _BackgroundOffset: {r: 1, g: 0.85, b: 0, a: 0}
+    - _BackgroundTiling: {r: 1, g: 5, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -126,10 +128,11 @@ Material:
     - _GlowColor: {r: 5.992157, g: 4.2352943, b: 0, a: 0}
     - _PatternColor01: {r: 0, g: 0.8113208, b: 0.044676665, a: 1}
     - _PatternColor02: {r: 0.42352942, g: 0.99215686, b: 0.58431375, a: 1}
+    - _PatternOffset: {r: 0, g: 0.35, b: 0, a: 0}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Speed: {r: 0.2, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 1, g: 2, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 3, b: 0, a: 0}
     - _Tint: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4128571224252449177

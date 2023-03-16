@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Visuals")]
-    public MeshRenderer mesh;
+    public Renderer mesh;
     public Color damageTint = Color.white;
     public ParticleSystem hitParticle;
     public ParticleSystem deadParticle;
@@ -44,6 +44,10 @@ public class Enemy : MonoBehaviour
     public virtual void DestroyEnemy(bool byPlayer)
     {
         StopAllCoroutines();
+        if(byPlayer)
+        {
+            spawner.itemSpawn.SpawnItem(transform);
+        }
         spawner.RemoveEnemy(byPlayer);
         Destroy(gameObject);
     }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7546103425928040258}
   - component: {fileID: 7546103425928040259}
+  - component: {fileID: -5064568785256733228}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  itemSpawn: {fileID: -5064568785256733228}
   maxPosition: 9
   maxAngle: 15
   baseSpawnFrequency: 1.2
@@ -65,3 +67,22 @@ MonoBehaviour:
   enemiesToChange: 1e0000003c00000078000000f0000000e0010000
   maxEnemiesAmounts: 060000000a0000000f0000001400000019000000
   maxEnemyIndex: 0100000003000000050000000700000008000000
+--- !u!114 &-5064568785256733228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546103425928040257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4645f17ace299aa429072ed82c04c6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 2825165812584398807, guid: 3fe681d8cff6efc4aa414bcec5aca566, type: 3}
+  - {fileID: 2825165812584398807, guid: 6fa224e9d9cb48440937d4e3d831eb59, type: 3}
+  - {fileID: 2825165812584398807, guid: b1e14e37980f4864c980a705c0ec51c3, type: 3}
+  - {fileID: 2825165812584398807, guid: 749b26657032744418be078c9f2734fe, type: 3}
+  - {fileID: 2825165812584398807, guid: ae988dd4eb31d404db7259a29b44ec1e, type: 3}
+  itemChance: 30

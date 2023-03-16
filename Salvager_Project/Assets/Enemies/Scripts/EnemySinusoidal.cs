@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class EnemySinusoidal : Enemy
 {
     [Header("Sinusoidal")]
+    public Animator anim;
+
     public float verticalSpeed;
     public float horizontalSpeed;
     public float amplitude;
@@ -44,6 +47,15 @@ public class EnemySinusoidal : Enemy
         else
         {
             modifiedTime = Mathf.Cos(Time.time / amplitude);
+        }
+
+        if(modifiedTime < 0)
+        {
+            anim.SetFloat("AnimSpeed", -1);
+        }
+        else
+        {
+            anim.SetFloat("AnimSpeed", 1);
         }
 
         transform.position += (transform.forward * verticalSpeed + transform.right * horizontalSpeed * modifiedTime) * Time.deltaTime;

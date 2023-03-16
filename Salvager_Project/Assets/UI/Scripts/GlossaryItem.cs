@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlossaryItem : MonoBehaviour
 {
     public string itemName;
+    [TextArea]
     public string description;
-    public int value;
+    public string value;
 }

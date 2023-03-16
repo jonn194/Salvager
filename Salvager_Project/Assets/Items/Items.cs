@@ -14,7 +14,7 @@ public class Items : MonoBehaviour
 
     private void Update()
     {
-        transform.position += (transform.forward * verticalSpeed + transform.right * horizontalSpeed) * Time.deltaTime;
+        transform.position += (-transform.forward * verticalSpeed + transform.right * horizontalSpeed) * Time.deltaTime;
 
         lifetime -= Time.deltaTime;
 
