@@ -57,17 +57,20 @@ public class GameManager : MonoBehaviour
 
     void SaveGame()
     {
-        SaveData data = new SaveData();
+        SaveData data = new SaveData(); //assign proper information
         string jsonData = JsonUtility.ToJson(data);
+
+        PlayerPrefs.SetString("SvgrSv", jsonData);
     }
 
     void LoadGame()
     {
-
+        string data = PlayerPrefs.GetString("SvgrSv");
+        SaveData loadedData = JsonUtility.FromJson<SaveData>(data);
     }
 
     void EraseGame()
     {
-
+        PlayerPrefs.DeleteKey("SvgrSv");
     }
 }

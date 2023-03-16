@@ -47,9 +47,8 @@ MonoBehaviour:
   player: {fileID: 0}
   maxPosition: 9
   maxAngle: 15
-  baseSpawnFrequency: 1.5
+  baseSpawnFrequency: 1.2
   minSpawnFrequency: 0.2
-  maxEnemies: 20
   objectsToSpawn:
   - {fileID: 5296563044671977193, guid: 27c6bd90352366940975f39fb9c2a731, type: 3}
   - {fileID: -881888281385916633, guid: 65fa6c1e55f42394e8f39a987cf110b2, type: 3}
