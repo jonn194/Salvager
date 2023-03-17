@@ -60,10 +60,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void GetDamage()
+    public void GetDamage(int damage)
     {
         //remove life
-        currentLife--;
+        currentLife -= damage;
 
         //stop current particles
         hitParticle.Stop();

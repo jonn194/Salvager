@@ -20,11 +20,14 @@ public class GameState : MonoBehaviour
     [Header("Enemies")]
     public EnemySpawner enemySpawner;
 
-    [Header("Temporal")]
+    [Header("Temp")]
     public Transform tempParent;
 
     [Header("UI")]
     public UIManager UIManager;
+
+    [Header("Perks")]
+    public PerksHandler perksHandler;
 
     private void Start()
     {
@@ -62,6 +65,9 @@ public class GameState : MonoBehaviour
 
         //player
         playerStats.StartPlayer(playerOriginalPos);
+
+        //perks
+        perksHandler.StartPerks();
 
         //enemies
         EnemySpawner spawner = Instantiate(enemySpawner, tempParent);

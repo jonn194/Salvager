@@ -7,6 +7,11 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float duration;
     protected float _currentDuration;
+
+    public int maxHits = 1;
+    public int damage = 1;
+
+    int _currentHits;
     void Update()
     {
         _currentDuration -= Time.deltaTime;
@@ -38,19 +43,29 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    void AddHits()
+    {
+        _currentHits++;
+
+        if(_currentHits >= maxHits)
+        {
+            Deactivate();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(gameObject.layer == K.LAYER_PLAYER_BULLET)
         {
             if(other.gameObject.layer == K.LAYER_ENEMY)
             {
-                other.GetComponent<Enemy>().GetDamage();
-                Deactivate();
+                other.GetComponent<Enemy>().GetDamage(damage);
+                AddHits();
             }
             else if (other.gameObject.layer == K.LAYER_ENEMY_SERPENT)
             {
-                other.GetComponent<EnemySerpentPiece>().DamagePiece();
-                Deactivate();
+                other.GetComponent<EnemySerpentPiece>().DamagePiece(damage);
+                AddHits();
             }
         }
         else if(gameObject.layer == K.LAYER_ENEMY_BULLET)
@@ -58,12 +73,12 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.layer == K.LAYER_PLAYER)
             {
                 other.GetComponent<PlayerStats>().GetDamage();
-                Deactivate();
+                AddHits();
             }
             else if (other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
             {
                 other.GetComponent<PowerShield>().GetHit();
-                Deactivate();
+                AddHits();
             }
         }
     }

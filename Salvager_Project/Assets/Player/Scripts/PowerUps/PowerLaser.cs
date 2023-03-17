@@ -55,7 +55,7 @@ public class PowerLaser : PowerUp
     {
         if(other.gameObject.layer == K.LAYER_ENEMY)
         {
-            other.gameObject.GetComponent<Enemy>().GetDamage();
+            other.gameObject.GetComponent<Enemy>().GetDamage(1);
         }
     }
 }

@@ -20,11 +20,11 @@ public class EnemySerpentPiece : MonoBehaviour
         _currentLife = maxLife;
     }
 
-    public void DamagePiece()
+    public void DamagePiece(int damage)
     {
         hitParticle.Stop();
 
-        _currentLife--;
+        _currentLife -= damage;
 
         if(_currentLife <= 0)
         {

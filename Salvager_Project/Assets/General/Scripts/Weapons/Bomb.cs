@@ -24,7 +24,7 @@ public class Bomb : Bullet
         {
             foreach(Collider c in detection)
             {
-                c.gameObject.GetComponent<Enemy>().GetDamage();
+                c.gameObject.GetComponent<Enemy>().GetDamage(1);
             }
         }
 
