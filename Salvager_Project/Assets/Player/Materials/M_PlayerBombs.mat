@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_PlayerSpikes
-  m_Shader: {fileID: -6465566751694194690, guid: 5a64f217d1795464eac4953add2e6bad,
+  m_Name: M_PlayerBombs
+  m_Shader: {fileID: -6465566751694194690, guid: 364afcec5599c704e9783d84feeadcea,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -54,6 +54,7 @@ Material:
     - _HueOffset: 0
     - _IsEnemy: 0
     - _Offset: 0
+    - _PulseFrequency: 3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ShadowIntensity: 1
@@ -65,10 +66,11 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1.0980393, g: 0, b: 4, a: 1}
-    - _Color01: {r: 2.9176471, g: 0, b: 8, a: 0}
-    - _Color02: {r: 0, g: 0.4287243, b: 4, a: 0}
+    - _Color01: {r: 0.35686275, g: 0.7490196, b: 0, a: 0}
+    - _Color02: {r: 0, g: 1.4980392, b: 0.1254902, a: 0}
     - _ShadowColor: {r: 0, g: 0.28101563, b: 1, a: 0}
     - _Speed: {r: 1, g: 1, b: 0, a: 0}
+    - _Tiling: {r: 6, g: 6, b: 0, a: 0}
     - _Tint: {r: 0, g: 6.6509805, b: 8, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3776593429308187279

@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   duration: 1.2
+  maxHits: 1
+  damage: 1
   range: 3
   explosionEffect: {fileID: 8362382545850971136, guid: cfeeaee2ac0239f45b114d5d68112948,
     type: 3}
@@ -78,14 +80,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5237808777987515117}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.38803074, y: -0.46679556, z: -0.5624365, w: 0.5614261}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5237808777974190726}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.128, y: -74.685, z: -86.189}
 --- !u!33 &5237808777987515113
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d67804bb7583754e9614a7983cb5adf, type: 2}
+  - {fileID: 2100000, guid: b8cca56fb49575d499bbf3f35edda531, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
