@@ -14664,7 +14664,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4b223553b809764aa3a23a7abe7c9ac, type: 2}
+  - {fileID: 2100000, guid: 25ebd6a872369064aba284998dd6e496, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24705,7 +24705,7 @@ GameObject:
   - component: {fileID: 6728642477978614245}
   - component: {fileID: 8604178702280436596}
   m_Layer: 8
-  m_Name: Warning (1)
+  m_Name: Warning Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

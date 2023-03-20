@@ -7,6 +7,7 @@ public class PowerLaser : PowerUp
     public float laserDuration;
     public float laserTimer;
     public LineRenderer lineRenderer;
+    public ParticleSystem particleEffect;
     public Collider damageCollider;
 
     public override void Startup()
@@ -25,7 +26,7 @@ public class PowerLaser : PowerUp
     {
         lineRenderer.gameObject.SetActive(true);
         damageCollider.enabled = true;
-
+        particleEffect.Play();
         StartCoroutine(LaserDuration());
     }
 
@@ -39,13 +40,15 @@ public class PowerLaser : PowerUp
     {
         lineRenderer.gameObject.SetActive(false);
         damageCollider.enabled = false;
-
+        particleEffect.Stop();
         StartCoroutine(LaserTimer());
     }
 
     public override void Deactivate()
     {
-        EndLaser();
+        lineRenderer.gameObject.SetActive(false);
+        damageCollider.enabled = false;
+        particleEffect.Stop();
         StopAllCoroutines();
 
         base.Deactivate();

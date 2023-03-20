@@ -49,7 +49,7 @@ MonoBehaviour:
   itemSpawn: {fileID: -5064568785256733228}
   maxPosition: 9
   maxAngle: 15
-  baseSpawnFrequency: 1.2
+  baseSpawnFrequency: 1
   minSpawnFrequency: 0.2
   objectsToSpawn:
   - {fileID: 5296563044671977193, guid: 27c6bd90352366940975f39fb9c2a731, type: 3}

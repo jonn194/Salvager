@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class PerksHandler : MonoBehaviour
 {
+    [Header("Player Stats")]
     public PlayerStats playerStats;
+
+    [Header("Player Bullets")]
     public BulletPool playerBullets;
 
     public Bullet basicBullet;
     public Bullet doubleBullet;
     public Bullet piercingBullet;
+
+    [Header("Player Items")]
+    public PlayerItemsHandler playerItems;
+
+    [Header("Player Magnet")]
+    public PerkPowerMagnet magnet;
+
+    [Header("Player Spikes")]
+    public PerkPowerSpikes spikes;
 
     int baseHP;
 
@@ -22,6 +34,27 @@ public class PerksHandler : MonoBehaviour
         //getPresets
         baseHP = playerStats.maxHP;
 
+        CheckLife(currentPerk);
+        CheckBullets(currentPerk);
+        CheckMagnet(currentPerk);
+        CheckRandomItem(currentPerk);
+        CheckSpikes(currentPerk);
+    }
+
+    void CheckLife(int currentPerk)
+    {
+        if (currentPerk == (int)PerkTypes.ExtraLife)
+        {
+            playerStats.maxHP += playerStats.maxHP / 2;
+        }
+        else
+        {
+            playerStats.maxHP = baseHP;
+        }
+    }
+
+    void CheckBullets(int currentPerk)
+    {
         if (currentPerk == (int)PerkTypes.DoubleDamage)
         {
             playerBullets.bulletPrefab = doubleBullet;
@@ -34,16 +67,54 @@ public class PerksHandler : MonoBehaviour
         {
             playerBullets.bulletPrefab = basicBullet;
         }
+    }
 
-        if(currentPerk == (int)PerkTypes.ExtraLife)
+    void CheckMagnet(int currentPerk)
+    {
+        if (currentPerk == (int)PerkTypes.Magnet)
         {
-            playerStats.maxHP += playerStats.maxHP / 2;
-            playerStats.currentHP = playerStats.maxHP;
+            magnet.gameObject.SetActive(true);
+            magnet.effect.Play();
         }
         else
         {
-            playerStats.maxHP += baseHP;
-            playerStats.currentHP = playerStats.maxHP;
+            magnet.gameObject.SetActive(false);
+        }
+    }
+
+    void CheckRandomItem(int currentPerk)
+    {
+        if (currentPerk == (int)PerkTypes.RandomItem)
+        {
+            int randomItem = Random.Range(0, 4);
+
+            switch(randomItem)
+            {
+                case 0:
+                    playerItems.Shield();
+                    break;
+                case 1:
+                    playerItems.ModuleTrishot();
+                    break;
+                case 2:
+                    playerItems.ModuleLaser();
+                    break;
+                case 3:
+                    playerItems.ModuleBomber();
+                    break;
+            }
+        }
+    }
+
+    void CheckSpikes(int currentPerk)
+    {
+        if (currentPerk == (int)PerkTypes.Spikes)
+        {
+            spikes.gameObject.SetActive(true);
+        }
+        else
+        {
+            spikes.gameObject.SetActive(false);
         }
     }
 }

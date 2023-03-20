@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Components")]
     public Shooting weapon;
     public PlayerMovement movement;
+    public PlayerItemsHandler itemsHandler;
 
     [Header("Effects")]
     public ParticleSystem getHitVFX;
@@ -45,6 +46,8 @@ public class PlayerStats : MonoBehaviour
 
         movement.enabled = false;
         weapon.StopShooting();
+        weapon.bulletPool.ClearAll();
+        itemsHandler.DeactivateAll();
 
         StartCoroutine(SetDead());
     }
@@ -59,9 +62,13 @@ public class PlayerStats : MonoBehaviour
     {
         movement.enabled = true;
         movement.Setup();
+        
         currentHP = maxHP;
+        
         weapon.gameObject.SetActive(true);
         weapon.StartShooting();
+        weapon.bulletPool.Generate();
+
         SetOriginalPosition(position);
     }
 
@@ -69,8 +76,11 @@ public class PlayerStats : MonoBehaviour
     {
         movement.ResetTilt();
         movement.enabled = false;
+        
         currentHP = maxHP;
+        
         weapon.StopShooting();
+
         SetOriginalPosition(position);
     }
 

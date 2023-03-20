@@ -63,11 +63,12 @@ public class GameState : MonoBehaviour
         cam.transform.rotation = camGameplay.rotation;
         cam.fieldOfView = camAngleGameplay;
 
+        //perks
+        perksHandler.StartPerks();
+
         //player
         playerStats.StartPlayer(playerOriginalPos);
 
-        //perks
-        perksHandler.StartPerks();
 
         //enemies
         EnemySpawner spawner = Instantiate(enemySpawner, tempParent);

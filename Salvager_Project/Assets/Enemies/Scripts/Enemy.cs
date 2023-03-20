@@ -82,9 +82,7 @@ public class Enemy : MonoBehaviour
             GameManager.instance.currentScore += score;
 
             //create particle
-            ParticleSystem particle = Instantiate(deadParticle, transform.parent);
-            particle.transform.position = transform.position;
-            particle.transform.rotation = transform.rotation;
+            DeadParticle();
 
             //destroy
             DestroyEnemy(true);
@@ -94,16 +92,26 @@ public class Enemy : MonoBehaviour
         hitParticle.Play();
     }
 
+    void DeadParticle()
+    {
+        //create particle
+        ParticleSystem particle = Instantiate(deadParticle, transform.parent);
+        particle.transform.position = transform.position;
+        particle.transform.rotation = transform.rotation;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == K.LAYER_PLAYER)
         {
             other.GetComponent<PlayerStats>().GetDamage();
+            DeadParticle();
             DestroyEnemy(false);
         }
         else if(other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
         {
             other.GetComponent<PowerShield>().GetHit();
+            DeadParticle();
             DestroyEnemy(true);
         }
     }

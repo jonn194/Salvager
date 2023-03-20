@@ -51,4 +51,12 @@ public class PlayerItemsHandler : MonoBehaviour
     {
         pickupParticles.Play();
     }
+
+    public void DeactivateAll()
+    {
+        shield.Deactivate();
+        trishot.Deactivate();
+        laser.Deactivate();
+        bomber.Deactivate();
+    }
 }

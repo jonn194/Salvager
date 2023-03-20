@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
     public void Setup()
     {
         _currentDuration = duration;
+        _currentHits = 0;
     }
 
     protected void Deactivate()
