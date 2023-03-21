@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GlossaryManager : MonoBehaviour
+public class GlossaryUI : MonoBehaviour
 {
     public Transform GlossaryContainer;
 
@@ -79,6 +79,7 @@ public class GlossaryManager : MonoBehaviour
         for (int i = 0; i < items.Length; i++)
         {
             _buttons[i].gameObject.SetActive(true);
+            _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = items[i].itemIcon;
         }
     }
 
@@ -89,6 +90,7 @@ public class GlossaryManager : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             _buttons[i].gameObject.SetActive(true);
+            _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = enemies[i].itemIcon;
         }
     }
 
@@ -99,16 +101,6 @@ public class GlossaryManager : MonoBehaviour
             b.gameObject.SetActive(false);
         }
     }
-
-    /*void CreateEnemies()
-    {
-        enemies.Add(new GlossaryItem("Shield Head", "This creature is very slow, carring a huge shield which is hard to break", 6, enemySprites[2]));
-        enemies.Add(new GlossaryItem("Stalker Head", "This creature will not stop until catching it's prey, and it will follow wherever it goes", 1, enemySprites[3]));
-        enemies.Add(new GlossaryItem("Bomber Head", "This creature carries a pulse bomb which can cause great damage to it's surroundings", 2, enemySprites[4]));
-        enemies.Add(new GlossaryItem("Sniper Head", "This creature will shoot any target from a great distance with it's destructive weapon", 4, enemySprites[5]));
-        enemies.Add(new GlossaryItem("Double Head", "This creature will shoot in two directions at the same time with it's special weapon", 3, enemySprites[6]));
-    }*/
-
 
     void DeactivateAllItems()
     {
@@ -154,15 +146,16 @@ public class GlossaryManager : MonoBehaviour
 
         SetButtonsOff();
 
-        if (_currentType == WindowType.Enemies)
-        {
-            scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 500);
-            ShowEnemies();
-        }
-        else if(_currentType == WindowType.Items)
+
+         if(_currentType == WindowType.Items)
         {
             scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1500);
             ShowItems();
+        }
+        else if(_currentType == WindowType.Enemies)
+        {
+            scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1500);
+            ShowEnemies();
         }
     }
 }

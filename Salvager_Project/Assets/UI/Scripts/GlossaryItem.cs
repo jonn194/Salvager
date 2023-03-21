@@ -8,4 +8,5 @@ public class GlossaryItem : MonoBehaviour
     [TextArea]
     public string description;
     public string value;
+    public Sprite itemIcon;
 }
