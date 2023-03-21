@@ -5,20 +5,20 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public float maxLifetime;
-    float _currentLifetime;
+    public float currentLifetime;
 
     public ParticleSystem effect;
 
     virtual public void Startup()
     {
-        _currentLifetime = maxLifetime;
+        currentLifetime = maxLifetime;
     }
 
     private void Update()
     {
-        _currentLifetime -= Time.deltaTime;
+        currentLifetime -= Time.deltaTime;
 
-        if(_currentLifetime <= 0)
+        if(currentLifetime <= 0)
         {
             Deactivate();
         }    
