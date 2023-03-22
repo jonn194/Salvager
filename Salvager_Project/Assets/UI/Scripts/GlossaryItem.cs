@@ -7,6 +7,6 @@ public class GlossaryItem : MonoBehaviour
     public string itemName;
     [TextArea]
     public string description;
-    public string value;
+    public string extraInfo;
     public Sprite itemIcon;
 }

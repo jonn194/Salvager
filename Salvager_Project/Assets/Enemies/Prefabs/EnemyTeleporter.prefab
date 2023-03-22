@@ -19608,7 +19608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddaeb9771dcfad42ae75124efe8beff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
+  mesh: {fileID: 3748376711928961870}
   damageTint: {r: 1, g: 1, b: 1, a: 1}
   hitParticle: {fileID: 3353801280043008886}
   deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
@@ -29548,6 +29548,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!137 &3748376711928961870 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2586183629894624490, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1722363581763420068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3148505518276390735
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -439,8 +439,144 @@ MonoBehaviour:
   itemName: Laser Module
   description: This item adds a temporal module that allows the ship to shoot a powerful
     laser
-  value: 'Duration: 7s'
+  extraInfo: 'Duration: 7s'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+--- !u!1 &53500654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53500655}
+  - component: {fileID: 53500657}
+  - component: {fileID: 53500656}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &53500655
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53500654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1801098837}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &53500656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53500654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Select
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: bcbef90714873604aa7e45fb6a5b0749, type: 2}
+  m_sharedMaterial: {fileID: 1336035890258674516, guid: bcbef90714873604aa7e45fb6a5b0749,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &53500657
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53500654}
+  m_CullTransparentMesh: 1
 --- !u!1 &71359219
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +746,7 @@ RectTransform:
   m_Children:
   - {fileID: 1600178542}
   m_Father: {fileID: 794133267}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1328,7 +1464,7 @@ MonoBehaviour:
   itemName: Shield
   description: This item creates a shield arround the ship to protect it from incoming
     attacks
-  value: 'Resistance: 3'
+  extraInfo: 'Durability: 3 Hits'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1001 &159303694
 PrefabInstance:
@@ -1456,7 +1592,7 @@ MonoBehaviour:
   itemName: Little Stalker
   description: This creature has giant fangs comming out of it's mouth and won't
     stop until reaching it's target.
-  value: 'HP: 2'
+  extraInfo: 'HP: 2'
   itemIcon: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
 --- !u!95 &159303698
 Animator:
@@ -1570,6 +1706,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Bomber
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57653865da84da24899997e88e7a296c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7471136231293793935, guid: 57653865da84da24899997e88e7a296c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1604,7 +1745,7 @@ MonoBehaviour:
   itemName: Bomber Head
   description: This creature carries a pulse bomb on his head, which can cause great
     damage to it's surroundings.
-  value: 'HP: 2'
+  extraInfo: 'HP: 2'
   itemIcon: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
 --- !u!95 &176306592
 Animator:
@@ -2672,6 +2813,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1235361720}
+        m_TargetAssemblyTypeName: PlayerShipSelector, Assembly-CSharp
+        m_MethodName: SetAtCurrent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1440557056}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2877,7 +3030,7 @@ GameObject:
   - component: {fileID: 310360211}
   - component: {fileID: 310360213}
   m_Layer: 5
-  m_Name: Btn_Buy
+  m_Name: Btn_Unlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2902,7 +3055,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 175}
-  m_SizeDelta: {x: 300, y: 150}
+  m_SizeDelta: {x: 300, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310360211
 MonoBehaviour:
@@ -2917,7 +3070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8396226, b: 0.019627608, a: 1}
+  m_Color: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3154,7 +3307,7 @@ RectTransform:
   m_Children:
   - {fileID: 798023818}
   m_Father: {fileID: 1269400379}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3257,7 +3410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Defense Spikes
   description: Your ship will be surrounded by spikes that will cause damage to enemies.
-  value: 
+  extraInfo: 
   itemIcon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
 --- !u!1001 &348054392
 PrefabInstance:
@@ -3389,7 +3542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Scraps
   description: This item is used to rebuild broken ships and enable their use
-  value: 'Value: 1'
+  extraInfo: 
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &350122716
 GameObject:
@@ -3703,6 +3856,132 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6057835866868956156}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &381015998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1066304244}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7961196183223232914, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af2118fd78d8c9c4082c9ccc301028ee, type: 2}
+    - target: {fileID: 919132149155446097, guid: a62a3b1962a8c0648a59a33218386303,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_Serpent_Head
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a62a3b1962a8c0648a59a33218386303, type: 3}
+--- !u!4 &381015999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a62a3b1962a8c0648a59a33218386303,
+    type: 3}
+  m_PrefabInstance: {fileID: 381015998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &381016000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a62a3b1962a8c0648a59a33218386303,
+    type: 3}
+  m_PrefabInstance: {fileID: 381015998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &381016001
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381016000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: be779776f9ba5b0478d67df9fd2d9fa4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &394995427
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,11 +4015,12 @@ MonoBehaviour:
   perksAmount: 0
   highScore: 0
   currentScore: 0
-  shipsState: 01010101010101010101
+  shipsState: 01000000000000000000
   shipsPrices: 000000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a0000000a000000
   shipsSelectedColor: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   currentShip: 0
-  perksState: 
+  perksState: 01000000000000
+  perksPrices: 000000000f000000320000006400000096000000c80000002c010000
   currentPerk: 0
   logItemsState: 
   logEnemiesState: 
@@ -3914,7 +4194,7 @@ Light:
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 5000
-  m_UseColorTemperature: 1
+  m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -5754,6 +6034,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1235361720}
         m_TargetAssemblyTypeName: PlayerShipSelector, Assembly-CSharp
+        m_MethodName: SelectShip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1235361720}
+        m_TargetAssemblyTypeName: PlayerShipSelector, Assembly-CSharp
         m_MethodName: DeactivateShips
         m_Mode: 1
         m_Arguments:
@@ -6009,7 +6301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Buy: '
+  m_text: 'Unlock: 0000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ada93b2c3afe302409947e70a4ad6a22, type: 2}
   m_sharedMaterial: {fileID: -1069227351144435001, guid: ada93b2c3afe302409947e70a4ad6a22,
@@ -6141,6 +6433,7 @@ RectTransform:
   m_Children:
   - {fileID: 2037376947}
   - {fileID: 1982273307}
+  - {fileID: 1801098837}
   - {fileID: 1890131444}
   - {fileID: 73566131}
   m_Father: {fileID: 684810856}
@@ -6229,6 +6522,9 @@ MonoBehaviour:
   currentPerkImage: {fileID: 1207335941}
   titleTxt: {fileID: 698456460}
   descriptionTxt: {fileID: 1554497661}
+  buttonSelect: {fileID: 1801098838}
+  buttonUnlock: {fileID: 1890131445}
+  costTxt: {fileID: 744509583}
 --- !u!1 &798023817
 GameObject:
   m_ObjectHideFlags: 0
@@ -6280,7 +6576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137255, g: 0.6901961, b: 0.62352943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6544,6 +6840,154 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806104473}
   m_CullTransparentMesh: 1
+--- !u!1001 &836232452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1296081632}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.20104174
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.97958267
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -156.804
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_Teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586183629894624490, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af2118fd78d8c9c4082c9ccc301028ee, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ae031943d32e7340a8dee2f1d9c990b, type: 3}
+--- !u!4 &836232453 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+    type: 3}
+  m_PrefabInstance: {fileID: 836232452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &836232454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ae031943d32e7340a8dee2f1d9c990b,
+    type: 3}
+  m_PrefabInstance: {fileID: 836232452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &836232455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836232454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a16aee5920d3a489d2bedb876f75eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Teleporter
+  description: This creature can set a target location, and after a period of focusin,
+    will teleport to that location.
+  extraInfo: 'HP: 1'
+  itemIcon: {fileID: 21300000, guid: e5600378dd761e64d9423790c482bf36, type: 3}
+--- !u!95 &836232456
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836232454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 8df30054aa943a84ea18eca20811a174, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &839024381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6753,6 +7197,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867227127}
+  m_CullTransparentMesh: 1
+--- !u!1 &872007537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 872007538}
+  - component: {fileID: 872007540}
+  - component: {fileID: 872007539}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &872007538
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872007537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 996743474}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &872007539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872007537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1477993905, guid: 02c81826cc491bd448516307a8fe4f2f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &872007540
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872007537}
   m_CullTransparentMesh: 1
 --- !u!1 &872061644
 GameObject:
@@ -11969,7 +12489,7 @@ MonoBehaviour:
   itemName: Trishot Module
   description: This item adds a temporal module that allows the ship to shoot in
     three directions
-  value: 'Duration: 15s'
+  extraInfo: 'Duration: 12s'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &932456341
 GameObject:
@@ -12305,6 +12825,145 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974722990}
   m_CullTransparentMesh: 1
+--- !u!1 &996743473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 996743474}
+  - component: {fileID: 996743478}
+  - component: {fileID: 996743477}
+  - component: {fileID: 996743476}
+  - component: {fileID: 996743475}
+  m_Layer: 5
+  m_Name: Button_None
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &996743474
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996743473}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 872007538}
+  m_Father: {fileID: 1269400379}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -110}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &996743475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996743473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a16aee5920d3a489d2bedb876f75eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: None
+  description: 
+  extraInfo: 
+  itemIcon: {fileID: 605187243, guid: 42e43b8316a492747a967a24edc1411c, type: 3}
+--- !u!114 &996743476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996743473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 996743477}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &996743477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996743473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1477993905, guid: 02c81826cc491bd448516307a8fe4f2f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &996743478
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996743473}
+  m_CullTransparentMesh: 1
 --- !u!1 &1013790713
 GameObject:
   m_ObjectHideFlags: 0
@@ -12339,7 +12998,7 @@ RectTransform:
   m_Children:
   - {fileID: 1541072065}
   m_Father: {fileID: 1269400379}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -12441,9 +13100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Extra Resistance
-  description: Increase your ship's max resistance.
-  value: 
-  itemIcon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
+  description: Increase your ship's max durability by 50%.
+  extraInfo: 
+  itemIcon: {fileID: 605187243, guid: 42e43b8316a492747a967a24edc1411c, type: 3}
 --- !u!1 &1025282290
 GameObject:
   m_ObjectHideFlags: 0
@@ -12642,6 +13301,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057575586}
   m_CullTransparentMesh: 1
+--- !u!1 &1066304243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066304244}
+  - component: {fileID: 1066304245}
+  m_Layer: 0
+  m_Name: Enemy_Serpent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1066304244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066304243}
+  m_LocalRotation: {x: 0, y: -0.976296, z: 0, w: 0.2164397}
+  m_LocalPosition: {x: 0.16, y: 0, z: -0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1846912929}
+  - {fileID: 1999572988}
+  - {fileID: 381015999}
+  m_Father: {fileID: 1296081632}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: -155, z: 0}
+--- !u!114 &1066304245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066304243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a16aee5920d3a489d2bedb876f75eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Serpent
+  description: This enemy is composed of multiple parts, each with its own autonomy.
+  extraInfo: 'HP: 2'
+  itemIcon: {fileID: 21300000, guid: 372e7b39fc8f34549ac25d8757965a2c, type: 3}
 --- !u!1 &1077516540
 GameObject:
   m_ObjectHideFlags: 0
@@ -13057,7 +13767,7 @@ MonoBehaviour:
   itemName: Shielded Behemoth
   description: This creature stole a shield generator from a ship with it's massive
     mouth, which gives it extra ressitance.
-  value: 'HP: 7'
+  extraInfo: 'HP: 7'
   itemIcon: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
 --- !u!95 &1093503686
 Animator:
@@ -13130,7 +13840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137255, g: 0.6901961, b: 0.62352943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13783,7 +14493,7 @@ MonoBehaviour:
   itemName: Flat Head
   description: When this creature focuses on a direction, it moves at a great speed
     without ever stopping.
-  value: 'HP: 2'
+  extraInfo: 'HP: 2'
   itemIcon: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
 --- !u!95 &1166179978
 Animator:
@@ -13992,14 +14702,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7122642, g: 1, b: 0.994185, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1959233604, guid: e3028397e448e304f958ef03b07763f8, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14266,6 +14976,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonLeft: {fileID: 283078477}
   buttonRight: {fileID: 1285451136}
+  buttonSelect: {fileID: 766888501}
+  buttonUnlock: {fileID: 310360213}
+  valueTxt: {fileID: 786307171}
   shipsContainer: {fileID: 367657212}
   _thrusters: []
   lockedColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
@@ -14336,6 +15049,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 996743474}
   - {fileID: 1013790714}
   - {fileID: 1810772018}
   - {fileID: 2088088242}
@@ -14680,6 +15394,8 @@ Transform:
   - {fileID: 176306589}
   - {fileID: 3434078784245086130}
   - {fileID: 5439285822921280919}
+  - {fileID: 836232453}
+  - {fileID: 1066304244}
   m_Father: {fileID: 2084535289}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15822,7 +16538,6 @@ GameObject:
   - component: {fileID: 1440557061}
   - component: {fileID: 1440557060}
   - component: {fileID: 1440557059}
-  - component: {fileID: 1440557063}
   - component: {fileID: 1440557064}
   m_Layer: 5
   m_Name: UI_Customize
@@ -15920,21 +16635,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1440557063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440557056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 723a013e5646a884b939fcfad0fe45c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectButton: {fileID: 766888501}
-  buyButton: {fileID: 310360213}
-  priceText: {fileID: 786307171}
 --- !u!114 &1440557064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16381,7 +17081,7 @@ RectTransform:
   m_Children:
   - {fileID: 1819393416}
   m_Father: {fileID: 1269400379}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -16484,7 +17184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Random Item
   description: Your ship will start with an item already equiped.
-  value: 
+  extraInfo: 
   itemIcon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
 --- !u!1 &1478984755
 GameObject:
@@ -16597,7 +17297,7 @@ RectTransform:
   m_Children:
   - {fileID: 2056074947}
   m_Father: {fileID: 1269400379}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -16700,7 +17400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Magnet
   description: Your ship will have a magnet that attracts items.
-  value: 
+  extraInfo: 
   itemIcon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
 --- !u!1 &1504341310
 GameObject:
@@ -16908,7 +17608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Perk Fragment
   description: This item is used to unlock different perks for the ship
-  value: 'Value: 1'
+  extraInfo: 
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &1541072064
 GameObject:
@@ -16961,7 +17661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137255, g: 0.6901961, b: 0.62352943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17690,7 +18390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Energy Core
   description: This item is used to restore the ship's durability during the exploration
-  value: 'Recovery: 1'
+  extraInfo: 'Repairs: 3'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1001 &1616710281
 PrefabInstance:
@@ -17823,7 +18523,7 @@ MonoBehaviour:
   itemName: Bomber Module
   description: This item adds a temporal module that allows the ship to shoot bombs
     far away
-  value: 'Duration: 10s'
+  extraInfo: 'Duration: 10s'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &1623574796
 GameObject:
@@ -18572,6 +19272,140 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1801098836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801098837}
+  - component: {fileID: 1801098840}
+  - component: {fileID: 1801098839}
+  - component: {fileID: 1801098838}
+  m_Layer: 5
+  m_Name: Btn_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1801098837
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801098836}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 53500655}
+  m_Father: {fileID: 794133267}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 175}
+  m_SizeDelta: {x: 300, y: 175}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1801098838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801098836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1801098839}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1136339120}
+        m_TargetAssemblyTypeName: GlossaryManager, Assembly-CSharp
+        m_MethodName: ChangeWindowType
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1801098839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801098836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.7411765, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1477993905, guid: 02c81826cc491bd448516307a8fe4f2f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1801098840
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801098836}
+  m_CullTransparentMesh: 1
 --- !u!1 &1810772017
 GameObject:
   m_ObjectHideFlags: 0
@@ -18606,7 +19440,7 @@ RectTransform:
   m_Children:
   - {fileID: 2076361372}
   m_Father: {fileID: 1269400379}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -18709,7 +19543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Power Bullets
   description: The bullets of your ship will deal double damage.
-  value: 
+  extraInfo: 
   itemIcon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
 --- !u!1 &1816491293
 GameObject:
@@ -18853,7 +19687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137255, g: 0.6901961, b: 0.62352943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19014,6 +19848,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828342612}
   m_CullTransparentMesh: 1
+--- !u!1001 &1846912928
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1066304244}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -3.7493994e-33
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -6.123234e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 6.123234e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af2118fd78d8c9c4082c9ccc301028ee, type: 2}
+    - target: {fileID: 919132149155446097, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_Serpent_Tail
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c, type: 3}
+--- !u!4 &1846912929 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846912928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1864264013
 GameObject:
   m_ObjectHideFlags: 0
@@ -19064,7 +19998,7 @@ GameObject:
   - component: {fileID: 1890131446}
   - component: {fileID: 1890131445}
   m_Layer: 5
-  m_Name: Btn_Items
+  m_Name: Btn_Unlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19084,7 +20018,7 @@ RectTransform:
   m_Children:
   - {fileID: 744509582}
   m_Father: {fileID: 794133267}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -19160,7 +20094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7411765, b: 0, a: 1}
+  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19915,6 +20849,132 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994986306}
   m_CullTransparentMesh: 1
+--- !u!1001 &1999572987
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1066304244}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_Serpent_Middle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089073130224601433, guid: f21b6989f196655419ef49cf66ce9526,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af2118fd78d8c9c4082c9ccc301028ee, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f21b6989f196655419ef49cf66ce9526, type: 3}
+--- !u!4 &1999572988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f21b6989f196655419ef49cf66ce9526,
+    type: 3}
+  m_PrefabInstance: {fileID: 1999572987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1999572989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f21b6989f196655419ef49cf66ce9526,
+    type: 3}
+  m_PrefabInstance: {fileID: 1999572987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1999572990
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999572989}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 021e8e6c6a9e7f1468dccead51ecf9f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2035807786
 GameObject:
   m_ObjectHideFlags: 0
@@ -20215,7 +21275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137255, g: 0.6901961, b: 0.62352943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20366,7 +21426,7 @@ MonoBehaviour:
   itemName: Double Seeker
   description: This creature moves rotating constantly from one side to the other
     while looking for scraps.
-  value: 'HP: 1'
+  extraInfo: 'HP: 1'
   itemIcon: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
 --- !u!95 &2058836298
 Animator:
@@ -20797,7 +21857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.23137255, g: 0.6901961, b: 0.62352943, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -21024,7 +22084,7 @@ RectTransform:
   m_Children:
   - {fileID: 1100590671}
   m_Father: {fileID: 1269400379}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -21127,7 +22187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Piercing Bullets
   description: The bullets of your ship will pierce through enemies.
-  value: 
+  extraInfo: 
   itemIcon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
 --- !u!1 &2089474225
 GameObject:
@@ -22317,7 +23377,7 @@ MonoBehaviour:
   itemName: Shooter
   description: This creature used it's claws to stole a weapon from a ship, which
     carries on it's mouth.
-  value: 'HP: 3'
+  extraInfo: 'HP: 4'
   itemIcon: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
 --- !u!4 &3462210239225758644
 Transform:
@@ -22821,7 +23881,7 @@ MonoBehaviour:
   itemName: Double Shooter
   description: This creature stole a double canon weapon from a ship, which carries
     on it's mouth while shoots from afar.
-  value: 'HP: 2'
+  extraInfo: 'HP: 3'
   itemIcon: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
 --- !u!4 &5469043923597974757
 Transform:

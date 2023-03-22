@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c00b05320c80247977d4b3f8becd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
+  mesh: {fileID: 8661638252941559472}
   damageTint: {r: 1, g: 1, b: 1, a: 0}
   hitParticle: {fileID: 3353801280043008886}
   deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
@@ -573,7 +573,7 @@ MonoBehaviour:
   maxLife: 4
   currentLife: 0
   score: 20
-  moveSpeed: 7
+  moveSpeed: 5
   destroyPosition: -20
   player: {fileID: 0}
   spawner: {fileID: 0}

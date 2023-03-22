@@ -15,7 +15,7 @@ public class PlayerItemsHandler : MonoBehaviour
 
     public void EnergyCore()
     {
-        playerStats.currentHP++;
+        playerStats.currentHP += 3;
 
         if(playerStats.currentHP > playerStats.maxHP)
         {

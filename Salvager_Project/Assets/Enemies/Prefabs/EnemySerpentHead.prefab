@@ -51,7 +51,7 @@ MonoBehaviour:
   hitParticle: {fileID: 993567889422286006}
   deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
-  mesh: {fileID: 0}
+  mesh: {fileID: 5655313351901172761}
   serpent: {fileID: 0}
   maxLife: 2
 --- !u!65 &8753851468818895652
@@ -378,6 +378,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a62a3b1962a8c0648a59a33218386303, type: 3}
+--- !u!137 &5655313351901172761 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7961196183223232914, guid: a62a3b1962a8c0648a59a33218386303,
+    type: 3}
+  m_PrefabInstance: {fileID: 6917410038497624695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5998506727347224358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a62a3b1962a8c0648a59a33218386303,

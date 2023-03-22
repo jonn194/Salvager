@@ -19358,7 +19358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3b836959b7c8f4b94061864560efd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
+  mesh: {fileID: 3336438687591698116}
   damageTint: {r: 1, g: 1, b: 1, a: 0}
   hitParticle: {fileID: 376795388793744441, guid: d7f17e297f7182f43ad3fc9977186585,
     type: 3}
@@ -24346,6 +24346,12 @@ Animator:
 --- !u!4 &1939767415777046894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 57653865da84da24899997e88e7a296c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2117194656196974213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3336438687591698116 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5535873792607266751, guid: 57653865da84da24899997e88e7a296c,
     type: 3}
   m_PrefabInstance: {fileID: 2117194656196974213}
   m_PrefabAsset: {fileID: 0}

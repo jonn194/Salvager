@@ -7,6 +7,7 @@ using System.Linq;
 
 public class PerksUI : MonoBehaviour
 {
+    [Header("UI Elements")]
     public RectTransform buttonsContainer;
     public List<Button> _buttons;
     List<GlossaryItem> _items = new List<GlossaryItem>();
@@ -14,6 +15,12 @@ public class PerksUI : MonoBehaviour
     public Image currentPerkImage;
     public TMP_Text titleTxt;
     public TMP_Text descriptionTxt;
+
+    public Button buttonSelect;
+    public Button buttonUnlock;
+    public TMP_Text costTxt;
+
+    int _clickIndex;
 
     public void Start()
     {
@@ -36,10 +43,43 @@ public class PerksUI : MonoBehaviour
 
     void ShowPerk(Button btn)
     {
-        int clickIndex = _buttons.IndexOf(btn);
+        _clickIndex = _buttons.IndexOf(btn);
 
-        currentPerkImage.sprite = _items[clickIndex].itemIcon;
-        titleTxt.text = _items[clickIndex].itemName;
-        descriptionTxt.text = _items[clickIndex].description;
+        if (GameManager.instance.perksState[_clickIndex])
+        {
+            buttonSelect.gameObject.SetActive(true);
+            buttonUnlock.gameObject.SetActive(false);
+        }
+        else
+        {
+            buttonUnlock.gameObject.SetActive(true);
+            buttonSelect.gameObject.SetActive(false);
+
+            costTxt.text = "Unlock: " + GameManager.instance.perksPrices[_clickIndex];
+
+            if (GameManager.instance.perksAmount >= GameManager.instance.perksPrices[_clickIndex])
+            {
+                buttonUnlock.enabled = true;
+            }
+            else
+            {
+                buttonUnlock.enabled = false;
+            }
+        }
+
+        currentPerkImage.sprite = _items[_clickIndex].itemIcon;
+        titleTxt.text = _items[_clickIndex].itemName;
+        descriptionTxt.text = _items[_clickIndex].description;
+    }
+
+    public void SelectPerk()
+    {
+        GameManager.instance.currentPerk = _clickIndex;
+    }
+
+    public void UnlockPerk()
+    {
+        GameManager.instance.perksAmount -= GameManager.instance.perksPrices[_clickIndex];
+        GameManager.instance.perksState[_clickIndex] = true;
     }
 }

@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerShipSelector : MonoBehaviour
 {
     [Header("UI")]
     public Button buttonLeft;
     public Button buttonRight;
+    public Button buttonSelect;
+    public Button buttonUnlock;
+    public TMP_Text valueTxt;
 
     [Header("Ships")]
     public Transform shipsContainer;
@@ -18,6 +22,8 @@ public class PlayerShipSelector : MonoBehaviour
     [Header("Selector")]
     float _maxSelectorTime = 0.3f;
     float _currentSelectorTime;
+
+    int _currentShip;
 
     private void Start()
     {
@@ -73,23 +79,48 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void MoveSelector(int direction)
     {
-        if (direction < 0 && GameManager.instance.currentShip > 0)
+        if (direction < 0 && _currentShip > 0)
         {
             _currentSelectorTime = 0;
             buttonLeft.interactable = false;
             buttonRight.interactable = false;
-            GameManager.instance.currentShip--;
+            _currentShip--;
+            SetButtons();
             StartCoroutine(SelectorCoroutine());
         }
-        else if(direction > 0 && GameManager.instance.currentShip < _ships.Length - 1)
+        else if(direction > 0 && _currentShip < _ships.Length - 1)
         {
             _currentSelectorTime = 0;
             buttonLeft.interactable = false;
             buttonRight.interactable = false;
-            GameManager.instance.currentShip++;
+            _currentShip++;
+            SetButtons();
             StartCoroutine(SelectorCoroutine());
         }
+    }
 
+    void SetButtons()
+    {
+        if (GameManager.instance.shipsState[_currentShip])
+        {
+            buttonSelect.gameObject.SetActive(true);
+            buttonUnlock.gameObject.SetActive(false);
+        }
+        else
+        {
+            buttonSelect.gameObject.SetActive(false);
+            buttonUnlock.gameObject.SetActive(true);
+            valueTxt.text = "Unlock: " + GameManager.instance.shipsPrices[_currentShip];
+
+            if(GameManager.instance.scrapAmount > GameManager.instance.shipsPrices[_currentShip])
+            {
+                buttonUnlock.interactable = true;
+            }
+            else
+            {
+                buttonUnlock.interactable = false;
+            }
+        }
     }
 
     IEnumerator SelectorCoroutine()
@@ -98,7 +129,7 @@ public class PlayerShipSelector : MonoBehaviour
         {
             _currentSelectorTime += Time.deltaTime;
             
-            shipsContainer.transform.localPosition = Vector3.Lerp(shipsContainer.transform.localPosition, new Vector3(GameManager.instance.currentShip * 5, 0, 0), _currentSelectorTime);
+            shipsContainer.transform.localPosition = Vector3.Lerp(shipsContainer.transform.localPosition, new Vector3(_currentShip * 5, 0, 0), _currentSelectorTime);
             
             if(_currentSelectorTime >= _maxSelectorTime)
             {
@@ -107,9 +138,25 @@ public class PlayerShipSelector : MonoBehaviour
                 break;
             }
 
-
             yield return null;
         }
     }
 
+    public void SetAtCurrent()
+    {
+        shipsContainer.transform.localPosition = new Vector3(GameManager.instance.currentShip * 5, 0, 0);
+        _currentShip = GameManager.instance.currentShip;
+        buttonUnlock.gameObject.SetActive(false);
+    }
+
+    public void SelectShip()
+    {
+        GameManager.instance.currentShip = _currentShip;
+    }
+
+
+    public void UnlockShip()
+    {
+
+    }
 }

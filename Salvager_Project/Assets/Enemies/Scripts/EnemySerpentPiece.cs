@@ -7,7 +7,7 @@ public class EnemySerpentPiece : MonoBehaviour
     [Header("Visuals")]
     public ParticleSystem hitParticle;
     public ParticleSystem deadParticle;
-    public MeshRenderer mesh;
+    public Renderer mesh;
 
     [Header("Stats")]
     public EnemySerpent serpent;

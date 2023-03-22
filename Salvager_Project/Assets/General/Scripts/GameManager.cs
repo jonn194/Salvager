@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Perks")]
     public List<bool> perksState = new List<bool>();
+    public List<int> perksPrices = new List<int>();
     public int currentPerk;
 
     [Header("Log Entries")]

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7edc7c9a852f734596ad05d1ab545a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
+  mesh: {fileID: 2855306200015970580}
   damageTint: {r: 1, g: 1, b: 1, a: 1}
   hitParticle: {fileID: 3353801280043008886}
   deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
@@ -57,7 +57,7 @@ MonoBehaviour:
   maxLife: 5
   currentLife: 0
   score: 20
-  moveSpeed: 0
+  moveSpeed: 5
   destroyPosition: -20
   player: {fileID: 0}
   spawner: {fileID: 0}
@@ -484,6 +484,12 @@ PrefabInstance:
 --- !u!4 &1272199531283218286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8681922896160229987, guid: 73cb759efbb784044b0718f0efbed6fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 7627866709428008205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2855306200015970580 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5655313351901172761, guid: 73cb759efbb784044b0718f0efbed6fe,
     type: 3}
   m_PrefabInstance: {fileID: 7627866709428008205}
   m_PrefabAsset: {fileID: 0}

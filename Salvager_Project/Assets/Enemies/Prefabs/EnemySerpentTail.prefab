@@ -51,7 +51,7 @@ MonoBehaviour:
   hitParticle: {fileID: 993567889422286006}
   deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
-  mesh: {fileID: 0}
+  mesh: {fileID: 3852354773190983494}
   serpent: {fileID: 0}
   maxLife: 2
 --- !u!65 &8753851468818895652
@@ -381,6 +381,12 @@ PrefabInstance:
 --- !u!4 &2683437969968972841 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2501685687086392258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3852354773190983494 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 4b2e3a07071c00e4c95ae2a32bd58e1c,
     type: 3}
   m_PrefabInstance: {fileID: 2501685687086392258}
   m_PrefabAsset: {fileID: 0}

@@ -48,14 +48,14 @@ public class GlossaryUI : MonoBehaviour
         {
             enemies[_currentIndex].gameObject.SetActive(true);
             titleTxt.text = enemies[_currentIndex].itemName;
-            valueTxt.text = enemies[_currentIndex].value;
+            valueTxt.text = enemies[_currentIndex].extraInfo;
             descriptionTxt.text = enemies[_currentIndex].description;
         }
         else if (_currentType == WindowType.Items)
         {
             items[_currentIndex].gameObject.SetActive(true);
             titleTxt.text = items[_currentIndex].itemName;
-            valueTxt.text = items[_currentIndex].value;
+            valueTxt.text = items[_currentIndex].extraInfo;
             descriptionTxt.text = items[_currentIndex].description;
         }
     }
@@ -154,7 +154,7 @@ public class GlossaryUI : MonoBehaviour
         }
         else if(_currentType == WindowType.Enemies)
         {
-            scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1500);
+            scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 2000);
             ShowEnemies();
         }
     }
