@@ -7,18 +7,21 @@ using System.Linq;
 
 public class PerksUI : MonoBehaviour
 {
-    [Header("UI Elements")]
+    [Header("Perks Buttons")]
     public RectTransform buttonsContainer;
     public List<Button> _buttons;
     List<GlossaryItem> _items = new List<GlossaryItem>();
 
+    [Header("Preview UI")]
     public Image currentPerkImage;
     public TMP_Text titleTxt;
     public TMP_Text descriptionTxt;
+    public Image mainMenuPerkImage;
 
+    [Header("Selection Buttons")]
     public Button buttonSelect;
     public Button buttonUnlock;
-    public TMP_Text costTxt;
+    public TMP_Text valueTxt;
 
     int _clickIndex;
 
@@ -55,7 +58,7 @@ public class PerksUI : MonoBehaviour
             buttonUnlock.gameObject.SetActive(true);
             buttonSelect.gameObject.SetActive(false);
 
-            costTxt.text = "Unlock: " + GameManager.instance.perksPrices[_clickIndex];
+            valueTxt.text = "Unlock: " + GameManager.instance.perksPrices[_clickIndex];
 
             if (GameManager.instance.perksAmount >= GameManager.instance.perksPrices[_clickIndex])
             {
@@ -75,6 +78,7 @@ public class PerksUI : MonoBehaviour
     public void SelectPerk()
     {
         GameManager.instance.currentPerk = _clickIndex;
+        mainMenuPerkImage.sprite = currentPerkImage.sprite;
     }
 
     public void UnlockPerk()

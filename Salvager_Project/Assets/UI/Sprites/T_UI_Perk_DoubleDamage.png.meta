@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 42e43b8316a492747a967a24edc1411c
+guid: 3ed242703cde96a45aa606ab0ed4063e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,9 +36,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_UI_Perk_ExtraLife_0
+      name: T_UI_Perk_DoubleDamage_0
       rect:
         serializedVersion: 2
         x: 77
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e04756459b0d45240a404411ca486d9b
-      internalID: 605187243
+      spriteID: 5fde9b92806b5e64c9a145dcae9ff066
+      internalID: 1200506127
       vertices: []
       indices: 
       edges: []
@@ -152,7 +152,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d1fce727ca4043d419697ee370d4a3d1
+    spriteID: 0f145eda4856ba7409614e91bdec9a87
     internalID: 0
     vertices: []
     indices: 
@@ -160,7 +160,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      T_UI_Perk_ExtraLife_0: 605187243
+      T_UI_Perk_DoubleDamage_0: 1200506127
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

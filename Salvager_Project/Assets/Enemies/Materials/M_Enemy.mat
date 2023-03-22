@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Enemy
-  m_Shader: {fileID: -6465566751694194690, guid: 1f3e2a8df566d1847a6998bab8d949ac,
+  m_Shader: {fileID: -6465566751694194690, guid: 9db2b9cc798d6de42bb4eb7e1528248d,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -128,7 +128,7 @@ Material:
     - _Hues: {r: 0, g: 0.25, b: 0.5, a: 0.75}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tint: {r: 1, g: 1, b: 1, a: 0}
+    - _Tint: {r: 2, g: 2, b: 2, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2263012114438699309
 MonoBehaviour:

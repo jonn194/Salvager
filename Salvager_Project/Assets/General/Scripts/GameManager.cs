@@ -20,7 +20,11 @@ public class GameManager : MonoBehaviour
     public List<int> shipsSelectedColor = new List<int>();
     public int currentShip;
 
-    public bool[,] availableColors = new bool[10,4];
+    [Header("Colors")]
+    public int basicColorPrice = 10;
+    public int specialColorPrice = 30;
+    public bool[,] availableColors = new bool[10,8];
+    public int currentColor;
 
     [Header("Perks")]
     public List<bool> perksState = new List<bool>();
@@ -53,6 +57,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             availableColors[i, 0] = true;
+            availableColors[i, 4] = true;
         }
 
         availableColors[2, 2] = true;

@@ -17,6 +17,10 @@ public class PlayerColorSelector : MonoBehaviour
         buttons[1].onClick.AddListener(delegate { ButtonClick(1); });
         buttons[2].onClick.AddListener(delegate { ButtonClick(2); });
         buttons[3].onClick.AddListener(delegate { ButtonClick(3); });
+        buttons[4].onClick.AddListener(delegate { ButtonClick(4); });
+        buttons[5].onClick.AddListener(delegate { ButtonClick(5); });
+        buttons[6].onClick.AddListener(delegate { ButtonClick(6); });
+        buttons[7].onClick.AddListener(delegate { ButtonClick(7); });
 
         _ships = shipsContainer.GetComponentsInChildren<MeshRenderer>();
     }
@@ -42,4 +46,6 @@ public class PlayerColorSelector : MonoBehaviour
         _ships[currentShip].material.SetFloat("_CurrentColor", index);
         GameManager.instance.shipsSelectedColor[currentShip] = index;
     }
+
+
 }

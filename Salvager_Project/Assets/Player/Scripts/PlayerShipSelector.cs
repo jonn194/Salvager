@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using System.Linq;
 
 public class PlayerShipSelector : MonoBehaviour
 {
     [Header("UI")]
     public Button buttonLeft;
     public Button buttonRight;
-    public Button buttonSelect;
-    public Button buttonUnlock;
     public TMP_Text valueTxt;
 
     [Header("Ships")]
@@ -19,11 +19,23 @@ public class PlayerShipSelector : MonoBehaviour
     public List<ParticleSystem> _thrusters = new List<ParticleSystem>();
     public Color lockedColor;
 
+    public Button buttonSelect;
+    public Button buttonUnlock;
+
+    [Header("Colors")]
+    public RectTransform colorButtonsContainer;
+    public List<Button> colorButtons = new List<Button>();
+    public Button colorButtonSelect;
+    public Button colorButtonUnlock;
+    public TMP_Text colorValueTxt;
+
     [Header("Selector")]
     float _maxSelectorTime = 0.3f;
     float _currentSelectorTime;
 
+
     int _currentShip;
+    int _currentColor;
 
     private void Start()
     {
@@ -35,6 +47,7 @@ public class PlayerShipSelector : MonoBehaviour
             _thrusters.Add(t.GetComponent<ParticleSystem>());
         }
 
+        ColorButtonsSetup();
         DeactivateShips();
     }
 
@@ -101,10 +114,15 @@ public class PlayerShipSelector : MonoBehaviour
 
     void SetButtons()
     {
+        //SHIPS
         if (GameManager.instance.shipsState[_currentShip])
         {
             buttonSelect.gameObject.SetActive(true);
             buttonUnlock.gameObject.SetActive(false);
+
+            //COLORS
+            colorButtonsContainer.gameObject.SetActive(true);
+            SetColorSelectButtons();
         }
         else
         {
@@ -120,6 +138,11 @@ public class PlayerShipSelector : MonoBehaviour
             {
                 buttonUnlock.interactable = false;
             }
+
+            //COLORS
+            colorButtonsContainer.gameObject.SetActive(false);
+            colorButtonSelect.gameObject.SetActive(false);
+            colorButtonUnlock.gameObject.SetActive(false);
         }
     }
 
@@ -157,6 +180,94 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void UnlockShip()
     {
+        GameManager.instance.scrapAmount -= GameManager.instance.shipsPrices[_currentShip];
+        GameManager.instance.shipsState[_currentShip] = true;
+    }
 
+
+    //COLORS
+    void ColorButtonsSetup()
+    {
+        colorButtons = colorButtonsContainer.GetComponentsInChildren<Button>().ToList();
+
+        colorButtons[0].onClick.AddListener(delegate { PreviewColor(0); });
+        colorButtons[1].onClick.AddListener(delegate { PreviewColor(1); });
+        colorButtons[2].onClick.AddListener(delegate { PreviewColor(2); });
+        colorButtons[3].onClick.AddListener(delegate { PreviewColor(3); });
+        colorButtons[4].onClick.AddListener(delegate { PreviewColor(4); });
+        colorButtons[5].onClick.AddListener(delegate { PreviewColor(5); });
+        colorButtons[6].onClick.AddListener(delegate { PreviewColor(6); });
+        colorButtons[7].onClick.AddListener(delegate { PreviewColor(7); });
+    }
+
+    public void PreviewColor(int index)
+    {
+        int currentShip = GameManager.instance.currentShip;
+        _currentColor = index;
+        _ships[currentShip].material.SetFloat("_CurrentColor", index);
+        GameManager.instance.shipsSelectedColor[currentShip] = index;
+
+        SetColorSelectButtons();
+    }
+
+    void SetColorSelectButtons()
+    {
+        if (GameManager.instance.availableColors[_currentShip, _currentColor])
+        {
+            colorButtonSelect.gameObject.SetActive(true);
+            colorButtonUnlock.gameObject.SetActive(false);
+        }
+        else
+        {
+            colorButtonSelect.gameObject.SetActive(false);
+            colorButtonUnlock.gameObject.SetActive(true);
+
+            if (_currentColor < 4)
+            {
+                valueTxt.text = "Color unlock: " + GameManager.instance.basicColorPrice;
+
+                if (GameManager.instance.scrapAmount > GameManager.instance.basicColorPrice)
+                {
+                    colorButtonUnlock.interactable = true;
+                }
+                else
+                {
+                    colorButtonUnlock.interactable = false;
+                }
+            }
+            else
+            {
+                valueTxt.text = "Color unlock: " + GameManager.instance.specialColorPrice;
+
+                if (GameManager.instance.scrapAmount > GameManager.instance.specialColorPrice)
+                {
+                    colorButtonUnlock.interactable = true;
+                }
+                else
+                {
+                    colorButtonUnlock.interactable = false;
+                }
+            }
+        }
+    }
+
+    public void SelectColor()
+    {
+        GameManager.instance.currentColor = _currentColor;
+    }
+
+
+    public void UnlockColor()
+    {
+        if(_currentColor < 4)
+        {
+            GameManager.instance.scrapAmount -= GameManager.instance.basicColorPrice;
+        }
+        else
+        {
+            GameManager.instance.scrapAmount -= GameManager.instance.specialColorPrice;
+        }
+
+        GameManager.instance.availableColors[_currentShip, _currentColor] = true;
     }
 }

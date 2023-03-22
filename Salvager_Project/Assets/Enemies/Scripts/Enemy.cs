@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     public virtual void Start()
     {
         currentLife = maxLife;
-        _originalTint = mesh.material.GetColor("_Tint");
+        _originalTint = mesh.material.GetColor("_EmissionColor");
     }
 
     public virtual void Update()
@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
         hitParticle.Stop();
 
         //change tint
-        mesh.material.SetColor("_Tint", damageTint);
+        mesh.material.SetColor("_EmissionColor", damageTint);
 
         StopCoroutine(ResetColor());
         _currentColorTime = 0;
@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator ResetColor()
     {
-        Color currentColor = mesh.material.GetColor("_Tint");
+        Color currentColor = mesh.material.GetColor("_EmissionColor");
         float progress = 0f;
 
         while (true)
@@ -128,7 +128,7 @@ public class Enemy : MonoBehaviour
 
             currentColor = Color.Lerp(currentColor, _originalTint, progress);
 
-            mesh.material.SetColor("_Tint", currentColor);
+            mesh.material.SetColor("_EmissionColor", currentColor);
 
             if (_currentColorTime >= _maxColorTime)
             {
