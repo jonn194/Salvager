@@ -198,6 +198,8 @@ public class PlayerShipSelector : MonoBehaviour
         colorButtons[5].onClick.AddListener(delegate { PreviewColor(5); });
         colorButtons[6].onClick.AddListener(delegate { PreviewColor(6); });
         colorButtons[7].onClick.AddListener(delegate { PreviewColor(7); });
+
+        SelectColor();
     }
 
     public void PreviewColor(int index)
@@ -224,7 +226,7 @@ public class PlayerShipSelector : MonoBehaviour
 
             if (_currentColor < 4)
             {
-                valueTxt.text = "Color unlock: " + GameManager.instance.basicColorPrice;
+                colorValueTxt.text = "Color Unlock: " + GameManager.instance.basicColorPrice;
 
                 if (GameManager.instance.scrapAmount > GameManager.instance.basicColorPrice)
                 {
@@ -237,7 +239,7 @@ public class PlayerShipSelector : MonoBehaviour
             }
             else
             {
-                valueTxt.text = "Color unlock: " + GameManager.instance.specialColorPrice;
+                colorValueTxt.text = "Color Unlock: " + GameManager.instance.specialColorPrice;
 
                 if (GameManager.instance.scrapAmount > GameManager.instance.specialColorPrice)
                 {
@@ -254,6 +256,14 @@ public class PlayerShipSelector : MonoBehaviour
     public void SelectColor()
     {
         GameManager.instance.currentColor = _currentColor;
+        
+        //Turn check
+        foreach(Button b in colorButtons)
+        {
+            b.transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        colorButtons[_currentColor].transform.GetChild(0).gameObject.SetActive(true);
     }
 
 
