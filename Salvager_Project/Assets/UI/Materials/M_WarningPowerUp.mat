@@ -41,5 +41,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _WARNINGTYPE: 0
-    m_Colors: []
+    m_Colors:
+    - _Speed: {r: 5, g: 0, b: 0, a: 0}
+    - _Tiling: {r: 0.02, g: 10, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -38,6 +38,8 @@ public class PlayerStats : MonoBehaviour
         }
 
         postprocess.PlayerHitEffects();
+
+        EventHandler.instance.HPChanged();
     }
 
     public void PlayerDeath()
@@ -56,6 +58,7 @@ public class PlayerStats : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         playerDead = true;
+        EventHandler.instance.HPChanged();
     }
 
     public void StartPlayer(Vector3 position)
@@ -64,7 +67,8 @@ public class PlayerStats : MonoBehaviour
         movement.Setup();
         
         currentHP = maxHP;
-        
+        EventHandler.instance.HPChanged();
+
         weapon.gameObject.SetActive(true);
         weapon.StartShooting();
         weapon.bulletPool.Generate();
@@ -78,7 +82,8 @@ public class PlayerStats : MonoBehaviour
         movement.enabled = false;
         
         currentHP = maxHP;
-        
+        EventHandler.instance.HPChanged();
+
         weapon.StopShooting();
 
         SetOriginalPosition(position);

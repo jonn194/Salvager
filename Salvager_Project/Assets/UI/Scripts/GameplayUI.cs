@@ -19,15 +19,19 @@ public class GameplayUI : MonoBehaviour
     public Image bomber;
 
 
-    private void Update()
+    private void Start()
     {
-        UpdateLifebar();
-        UpdatePowerUp();
+        EventHandler.instance.playerHPChanged += UpdateLifebar;
     }
 
     void UpdateLifebar()
     {
         lifeBar.fillAmount = (float)((stats.currentHP * 100f) / stats.maxHP) / 100f;
+    }
+
+    private void Update()
+    {
+        UpdatePowerUp();
     }
 
     void UpdatePowerUp()

@@ -34,6 +34,30 @@ public class Bomb : Bullet
         Deactivate();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.layer == K.LAYER_PLAYER_BULLET)
+        {
+            if (other.gameObject.layer == K.LAYER_ENEMY)
+            {
+                Explode();
+            }
+            else if (other.gameObject.layer == K.LAYER_ENEMY_SERPENT)
+            {
+                Explode();
+            }
+        }
+        else if (gameObject.layer == K.LAYER_ENEMY_BULLET)
+        {
+            if (other.gameObject.layer == K.LAYER_PLAYER)
+            {
+            }
+            else if (other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
+            {
+            }
+        }
+    }
+
 
     private void OnDrawGizmos()
     {

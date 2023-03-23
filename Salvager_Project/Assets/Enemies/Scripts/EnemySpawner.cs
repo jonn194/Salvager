@@ -65,6 +65,7 @@ public class EnemySpawner : MonoBehaviour
         newEnemy.transform.position = RandomPosition();
         newEnemy.transform.eulerAngles = RandomRotation(newEnemy.transform.position.x);
         newEnemy.player = player;
+        newEnemy.itemSpawner = itemSpawn;
         newEnemy.spawner = this;
 
         _currentEnemies++;
@@ -134,6 +135,8 @@ public class EnemySpawner : MonoBehaviour
                 {
                     _currentSpawnFrequency = minSpawnFrequency;
                 }
+
+                EventHandler.instance.LevelUp();
             }
         }
     }
@@ -142,6 +145,7 @@ public class EnemySpawner : MonoBehaviour
     {
         //stop spawning enemies
         //instantiate random boss
+        EventHandler.instance.BossIncoming();
     }
 
     private void OnDrawGizmos()

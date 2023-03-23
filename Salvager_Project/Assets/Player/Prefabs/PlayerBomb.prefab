@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5237808777974190726}
   - component: {fileID: 1071454446319064821}
+  - component: {fileID: 6841195359205978802}
   m_Layer: 7
   m_Name: PlayerBomb
   m_TagString: Untagged
@@ -55,6 +56,19 @@ MonoBehaviour:
   detectionMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!135 &6841195359205978802
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237808777974190724}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5237808777987515117
 GameObject:
   m_ObjectHideFlags: 0

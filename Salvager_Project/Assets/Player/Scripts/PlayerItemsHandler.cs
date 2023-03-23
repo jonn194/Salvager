@@ -21,30 +21,36 @@ public class PlayerItemsHandler : MonoBehaviour
         {
             playerStats.currentHP = playerStats.maxHP;
         }
+        //Agregar evento de heal
+        EventHandler.instance.HPChanged();
     }
 
     public void Shield()
     {
         shield.gameObject.SetActive(true);
         shield.Startup();
+        EventHandler.instance.PlayerPowerUp();
     }
 
     public void ModuleTrishot()
     {
         trishot.gameObject.SetActive(true);
         trishot.Startup();
+        EventHandler.instance.PlayerPowerUp();
     }
 
     public void ModuleLaser()
     {
         laser.gameObject.SetActive(true);
         laser.Startup();
+        EventHandler.instance.PlayerPowerUp();
     }
 
     public void ModuleBomber()
     {
         bomber.gameObject.SetActive(true);
         bomber.Startup();
+        EventHandler.instance.PlayerPowerUp();
     }
 
     public void PlayEffects()

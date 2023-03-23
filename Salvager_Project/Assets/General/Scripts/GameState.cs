@@ -32,11 +32,12 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         playerOriginalPos = playerStats.transform.position;
+        EventHandler.instance.playerHPChanged += CheckPlayerHP;
 
         Setup();
     }
 
-    private void Update()
+    private void CheckPlayerHP()
     {
         if(playerStats.playerDead)
         {

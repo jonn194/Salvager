@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Dependencies")]
     public PlayerStats player;
+    public ItemSpawner itemSpawner;
     public EnemySpawner spawner;
 
     float _maxColorTime = 0.5f;
@@ -46,7 +47,7 @@ public class Enemy : MonoBehaviour
         StopAllCoroutines();
         if(byPlayer)
         {
-            spawner.itemSpawn.SpawnItem(transform);
+            itemSpawner.SpawnItem(transform);
         }
         spawner.RemoveEnemy(byPlayer);
         Destroy(gameObject);

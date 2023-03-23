@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BossState : MonoBehaviour
 {
+    public float stateDuration;
+
+
     public virtual void ExecuteState()
     {
 

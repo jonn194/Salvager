@@ -68,6 +68,11 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<EnemySerpentPiece>().DamagePiece(damage);
                 AddHits();
             }
+            else if(other.gameObject.layer == K.LAYER_BOSS)
+            {
+                other.GetComponent<Boss>().GetDamage(damage);
+                AddHits();
+            }
         }
         else if(gameObject.layer == K.LAYER_ENEMY_BULLET)
         {
