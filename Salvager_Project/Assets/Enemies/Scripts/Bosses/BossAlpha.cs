@@ -13,14 +13,25 @@ public class BossAlpha : Boss
 
     public override void SetStatesConnections()
     {
-        sEnterLevel.possibleConnections = new BossState[1] { sSideMovement };
+        sHeadBashAttack.player = player;
 
-        sSideMovement.possibleConnections = new BossState[2] { sCanonAttack, sMultipleAttack };
-        
-        sCanonAttack.possibleConnections = new BossState[2] { sSideMovement, sMultipleAttack };
+        if(currentLife > maxLife/2)
+        {
+            sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
 
-        sMultipleAttack.possibleConnections = new BossState[2] { sSideMovement, sCanonAttack };
+            sSideMovement.possibleConnections = new List<BossState>() { sCanonAttack, sMultipleAttack };
 
-        sHeadBashAttack.possibleConnections = new BossState[3] { sSideMovement, sCanonAttack, sMultipleAttack };
+            sCanonAttack.possibleConnections = new List<BossState>() { sSideMovement, sMultipleAttack };
+
+            sMultipleAttack.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack };
+
+            sHeadBashAttack.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack, sMultipleAttack };
+        }
+        else
+        {
+            sSideMovement.possibleConnections.Add(sHeadBashAttack);
+            sCanonAttack.possibleConnections.Add(sHeadBashAttack);
+            sMultipleAttack.possibleConnections.Add(sHeadBashAttack);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BState_MultipleShooting : BossState
@@ -9,13 +10,11 @@ public class BState_MultipleShooting : BossState
     public float rotationSpeed;
     public float rotationAngle;
 
-    float _sequence;
+    int _sequence;
+    float _direction = 1;
+    float _originalAngleY;
     float _currentTargetAngleY;
     float _currentInitialAngleY;
-    float _currentAngleY;
-
-    Vector3 _originalRotation;
-    Vector3 _currentFullRotation;
 
     public override void ExecuteState()
     {
@@ -25,20 +24,20 @@ public class BState_MultipleShooting : BossState
         _sequence = 0;
 
         //set initial rotation
-        _originalRotation = transform.parent.eulerAngles;
-        _currentFullRotation = _originalRotation;
-        _currentAngleY = _originalRotation.y;
+        _originalAngleY = transform.parent.eulerAngles.y;
 
         //depending on the side, determine rotation direction
         if (transform.parent.position.x < 0)
         {
-            _currentInitialAngleY = _originalRotation.y + rotationAngle;
-            _currentTargetAngleY = _originalRotation.y - rotationAngle;
+            _currentInitialAngleY = _originalAngleY + rotationAngle;
+            _currentTargetAngleY = _originalAngleY - rotationAngle;
+            _direction = -1;
         }
         else
         {
-            _currentInitialAngleY = _originalRotation.y - rotationAngle;
-            _currentTargetAngleY = _originalRotation.y + rotationAngle;
+            _currentInitialAngleY = _originalAngleY - rotationAngle;
+            _currentTargetAngleY = _originalAngleY + rotationAngle;
+            _direction = 1;
         }
     }
 
@@ -60,13 +59,11 @@ public class BState_MultipleShooting : BossState
 
     void InitialRotation()
     {
-        _currentAngleY = Mathf.LerpAngle(_currentAngleY, _currentInitialAngleY, rotationSpeed * 3 * Time.deltaTime);
+        transform.parent.eulerAngles += transform.up * rotationSpeed * 3 * -_direction * Time.deltaTime;
 
-        transform.parent.eulerAngles = new Vector3(_currentFullRotation.x, _currentAngleY, _currentFullRotation.z);
-
-        if (Mathf.Round(_currentAngleY) == Mathf.Round(_currentInitialAngleY))
+        if (Mathf.Abs(_currentInitialAngleY - transform.parent.eulerAngles.y) <= 0.5f)
         {
-            transform.parent.eulerAngles = new Vector3(_currentFullRotation.x, _currentInitialAngleY, _currentFullRotation.z);
+            transform.parent.eulerAngles = new Vector3(transform.parent.eulerAngles.x, _currentInitialAngleY, transform.parent.eulerAngles.z);
 
             //start the weapons
             foreach (Shooting s in weapons)
@@ -80,13 +77,11 @@ public class BState_MultipleShooting : BossState
 
     void MainRotation()
     {
-        _currentAngleY = Mathf.LerpAngle(_currentAngleY, _currentTargetAngleY, rotationSpeed * Time.deltaTime);
+        transform.parent.eulerAngles += transform.up * rotationSpeed * _direction * Time.deltaTime;
 
-        transform.parent.eulerAngles = new Vector3(_currentFullRotation.x, _currentAngleY, _currentFullRotation.z);
-
-        if (Mathf.Round(_currentAngleY) == Mathf.Round(_currentTargetAngleY))
+        if (Mathf.Abs(_currentTargetAngleY - transform.parent.eulerAngles.y) <= 0.5f)
         {
-            transform.parent.eulerAngles = new Vector3(_currentFullRotation.x, _currentTargetAngleY, _currentFullRotation.z);
+            transform.parent.eulerAngles = new Vector3(transform.parent.eulerAngles.x, _currentTargetAngleY, transform.parent.eulerAngles.z);
 
             foreach (Shooting s in weapons)
             {
@@ -99,13 +94,11 @@ public class BState_MultipleShooting : BossState
 
     void ResetRotation()
     {
-        _currentAngleY = Mathf.LerpAngle(_currentAngleY, _originalRotation.y, rotationSpeed * Time.deltaTime);
+        transform.parent.eulerAngles += transform.up * rotationSpeed * 3 * -_direction * Time.deltaTime;
 
-        transform.parent.eulerAngles = new Vector3(_currentFullRotation.x, _currentAngleY, _currentFullRotation.z);
-
-        if (Mathf.Round(_currentAngleY) == Mathf.Round(_originalRotation.y))
+        if (Mathf.Abs(_originalAngleY - transform.parent.eulerAngles.y) <= 0.5f)
         {
-            transform.parent.eulerAngles = _originalRotation;
+            transform.parent.eulerAngles = new Vector3(transform.parent.eulerAngles.x, _originalAngleY, transform.parent.eulerAngles.z);
 
             FinishState();
         }

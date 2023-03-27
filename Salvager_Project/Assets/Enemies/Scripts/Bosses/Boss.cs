@@ -68,7 +68,7 @@ public class Boss : MonoBehaviour
             return;
         }
 
-        int randomState = Random.Range(0, _currentState.possibleConnections.Length);
+        int randomState = Random.Range(0, _currentState.possibleConnections.Count);
 
         _currentState = _currentState.possibleConnections[randomState];
         _currentState.ExecuteState();
@@ -79,7 +79,7 @@ public class Boss : MonoBehaviour
         lifeBar.fillAmount = (float)((currentLife * 100f) / maxLife) / 100f;
     }
 
-    public void GetDamage(int damage)
+    public virtual void GetDamage(int damage)
     {
         //remove life
         currentLife -= damage;
@@ -91,7 +91,8 @@ public class Boss : MonoBehaviour
         //change tint
         mesh.material.SetColor("_EmissionColor", damageTint);
 
-        if(currentLife <= 0)
+        //if life hits a specific value
+        if(currentLife <= 0 || currentLife <= maxLife / 2)
         {
             StateMachine();
         }

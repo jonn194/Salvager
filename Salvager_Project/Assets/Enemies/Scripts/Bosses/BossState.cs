@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BossState : MonoBehaviour
 {
+    public PlayerStats player;
     public float stateDuration;
     float _currentDuration;
-    [HideInInspector] public BossState[] possibleConnections;
+    [HideInInspector] public List<BossState> possibleConnections;
 
     public virtual void ExecuteState()
     {
