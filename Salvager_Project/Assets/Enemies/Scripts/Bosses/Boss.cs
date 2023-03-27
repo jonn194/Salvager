@@ -15,7 +15,6 @@ public class Boss : MonoBehaviour
     public Renderer mesh;
     public Image lifeBar;
     public ParticleSystem hitParticle;
-    public ParticleSystem deadParticle;
     public Color damageTint;
     Color _originalTint;
     float _maxColorTime = 0.3f;
@@ -23,17 +22,56 @@ public class Boss : MonoBehaviour
 
     [Header("Dependencies")]
     public PlayerStats player;
-    public EnemySpawner spawner;
+
+    [Header("States")]
+    public BossState sEnterLevel;
+    public BossState sDeath;
+    protected BossState _currentState;
 
     private void Start()
     {
+        //set base values
         _originalTint = mesh.material.GetColor("_EmissionColor");
         currentLife = maxLife;
+        
+        //set event to change state
+        EventHandler.instance.bossStateFinished += StateMachine;
+
+        //set states connections
+        SetStatesConnections();
+
+        //set initial state
+        _currentState = sEnterLevel;
+        _currentState.ExecuteState();
     }
 
-    void StateMachine()
+    public virtual void SetStatesConnections()
     {
+        //set connections
+    }
 
+    private void Update()
+    {
+        _currentState.UpdateState();
+    }
+
+    public virtual void StateMachine()
+    {
+        if(currentLife <= 0)
+        {          
+            //change state to death
+            _currentState = sDeath;
+            _currentState.ExecuteState();
+            DestroyBoss();
+
+            //return to avoid further checks
+            return;
+        }
+
+        int randomState = Random.Range(0, _currentState.possibleConnections.Length);
+
+        _currentState = _currentState.possibleConnections[randomState];
+        _currentState.ExecuteState();
     }
 
     void UpdateLifebar()
@@ -53,22 +91,14 @@ public class Boss : MonoBehaviour
         //change tint
         mesh.material.SetColor("_EmissionColor", damageTint);
 
+        if(currentLife <= 0)
+        {
+            StateMachine();
+        }
+
         StopCoroutine(ResetColor());
         _currentColorTime = 0;
         StartCoroutine(ResetColor());
-
-        //check for destroy
-        if (currentLife <= 0)
-        {
-            //score
-            GameManager.instance.currentScore += score;
-
-            //create particle
-            DeadParticle();
-
-            //destroy
-            DestroyBoss();
-        }
 
         //play new particles
         hitParticle.Play();
@@ -97,16 +127,9 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void DeadParticle()
-    {
-        //create particle
-        ParticleSystem particle = Instantiate(deadParticle, transform.parent);
-        particle.transform.position = transform.position;
-        particle.transform.rotation = transform.rotation;
-    }
-
     void DestroyBoss()
     {
-
+        GameManager.instance.currentScore += score;
+        EventHandler.instance.LevelUp();
     }
 }

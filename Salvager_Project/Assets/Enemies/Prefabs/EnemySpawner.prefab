@@ -51,17 +51,19 @@ MonoBehaviour:
   maxAngle: 15
   baseSpawnFrequency: 1
   minSpawnFrequency: 0.2
-  objectsToSpawn:
+  enemies:
   - {fileID: 5296563044671977193, guid: 27c6bd90352366940975f39fb9c2a731, type: 3}
   - {fileID: -881888281385916633, guid: 65fa6c1e55f42394e8f39a987cf110b2, type: 3}
   - {fileID: 5296563044671977193, guid: a649d928a2199f044a628793c8732980, type: 3}
   - {fileID: -866454596239058785, guid: 5c5556a27387f584fabc6b2a074e1ff7, type: 3}
   - {fileID: 2537920715491617303, guid: ca66fe7b861a4c842b14f9b6c1f977c2, type: 3}
   - {fileID: 4734974803506469922, guid: a46c3c58c90d5c64ebba705fb3195cb3, type: 3}
-  - {fileID: 3666207744598338254, guid: aec76052f6064c943aed4fe79addecdd, type: 3}
   - {fileID: 6231394660449888666, guid: 5cde4b3f32241ab4793cee621ad0fb03, type: 3}
+  - {fileID: 3666207744598338254, guid: aec76052f6064c943aed4fe79addecdd, type: 3}
   - {fileID: 4734974803506469922, guid: 8e3cfe3d82d25884cb7f080301c397b3, type: 3}
   - {fileID: 6231394660449888666, guid: 2dce1ff4ace273c42aea0bbe1cdfcec4, type: 3}
+  bosses:
+  - {fileID: 719481252475137962, guid: 89573d989a3eda64fa3d112ce9f010a3, type: 3}
   enemiesDestroyedByPlayer: 0
   currentDificulty: 0
   frequencyOffset: 0.2

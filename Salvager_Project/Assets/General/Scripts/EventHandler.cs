@@ -12,6 +12,8 @@ public class EventHandler : MonoBehaviour
     public event Action bossIncoming;
     public event Action levelUp;
 
+    public event Action bossStateFinished;
+
     private void Awake()
     {
         if (!instance)
@@ -42,5 +44,10 @@ public class EventHandler : MonoBehaviour
     public void LevelUp()
     {
         levelUp?.Invoke();
+    }
+
+    public void BossStateFinished()
+    {
+        bossStateFinished?.Invoke();
     }
 }

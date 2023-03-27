@@ -25,7 +25,7 @@ public class Shooting : MonoBehaviour
 
     public void StopShooting()
     {
-        StopCoroutine(Shoot());
+        StopAllCoroutines();
     }
 
 
