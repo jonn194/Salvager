@@ -19,7 +19,6 @@ public class BState_Death : BossState
 
     public override void FinishState()
     {
-        EventHandler.instance.LevelUp();
         Destroy(transform.parent.gameObject);
     }
 }

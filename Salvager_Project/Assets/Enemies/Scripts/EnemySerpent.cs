@@ -20,6 +20,7 @@ public class EnemySerpent : Enemy
         foreach (EnemySerpentPiece piece in pieces)
         {
             piece.serpent = this;
+            piece.reinforceLevel = reinforceLevel;
         }
     }
 

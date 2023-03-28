@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7546103425928040257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7546103425928040258}
+  - component: {fileID: 7546103425928040259}
+  - component: {fileID: -5064568785256733228}
+  m_Layer: 0
+  m_Name: TestSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7546103425928040258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546103425928040257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7546103425928040259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546103425928040257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7706504e7ac0644d8d68be6d3ae6938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  itemSpawn: {fileID: -5064568785256733228}
+  maxPosition: 9
+  maxAngle: 15
+  baseSpawnFrequency: 1
+  minSpawnFrequency: 0.2
+  enemies:
+  - {fileID: 5296563044671977193, guid: 27c6bd90352366940975f39fb9c2a731, type: 3}
+  - {fileID: -881888281385916633, guid: 65fa6c1e55f42394e8f39a987cf110b2, type: 3}
+  - {fileID: 5296563044671977193, guid: a649d928a2199f044a628793c8732980, type: 3}
+  - {fileID: -866454596239058785, guid: 5c5556a27387f584fabc6b2a074e1ff7, type: 3}
+  - {fileID: 2537920715491617303, guid: ca66fe7b861a4c842b14f9b6c1f977c2, type: 3}
+  - {fileID: 4734974803506469922, guid: a46c3c58c90d5c64ebba705fb3195cb3, type: 3}
+  - {fileID: 6231394660449888666, guid: 5cde4b3f32241ab4793cee621ad0fb03, type: 3}
+  - {fileID: 3666207744598338254, guid: aec76052f6064c943aed4fe79addecdd, type: 3}
+  - {fileID: 4734974803506469922, guid: 8e3cfe3d82d25884cb7f080301c397b3, type: 3}
+  - {fileID: 6231394660449888666, guid: 2dce1ff4ace273c42aea0bbe1cdfcec4, type: 3}
+  bosses:
+  - {fileID: 719481252475137962, guid: 89573d989a3eda64fa3d112ce9f010a3, type: 3}
+  enemiesDestroyedByPlayer: 0
+  currentDificulty: 0
+  frequencyOffset: 0.2
+  enemiesToChange: 0300000003000000
+  maxEnemiesAmounts: 0500000005000000
+  maxEnemyIndex: 0100000001000000
+--- !u!114 &-5064568785256733228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546103425928040257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4645f17ace299aa429072ed82c04c6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 2825165812584398807, guid: 3fe681d8cff6efc4aa414bcec5aca566, type: 3}
+  - {fileID: 2825165812584398807, guid: 6fa224e9d9cb48440937d4e3d831eb59, type: 3}
+  - {fileID: 2825165812584398807, guid: b1e14e37980f4864c980a705c0ec51c3, type: 3}
+  - {fileID: 2825165812584398807, guid: 749b26657032744418be078c9f2734fe, type: 3}
+  - {fileID: 2825165812584398807, guid: ae988dd4eb31d404db7259a29b44ec1e, type: 3}
+  itemChance: 20

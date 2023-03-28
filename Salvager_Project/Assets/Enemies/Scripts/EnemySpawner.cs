@@ -32,15 +32,22 @@ public class EnemySpawner : MonoBehaviour
     public List<int> maxEnemiesAmounts = new List<int>();
     public List<int> maxEnemyIndex = new List<int>();
 
+    int _dificulty;
+    int _maxDificulty;
+    int _reinforceLevel;
+
     private void Start()
     {
         EventHandler.instance.levelUp += LevelUp;
+        _maxDificulty = enemiesToChange.Count;
     }
 
     public void StartEnemies()
     {
-        _currentSpawnFrequency = baseSpawnFrequency;
         currentDificulty = 0;
+        _currentSpawnFrequency = baseSpawnFrequency;
+        _dificulty = 0;
+        _reinforceLevel = 0;
         StartCoroutine(SpawnTimer());
     }
 
@@ -55,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(_currentSpawnFrequency);
 
         //check enemies amount of with current dificulty
-        if(_currentEnemies <= maxEnemiesAmounts[currentDificulty])
+        if(_currentEnemies <= maxEnemiesAmounts[_dificulty])
         {
             SpawnEnemies();
         }
@@ -65,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemies()
     {
         //set random enemy according to current dificulty
-        int random = Random.Range(0, maxEnemyIndex[currentDificulty] + 1);
+        int random = Random.Range(0, maxEnemyIndex[_dificulty] + 1);
 
         Enemy newEnemy = Instantiate(enemies[random], transform.parent);
         newEnemy.transform.position = RandomPosition();
@@ -73,6 +80,7 @@ public class EnemySpawner : MonoBehaviour
         newEnemy.player = player;
         newEnemy.itemSpawner = itemSpawn;
         newEnemy.spawner = this;
+        newEnemy.reinforceLevel = _reinforceLevel;
 
         _currentEnemies++;
     }
@@ -117,17 +125,26 @@ public class EnemySpawner : MonoBehaviour
 
     void CheckDificulty()
     {
-        //check if there are more dificulty levels
-        if(enemiesToChange.Count > currentDificulty)
+        if(currentDificulty < _maxDificulty)
         {
-            //checks the amount of enemies
-            if (enemiesDestroyedByPlayer >= enemiesToChange[currentDificulty])
-            {
-                //increase dificulty
-                currentDificulty++;
+            _dificulty = currentDificulty;
 
-                //resets destroyed enemies count
-                enemiesDestroyedByPlayer = 0;
+            //checks the amount of enemies
+            if (enemiesDestroyedByPlayer >= enemiesToChange[_dificulty])
+            {
+                //create boss
+                SpawnBoss();
+            }
+        }
+        else
+        {
+            _dificulty = _maxDificulty - 1;
+
+            //checks the amount of enemies
+            if (enemiesDestroyedByPlayer >= enemiesToChange[_dificulty])
+            {
+                //enemies are reinforced
+                ReinforceEnemies();
 
                 //create boss
                 SpawnBoss();
@@ -135,10 +152,23 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    void ReinforceEnemies()
+    {
+        if((currentDificulty - 1) % _maxDificulty == 0)
+        {
+            _reinforceLevel++;
+        }
+    }
+
     void SpawnBoss()
     {
+        //increase dificulty
+        currentDificulty++;
+
+        //resets destroyed enemies count
+        enemiesDestroyedByPlayer = 0;
+
         EventHandler.instance.BossIncoming();
-        StopCoroutine(SpawnTimer());
 
         //int random = Random.Range(0, bosses.Count);
 
@@ -146,6 +176,10 @@ public class EnemySpawner : MonoBehaviour
         newBoss.transform.position = transform.position;
         newBoss.transform.rotation = transform.rotation;
         newBoss.player = player;
+
+
+        //stop incoming enemies
+        StopAllCoroutines();
     }
 
     void LevelUp()

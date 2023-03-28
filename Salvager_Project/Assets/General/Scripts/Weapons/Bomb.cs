@@ -24,7 +24,14 @@ public class Bomb : Bullet
         {
             foreach(Collider c in detection)
             {
-                c.gameObject.GetComponent<Enemy>().GetDamage(1);
+                if (gameObject.layer == K.LAYER_PLAYER_BULLET)
+                {
+                    c.gameObject.GetComponent<Enemy>().GetDamage(1);
+                }
+                else if(gameObject.layer == K.LAYER_ENEMY_BULLET)
+                {
+                    c.gameObject.GetComponent<PlayerStats>().GetDamage();
+                }
             }
         }
 
@@ -38,11 +45,7 @@ public class Bomb : Bullet
     {
         if (gameObject.layer == K.LAYER_PLAYER_BULLET)
         {
-            if (other.gameObject.layer == K.LAYER_ENEMY)
-            {
-                Explode();
-            }
-            else if (other.gameObject.layer == K.LAYER_ENEMY_SERPENT)
+            if (other.gameObject.layer == K.LAYER_ENEMY || other.gameObject.layer == K.LAYER_ENEMY_SERPENT || other.gameObject.layer == K.LAYER_ENEMY_SHIELD)
             {
                 Explode();
             }
@@ -51,6 +54,7 @@ public class Bomb : Bullet
         {
             if (other.gameObject.layer == K.LAYER_PLAYER)
             {
+                Explode();
             }
             else if (other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
             {

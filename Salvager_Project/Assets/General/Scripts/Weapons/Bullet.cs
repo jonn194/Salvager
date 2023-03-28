@@ -73,6 +73,10 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<Boss>().GetDamage(damage);
                 AddHits();
             }
+            else if (other.gameObject.layer == K.LAYER_ENEMY_SHIELD)
+            {
+                Deactivate();
+            }
         }
         else if(gameObject.layer == K.LAYER_ENEMY_BULLET)
         {

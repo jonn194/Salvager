@@ -9,15 +9,22 @@ public class EnemySerpentPiece : MonoBehaviour
     public ParticleSystem deadParticle;
     public Renderer mesh;
 
+    float _hueReinforcement = 0.02f;
+
     [Header("Stats")]
     public EnemySerpent serpent;
     public int maxLife;
+    public int reinforceLevel;
+    
     int _currentLife;
-
+    int _lifeReinforcement = 1;
 
     private void Start()
     {
-        _currentLife = maxLife;
+        //set life adding the reinforcement level
+        _currentLife = maxLife + (_lifeReinforcement * reinforceLevel);
+        //set color based on reinforcement
+        mesh.material.SetFloat("_HueShift", _hueReinforcement * reinforceLevel);
     }
 
     public void DamagePiece(int damage)

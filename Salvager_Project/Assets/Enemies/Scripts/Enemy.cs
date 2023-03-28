@@ -9,7 +9,11 @@ public class Enemy : MonoBehaviour
     public Color damageTint = Color.white;
     public ParticleSystem hitParticle;
     public ParticleSystem deadParticle;
+    
     Color _originalTint;
+    float _maxColorTime = 0.5f;
+    float _currentColorTime;
+    float _hueReinforcement = 0.02f;
 
     [Header("Stats")]
     public int maxLife;
@@ -17,19 +21,32 @@ public class Enemy : MonoBehaviour
     public int score;
     public float moveSpeed;
     public float destroyPosition;
+    public int reinforceLevel;
+
+    int _lifeReinforcement = 1;
 
     [Header("Dependencies")]
     public PlayerStats player;
     public ItemSpawner itemSpawner;
     public EnemySpawner spawner;
 
-    float _maxColorTime = 0.5f;
-    float _currentColorTime;
+
 
     public virtual void Start()
     {
-        currentLife = maxLife;
+        //set life adding the reinforcement level
+        if(_lifeReinforcement * reinforceLevel <= maxLife * 2)
+        {
+            currentLife = maxLife + (_lifeReinforcement * reinforceLevel);
+        }
+        else
+        {
+            currentLife = maxLife * 2;
+        }
+        //set original emission
         _originalTint = mesh.material.GetColor("_EmissionColor");
+        //set color based on reinforcement
+        mesh.material.SetFloat("_HueShift", _hueReinforcement * reinforceLevel);
     }
 
     public virtual void Update()

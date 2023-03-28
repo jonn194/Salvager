@@ -15,9 +15,9 @@ public class PlayerShipSelector : MonoBehaviour
 
     [Header("Ships")]
     public Transform shipsContainer;
-    MeshRenderer[] _ships;
     public List<ParticleSystem> _thrusters = new List<ParticleSystem>();
     public Color lockedColor;
+    List<MeshRenderer> _ships = new List<MeshRenderer>();
 
     public Button buttonSelect;
     public Button buttonUnlock;
@@ -39,9 +39,12 @@ public class PlayerShipSelector : MonoBehaviour
 
     private void Start()
     {
-        _ships = shipsContainer.GetComponentsInChildren<MeshRenderer>();
+        for (int i = 0; i < shipsContainer.transform.childCount; i++)
+        {
+            _ships.Add(shipsContainer.transform.GetChild(i).gameObject.GetComponent<MeshRenderer>());
+        }
 
-        for(int i = 0; i < _ships.Length; i++)
+        for(int i = 0; i < _ships.Count; i++)
         {
             Transform t = _ships[i].transform.GetChild(0);
             _thrusters.Add(t.GetComponent<ParticleSystem>());
@@ -54,7 +57,7 @@ public class PlayerShipSelector : MonoBehaviour
     public void Update()
     {
 
-        for (int i = 0; i < _ships.Length; i++)
+        for (int i = 0; i < _ships.Count; i++)
         {
             if (GameManager.instance.shipsState[i])
             {
@@ -69,7 +72,7 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void DeactivateShips()
     {
-        for (int i = 0; i < _ships.Length; i++)
+        for (int i = 0; i < _ships.Count; i++)
         {
             if(i != GameManager.instance.currentShip)
             {
@@ -82,7 +85,7 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void ActivateShips()
     {
-        for (int i = 0; i < _ships.Length; i++)
+        for (int i = 0; i < _ships.Count; i++)
         {
             _ships[i].gameObject.SetActive(true);
             _thrusters[i].gameObject.SetActive(true);
@@ -101,7 +104,7 @@ public class PlayerShipSelector : MonoBehaviour
             SetButtons();
             StartCoroutine(SelectorCoroutine());
         }
-        else if(direction > 0 && _currentShip < _ships.Length - 1)
+        else if(direction > 0 && _currentShip < _ships.Count - 1)
         {
             _currentSelectorTime = 0;
             buttonLeft.interactable = false;
