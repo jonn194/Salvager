@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     public int maxLife;
     public int currentLife;
     public int score;
+    bool _halfLifeChecked;
 
     [Header("Graphics")]
     public Renderer mesh;
@@ -92,9 +93,17 @@ public class Boss : MonoBehaviour
         mesh.material.SetColor("_EmissionColor", damageTint);
 
         //if life hits a specific value
-        if(currentLife <= 0 || currentLife <= maxLife / 2)
+        if(currentLife <= 0)
         {
             StateMachine();
+        }
+        else if(currentLife <= maxLife / 2 && !_halfLifeChecked)
+        {
+            //make sure it doesn't enter twice
+            _halfLifeChecked = true;
+
+            //add new states
+            SetStatesConnections();
         }
 
         StopCoroutine(ResetColor());
