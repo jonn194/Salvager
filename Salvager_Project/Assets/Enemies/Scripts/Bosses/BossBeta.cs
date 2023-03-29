@@ -7,6 +7,7 @@ public class BossBeta : Boss
     [Header("Boss Beta")]
     public BossState sSideMovement;
     public BossState sSpawnShields;
+    public BossState sAlternatingLasers;
     public BossState sLaserSwipe;
     public BossState sSearchLaser;
 
@@ -14,25 +15,26 @@ public class BossBeta : Boss
     {
         sSearchLaser.player = player;
 
-        sEnterLevel.possibleConnections = new List<BossState>() { sSpawnShields };
-
-        /*if (currentLife > maxLife / 2)
+        if (currentLife > maxLife / 2)
         {
             sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
 
-            sSideMovement.possibleConnections = new List<BossState>() { sSpawnShields, sLaserSwipe };
+            sSideMovement.possibleConnections = new List<BossState>() { sSpawnShields, sLaserSwipe, sAlternatingLasers };
 
-            sSpawnShields.possibleConnections = new List<BossState>() { sSideMovement, sLaserSwipe };
+            sSpawnShields.possibleConnections = new List<BossState>() { sSideMovement, sLaserSwipe, sAlternatingLasers };
 
-            sLaserSwipe.possibleConnections = new List<BossState>() { sSideMovement, sSpawnShields };
+            sAlternatingLasers.possibleConnections = new List<BossState>() { sSideMovement, sSpawnShields, sLaserSwipe };
 
-            sSearchLaser.possibleConnections = new List<BossState>() { sSideMovement, sSpawnShields, sLaserSwipe };
+            sLaserSwipe.possibleConnections = new List<BossState>() { sSideMovement, sSpawnShields, sAlternatingLasers };
+
+            sSearchLaser.possibleConnections = new List<BossState>() { sSideMovement, sSpawnShields, sAlternatingLasers, sLaserSwipe };
         }
         else
         {
             sSideMovement.possibleConnections.Add(sSearchLaser);
             sSpawnShields.possibleConnections.Add(sSearchLaser);
+            sAlternatingLasers.possibleConnections.Add(sSearchLaser);
             sLaserSwipe.possibleConnections.Add(sSearchLaser);
-        }*/
+        }
     }
 }
