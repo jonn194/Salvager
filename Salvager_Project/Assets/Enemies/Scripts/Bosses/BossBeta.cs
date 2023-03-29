@@ -14,7 +14,9 @@ public class BossBeta : Boss
     {
         sSearchLaser.player = player;
 
-        if (currentLife > maxLife / 2)
+        sEnterLevel.possibleConnections = new List<BossState>() { sSpawnShields };
+
+        /*if (currentLife > maxLife / 2)
         {
             sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
 
@@ -31,6 +33,6 @@ public class BossBeta : Boss
             sSideMovement.possibleConnections.Add(sSearchLaser);
             sSpawnShields.possibleConnections.Add(sSearchLaser);
             sLaserSwipe.possibleConnections.Add(sSearchLaser);
-        }
+        }*/
     }
 }

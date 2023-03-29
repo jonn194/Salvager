@@ -7,8 +7,11 @@ public class BState_SpawnShield : BossState
     [Header("Spawn Shields State")]
     public List<Transform> shields = new List<Transform>();
     List<Vector3> _originalPositions = new List<Vector3>();
+    public float movementSpeed;
+    public float movementMaxX;
     public float shieldsSpeed;
 
+    float _direction = 1;
 
     private void Start()
     {
@@ -23,13 +26,24 @@ public class BState_SpawnShield : BossState
         base.ExecuteState();
         foreach (Transform t in shields)
         {
-            t.gameObject.SetActive(false);
+            t.gameObject.SetActive(true);
         }
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
+
+        transform.parent.position += transform.parent.right * movementSpeed * _direction * Time.deltaTime;
+
+        if (transform.parent.position.x <= -movementMaxX)
+        {
+            _direction = -1;
+        }
+        else if(transform.parent.position.x >= movementMaxX)
+        {
+            _direction = 1;
+        }
 
         foreach (Transform t in shields) 
         {

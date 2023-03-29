@@ -278,7 +278,7 @@ MonoBehaviour:
   player: {fileID: 0}
   stateDuration: 4
   possibleConnections: []
-  movementSpeed: 5
+  movementSpeed: 7
   maxX: 7
   directionChangeTime: 2
   direction: 1
@@ -300,7 +300,9 @@ MonoBehaviour:
   shields:
   - {fileID: 184587339786226942}
   - {fileID: 5226067532462496844}
-  shieldsSpeed: 2
+  movementSpeed: 5
+  movementMaxX: 4
+  shieldsSpeed: 3
 --- !u!114 &6019274654063669606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5226067532462496844}
+  - component: {fileID: 6737843042199839047}
   - component: {fileID: 626212095142133244}
   m_Layer: 14
   m_Name: Shield02
@@ -603,15 +606,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5698015462597728040}
-  m_LocalRotation: {x: 0, y: -0.21643952, z: 0, w: 0.97629607}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.043619405, z: 0, w: 0.9990483}
+  m_LocalPosition: {x: -4, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 859117666838720107}
   m_Father: {fileID: 4622450368069697293}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -25, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -5, z: 0}
+--- !u!114 &6737843042199839047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698015462597728040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e661101fc70054544b2f0433d0d6d22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &626212095142133244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -794,6 +809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 184587339786226942}
+  - component: {fileID: 2663094798389495839}
   - component: {fileID: 303907840833501643}
   m_Layer: 14
   m_Name: Shield01
@@ -809,15 +825,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7104708263448989584}
-  m_LocalRotation: {x: 0, y: 0.2164396, z: 0, w: 0.97629607}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.043619405, z: 0, w: 0.9990483}
+  m_LocalPosition: {x: 4, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2683694776337206051}
   m_Father: {fileID: 4622450368069697293}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 25, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 5, z: 0}
+--- !u!114 &2663094798389495839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7104708263448989584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e661101fc70054544b2f0433d0d6d22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &303907840833501643
 BoxCollider:
   m_ObjectHideFlags: 0
