@@ -15,11 +15,17 @@ public class PlayerStats : MonoBehaviour
     public Shooting weapon;
     public PlayerMovement movement;
     public PlayerItemsHandler itemsHandler;
+    public Collider damageCollider;
 
     [Header("Effects")]
     public ParticleSystem getHitVFX;
     public ParticleSystem deadVFX;
     public EffectsHandler postprocess;
+    [ColorUsageAttribute(true, true)] public Color damageColor;
+    [ColorUsageAttribute(true, true)] Color _originalColor;
+
+    Renderer _currentShip;
+    float _invulnerableTime;
 
     private void Start()
     {
@@ -29,27 +35,44 @@ public class PlayerStats : MonoBehaviour
 
     public void GetDamage()
     {
-        getHitVFX.Play();
+        //remove life
         currentHP--;
 
+        //check death
         if(currentHP <= 0)
         {
             PlayerDeath();
         }
 
+        //turn collider off
+        damageCollider.enabled = false;
+        _currentShip.material.SetColor("_Tint", damageColor);
+        StartCoroutine(InvulnerableTimer());
+
+        //play effect
+        getHitVFX.Play();
         postprocess.PlayerHitEffects();
 
         EventHandler.instance.HPChanged();
+    }
+
+    IEnumerator InvulnerableTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        _currentShip.material.SetColor("_Tint", _originalColor);
+        damageCollider.enabled = true;
     }
 
     public void PlayerDeath()
     {
         deadVFX.Play();
 
+        _currentShip.material.SetColor("_Tint", _originalColor);
         movement.enabled = false;
         weapon.StopShooting();
         weapon.bulletPool.ClearAll();
         itemsHandler.DeactivateAll();
+        StopAllCoroutines();
 
         StartCoroutine(SetDead());
     }
@@ -65,7 +88,10 @@ public class PlayerStats : MonoBehaviour
     {
         movement.enabled = true;
         movement.Setup();
-        
+        _currentShip = movement.currentShipRenderer;
+
+        _originalColor = _currentShip.material.GetColor("_Tint");
+
         currentHP = maxHP;
         EventHandler.instance.HPChanged();
 

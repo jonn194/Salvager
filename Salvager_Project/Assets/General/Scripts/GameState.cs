@@ -59,6 +59,8 @@ public class GameState : MonoBehaviour
 
     public void StartGame()
     {
+        GameManager.instance.gameStarted = true;
+
         //camera
         cam.transform.position = camGameplay.position;
         cam.transform.rotation = camGameplay.rotation;
@@ -87,6 +89,8 @@ public class GameState : MonoBehaviour
 
     public void EndGame()
     {
+        GameManager.instance.gameStarted = true;
+
         //temp objects
         for (int i = 0; i < tempParent.childCount; i++)
         { 

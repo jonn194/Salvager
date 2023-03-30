@@ -56,16 +56,18 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void Update()
     {
-
-        for (int i = 0; i < _ships.Count; i++)
+        if(!GameManager.instance.gameStarted)
         {
-            if (GameManager.instance.shipsState[i])
+            for (int i = 0; i < _ships.Count; i++)
             {
-                _ships[i].material.SetColor("_Tint", Color.white);
-            }
-            else
-            {
-                _ships[i].material.SetColor("_Tint", lockedColor);
+                if (GameManager.instance.shipsState[i])
+                {
+                    _ships[i].material.SetColor("_Tint", Color.white);
+                }
+                else
+                {
+                    _ships[i].material.SetColor("_Tint", lockedColor);
+                }
             }
         }
     }

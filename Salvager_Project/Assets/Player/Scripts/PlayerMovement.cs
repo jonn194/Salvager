@@ -12,8 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Tilt")]
     public Transform shipsContainer;
-    MeshRenderer[] _ships;
-    public Transform _shipMesh;
+    List<MeshRenderer> _ships = new List<MeshRenderer>();
+    public Transform shipMesh;
+    public Renderer currentShipRenderer;
     public float maxTilt;
 
     Vector3 _mousePos;
@@ -21,13 +22,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void Setup()
     {
-        _ships = shipsContainer.GetComponentsInChildren<MeshRenderer>();
+        _ships.Clear();
+        for (int i = 0; i < shipsContainer.childCount; i++)
+        {
+            _ships.Add(shipsContainer.GetChild(i).GetComponent<MeshRenderer>());
+        }
         
         foreach(MeshRenderer m in _ships)
         {
             if(m.gameObject.activeSelf)
             {
-                _shipMesh = m.transform;
+                shipMesh = m.transform;
+                currentShipRenderer = m;
             }
         }
     }
@@ -59,14 +65,14 @@ public class PlayerMovement : MonoBehaviour
         float distX = mousePos.x - transform.position.x;
         float distZ = mousePos.z - transform.position.z;
 
-        _shipMesh.transform.eulerAngles = new Vector3 (maxTilt * -distZ, _defaultRotation.y, maxTilt * distX);
+        shipMesh.transform.eulerAngles = new Vector3 (maxTilt * -distZ, _defaultRotation.y, maxTilt * distX);
     }
 
     public void ResetTilt()
     {
-        if(_shipMesh)
+        if(shipMesh)
         {
-            _shipMesh.transform.eulerAngles = _defaultRotation;
+            shipMesh.transform.eulerAngles = _defaultRotation;
         }
     }
 }

@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 6735306134253366108}
   - component: {fileID: 3515311728436544656}
   - component: {fileID: 4502856332864866543}
+  - component: {fileID: 5269781448106420410}
   - component: {fileID: 8078661103825313337}
   m_Layer: 13
   m_Name: BossStates
@@ -151,6 +152,7 @@ MonoBehaviour:
   player: {fileID: 0}
   stateDuration: 3
   possibleConnections: []
+  useTimer: 0
   canonWeapon: {fileID: 1835880425930827847}
   movementSpeed: 4
   targetX: 7
@@ -177,6 +179,25 @@ MonoBehaviour:
   - {fileID: 83373204818244680}
   rotationSpeed: 25
   rotationAngle: 70
+--- !u!114 &5269781448106420410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294303273540976992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3ecbaee3f8fc44582cf2681effc6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  stateDuration: 6
+  possibleConnections: []
+  useTimer: 1
+  canonWeapon: {fileID: 8871514352961806184}
+  movementSpeed: 3
+  targetX: 6
 --- !u!114 &8078661103825313337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +220,56 @@ MonoBehaviour:
   returnSpeed: 8
   returnRotation: 80
   lookingTime: 2
+--- !u!1 &2783740136606752089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7719747998945589558}
+  - component: {fileID: 6377621711593265396}
+  m_Layer: 0
+  m_Name: BombCanon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7719747998945589558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783740136606752089}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3689215466055226625}
+  m_Father: {fileID: 5296563044671977192}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6377621711593265396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783740136606752089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e864adf18ee1b94a8cb206efbde559d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateOnAwake: 1
+  bulletPrefab: {fileID: 1071454446319064821, guid: 20862e861f75f984dbe93654a19f10c0,
+    type: 3}
+  amount: 3
+  spawnedBullets: []
 --- !u!1 &3401584675556442846
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +495,7 @@ Transform:
   - {fileID: 7994196945312167479}
   - {fileID: 5710941051714775531}
   - {fileID: 5158994514606438222}
+  - {fileID: 7719747998945589558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -451,6 +523,7 @@ MonoBehaviour:
   sDeath: {fileID: 8074568719016916566}
   sSideMovement: {fileID: 6735306134253366108}
   sCanonAttack: {fileID: 3515311728436544656}
+  sBombsAttack: {fileID: 5269781448106420410}
   sMultipleAttack: {fileID: 4502856332864866543}
   sHeadBashAttack: {fileID: 8078661103825313337}
 --- !u!65 &5296563044671977198
@@ -624,7 +697,7 @@ GameObject:
   - component: {fileID: 5158994514606438222}
   - component: {fileID: 2308419682063398122}
   m_Layer: 0
-  m_Name: BigCannon
+  m_Name: BigCanon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,6 +736,53 @@ MonoBehaviour:
     type: 3}
   amount: 7
   spawnedBullets: []
+--- !u!1 &7810265177542902015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3689215466055226625}
+  - component: {fileID: 8871514352961806184}
+  m_Layer: 0
+  m_Name: BombWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3689215466055226625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810265177542902015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7719747998945589558}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8871514352961806184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810265177542902015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3886354fe91245040a1f3c18f5f9eebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnStart: 0
+  shootTimer: 1
+  bulletPool: {fileID: 6377621711593265396}
 --- !u!1 &8270522743471935204
 GameObject:
   m_ObjectHideFlags: 0

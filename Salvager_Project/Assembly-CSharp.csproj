@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Enemies\Scripts\Bosses\BossAlpha.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BossEpsilon.cs" />
     <Compile Include="Assets\UI\Scripts\GlossaryUI.cs" />
     <Compile Include="Assets\UI\Scripts\BackgroundWarnings.cs" />
     <Compile Include="Assets\Player\Scripts\PlayerColorSelector.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Enemies\Scripts\EnemyShooter.cs" />
     <Compile Include="Assets\General\Scripts\EffectsHandler.cs" />
     <Compile Include="Assets\General\Scripts\Weapons\Bullet.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BossDelta.cs" />
     <Compile Include="Assets\UI\Scripts\GlossaryItem.cs" />
     <Compile Include="Assets\Player\Scripts\PowerUps\PerkPowerSpikes.cs" />
     <Compile Include="Assets\Enemies\Scripts\EnemyShield.cs" />
@@ -90,7 +92,9 @@
     <Compile Include="Assets\Items\ItemSpawner.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BossState.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BState_SideMovement.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BossProtector.cs" />
     <Compile Include="Assets\Enemies\Scripts\EnemyStraight.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BossGamma.cs" />
     <Compile Include="Assets\General\Scripts\CameraShake.cs" />
     <Compile Include="Assets\UI\Scripts\ScoreText.cs" />
     <Compile Include="Assets\Player\Scripts\PowerUps\PowerShield.cs" />
@@ -119,10 +123,11 @@
     <Compile Include="Assets\General\Scripts\K.cs" />
     <Compile Include="Assets\Player\Scripts\PowerUps\PowerBomber.cs" />
     <Compile Include="Assets\Enemies\Scripts\EnemyTeleporter.cs" />
-    <Compile Include="Assets\Enemies\Scripts\Bosses\BossGamma.cs" />
-    <Compile Include="Assets\Enemies\Scripts\Bosses\BossDelta.cs" />
-    <Compile Include="Assets\Enemies\Scripts\Bosses\BossEpsilon.cs" />
-    <Compile Include="Assets\Enemies\Scripts\Bosses\BossProtector.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BossProtectorManager.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BState_MoveAround.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BState_AlignProtectors.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BState_ShootProtectors.cs" />
+    <Compile Include="Assets\Enemies\Scripts\Bosses\BState_ExpandProtectors.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\General\TextMesh Pro\Shaders\TMPro.cginc" />

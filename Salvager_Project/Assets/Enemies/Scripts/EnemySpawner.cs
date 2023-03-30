@@ -170,9 +170,9 @@ public class EnemySpawner : MonoBehaviour
 
         EventHandler.instance.BossIncoming();
 
-        //int random = Random.Range(0, bosses.Count);
+        int randomBoss = Random.Range(0, bosses.Count);
 
-        Boss newBoss = Instantiate(bosses[0], transform.parent);
+        Boss newBoss = Instantiate(bosses[randomBoss], transform.parent);
         newBoss.transform.position = transform.position;
         newBoss.transform.rotation = transform.rotation;
         newBoss.player = player;

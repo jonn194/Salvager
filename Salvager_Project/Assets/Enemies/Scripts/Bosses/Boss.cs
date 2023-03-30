@@ -29,7 +29,7 @@ public class Boss : MonoBehaviour
     public BossState sDeath;
     protected BossState _currentState;
 
-    private void Start()
+    public virtual void Start()
     {
         //set base values
         _originalTint = mesh.material.GetColor("_EmissionColor");
@@ -51,7 +51,7 @@ public class Boss : MonoBehaviour
         //set connections
     }
 
-    private void Update()
+    public virtual void Update()
     {
         _currentState.UpdateState();
     }
@@ -137,7 +137,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void DestroyBoss()
+    public virtual void DestroyBoss()
     {
         GameManager.instance.currentScore += score;
         EventHandler.instance.LevelUp();
