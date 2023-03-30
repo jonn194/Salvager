@@ -13,4 +13,5 @@ public class K : MonoBehaviour
     public static int LAYER_ENEMY_SERPENT = 12;
     public static int LAYER_BOSS = 13;
     public static int LAYER_ENEMY_SHIELD = 14;
+    public static int LAYER_BOSS_PROTECTOR = 15;
 }

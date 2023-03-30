@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Singleton")]
     public static GameManager instance;
+    public bool gameStarted;
 
     [Header("Stats")]
     public int scrapAmount;

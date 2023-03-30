@@ -575,10 +575,13 @@ MonoBehaviour:
   score: 20
   moveSpeed: 5
   destroyPosition: -20
+  reinforceLevel: 0
   player: {fileID: 0}
+  itemSpawner: {fileID: 0}
   spawner: {fileID: 0}
   verticalTime: 1
   horizontalTime: 1
+  bulletPool: {fileID: 2247857454469505161}
 --- !u!114 &2247857454469505161
 MonoBehaviour:
   m_ObjectHideFlags: 0

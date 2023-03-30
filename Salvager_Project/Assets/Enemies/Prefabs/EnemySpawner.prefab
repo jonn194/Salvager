@@ -64,6 +64,8 @@ MonoBehaviour:
   - {fileID: 6231394660449888666, guid: 2dce1ff4ace273c42aea0bbe1cdfcec4, type: 3}
   bosses:
   - {fileID: 719481252475137962, guid: 89573d989a3eda64fa3d112ce9f010a3, type: 3}
+  - {fileID: 4264090731186471378, guid: 8e8b3d8b3adfcaa43a4fc25e162c986e, type: 3}
+  - {fileID: 7743361342890023692, guid: 4ee4f746a5216dd48b8b211a1606e07e, type: 3}
   enemiesDestroyedByPlayer: 0
   currentDificulty: 0
   frequencyOffset: 0.2

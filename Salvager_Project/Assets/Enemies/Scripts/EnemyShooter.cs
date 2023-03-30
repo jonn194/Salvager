@@ -7,6 +7,7 @@ public class EnemyShooter : Enemy
     [Header("Shooter")]
     public float verticalTime;
     public float horizontalTime;
+    public BulletPool bulletPool;
 
     float _direction = 1;
 
@@ -72,7 +73,7 @@ public class EnemyShooter : Enemy
     public override void DestroyEnemy(bool byPlayer)
     {
         StopAllCoroutines();
-
+        bulletPool.ClearAll();
         base.DestroyEnemy(byPlayer);
     }
 }

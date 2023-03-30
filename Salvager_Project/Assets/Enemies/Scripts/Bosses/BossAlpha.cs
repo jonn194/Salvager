@@ -8,8 +8,11 @@ public class BossAlpha : Boss
     [Header("Boss Alpha")]
     public BossState sSideMovement;
     public BossState sCanonAttack;
+    public BossState sBombsAttack;
     public BossState sMultipleAttack;
     public BossState sHeadBashAttack;
+
+    public List<BulletPool> bulletPools = new List<BulletPool>();
 
     public override void SetStatesConnections()
     {
@@ -19,19 +22,32 @@ public class BossAlpha : Boss
         {
             sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
 
-            sSideMovement.possibleConnections = new List<BossState>() { sCanonAttack, sMultipleAttack };
+            sSideMovement.possibleConnections = new List<BossState>() { sCanonAttack, sMultipleAttack, sBombsAttack };
 
-            sCanonAttack.possibleConnections = new List<BossState>() { sSideMovement, sMultipleAttack };
+            sCanonAttack.possibleConnections = new List<BossState>() { sSideMovement, sMultipleAttack, sBombsAttack };
 
-            sMultipleAttack.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack };
+            sBombsAttack.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack, sMultipleAttack };
 
-            sHeadBashAttack.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack, sMultipleAttack };
+            sMultipleAttack.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack, sBombsAttack };
+
+            sHeadBashAttack.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack, sBombsAttack, sMultipleAttack };
         }
         else
         {
             sSideMovement.possibleConnections.Add(sHeadBashAttack);
             sCanonAttack.possibleConnections.Add(sHeadBashAttack);
+            sBombsAttack.possibleConnections.Add(sHeadBashAttack);
             sMultipleAttack.possibleConnections.Add(sHeadBashAttack);
         }
+    }
+
+    public override void DestroyBoss()
+    {
+        foreach(BulletPool b in bulletPools)
+        {
+            b.ClearAll();
+        }
+
+        base.DestroyBoss();
     }
 }

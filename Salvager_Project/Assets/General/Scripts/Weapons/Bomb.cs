@@ -58,6 +58,7 @@ public class Bomb : Bullet
             }
             else if (other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
             {
+                Deactivate();
             }
         }
     }
