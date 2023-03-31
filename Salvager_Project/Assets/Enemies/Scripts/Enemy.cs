@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     public int reinforceLevel;
 
     int _lifeReinforcement = 1;
+    bool _hasScraps;
 
     [Header("Dependencies")]
     public PlayerStats player;
@@ -34,6 +35,16 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
+        float randomScraps = Random.Range(0, 100);
+
+        if(randomScraps <= 50)
+        {
+            _hasScraps = true;
+            Material newMat = new Material(mesh.material);
+            newMat.SetFloat("_Scraps", 1);
+            mesh.material = newMat;
+        }
+
         //set life adding the reinforcement level
         if(_lifeReinforcement * reinforceLevel <= maxLife * 2)
         {
@@ -45,6 +56,7 @@ public class Enemy : MonoBehaviour
         }
         //set original emission
         _originalTint = mesh.material.GetColor("_EmissionColor");
+
         //set color based on reinforcement
         mesh.material.SetFloat("_HueShift", _hueReinforcement * reinforceLevel);
     }
@@ -64,7 +76,14 @@ public class Enemy : MonoBehaviour
         StopAllCoroutines();
         if(byPlayer)
         {
-            itemSpawner.SpawnItem(transform);
+            if(_hasScraps)
+            {
+                itemSpawner.SpawnScraps(transform);
+            }
+            else
+            {
+                itemSpawner.SpawnItem(transform);
+            }
         }
         spawner.RemoveEnemy(byPlayer);
         Destroy(gameObject);

@@ -30,6 +30,7 @@ public class PlayerShipSelector : MonoBehaviour
     public TMP_Text colorValueTxt;
 
     [Header("Selector")]
+    public ParticleSystem selectorEffect;
     float _maxSelectorTime = 0.3f;
     float _currentSelectorTime;
 
@@ -69,6 +70,8 @@ public class PlayerShipSelector : MonoBehaviour
                     _ships[i].material.SetColor("_Tint", lockedColor);
                 }
             }
+            
+            selectorEffect.transform.position =  new Vector3(_ships[GameManager.instance.currentShip].transform.position.x, selectorEffect.transform.position.y, selectorEffect.transform.position.z);
         }
     }
 
@@ -83,6 +86,8 @@ public class PlayerShipSelector : MonoBehaviour
                 _thrusters[i].gameObject.SetActive(false);
             }
         }
+
+        selectorEffect.Stop();
     }
 
     public void ActivateShips()
@@ -93,6 +98,8 @@ public class PlayerShipSelector : MonoBehaviour
             _thrusters[i].gameObject.SetActive(true);
             _thrusters[i].Play();
         }
+
+        selectorEffect.Play();
     }
 
     public void MoveSelector(int direction)
