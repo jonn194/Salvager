@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BState_InOutLevel : BossState
 {
+    [Header("In Out State")]
     public float weaponMovementSpeed = 5;
     public float mainMovementSpeed = 3;
     public float retreivePosition = 20;
@@ -23,7 +24,7 @@ public class BState_InOutLevel : BossState
         base.ExecuteState();
         
         _sequence = 0;
-        _originalPos = transform.parent.position.y;
+        _originalPos = transform.parent.position.z;
         _currentlyMoving.Add(0);
 
         for (int i = 0; i < weapons.Count; i++)

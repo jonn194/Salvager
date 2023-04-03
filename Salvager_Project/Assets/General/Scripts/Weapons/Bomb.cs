@@ -24,9 +24,9 @@ public class Bomb : Bullet
         {
             foreach(Collider c in detection)
             {
-                if (gameObject.layer == K.LAYER_PLAYER_BULLET)
+                if (c.TryGetComponent(out IDamageable target))
                 {
-                    c.gameObject.GetComponent<Enemy>().GetDamage(1);
+                    target.GetDamage(damage);
                 }
                 else if(gameObject.layer == K.LAYER_ENEMY_BULLET)
                 {

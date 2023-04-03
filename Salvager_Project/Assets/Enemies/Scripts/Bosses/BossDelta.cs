@@ -31,17 +31,17 @@ public class BossDelta : Boss
     {
         if (currentLife > maxLife / 2)
         {
-            sEnterLevel.possibleConnections = new List<BossState>() { sInOutLevel };
+            sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
 
-            /*sSideMovement.possibleConnections = new List<BossState>() { sInOutLevel, sStretchAttack, sSwingAttack };
+            sSideMovement.possibleConnections = new List<BossState>() { sInOutLevel, sStretchAttack, sSwipeAttack };
 
-            sInOutLevel.possibleConnections = new List<BossState>() { sSideMovement, sStretchAttack, sSwingAttack };
+            sInOutLevel.possibleConnections = new List<BossState>() { sSideMovement, sStretchAttack, sSwipeAttack };
 
-            sStretchAttack.possibleConnections = new List<BossState>() { sSideMovement, sInOutLevel, sSwingAttack };
+            sStretchAttack.possibleConnections = new List<BossState>() { sSideMovement, sInOutLevel, sSwipeAttack };
 
-            sSwingAttack.possibleConnections = new List<BossState>() { sSideMovement, sInOutLevel, sStretchAttack };
+            sSwipeAttack.possibleConnections = new List<BossState>() { sSideMovement, sInOutLevel, sStretchAttack };
 
-            sTailAttack.possibleConnections = new List<BossState>() { sSideMovement, sInOutLevel, sStretchAttack, sSwingAttack };*/
+            sTailAttack.possibleConnections = new List<BossState>() { sSideMovement, sInOutLevel, sStretchAttack, sSwipeAttack };
         }
         else
         {
@@ -90,5 +90,23 @@ public class BossDelta : Boss
         sInOutLevel.weapons = spawnedWeapons;
         sSwipeAttack.weapon = spawnedWeapons[0];
         sTailAttack.weapon = spawnedWeapons[0];
+    }
+    public override void DestroyBoss()
+    {
+        foreach(BossDeltaWeapon weapon in spawnedWeapons)
+        {
+            Destroy(weapon);
+        }
+
+        spawnedWeapons.Clear();
+
+        foreach (BossPiece piece in spawnedPieces)
+        {
+            Destroy(piece);
+        }
+
+        spawnedPieces.Clear();
+
+        base.DestroyBoss();
     }
 }

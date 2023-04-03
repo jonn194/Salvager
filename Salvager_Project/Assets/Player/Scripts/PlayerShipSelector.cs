@@ -87,7 +87,9 @@ public class PlayerShipSelector : MonoBehaviour
             }
         }
 
+        //selector effect
         selectorEffect.Stop();
+        selectorEffect.gameObject.SetActive(false);
     }
 
     public void ActivateShips()
@@ -99,6 +101,8 @@ public class PlayerShipSelector : MonoBehaviour
             _thrusters[i].Play();
         }
 
+        //selector effect
+        selectorEffect.gameObject.SetActive(true);
         selectorEffect.Play();
     }
 

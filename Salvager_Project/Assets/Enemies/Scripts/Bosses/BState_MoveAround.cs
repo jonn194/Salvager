@@ -22,13 +22,6 @@ public class BState_MoveAround : BossState
 
     public override void UpdateState()
     {
-        Vector3 direction = targetLocations[_currentIndex] - transform.parent.position;
-        Quaternion toRotation = Quaternion.LookRotation(direction);
-
-        transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, 10 * Time.deltaTime);
-
-        transform.parent.position += transform.forward * movementSpeed * Time.deltaTime;
-
         if(Vector3.Distance(transform.parent.position, targetLocations[_currentIndex]) <= 0.5f)
         {
             if(_currentIndex < targetLocations.Count - 1)
@@ -41,18 +34,27 @@ public class BState_MoveAround : BossState
             }
 
         }
+        else
+        {
+            Vector3 direction = targetLocations[_currentIndex] - transform.parent.position;
+            Quaternion toRotation = Quaternion.LookRotation(direction);
+
+            transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, 5 * Time.deltaTime);
+
+            transform.parent.position += transform.forward * movementSpeed * Time.deltaTime;
+        }
     }
 
     void ResetRotation()
     {
-        if(Vector3.Distance(transform.parent.eulerAngles, _originalRotation) <= 1f)
+        if(Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 1f)
         {
             transform.parent.eulerAngles = _originalRotation;
             FinishState();
         }
         else
         {
-            Vector3 targetRotation = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, 10 * Time.deltaTime);
+            Vector3 targetRotation = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, 5 * Time.deltaTime);
             transform.parent.eulerAngles = targetRotation;
         }
     }

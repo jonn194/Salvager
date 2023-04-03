@@ -58,6 +58,7 @@ Material:
     - _HueOffset: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Resolution: 64
     - _ShadowIntensity: 1
     - _SquareDensity: 100
     - _SrcBlend: 5
@@ -68,6 +69,13 @@ Material:
     m_Colors:
     - _Color: {r: 2.9960785, g: 1.9764706, b: 0, a: 1}
     - _Hues: {r: 0, g: 0.25, b: 0.5, a: 0.75}
+    - _MainColor: {r: 1.4980392, g: 0.9882353, b: 0, a: 1}
+    - _MainPatternSpeed: {r: -0.5, g: 0.2, b: 0, a: 0}
+    - _MainSpeed: {r: -0.5, g: 0.2, b: 0, a: 0}
+    - _MainTiling: {r: 0.5, g: 1, b: 0, a: 0}
+    - _SecondaryColor: {r: 1.4980392, g: 0.4, b: 0, a: 1}
+    - _SecondarySpeed: {r: -2, g: 0, b: 0, a: 0}
+    - _SecondaryTiling: {r: 1, g: 1, b: 0, a: 0}
     - _ShadowColor: {r: 0, g: 0.28101563, b: 1, a: 0}
     - _Tint: {r: 0, g: 6.6509805, b: 8, a: 0}
   m_BuildTextureStacks: []

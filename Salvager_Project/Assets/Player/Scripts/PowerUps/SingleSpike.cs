@@ -14,14 +14,16 @@ public class SingleSpike : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == K.LAYER_ENEMY)
+        if (other.gameObject.layer == K.LAYER_ENEMY || other.gameObject.layer == K.LAYER_ENEMY_SERPENT || other.gameObject.layer == K.LAYER_BOSS || other.gameObject.layer == K.LAYER_BOSS_PROTECTOR)
         {
-            other.GetComponent<Enemy>().GetDamage(damage);
-            Deactivate();
+            if (other.TryGetComponent(out IDamageable target))
+            {
+                target.GetDamage(damage);
+                Deactivate();
+            }
         }
-        else if (other.gameObject.layer == K.LAYER_ENEMY_SERPENT)
+        else if (other.gameObject.layer == K.LAYER_ENEMY_SHIELD)
         {
-            other.GetComponent<EnemySerpentPiece>().DamagePiece(damage);
             Deactivate();
         }
     }

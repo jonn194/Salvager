@@ -110,7 +110,7 @@ MonoBehaviour:
   - {x: 7, y: 0, z: -10}
   - {x: 0, y: 0, z: -20}
   - {x: -7, y: 0, z: -10}
-  movementSpeed: 10
+  movementSpeed: 15
 --- !u!114 &4016224884067257730
 MonoBehaviour:
   m_ObjectHideFlags: 0

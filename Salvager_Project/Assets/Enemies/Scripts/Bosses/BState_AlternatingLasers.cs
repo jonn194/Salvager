@@ -69,6 +69,14 @@ public class BState_AlternatingLasers : BossState
 
     public override void FinishState()
     {
+        foreach (EnemyLaser l in set01)
+        {
+            l.StopLaser();
+        }
+        foreach (EnemyLaser l in set02)
+        {
+            l.StopLaser();
+        }
         StopAllCoroutines();
         base.FinishState();
     }

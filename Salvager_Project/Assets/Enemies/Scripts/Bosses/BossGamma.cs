@@ -35,7 +35,7 @@ public class BossGamma : Boss
 
         if (currentLife > maxLife / 2)
         {
-            sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
+            sEnterLevel.possibleConnections = new List<BossState>() { sMoveAround };
 
             sSideMovement.possibleConnections = new List<BossState>() { sMoveAround, sAlignProtectors, sShootProtectors };
 

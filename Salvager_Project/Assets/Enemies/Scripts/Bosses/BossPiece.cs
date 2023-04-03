@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossPiece : MonoBehaviour
+public class BossPiece : MonoBehaviour, IDamageable
 {
     public BossDelta mainBoss;
     public Joint joint;

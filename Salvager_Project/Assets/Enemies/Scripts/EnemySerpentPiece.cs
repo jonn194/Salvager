@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySerpentPiece : MonoBehaviour
+public class EnemySerpentPiece : MonoBehaviour, IDamageable
 {
     [Header("Visuals")]
     public ParticleSystem hitParticle;
@@ -27,11 +27,11 @@ public class EnemySerpentPiece : MonoBehaviour
         mesh.material.SetFloat("_HueShift", _hueReinforcement * reinforceLevel);
     }
 
-    public void DamagePiece(int damage)
+    public void GetDamage(int dmg)
     {
         hitParticle.Stop();
 
-        _currentLife -= damage;
+        _currentLife -= dmg;
 
         if(_currentLife <= 0)
         {

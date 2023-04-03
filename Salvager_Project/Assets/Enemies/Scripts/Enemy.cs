@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("Visuals")]
     public Renderer mesh;
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
     {
         float randomScraps = Random.Range(0, 100);
 
-        if(randomScraps <= 50)
+        if(randomScraps <= 25)
         {
             _hasScraps = true;
             Material newMat = new Material(mesh.material);

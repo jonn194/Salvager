@@ -39,10 +39,14 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Preferences")]
+    public bool masterActive = true;
+    public float masterVolume;
+    public bool musicActive = true;
     public float musicVolume;
-    public bool musicMuted;
+    public bool sfxActive = true;
     public float sfxVolume;
-    public bool sfxMuted;
+    public bool postProcessActive = true;
+    public bool rumbleActive = true;
 
     private void Awake()
     {

@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     public float shootTimer = 1;
 
     public BulletPool bulletPool;
+    public ParticleSystem shootEffect;
 
     private void Start()
     {
@@ -32,6 +33,8 @@ public class Shooting : MonoBehaviour
     IEnumerator Shoot()
     {
         yield return new WaitForSeconds(shootTimer);
+        shootEffect.Stop();
+        shootEffect.Play();
         bulletPool.GetBullet(transform);
         StartCoroutine(Shoot());
     }

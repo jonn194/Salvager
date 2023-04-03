@@ -1,17 +1,95 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BState_StretchAttack : BossState
 {
+    [Header("Stretch Attack State")]
+    public float chargeSpeed = 1;
+    public float attackSpeed = 4;
+    public float holdTime = 2;
+    public Vector3 chargePosition;
+    public float maxAttackX;
+    public float maxAttackZ;
+
+    Vector3 _attackPosition;
+    Vector3 _originalPosition;
+
+    int _sequence;
+    float _currentHoldTime;
     public override void ExecuteState()
     {
         base.ExecuteState();
+        _sequence = 0;
+        _currentHoldTime = holdTime;
+        _originalPosition = transform.parent.position;
+        SetAttackPosition();
+    }
+
+    void SetAttackPosition()
+    {
+        float randomX = Random.Range(-maxAttackX, maxAttackX);
+
+        _attackPosition = new Vector3(randomX, transform.parent.position.y, maxAttackZ);
     }
 
     public override void UpdateState()
     {
-        base.UpdateState();
+        if(_sequence == 0)
+        {
+            Move(chargePosition, chargeSpeed);
+        }
+        else if (_sequence == 1)
+        {
+            Move(_attackPosition, attackSpeed);
+        }
+        else if (_sequence == 2)
+        {
+            Hold();
+        }
+        else if(_sequence == 3)
+        {
+            Move(_originalPosition, chargeSpeed);
+        }
+        else if(_sequence >= 4)
+        {
+            FinishState();
+        }
+    }
+
+    void Move(Vector3 target, float speed)
+    {
+        Vector3 targetPos = Vector3.Lerp(transform.parent.position, target, speed * Time.deltaTime);
+
+        transform.parent.position = targetPos;
+
+        if(CheckDistances(target, transform.parent.position))
+        {
+            _sequence++;
+        }
+    }
+
+    void Hold()
+    {
+        _currentHoldTime -= Time.deltaTime;
+
+        if(_currentHoldTime <= 0)
+        {
+            _sequence++;
+        }
+    }
+
+    bool CheckDistances(Vector3 a, Vector3 b)
+    {
+        if(Vector3.Distance(a, b) <= 0.5f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override void FinishState()

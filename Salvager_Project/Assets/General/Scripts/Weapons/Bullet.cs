@@ -58,29 +58,17 @@ public class Bullet : MonoBehaviour
     {
         if(gameObject.layer == K.LAYER_PLAYER_BULLET)
         {
-            if(other.gameObject.layer == K.LAYER_ENEMY)
+            if (other.gameObject.layer == K.LAYER_ENEMY || other.gameObject.layer == K.LAYER_ENEMY_SERPENT || other.gameObject.layer == K.LAYER_BOSS || other.gameObject.layer == K.LAYER_BOSS_PROTECTOR)
             {
-                other.GetComponent<Enemy>().GetDamage(damage);
-                AddHits();
-            }
-            else if (other.gameObject.layer == K.LAYER_ENEMY_SERPENT)
-            {
-                other.GetComponent<EnemySerpentPiece>().DamagePiece(damage);
-                AddHits();
-            }
-            else if(other.gameObject.layer == K.LAYER_BOSS)
-            {
-                other.GetComponent<Boss>().GetDamage(damage);
-                AddHits();
+                if(other.TryGetComponent(out IDamageable target))
+                {
+                    target.GetDamage(damage);
+                    AddHits();
+                }
             }
             else if (other.gameObject.layer == K.LAYER_ENEMY_SHIELD)
             {
                 Deactivate();
-            }
-            else if (other.gameObject.layer == K.LAYER_BOSS_PROTECTOR)
-            {
-                other.GetComponent<BossProtector>().GetDamage(damage);
-                AddHits();
             }
         }
         else if(gameObject.layer == K.LAYER_ENEMY_BULLET)

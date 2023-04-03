@@ -136,6 +136,12 @@ MonoBehaviour:
   player: {fileID: 0}
   stateDuration: 0
   possibleConnections: []
+  chargeSpeed: 2
+  attackSpeed: 4
+  holdTime: 1
+  chargePosition: {x: 0, y: 0, z: 17}
+  maxAttackX: 7
+  maxAttackZ: -5
 --- !u!114 &8016507077460304266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +157,8 @@ MonoBehaviour:
   player: {fileID: 0}
   stateDuration: 0
   possibleConnections: []
+  spawnPosition: {x: 12, y: 0, z: 15}
+  rotationSpeed: 100
   weapon: {fileID: 0}
 --- !u!114 &7290269340501664117
 MonoBehaviour:
@@ -168,6 +176,28 @@ MonoBehaviour:
   stateDuration: 0
   possibleConnections: []
   weapon: {fileID: 0}
+  attackSpeed: 9
+  holdTime: 1
+  originPositions:
+  - {x: -5, y: 0, z: -20}
+  - {x: 5, y: 0, z: -20}
+  - {x: -12, y: 0, z: -5}
+  - {x: 12, y: 0, z: -5}
+  originRotations:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: -90, z: 0}
+  - {x: 0, y: 90, z: 0}
+  warningPositions:
+  - {x: -5, y: 0, z: -17}
+  - {x: 5, y: 0, z: -17}
+  - {x: 9, y: 0, z: -5}
+  - {x: -9, y: 0, z: -5}
+  attackPositions:
+  - {x: -5, y: 0, z: 0}
+  - {x: 5, y: 0, z: 0}
+  - {x: 0, y: 0, z: -5}
+  - {x: 0, y: 0, z: -5}
 --- !u!1 &5296563044671977188
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +264,7 @@ MonoBehaviour:
   sSwipeAttack: {fileID: 8016507077460304266}
   sTailAttack: {fileID: 7290269340501664117}
   headRB: {fileID: 1475557427571271209}
-  piecesAmount: 5
+  piecesAmount: 7
   pieceOffset: 3
   originalPiece: {fileID: 1679863893477692298, guid: 571854ce1aa84ec4b998097148c3ebcd,
     type: 3}
