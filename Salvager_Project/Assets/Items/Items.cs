@@ -40,11 +40,11 @@ public class Items : MonoBehaviour
             switch(type)
             {
                 case ItemType.scraps:
-                    GameManager.instance.scrapAmount++;
+                    GameManager.instance.currentScraps++;
                     break;
 
                 case ItemType.perk:
-                    GameManager.instance.perksAmount++;
+                    GameManager.instance.currentPerkCores++;
                     break;
 
 

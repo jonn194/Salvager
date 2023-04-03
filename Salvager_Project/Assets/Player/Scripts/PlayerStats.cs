@@ -22,10 +22,10 @@ public class PlayerStats : MonoBehaviour
     public ParticleSystem deadVFX;
     public EffectsHandler postprocess;
     [ColorUsageAttribute(true, true)] public Color damageColor;
-    [ColorUsageAttribute(true, true)] Color _originalColor;
+    [ColorUsageAttribute(true, true)] Color _originalColor = Color.white;
 
     Renderer _currentShip;
-    float _invulnerableTime;
+    float _invulnerableTime = 1;
 
     private void Start()
     {
@@ -58,7 +58,7 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator InvulnerableTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_invulnerableTime);
         _currentShip.material.SetColor("_Tint", _originalColor);
         damageCollider.enabled = true;
     }
@@ -67,7 +67,6 @@ public class PlayerStats : MonoBehaviour
     {
         deadVFX.Play();
 
-        _currentShip.material.SetColor("_Tint", _originalColor);
         movement.enabled = false;
         weapon.StopShooting();
         weapon.bulletPool.ClearAll();
@@ -82,6 +81,7 @@ public class PlayerStats : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         playerDead = true;
         EventHandler.instance.HPChanged();
+        _currentShip.material.SetColor("_Tint", _originalColor);
     }
 
     public void StartPlayer(Vector3 position)

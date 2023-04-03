@@ -53,6 +53,9 @@ public class BState_LaserSearch : BossState
     public override void FinishState()
     {
         StopAllCoroutines();
+
+        laser.StopLaser();
+
         base.FinishState();
     }
 }

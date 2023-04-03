@@ -12,6 +12,7 @@ public class PlayerShipSelector : MonoBehaviour
     public Button buttonLeft;
     public Button buttonRight;
     public TMP_Text valueTxt;
+    public TMP_Text scrapsTxt;
 
     [Header("Ships")]
     public Transform shipsContainer;
@@ -51,6 +52,7 @@ public class PlayerShipSelector : MonoBehaviour
             _thrusters.Add(t.GetComponent<ParticleSystem>());
         }
 
+        UpdateScrapsUI();
         ColorButtonsSetup();
         DeactivateShips();
     }
@@ -73,6 +75,11 @@ public class PlayerShipSelector : MonoBehaviour
             
             selectorEffect.transform.position =  new Vector3(_ships[GameManager.instance.currentShip].transform.position.x, selectorEffect.transform.position.y, selectorEffect.transform.position.z);
         }
+    }
+
+    void UpdateScrapsUI()
+    {
+        scrapsTxt.text = "Scraps: " + GameManager.instance.scrapAmount.ToString();
     }
 
     public void DeactivateShips()
@@ -104,6 +111,7 @@ public class PlayerShipSelector : MonoBehaviour
         //selector effect
         selectorEffect.gameObject.SetActive(true);
         selectorEffect.Play();
+        UpdateScrapsUI();
     }
 
     public void MoveSelector(int direction)
@@ -198,6 +206,8 @@ public class PlayerShipSelector : MonoBehaviour
     {
         GameManager.instance.scrapAmount -= GameManager.instance.shipsPrices[_currentShip];
         GameManager.instance.shipsState[_currentShip] = true;
+
+        UpdateScrapsUI();
     }
 
 
@@ -295,5 +305,6 @@ public class PlayerShipSelector : MonoBehaviour
         }
 
         GameManager.instance.availableColors[_currentShip, _currentColor] = true;
+        UpdateScrapsUI();
     }
 }

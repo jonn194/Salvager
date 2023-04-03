@@ -88,6 +88,6 @@ public class SettingsUI : MonoBehaviour
 
     public void UpdateRumble()
     {
-
+        GameManager.instance.rumbleActive = rumbleToggle.isOn;
     }
 }

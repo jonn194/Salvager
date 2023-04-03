@@ -10,10 +10,14 @@ public class GameManager : MonoBehaviour
     public bool gameStarted;
 
     [Header("Stats")]
+    public int highScore;
     public int scrapAmount;
     public int perksAmount;
-    public int highScore;
-    public int currentScore;
+
+    public int currentScore = 0;
+    public int currentScraps = 0;
+    public int currentPerkCores = 0;
+
 
     [Header("Ships")]
     public List<bool> shipsState = new List<bool>();

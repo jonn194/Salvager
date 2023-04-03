@@ -7,6 +7,8 @@ using System.Linq;
 
 public class PerksUI : MonoBehaviour
 {
+    public TMP_Text perkCoresTxt;
+    
     [Header("Perks Buttons")]
     public RectTransform buttonsContainer;
     public List<Button> _buttons;
@@ -29,6 +31,7 @@ public class PerksUI : MonoBehaviour
     {
         ButtonSetup();
         ShowPerk(_buttons[0]);
+        UpdatePerksUI();
     }
 
     void ButtonSetup()
@@ -42,6 +45,8 @@ public class PerksUI : MonoBehaviour
             _items.Add(_buttons[i].gameObject.GetComponent<GlossaryItem>());
             _buttons[i].transform.GetChild(0).GetComponentInChildren<Image>().sprite = _items[i].itemIcon;
         }
+
+        UpdatePerksUI();
     }
 
     void ShowPerk(Button btn)
@@ -73,6 +78,12 @@ public class PerksUI : MonoBehaviour
         currentPerkImage.sprite = _items[_clickIndex].itemIcon;
         titleTxt.text = _items[_clickIndex].itemName;
         descriptionTxt.text = _items[_clickIndex].description;
+        UpdatePerksUI();
+    }
+
+    void UpdatePerksUI()
+    {
+        perkCoresTxt.text = "Cores: " + GameManager.instance.perksAmount.ToString();
     }
 
     public void SelectPerk()
@@ -85,5 +96,6 @@ public class PerksUI : MonoBehaviour
     {
         GameManager.instance.perksAmount -= GameManager.instance.perksPrices[_clickIndex];
         GameManager.instance.perksState[_clickIndex] = true;
+        UpdatePerksUI();
     }
 }

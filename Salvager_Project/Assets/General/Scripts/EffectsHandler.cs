@@ -23,11 +23,23 @@ public class EffectsHandler : MonoBehaviour
 
     public void PlayerHitEffects()
     {
+        //shake camera
         camShake.StartShake();
 
-        _chromaticAberration.intensity.value = 0.5f;
+        //apply aberration
+        if(GameManager.instance.postProcessActive)
+        {
+            _chromaticAberration.intensity.value = 0.5f;
 
-        StartCoroutine(ResetAberration());
+            StartCoroutine(ResetAberration());
+        }
+
+        //vibrate phone
+        if(GameManager.instance.rumbleActive)
+        {
+            Handheld.Vibrate();
+        }
+
     }
 
     IEnumerator ResetAberration()

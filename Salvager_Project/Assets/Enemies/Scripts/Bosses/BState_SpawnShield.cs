@@ -53,9 +53,10 @@ public class BState_SpawnShield : BossState
 
     public override void FinishState()
     {
-        foreach(Transform t in shields)
+        for (int i = 0; i < shields.Count; i++)
         {
-            t.gameObject.SetActive(false);
+            shields[i].transform.position = _originalPositions[i];
+            shields[i].gameObject.SetActive(false);
         }
 
         base.FinishState();

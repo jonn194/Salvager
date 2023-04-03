@@ -24,7 +24,9 @@ public class GameState : MonoBehaviour
     public Transform tempParent;
 
     [Header("UI")]
-    public UIManager UIManager;
+    public Canvas titleCanvas;
+    public Canvas gameplayCanvas;
+    public Canvas endgameCanvas;
 
     [Header("Perks")]
     public PerksHandler perksHandler;
@@ -82,9 +84,11 @@ public class GameState : MonoBehaviour
 
         //score
         GameManager.instance.currentScore = 0;
+        GameManager.instance.currentScraps = 0;
+        GameManager.instance.currentPerkCores = 0;
 
         //UI
-        UIManager.GameplayStart();
+        GameplayStartUI();
     }
 
     public void EndGame()
@@ -102,7 +106,8 @@ public class GameState : MonoBehaviour
 
         //UI
         CheckHighScore();
-        UIManager.GameplayEnds();
+        AddRewards();
+        GameplayEndUI();
     }
 
     void CheckHighScore()
@@ -111,5 +116,23 @@ public class GameState : MonoBehaviour
         {
             GameManager.instance.highScore = GameManager.instance.currentScore;
         }
+    }
+
+    void AddRewards()
+    {
+        GameManager.instance.scrapAmount = GameManager.instance.currentScraps;
+        GameManager.instance.perksAmount = GameManager.instance.currentPerkCores;
+    }
+
+    void GameplayStartUI()
+    {
+        titleCanvas.gameObject.SetActive(false);
+        gameplayCanvas.gameObject.SetActive(true);
+    }
+
+    void GameplayEndUI()
+    {
+        gameplayCanvas.gameObject.SetActive(false);
+        endgameCanvas.gameObject.SetActive(true);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,10 @@ public class GameplayUI : MonoBehaviour
     public Image laser;
     public Image bomber;
 
+    [Header("Texts")]
+    public TMP_Text currentScoreTxt;
+    public TMP_Text currentScrapsTxt;
+    public TMP_Text currentPerksTxt;
 
     private void Start()
     {
@@ -32,6 +37,8 @@ public class GameplayUI : MonoBehaviour
     private void Update()
     {
         UpdatePowerUp();
+        UpdateScore();
+        UpdateScrapsAndPerks();
     }
 
     void UpdatePowerUp()
@@ -40,5 +47,16 @@ public class GameplayUI : MonoBehaviour
             trishot.fillAmount = (float)((items.trishot.currentLifetime * 100f) / items.trishot.maxLifetime) / 100f;
             laser.fillAmount = (float)((items.laser.currentLifetime * 100f) / items.laser.maxLifetime) / 100f;
             bomber.fillAmount = (float)((items.bomber.currentLifetime * 100f) / items.bomber.maxLifetime) / 100f;
+    }
+
+    void UpdateScore()
+    {
+        currentScoreTxt.text = "Score: " + GameManager.instance.currentScore.ToString();
+    }
+
+    void UpdateScrapsAndPerks()
+    {
+        currentScrapsTxt.text = "Scraps: " + GameManager.instance.currentScraps.ToString();
+        currentPerksTxt.text = "Cores: " + GameManager.instance.currentPerkCores.ToString();
     }
 }

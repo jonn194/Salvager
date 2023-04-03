@@ -69,6 +69,14 @@ public class BState_LaserSwipe : BossState
     public override void FinishState()
     {
         StopAllCoroutines();
+        
+        if (_shooting)
+        {
+            lasers[0].StopLaser();
+            lasers[1].StopLaser();
+            _shooting = false;
+        }
+        
         base.FinishState();
     }
 }
