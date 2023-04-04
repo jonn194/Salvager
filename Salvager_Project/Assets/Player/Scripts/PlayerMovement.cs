@@ -40,7 +40,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        if (!GameManager.instance.gamePaused)
+        { 
+            Movement();
+        }
     }
 
     void Movement()

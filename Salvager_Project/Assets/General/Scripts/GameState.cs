@@ -48,6 +48,20 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public void PauseGame(int timeScale)
+    {
+        Time.timeScale = timeScale;
+
+        if(timeScale <= 0)
+        {
+            GameManager.instance.gamePaused = true;
+        }
+        else
+        {
+            GameManager.instance.gamePaused = false;
+        }
+    }
+
     public void Setup()
     {
         //camera

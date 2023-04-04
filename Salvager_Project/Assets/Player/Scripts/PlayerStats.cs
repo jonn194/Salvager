@@ -94,6 +94,7 @@ public class PlayerStats : MonoBehaviour
 
         currentHP = maxHP;
         EventHandler.instance.HPChanged();
+        damageCollider.enabled = true;
 
         weapon.gameObject.SetActive(true);
         weapon.StartShooting();

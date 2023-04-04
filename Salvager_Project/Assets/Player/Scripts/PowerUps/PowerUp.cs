@@ -26,6 +26,7 @@ public class PowerUp : MonoBehaviour
 
     virtual public void Deactivate()
     {
+        currentLifetime = 0;
         gameObject.SetActive(false);
     }
 }

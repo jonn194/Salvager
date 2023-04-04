@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Singleton")]
     public static GameManager instance;
     public bool gameStarted;
+    public bool gamePaused;
 
     [Header("Stats")]
     public int highScore;
