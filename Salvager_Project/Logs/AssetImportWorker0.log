@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.10f1 (1c7d0df0160b) revision 1867021'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Enterprise' Language: 'en' Physical Memory: 32705 MB
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 32451 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
+C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63341
-Successfully changed project path to: C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
-C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
+50660
+Successfully changed project path to: C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project
+C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,64 +47,180 @@ C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 126.79 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 73.88 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project/Assets
+[Subsystems] Discovering subsystems at path C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Renderer: NVIDIA GeForce RTX 3070 Ti Laptop GPU (ID=0x24a0)
     Vendor:   NVIDIA
-    VRAM:     8079 MB
-    Driver:   31.0.15.1694
+    VRAM:     8032 MB
+    Driver:   31.0.15.3141
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56612
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56156
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.147557 seconds.
+Registered in 0.004457 seconds.
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
+[usbmuxd] Send listen message
 Native extension for iOS target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 598.08 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 84.27 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  9.744 seconds
+- Completed reload, in  0.557 seconds
 Domain Reload Profiling:
-	ReloadAssembly (9745ms)
-		BeginReloadAssembly (3574ms)
+	ReloadAssembly (557ms)
+		BeginReloadAssembly (49ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (5621ms)
-			LoadAssemblies (3752ms)
+			CreateAndSetChildDomain (0ms)
+		EndReloadAssembly (432ms)
+			LoadAssemblies (48ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (1546ms)
+			SetupTypeCache (77ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (93ms)
-			SetupLoadedEditorAssemblies (3613ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (278ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (408ms)
+				InitializePlatformSupportModulesInManaged (65ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (598ms)
-				BeforeProcessingInitializeOnLoad (3ms)
-				ProcessInitializeOnLoadAttributes (1802ms)
-				ProcessInitializeOnLoadMethodAttributes (801ms)
+				RefreshPlugins (84ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (84ms)
+				ProcessInitializeOnLoadMethodAttributes (44ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 7.635326 seconds.
+Registered in 0.006615 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 84.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.248 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1249ms)
+		BeginReloadAssembly (205ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (139ms)
+		EndReloadAssembly (965ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (314ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (64ms)
+			SetupLoadedEditorAssemblies (463ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (84ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (205ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5180 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 34 unused Assets / (0.7 MB). Loaded Objects now: 5638.
+Memory consumption went from 211.0 MB to 210.3 MB.
+Total: 3.850800 ms (FindLiveObjects: 0.270900 ms CreateObjectMapping: 0.155300 ms MarkObjects: 3.219300 ms  DeleteObjects: 0.204400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 933.409485 seconds.
+  path: Assets/UI/MoreGames/Title.png
+  artifactKey: Guid(8753c898a03a76141a55d1731733ff1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/MoreGames/Title.png using Guid(8753c898a03a76141a55d1731733ff1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14124f1d00464e9ad82219a9b85494f8') in 0.096223 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.316797 seconds.
+  path: Assets/UI/MoreGames/HUE Defender Splash Screen V2.png
+  artifactKey: Guid(1d3632b542880f04bb860bd8a5de4b49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/MoreGames/HUE Defender Splash Screen V2.png using Guid(1d3632b542880f04bb860bd8a5de4b49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dcd252301869e9b5d3b14bbb1c43f14') in 0.059885 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 38.204141 seconds.
+  path: Assets/UI/MoreGames/Banner.png
+  artifactKey: Guid(7ef0b0a1049f44248a0e577adf68ebc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/MoreGames/Banner.png using Guid(7ef0b0a1049f44248a0e577adf68ebc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15bb0cf8f89bb1e5872628448d2f4334') in 0.030644 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.132236 seconds.
+  path: Assets/UI/MoreGames/Banner V2.png
+  artifactKey: Guid(d039137babfe4e34b89dd785df441869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/MoreGames/Banner V2.png using Guid(d039137babfe4e34b89dd785df441869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '380b75e9a2a9f57d59aeb12c8f4d823c') in 0.027316 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.930779 seconds.
+  path: Assets/UI/MoreGames/Title.png
+  artifactKey: Guid(8753c898a03a76141a55d1731733ff1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/MoreGames/Title.png using Guid(8753c898a03a76141a55d1731733ff1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f5ce7980cd1d66905a49d1b38d24238') in 0.207310 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.645760 seconds.
+  path: Assets/UI/MoreGames/Banner V2.png
+  artifactKey: Guid(d039137babfe4e34b89dd785df441869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/MoreGames/Banner V2.png using Guid(d039137babfe4e34b89dd785df441869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7393d4527d3530aec98c7c0895beeab') in 0.034564 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.439911 seconds.
+  path: Assets/UI/Sprites/T_UI_FadeFrame.png
+  artifactKey: Guid(5c6583e1da476a1429d8202e90b9d144) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Sprites/T_UI_FadeFrame.png using Guid(5c6583e1da476a1429d8202e90b9d144) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f69d864bd731254be4f24430ee42a6ea') in 0.040879 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/UI/Sprites/T_UI_Pause.png
+  artifactKey: Guid(30068b4ce3d4bf74d8054a5dd3a2fc2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Sprites/T_UI_Pause.png using Guid(30068b4ce3d4bf74d8054a5dd3a2fc2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42bf8ad0fe564add6844ea3ddd3f9248') in 0.025749 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/UI/Sprites/T_UI_Perk_Empty.png
+  artifactKey: Guid(1f50f92171f514e41b53e0827bb3c1cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UI/Sprites/T_UI_Perk_Empty.png using Guid(1f50f92171f514e41b53e0827bb3c1cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8d5fadd030266cd0801baa81a17dcda') in 0.027374 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
