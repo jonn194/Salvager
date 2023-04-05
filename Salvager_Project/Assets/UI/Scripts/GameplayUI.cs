@@ -24,9 +24,15 @@ public class GameplayUI : MonoBehaviour
     public TMP_Text currentScrapsTxt;
     public TMP_Text currentPerksTxt;
 
+    [Header("Animations")]
+    public Animator scrapsAnim;
+    public Animator perksAnim;
+
     private void Start()
     {
         EventHandler.instance.playerHPChanged += UpdateLifebar;
+        EventHandler.instance.scrapPickup += UpdateScrap;
+        EventHandler.instance.perksPickup += UpdatePerk;
     }
 
     void UpdateLifebar()
@@ -38,7 +44,6 @@ public class GameplayUI : MonoBehaviour
     {
         UpdatePowerUp();
         UpdateScore();
-        UpdateScrapsAndPerks();
     }
 
     void UpdatePowerUp()
@@ -54,9 +59,15 @@ public class GameplayUI : MonoBehaviour
         currentScoreTxt.text = "Score: " + GameManager.instance.currentScore.ToString();
     }
 
-    void UpdateScrapsAndPerks()
+    void UpdateScrap()
     {
         currentScrapsTxt.text = "Scraps: " + GameManager.instance.currentScraps.ToString();
+        scrapsAnim.Play("Animate");
+    }
+
+    void UpdatePerk()
+    {
         currentPerksTxt.text = "Cores: " + GameManager.instance.currentPerkCores.ToString();
+        perksAnim.Play("Animate");
     }
 }

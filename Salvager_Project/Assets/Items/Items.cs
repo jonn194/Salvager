@@ -41,10 +41,12 @@ public class Items : MonoBehaviour
             {
                 case ItemType.scraps:
                     GameManager.instance.currentScraps++;
+                    EventHandler.instance.CurencyPickup(true);
                     break;
 
                 case ItemType.perk:
                     GameManager.instance.currentPerkCores++;
+                    EventHandler.instance.CurencyPickup(false);
                     break;
 
 

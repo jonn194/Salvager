@@ -11,6 +11,8 @@ public class EventHandler : MonoBehaviour
     public event Action playerPowerUp;
     public event Action bossIncoming;
     public event Action levelUp;
+    public event Action scrapPickup;
+    public event Action perksPickup;
 
     public event Action bossStateFinished;
 
@@ -44,6 +46,18 @@ public class EventHandler : MonoBehaviour
     public void LevelUp()
     {
         levelUp?.Invoke();
+    }
+
+    public void CurencyPickup(bool isScrap)
+    {
+        if(isScrap)
+        {
+            scrapPickup?.Invoke();
+        }
+        else
+        {
+            perksPickup?.Invoke();
+        }
     }
 
     public void BossStateFinished()
