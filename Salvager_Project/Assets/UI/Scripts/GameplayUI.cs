@@ -62,12 +62,12 @@ public class GameplayUI : MonoBehaviour
     void UpdateScrap()
     {
         currentScrapsTxt.text = "Scraps: " + GameManager.instance.currentScraps.ToString();
-        scrapsAnim.Play("Animate");
+        scrapsAnim.SetTrigger("Animate");
     }
 
     void UpdatePerk()
     {
         currentPerksTxt.text = "Cores: " + GameManager.instance.currentPerkCores.ToString();
-        perksAnim.Play("Animate");
+        perksAnim.SetTrigger("Animate");
     }
 }
