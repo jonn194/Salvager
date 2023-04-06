@@ -16,9 +16,9 @@ public class BossAlpha : Boss
 
     public override void SetStatesConnections()
     {
-        sHeadBashAttack.player = player;
+        SetStatesDependencies();
 
-        if(currentLife > maxLife/2)
+        if (currentLife > maxLife/2)
         {
             sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
 
@@ -39,6 +39,20 @@ public class BossAlpha : Boss
             sBombsAttack.possibleConnections.Add(sHeadBashAttack);
             sMultipleAttack.possibleConnections.Add(sHeadBashAttack);
         }
+    }
+
+    public override void SetStatesDependencies()
+    {
+        sEnterLevel.animator = animator;
+        sDeath.animator = animator;
+        sSideMovement.animator = animator;
+
+        sCanonAttack.animator = animator;
+        sBombsAttack.animator = animator;
+        sMultipleAttack.animator = animator;
+        sHeadBashAttack.animator = animator;
+
+        sHeadBashAttack.player = player;
     }
 
     public override void DestroyBoss()

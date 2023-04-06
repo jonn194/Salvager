@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour, IDamageable
 
     [Header("Graphics")]
     public Renderer mesh;
+    public Animator animator;
     public Image lifeBar;
     public ParticleSystem hitParticle;
     public Color damageTint;
@@ -38,7 +39,8 @@ public class Boss : MonoBehaviour, IDamageable
         //set event to change state
         EventHandler.instance.bossStateFinished += StateMachine;
 
-        //set states connections
+        //set states dependencies and connections
+        SetStatesDependencies();
         SetStatesConnections();
 
         //set initial state
@@ -49,6 +51,11 @@ public class Boss : MonoBehaviour, IDamageable
     public virtual void SetStatesConnections()
     {
         //set connections
+    }
+
+    public virtual void SetStatesDependencies()
+    {
+        //set dependencies
     }
 
     public virtual void Update()

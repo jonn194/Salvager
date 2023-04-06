@@ -33,11 +33,14 @@ public class BState_CanonShooting : BossState
     }
     public override void UpdateState()
     {
-        Movement();
-
-        if(useTimer)
+        if(AnimationStartEnded())
         {
-            base.UpdateState();
+            Movement();
+
+            if (useTimer)
+            {
+                base.UpdateState();
+            }
         }
     }
 

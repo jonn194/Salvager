@@ -43,17 +43,20 @@ public class BState_MultipleShooting : BossState
 
     public override void UpdateState()
     {
-        if(_sequence == 0)
+        if (AnimationStartEnded())
         {
-            InitialRotation();
-        }
-        else if(_sequence == 1)
-        {
-            MainRotation();
-        }
-        else if (_sequence == 2)
-        {
-            ResetRotation();
+            if (_sequence == 0)
+            {
+                InitialRotation();
+            }
+            else if(_sequence == 1)
+            {
+                MainRotation();
+            }
+            else if (_sequence == 2)
+            {
+                ResetRotation();
+            }
         }
     }
 

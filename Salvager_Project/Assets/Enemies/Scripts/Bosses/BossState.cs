@@ -7,12 +7,22 @@ public class BossState : MonoBehaviour
     public PlayerStats player;
     public float stateDuration;
     float _currentDuration;
+    public Animator animator;
+    public string animationName = "None";
+    public float animationStartDuration = 0;
     [HideInInspector] public List<BossState> possibleConnections;
+
+    float _currentAnimationStart;
 
     public virtual void ExecuteState()
     {
         //Debug.Log(this);
         _currentDuration = stateDuration;
+        _currentAnimationStart = animationStartDuration;
+        if (animationName != "None")
+        {
+            animator.SetBool(animationName, true);
+        }
     }
 
     public virtual void UpdateState()
@@ -37,8 +47,25 @@ public class BossState : MonoBehaviour
         }
     }
 
+    public bool AnimationStartEnded()
+    {
+        if(_currentAnimationStart <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            _currentAnimationStart -= Time.deltaTime;
+            return false;
+        }
+    }
+
     public virtual void FinishState()
     {
+        if(animationName != "None")
+        {
+            animator.SetBool(animationName, false);
+        }
         EventHandler.instance.BossStateFinished();
     }
 }

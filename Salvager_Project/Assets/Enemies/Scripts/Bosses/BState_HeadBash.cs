@@ -36,21 +36,24 @@ public class BState_HeadBash : BossState
 
     public override void UpdateState()
     {
-        if(_sequence == 0)
+        if (AnimationStartEnded())
         {
-            LookAtPlayer();
-        }
-        else if(_sequence == 1)
-        {
-            Bash();
-        }
-        else if(_sequence == 2)
-        {
-            ReturnToLocation();
-        }
-        else if (_sequence == 3)
-        {
-            ResetRotation();
+            if (_sequence == 0)
+            {
+                LookAtPlayer();
+            }
+            else if(_sequence == 1)
+            {
+                Bash();
+            }
+            else if(_sequence == 2)
+            {
+                ReturnToLocation();
+            }
+            else if (_sequence == 3)
+            {
+                ResetRotation();
+            }
         }
     }
     
@@ -123,10 +126,5 @@ public class BState_HeadBash : BossState
 
             FinishState();
         }
-    }
-
-    public override void FinishState()
-    {
-        base.FinishState();
     }
 }
