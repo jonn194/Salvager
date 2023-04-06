@@ -24,9 +24,9 @@ public class GameState : MonoBehaviour
     public Transform tempParent;
 
     [Header("UI")]
-    public Canvas titleCanvas;
-    public Canvas gameplayCanvas;
-    public Canvas endgameCanvas;
+    public TitleUI titleCanvas;
+    public GameplayUI gameplayCanvas;
+    public EndgameUI endgameCanvas;
 
     [Header("Perks")]
     public PerksHandler perksHandler;
@@ -148,5 +148,6 @@ public class GameState : MonoBehaviour
     {
         gameplayCanvas.gameObject.SetActive(false);
         endgameCanvas.gameObject.SetActive(true);
+        endgameCanvas.Setup();
     }
 }
