@@ -31,8 +31,6 @@ public class BossGamma : Boss
 
     public override void SetStatesConnections()
     {
-        sShootProtectors.player = player;
-
         if (currentLife > maxLife / 2)
         {
             sEnterLevel.possibleConnections = new List<BossState>() { sMoveAround };
@@ -54,6 +52,20 @@ public class BossGamma : Boss
             sAlignProtectors.possibleConnections.Add(sExpandProtectors);
             sShootProtectors.possibleConnections.Add(sExpandProtectors);
         }
+    }
+
+    public override void SetStatesDependencies()
+    {
+        sEnterLevel.animator = animator;
+        sDeath.animator = animator;
+        sSideMovement.animator = animator;
+
+        sMoveAround.animator = animator;
+        sAlignProtectors.animator = animator;
+        sShootProtectors.animator = animator;
+        sExpandProtectors.animator = animator;
+
+        sShootProtectors.player = player;
     }
 
     public override void Update()

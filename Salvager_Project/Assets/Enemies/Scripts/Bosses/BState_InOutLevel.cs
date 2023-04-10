@@ -72,7 +72,7 @@ public class BState_InOutLevel : BossState
 
             if(i != weapons.Count - 1)
             {
-                if (Mathf.Abs(-xPosition[i] - weapons[i].transform.position.x) <= 0.5f)
+                if (Mathf.Abs((-xPosition[i] * 2) - weapons[i].transform.position.x) <= 0.5f)
                 {
                     if (!_currentlyMoving.Contains(i + 1))
                     {

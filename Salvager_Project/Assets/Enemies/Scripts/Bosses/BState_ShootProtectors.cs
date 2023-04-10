@@ -16,6 +16,7 @@ public class BState_ShootProtectors : BossState
 
     public override void ExecuteState()
     {
+        animator.SetTrigger(animationName);
         _originalPosition = protectors.transform.position;
         _playerPosition = player.transform.position;
         _reachedPosition = false;
@@ -59,6 +60,6 @@ public class BState_ShootProtectors : BossState
     public override void FinishState()
     {
         StopAllCoroutines();
-        base.FinishState();
+        EventHandler.instance.BossStateFinished();
     }
 }

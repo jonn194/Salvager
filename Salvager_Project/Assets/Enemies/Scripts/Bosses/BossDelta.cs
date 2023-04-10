@@ -11,17 +11,12 @@ public class BossDelta : Boss
     public BState_SwipeAttack sSwipeAttack;
     public BState_TailAttack sTailAttack;
 
-    public Rigidbody headRB;
-    public float piecesAmount = 5;
-    public float pieceOffset = 3;
-    public BossPiece originalPiece;
-    List<BossPiece> spawnedPieces = new List<BossPiece>();
+
     public BossDeltaWeapon originalWeapon;
     List<BossDeltaWeapon> spawnedWeapons = new List<BossDeltaWeapon>();
 
     public override void Start()
     {
-        SpawnPieces();
         SpawnWeapons();
         
         base.Start();
@@ -52,26 +47,16 @@ public class BossDelta : Boss
         }
     }
 
-    void SpawnPieces()
+    public override void SetStatesDependencies()
     {
-        for (int i = 0; i < piecesAmount; i++)
-        {
-            BossPiece newPiece = Instantiate(originalPiece, transform.parent);
-            newPiece.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + pieceOffset * (i + 1));
-            newPiece.transform.rotation = transform.rotation;
-            newPiece.mainBoss = this;
+        sEnterLevel.animator = animator;
+        sDeath.animator = animator;
+        sSideMovement.animator = animator;
 
-            if (i == 0)
-            {
-                newPiece.joint.connectedBody = headRB;
-            }
-            else
-            {
-                newPiece.joint.connectedBody = spawnedPieces[i - 1].rb; 
-            }
-
-            spawnedPieces.Add(newPiece);
-        }
+        sInOutLevel.animator = animator;
+        sStretchAttack.animator = animator;
+        sSwipeAttack.animator = animator;
+        sTailAttack.animator = animator;
     }
 
     void SpawnWeapons()
@@ -99,14 +84,6 @@ public class BossDelta : Boss
         }
 
         spawnedWeapons.Clear();
-
-        foreach (BossPiece piece in spawnedPieces)
-        {
-            Destroy(piece);
-        }
-
-        spawnedPieces.Clear();
-
         base.DestroyBoss();
     }
 }

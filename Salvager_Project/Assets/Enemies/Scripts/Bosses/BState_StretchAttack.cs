@@ -15,6 +15,7 @@ public class BState_StretchAttack : BossState
 
     Vector3 _attackPosition;
     Vector3 _originalPosition;
+    Vector3 _originalRotation;
 
     int _sequence;
     float _currentHoldTime;
@@ -24,6 +25,7 @@ public class BState_StretchAttack : BossState
         _sequence = 0;
         _currentHoldTime = holdTime;
         _originalPosition = transform.parent.position;
+        _originalRotation = transform.parent.eulerAngles;
         SetAttackPosition();
     }
 
@@ -43,6 +45,7 @@ public class BState_StretchAttack : BossState
         else if (_sequence == 1)
         {
             Move(_attackPosition, attackSpeed);
+            transform.parent.LookAt(_attackPosition);
         }
         else if (_sequence == 2)
         {
@@ -51,6 +54,10 @@ public class BState_StretchAttack : BossState
         else if(_sequence == 3)
         {
             Move(_originalPosition, chargeSpeed);
+
+            Vector3 tempRot = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, 8 * Time.deltaTime);
+
+            transform.parent.eulerAngles = tempRot;
         }
         else if(_sequence >= 4)
         {
@@ -77,6 +84,7 @@ public class BState_StretchAttack : BossState
         if(_currentHoldTime <= 0)
         {
             _sequence++;
+            animator.SetBool(animationName, false);
         }
     }
 
@@ -90,10 +98,5 @@ public class BState_StretchAttack : BossState
         {
             return false;
         }
-    }
-
-    public override void FinishState()
-    {
-        base.FinishState();
     }
 }

@@ -60,7 +60,7 @@ public class BState_TailAttack : BossState
 
     void Move(Vector3 target, float speed)
     {
-        weapon.transform.position += weapon.transform.forward * speed * Time.deltaTime;
+        weapon.transform.position -= weapon.transform.forward * speed * Time.deltaTime;
 
         if (CheckDistances(target, weapon.transform.position))
         {

@@ -19,7 +19,7 @@ public class BState_AlignProtectors : BossState
     Vector3 _originalPosition;
     public override void ExecuteState()
     {
-        base.ExecuteState();
+        animator.SetTrigger(animationName);
         _returned.Clear();
         protectors.speedModifier = 2;
         _originalPosition = transform.parent.position;
@@ -101,6 +101,6 @@ public class BState_AlignProtectors : BossState
     {
         transform.parent.position = _originalPosition;
         protectors.speedModifier = 1;
-        base.FinishState();
+        EventHandler.instance.BossStateFinished();
     }
 }
