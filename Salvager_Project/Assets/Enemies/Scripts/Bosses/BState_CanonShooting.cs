@@ -6,6 +6,7 @@ using UnityEngine;
 public class BState_CanonShooting : BossState
 {
     [Header("Canon Shooting State")]
+    public string shootAnim;
     public bool useTimer;
     public Shooting canonWeapon;
     public float movementSpeed;
@@ -19,8 +20,9 @@ public class BState_CanonShooting : BossState
         base.ExecuteState();
 
         canonWeapon.StartShooting();
+        StartCoroutine(PlayShootAnim());
 
-        if(transform.parent.position.x < 0)
+        if (transform.parent.position.x < 0)
         {
             _currentTarget = targetX;
             _direction = -1;
@@ -70,8 +72,16 @@ public class BState_CanonShooting : BossState
         
     }
 
+    IEnumerator PlayShootAnim()
+    {
+        yield return new WaitForSeconds(canonWeapon.shootTimer);
+        animator.SetTrigger(shootAnim);
+        StartCoroutine(PlayShootAnim());
+    }
+
     public override void FinishState()
     {
+        StopAllCoroutines();
         canonWeapon.StopShooting();
         base.FinishState();
     }

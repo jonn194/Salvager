@@ -16,6 +16,7 @@ public class BState_LaserSearch : BossState
 
     public override void ExecuteState()
     {
+        base.ExecuteState();
         _currentFollowTime = followTime;
         _shooted = false;
     }

@@ -6,15 +6,26 @@ public class BossBeta : Boss
 {
     [Header("Boss Beta")]
     public BossState sSideMovement;
-    public BossState sSpawnShields;
+    public BState_SpawnShield sSpawnShields;
     public BossState sAlternatingLasers;
     public BossState sLaserSwipe;
     public BossState sSearchLaser;
 
+    public Transform originalShield;
+    Transform _spawnedShield;
+
+    public override void Start()
+    {
+        _spawnedShield = Instantiate(originalShield, transform.parent);
+        _spawnedShield.transform.position = new Vector3(0, 0, 10f);
+        _spawnedShield.transform.rotation = transform.rotation;
+        _spawnedShield.gameObject.SetActive(false);
+
+        base.Start();
+    }
+
     public override void SetStatesConnections()
     {
-        sSearchLaser.player = player;
-
         if (currentLife > maxLife / 2)
         {
             sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
@@ -36,5 +47,20 @@ public class BossBeta : Boss
             sAlternatingLasers.possibleConnections.Add(sSearchLaser);
             sLaserSwipe.possibleConnections.Add(sSearchLaser);
         }
+    }
+
+    public override void SetStatesDependencies()
+    {
+        sEnterLevel.animator = animator;
+        sDeath.animator = animator;
+        sSideMovement.animator = animator;
+
+        sSpawnShields.animator = animator;
+        sAlternatingLasers.animator = animator;
+        sLaserSwipe.animator = animator;
+        sSearchLaser.animator = animator;
+
+        sSearchLaser.player = player;
+        sSpawnShields.shields = _spawnedShield;
     }
 }

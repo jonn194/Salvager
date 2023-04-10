@@ -5,29 +5,20 @@ using UnityEngine;
 public class BState_SpawnShield : BossState
 {
     [Header("Spawn Shields State")]
-    public List<Transform> shields = new List<Transform>();
-    List<Vector3> _originalPositions = new List<Vector3>();
+    public Transform shields;
+    public Vector3 _originalPos;
     public float movementSpeed;
     public float movementMaxX;
     public float shieldsSpeed;
 
     float _direction = 1;
 
-    private void Start()
-    {
-        foreach(Transform t in shields)
-        {
-            _originalPositions.Add(t.position);
-        }
-    }
-
     public override void ExecuteState()
     {
-        base.ExecuteState();
-        foreach (Transform t in shields)
-        {
-            t.gameObject.SetActive(true);
-        }
+        _currentDuration = stateDuration;
+        animator.SetTrigger(animationName);
+        shields.gameObject.SetActive(true);
+        _originalPos = shields.position;
     }
 
     public override void UpdateState()
@@ -45,20 +36,14 @@ public class BState_SpawnShield : BossState
             _direction = 1;
         }
 
-        foreach (Transform t in shields) 
-        {
-            t.position += t.forward * shieldsSpeed * Time.deltaTime;
-        }
+        shields.position += shields.forward * shieldsSpeed * Time.deltaTime;
     }
 
     public override void FinishState()
     {
-        for (int i = 0; i < shields.Count; i++)
-        {
-            shields[i].transform.position = _originalPositions[i];
-            shields[i].gameObject.SetActive(false);
-        }
+        shields.transform.position = _originalPos;
+        shields.gameObject.SetActive(false);
 
-        base.FinishState();
+        EventHandler.instance.BossStateFinished();
     }
 }

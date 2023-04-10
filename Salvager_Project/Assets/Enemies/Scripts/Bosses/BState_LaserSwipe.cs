@@ -19,6 +19,8 @@ public class BState_LaserSwipe : BossState
 
     public override void ExecuteState()
     {
+        base.ExecuteState();
+
         lasers[0].transform.position = new Vector3(originalX, lasers[0].transform.position.y, lasers[0].transform.position.z);
         lasers[0].StartLaser();
 

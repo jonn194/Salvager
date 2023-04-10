@@ -13,6 +13,8 @@ public class BState_AlternatingLasers : BossState
 
     public override void ExecuteState()
     {
+        base.ExecuteState();
+
         _shootingCount = 0;
         foreach(EnemyLaser l in set01)
         {

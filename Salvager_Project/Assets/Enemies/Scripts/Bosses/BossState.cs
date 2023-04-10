@@ -6,13 +6,13 @@ public class BossState : MonoBehaviour
 {
     public PlayerStats player;
     public float stateDuration;
-    float _currentDuration;
+    protected float _currentDuration;
     public Animator animator;
     public string animationName = "None";
     public float animationStartDuration = 0;
     [HideInInspector] public List<BossState> possibleConnections;
 
-    float _currentAnimationStart;
+    protected float _currentAnimationStart;
 
     public virtual void ExecuteState()
     {
