@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.10f1 (1c7d0df0160b) revision 1867021'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Enterprise' Language: 'en' Physical Memory: 32705 MB
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 32451 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe
 -name
 AssetImportWorker1
 -projectPath
-C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
+C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50346
-Successfully changed project path to: C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
-C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
+52467
+Successfully changed project path to: C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project
+C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,69 +47,596 @@ C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 156.31 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 86.50 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/juan.salice/Documents/Juan Salice/Salvager/Salvager_Project/Assets
+[Subsystems] Discovering subsystems at path C:/Users/jmsal/Documents/Games/Salvager/Salvager_Project/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Renderer: NVIDIA GeForce RTX 3070 Ti Laptop GPU (ID=0x24a0)
     Vendor:   NVIDIA
-    VRAM:     8079 MB
-    Driver:   31.0.15.1694
+    VRAM:     8032 MB
+    Driver:   31.0.15.3141
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56468
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56008
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.104750 seconds.
+Registered in 0.004268 seconds.
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
+[usbmuxd] Send listen message
 Native extension for iOS target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 135.29 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 77.12 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.318 seconds
+- Completed reload, in  0.656 seconds
 Domain Reload Profiling:
-	ReloadAssembly (4319ms)
-		BeginReloadAssembly (2790ms)
+	ReloadAssembly (656ms)
+		BeginReloadAssembly (87ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (1179ms)
-			LoadAssemblies (2884ms)
+		EndReloadAssembly (452ms)
+			LoadAssemblies (88ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (476ms)
+			SetupTypeCache (120ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (36ms)
-			SetupLoadedEditorAssemblies (505ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (264ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (205ms)
+				InitializePlatformSupportModulesInManaged (57ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (135ms)
+				RefreshPlugins (77ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (102ms)
-				ProcessInitializeOnLoadMethodAttributes (61ms)
+				ProcessInitializeOnLoadAttributes (85ms)
+				ProcessInitializeOnLoadMethodAttributes (42ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 1.929884 seconds.
+Registered in 0.006834 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\juan.salice\Documents\Juan Salice\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\juan.salice\Documents\Juan Salice\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 87.22 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.270 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1271ms)
+		BeginReloadAssembly (196ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (120ms)
+		EndReloadAssembly (979ms)
+			LoadAssemblies (93ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (331ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (63ms)
+			SetupLoadedEditorAssemblies (439ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (18ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (87ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (189ms)
+				ProcessInitializeOnLoadMethodAttributes (62ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 1.19 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5181 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 34 unused Assets / (0.7 MB). Loaded Objects now: 5639.
+Memory consumption went from 211.1 MB to 210.4 MB.
+Total: 5.069600 ms (FindLiveObjects: 0.306900 ms CreateObjectMapping: 0.178300 ms MarkObjects: 4.310300 ms  DeleteObjects: 0.273000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 10696.237338 seconds.
+  path: Assets/Enemies/3D/Bosses/Boss_Delta.fbx
+  artifactKey: Guid(2fd6ee5b6543931438c0d9eb74741f48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/3D/Bosses/Boss_Delta.fbx using Guid(2fd6ee5b6543931438c0d9eb74741f48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edc1e7742662df155745a1c3fab2d0bd') in 0.310545 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.614726 seconds.
+  path: Assets/Enemies/3D/Bosses/BossShield.fbx
+  artifactKey: Guid(c754a7488a788824fbd03eaf5b4a8098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/3D/Bosses/BossShield.fbx using Guid(c754a7488a788824fbd03eaf5b4a8098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7fac51760eb307dd51a881faf2825ee') in 0.065449 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.411000 seconds.
+  path: Assets/Enemies/3D/Bosses/BossShield.fbx
+  artifactKey: Guid(c754a7488a788824fbd03eaf5b4a8098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/3D/Bosses/BossShield.fbx using Guid(c754a7488a788824fbd03eaf5b4a8098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e358738bcc9a411dedf2f23831c97eeb') in 0.041721 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.379053 seconds.
+  path: Assets/Enemies/3D/Bosses/BossShield.fbx
+  artifactKey: Guid(c754a7488a788824fbd03eaf5b4a8098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/3D/Bosses/BossShield.fbx using Guid(c754a7488a788824fbd03eaf5b4a8098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4ce3e790a1d61e1dce8b57eb00a49ad') in 0.030365 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.669453 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/BossEpsilon.prefab
+  artifactKey: Guid(4fd281d44256b2942ae23505f1345036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/BossEpsilon.prefab using Guid(4fd281d44256b2942ae23505f1345036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '717686a197b540c50aacbd32a45bd9e0') in 0.180824 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/BossFullBodyWeapon.prefab
+  artifactKey: Guid(37caa26ce276e464b97d5b2341774fe7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/BossFullBodyWeapon.prefab using Guid(37caa26ce276e464b97d5b2341774fe7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ab3bd3a736b7548cbf4f2c906caa94a') in 0.039934 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.355142 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34118cc397ca8bbd4e131cb8c603b2d1') in 0.029408 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.577178 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b7e81ff70315dcfec76f912afabeb38') in 0.030456 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.792380 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66eb5eb84569e0d8143d01622499d080') in 0.021014 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.091889 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37932b0dbf1c127825948b5366817e5e') in 0.019969 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.635739 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8b7df0a3a46ffa7d4a9951d06d893b6') in 0.017513 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.249066 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b1b62e7fcd82cc56ff8622f6c4d0a0b') in 0.018631 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.384674 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2347dd07ad0039deb6b738225c648b32') in 0.023866 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.640418 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f9a27897cd2a65ccc6783cbf247984a') in 0.019359 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.286865 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab
+  artifactKey: Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/EnemyCannonBullet.prefab using Guid(d5c2bb95186884d468bfb4759e7718df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '952b601cb678c54c12f29a8c08b931fa') in 0.013748 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 17.363402 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/Shields.prefab
+  artifactKey: Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/Shields.prefab using Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eec64947ad03b400aa225ec295837c5b') in 0.023578 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.850966 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/Shields.prefab
+  artifactKey: Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/Shields.prefab using Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdfe60e0a8943cd3db238ca16ee2744e') in 0.020768 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 103.528139 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/Shields.prefab
+  artifactKey: Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/Shields.prefab using Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9de7193d2d24c1c98688d620ae2ee904') in 0.020402 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.345492 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/Shields.prefab
+  artifactKey: Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/Shields.prefab using Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee13f5a1ddd6a09df752ae114ec1538f') in 0.020445 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.562413 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/Shields.prefab
+  artifactKey: Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/Shields.prefab using Guid(5ec4a152ad1c6cc44a2ced8a87c8fcea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4b69bd0ea6f919b8bd06384c24f2138') in 0.018216 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.011050 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.455 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1455ms)
+		BeginReloadAssembly (182ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (57ms)
+		EndReloadAssembly (1150ms)
+			LoadAssemblies (121ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (359ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (45ms)
+			SetupLoadedEditorAssemblies (540ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (36ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (85ms)
+				ProcessInitializeOnLoadAttributes (284ms)
+				ProcessInitializeOnLoadMethodAttributes (125ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (26ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.87 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5034 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (0.7 MB). Loaded Objects now: 5734.
+Memory consumption went from 219.9 MB to 219.2 MB.
+Total: 4.143900 ms (FindLiveObjects: 0.331100 ms CreateObjectMapping: 0.214500 ms MarkObjects: 3.303700 ms  DeleteObjects: 0.293000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005804 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.916 seconds
+Domain Reload Profiling:
+	ReloadAssembly (917ms)
+		BeginReloadAssembly (124ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (710ms)
+			LoadAssemblies (85ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (221ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (301ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (23ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (53ms)
+				ProcessInitializeOnLoadAttributes (153ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.73 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5034 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (0.7 MB). Loaded Objects now: 5736.
+Memory consumption went from 220.1 MB to 219.4 MB.
+Total: 3.134800 ms (FindLiveObjects: 0.292300 ms CreateObjectMapping: 0.164000 ms MarkObjects: 2.446700 ms  DeleteObjects: 0.230700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005439 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.917 seconds
+Domain Reload Profiling:
+	ReloadAssembly (918ms)
+		BeginReloadAssembly (102ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (692ms)
+			LoadAssemblies (99ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (203ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (292ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (27ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (50ms)
+				ProcessInitializeOnLoadAttributes (157ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5034 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.7 MB). Loaded Objects now: 5739.
+Memory consumption went from 220.1 MB to 219.5 MB.
+Total: 3.074300 ms (FindLiveObjects: 0.280300 ms CreateObjectMapping: 0.155700 ms MarkObjects: 2.300800 ms  DeleteObjects: 0.336600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006936 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 2.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.327 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1327ms)
+		BeginReloadAssembly (181ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (54ms)
+		EndReloadAssembly (1010ms)
+			LoadAssemblies (127ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (304ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (447ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (34ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (73ms)
+				ProcessInitializeOnLoadAttributes (237ms)
+				ProcessInitializeOnLoadMethodAttributes (94ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (21ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5034 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.7 MB). Loaded Objects now: 5742.
+Memory consumption went from 220.2 MB to 219.5 MB.
+Total: 6.036100 ms (FindLiveObjects: 0.419100 ms CreateObjectMapping: 0.246300 ms MarkObjects: 4.978700 ms  DeleteObjects: 0.390500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007042 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.82 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.092 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1093ms)
+		BeginReloadAssembly (135ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (851ms)
+			LoadAssemblies (92ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (259ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (384ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (28ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (204ms)
+				ProcessInitializeOnLoadMethodAttributes (79ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.54 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5034 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.7 MB). Loaded Objects now: 5745.
+Memory consumption went from 220.1 MB to 219.4 MB.
+Total: 4.876200 ms (FindLiveObjects: 0.356400 ms CreateObjectMapping: 0.221500 ms MarkObjects: 3.922100 ms  DeleteObjects: 0.374500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005455 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jmsal\Documents\Games\Salvager\Salvager_Project\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.184 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1185ms)
+		BeginReloadAssembly (137ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (933ms)
+			LoadAssemblies (99ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (314ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (367ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (28ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (188ms)
+				ProcessInitializeOnLoadMethodAttributes (79ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5034 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.7 MB). Loaded Objects now: 5748.
+Memory consumption went from 219.9 MB to 219.2 MB.
+Total: 3.969600 ms (FindLiveObjects: 0.338600 ms CreateObjectMapping: 0.198300 ms MarkObjects: 3.056200 ms  DeleteObjects: 0.375100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 9976.186758 seconds.
+  path: Assets/Enemies/Prefabs/Bosses/BossEpsilon.prefab
+  artifactKey: Guid(4fd281d44256b2942ae23505f1345036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Enemies/Prefabs/Bosses/BossEpsilon.prefab using Guid(4fd281d44256b2942ae23505f1345036) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd278569d90e679594d258d8651a5b0ff') in 0.562472 seconds 

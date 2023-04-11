@@ -10,11 +10,13 @@ public class EnemyLaser : MonoBehaviour
     public float warningDuration;
 
     [Header("Visuals")]
+    public ParticleSystem originEffect;
     public ParticleSystem warningEffect;
     public ParticleSystem shootingEffect;
 
     public void StartLaser()
     {
+        originEffect.Play();
         warningEffect.gameObject.SetActive(true);
         warningEffect.Play();
         StartCoroutine(WarningTimer());
@@ -40,6 +42,7 @@ public class EnemyLaser : MonoBehaviour
     {
         StopAllCoroutines();
 
+        originEffect.Stop();
         shootingEffect.Stop();
         lineRenderer.gameObject.SetActive(false);
         damageCollider.enabled = false;
