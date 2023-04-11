@@ -11,15 +11,14 @@ public class BossBeta : Boss
     public BossState sLaserSwipe;
     public BossState sSearchLaser;
 
-    public Transform originalShield;
-    Transform _spawnedShield;
+    public EnemyShieldHandler originalShield;
+    EnemyShieldHandler _spawnedShield;
 
     public override void Start()
     {
         _spawnedShield = Instantiate(originalShield, transform.parent);
         _spawnedShield.transform.position = new Vector3(0, 0, 10f);
         _spawnedShield.transform.rotation = transform.rotation;
-        _spawnedShield.gameObject.SetActive(false);
 
         base.Start();
     }
@@ -28,7 +27,7 @@ public class BossBeta : Boss
     {
         if (currentLife > maxLife / 2)
         {
-            sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
+            sEnterLevel.possibleConnections = new List<BossState>() { sSpawnShields };
 
             sSideMovement.possibleConnections = new List<BossState>() { sSpawnShields, sLaserSwipe, sAlternatingLasers };
 

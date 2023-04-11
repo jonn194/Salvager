@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void CheckDistance()
     {
-        if (transform.position.z <= destroyPosition)
+        if (transform.position.z <= -destroyPosition || transform.position.z >= destroyPosition)
         {
             DestroyEnemy(false);
         }

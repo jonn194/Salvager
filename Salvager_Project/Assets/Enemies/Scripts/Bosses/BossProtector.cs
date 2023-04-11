@@ -25,6 +25,13 @@ public class BossProtector : MonoBehaviour
     int _currentLife;
     float _currentRespawnTime;
     bool _isActive = true;
+    public float _currentFill = 0;
+
+    private void Awake()
+    {
+        Material temp = mesh.material;
+        mesh.material = new Material(temp);
+    }
 
     private void Update()
     {
@@ -37,6 +44,7 @@ public class BossProtector : MonoBehaviour
                 Reactivate();
             }
         }
+
     }
 
     public void Activate()
@@ -44,6 +52,38 @@ public class BossProtector : MonoBehaviour
         _currentLife = maxLife;
         _currentRespawnTime = respawnTime;
         weapon.StartShooting();
+
+        StartCoroutine(FillShader(true));
+    }
+
+    IEnumerator FillShader(bool positive)
+    {
+        while(true)
+        {
+            mesh.material.SetFloat("_Fill", _currentFill);
+            
+            if(positive)
+            {
+                _currentFill += 10 * Time.deltaTime;
+
+                if (_currentFill >= 1)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                _currentFill -= 5 * Time.deltaTime;
+
+                if (_currentFill <= 0)
+                {
+                    mesh.gameObject.SetActive(false);
+                    break;
+                }
+            }
+            
+            yield return null;
+        }
     }
 
     public void GetDamage(int dmg)
@@ -71,10 +111,11 @@ public class BossProtector : MonoBehaviour
     {
         StopAllCoroutines();
         mesh.material.SetColor("_EmissionColor", _originalTint);
-        mesh.gameObject.SetActive(false);
         boxCollider.enabled = false;
         _isActive = false;
         weapon.StopShooting();
+        
+        StartCoroutine(FillShader(false));
     }
 
     void Reactivate()

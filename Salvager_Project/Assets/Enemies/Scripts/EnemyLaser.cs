@@ -5,18 +5,18 @@ using UnityEngine;
 public class EnemyLaser : MonoBehaviour
 {
     [Header("Dependencies")]
-    public LineRenderer lineRenderer;
     public Collider damageCollider;
     public float warningDuration;
+    public bool isBigLaser;
+    public Animator anim;
 
     [Header("Visuals")]
-    public ParticleSystem originEffect;
+    public LineRenderer lineRenderer;
     public ParticleSystem warningEffect;
     public ParticleSystem shootingEffect;
 
     public void StartLaser()
     {
-        originEffect.Play();
         warningEffect.gameObject.SetActive(true);
         warningEffect.Play();
         StartCoroutine(WarningTimer());
@@ -34,7 +34,16 @@ public class EnemyLaser : MonoBehaviour
         warningEffect.gameObject.SetActive(false);
         shootingEffect.Play();
 
-        lineRenderer.gameObject.SetActive(true);
+        //shoot laser with animation
+        if(isBigLaser)
+        {
+            anim.SetTrigger("ShootBig");
+        }
+        else
+        {
+            anim.SetTrigger("Shoot");
+        }
+
         damageCollider.enabled = true;
     }
 
@@ -42,9 +51,10 @@ public class EnemyLaser : MonoBehaviour
     {
         StopAllCoroutines();
 
-        originEffect.Stop();
         shootingEffect.Stop();
-        lineRenderer.gameObject.SetActive(false);
+
+        //stop laser animation
+        anim.SetTrigger("Stop");
         damageCollider.enabled = false;
     }
 

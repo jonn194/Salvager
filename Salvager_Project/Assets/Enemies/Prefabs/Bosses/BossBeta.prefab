@@ -363,7 +363,7 @@ MonoBehaviour:
   sAlternatingLasers: {fileID: 3888479259718542972}
   sLaserSwipe: {fileID: 6019274654063669606}
   sSearchLaser: {fileID: 5155987074403259814}
-  originalShield: {fileID: 1311439587277133194, guid: 5ec4a152ad1c6cc44a2ced8a87c8fcea,
+  originalShield: {fileID: 3735159827951414546, guid: 5ec4a152ad1c6cc44a2ced8a87c8fcea,
     type: 3}
 --- !u!65 &5296563044671977198
 BoxCollider:
@@ -1193,7 +1193,7 @@ PrefabInstance:
     - target: {fileID: 3327206621337441273, guid: 2d6e6f263cfa48c499009d28af16776d,
         type: 3}
       propertyPath: m_Parameters.widthMultiplier
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4228717887285067071, guid: 2d6e6f263cfa48c499009d28af16776d,
         type: 3}
@@ -1254,6 +1254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099342473934281153, guid: 2d6e6f263cfa48c499009d28af16776d,
+        type: 3}
+      propertyPath: isBigLaser
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8099342473934281153, guid: 2d6e6f263cfa48c499009d28af16776d,
         type: 3}

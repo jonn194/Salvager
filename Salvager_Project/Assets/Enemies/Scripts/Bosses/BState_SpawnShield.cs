@@ -5,8 +5,7 @@ using UnityEngine;
 public class BState_SpawnShield : BossState
 {
     [Header("Spawn Shields State")]
-    public Transform shields;
-    public Vector3 _originalPos;
+    public EnemyShieldHandler shields;
     public float movementSpeed;
     public float movementMaxX;
     public float shieldsSpeed;
@@ -17,8 +16,8 @@ public class BState_SpawnShield : BossState
     {
         _currentDuration = stateDuration;
         animator.SetTrigger(animationName);
-        shields.gameObject.SetActive(true);
-        _originalPos = shields.position;
+        shields.StartShields();
+        shields.originalPosition = shields.transform.position;
     }
 
     public override void UpdateState()
@@ -36,13 +35,12 @@ public class BState_SpawnShield : BossState
             _direction = 1;
         }
 
-        shields.position += shields.forward * shieldsSpeed * Time.deltaTime;
+        shields.transform.position += shields.transform.forward * shieldsSpeed * Time.deltaTime;
     }
 
     public override void FinishState()
     {
-        shields.transform.position = _originalPos;
-        shields.gameObject.SetActive(false);
+        shields.EndShields();
 
         EventHandler.instance.BossStateFinished();
     }

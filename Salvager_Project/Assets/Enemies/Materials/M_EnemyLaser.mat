@@ -113,6 +113,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Resolution: 64
     - _ShadowIntensity: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -129,6 +130,12 @@ Material:
     - _Color: {r: 0.93092537, g: 0, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Hues: {r: 0, g: 0.25, b: 0.5, a: 0.75}
+    - _MainColor: {r: 3.9999995, g: 0, b: 0.25287244, a: 1}
+    - _MainSpeed: {r: -0.5, g: 0.2, b: 0, a: 0}
+    - _MainTiling: {r: 0.5, g: 1, b: 0, a: 0}
+    - _SecondaryColor: {r: 0.25212926, g: 0, b: 0.65494406, a: 1}
+    - _SecondarySpeed: {r: -2, g: 0, b: 0, a: 0}
+    - _SecondaryTiling: {r: 0.5, g: 1, b: 0, a: 0}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tint: {r: 2, g: 0, b: 0.57254905, a: 0}
