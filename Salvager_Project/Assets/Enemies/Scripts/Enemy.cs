@@ -7,13 +7,14 @@ public class Enemy : MonoBehaviour, IDamageable
     [Header("Visuals")]
     public Renderer mesh;
     public Color damageTint = Color.white;
-    public ParticleSystem hitParticle;
-    public ParticleSystem deadParticle;
+    public ParticleSystem hitEffect;
+    public ParticleSystem deadEffect;
     
     Color _originalTint;
     float _maxColorTime = 0.5f;
     float _currentColorTime;
     float _hueReinforcement = 0.02f;
+    AudioSource _damageASource;
 
     [Header("Stats")]
     public int maxLife;
@@ -58,6 +59,9 @@ public class Enemy : MonoBehaviour, IDamageable
 
         //set color based on reinforcement
         mesh.material.SetFloat("_HueShift", _hueReinforcement * reinforceLevel);
+
+        //get damage audio
+        _damageASource = hitEffect.gameObject.GetComponent<AudioSource>();
     }
 
     public virtual void Update()
@@ -102,7 +106,7 @@ public class Enemy : MonoBehaviour, IDamageable
         currentLife -= damage;
 
         //stop current particles
-        hitParticle.Stop();
+        hitEffect.Stop();
 
         //change tint
         mesh.material.SetColor("_EmissionColor", damageTint);
@@ -125,13 +129,15 @@ public class Enemy : MonoBehaviour, IDamageable
         }
 
         //play new particles
-        hitParticle.Play();
+        hitEffect.Play();
+        _damageASource.enabled = true;
+        _damageASource.Play();
     }
 
     void DeadParticle()
     {
         //create particle
-        ParticleSystem particle = Instantiate(deadParticle, transform.parent);
+        ParticleSystem particle = Instantiate(deadEffect, transform.parent);
         particle.transform.position = transform.position;
         particle.transform.rotation = transform.rotation;
     }

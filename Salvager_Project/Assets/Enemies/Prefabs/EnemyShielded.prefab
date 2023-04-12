@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 8804380692271491201}
   damageTint: {r: 1, g: 1, b: 1, a: 0}
-  hitParticle: {fileID: 914895516648097862}
-  deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
+  hitEffect: {fileID: 914895516648097862}
+  deadEffect: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
   maxLife: 7
   currentLife: 0
@@ -256,6 +256,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5302051338277687279, guid: b74bc5493bc6cd74a8365b62a9eeb12e,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5302051338277687279, guid: b74bc5493bc6cd74a8365b62a9eeb12e,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d2014b5d8112e2d40b573c4f583c5fa7, type: 2}
@@ -268,6 +273,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Shielded
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293276842668635274, guid: b74bc5493bc6cd74a8365b62a9eeb12e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293276842668635274, guid: b74bc5493bc6cd74a8365b62a9eeb12e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293276842668635274, guid: b74bc5493bc6cd74a8365b62a9eeb12e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293276842668635274, guid: b74bc5493bc6cd74a8365b62a9eeb12e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8293276842668635274, guid: b74bc5493bc6cd74a8365b62a9eeb12e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b74bc5493bc6cd74a8365b62a9eeb12e, type: 3}

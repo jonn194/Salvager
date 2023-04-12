@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 4901453217462118555}
   damageTint: {r: 1, g: 1, b: 1, a: 0}
-  hitParticle: {fileID: 4909315668007805065}
-  deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
+  hitEffect: {fileID: 4909315668007805065}
+  deadEffect: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
   maxLife: 1
   currentLife: 0

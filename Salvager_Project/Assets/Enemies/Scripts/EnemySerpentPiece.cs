@@ -19,6 +19,9 @@ public class EnemySerpentPiece : MonoBehaviour, IDamageable
     int _currentLife;
     int _lifeReinforcement = 1;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+
     private void Start()
     {
         //set life adding the reinforcement level
@@ -43,6 +46,11 @@ public class EnemySerpentPiece : MonoBehaviour, IDamageable
         }
         
         hitParticle.Play();
+
+        if (audioSource)
+        {
+            audioSource.Play();
+        }
     }
 
     void DestroyPiece()

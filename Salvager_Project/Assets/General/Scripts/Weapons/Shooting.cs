@@ -11,6 +11,10 @@ public class Shooting : MonoBehaviour
     public BulletPool bulletPool;
     public ParticleSystem shootEffect;
 
+    [Header("Audio")]
+    public AudioSource shootAudio;
+    public AudioClip shootClip;
+
     private void Start()
     {
         if(playOnStart)
@@ -36,6 +40,14 @@ public class Shooting : MonoBehaviour
         shootEffect.Stop();
         shootEffect.Play();
         bulletPool.GetBullet(transform);
+
+        if(shootAudio)
+        {
+            shootAudio.clip = shootClip;
+            shootAudio.Play();
+            shootAudio.pitch = Random.Range(0.8f, 1.2f);
+        }
+
         StartCoroutine(Shoot());
     }
 }

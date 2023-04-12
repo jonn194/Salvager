@@ -19452,6 +19452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageCollider: {fileID: 4265476551509759902}
   warningDuration: 1
+  isBigLaser: 0
   anim: {fileID: 6500256507594068923}
   lineRenderer: {fileID: 3327206621337441273}
   warningEffect: {fileID: 4462075709235920714}

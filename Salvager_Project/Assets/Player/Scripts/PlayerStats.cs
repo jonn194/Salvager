@@ -24,6 +24,11 @@ public class PlayerStats : MonoBehaviour
     [ColorUsageAttribute(true, true)] public Color damageColor;
     [ColorUsageAttribute(true, true)] Color _originalColor = Color.white;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip getDamageClip;
+    public AudioClip deathClip;
+
     Renderer _currentShip;
     float _invulnerableTime = 1;
 
@@ -52,6 +57,13 @@ public class PlayerStats : MonoBehaviour
         //play effect
         getHitVFX.Play();
         postprocess.PlayerHitEffects();
+       
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.clip = getDamageClip;
+            audioSource.Play();
+        }
 
         EventHandler.instance.HPChanged();
     }
@@ -66,6 +78,13 @@ public class PlayerStats : MonoBehaviour
     public void PlayerDeath()
     {
         deadVFX.Play();
+
+        if (audioSource)
+        {
+            audioSource.Stop();
+            audioSource.clip = deathClip;
+            audioSource.Play();
+        }
 
         movement.enabled = false;
         weapon.StopShooting();

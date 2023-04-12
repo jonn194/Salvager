@@ -15,6 +15,9 @@ public class EnemyTeleporter : Enemy
     public ParticleSystem teleportParticle;
     public ParticleSystem pointerParticle;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+
     public override void Start()
     {
         base.Start();
@@ -40,6 +43,12 @@ public class EnemyTeleporter : Enemy
         warningLine.enabled = false;
         
         teleportParticle.Play();
+
+        if (audioSource)
+        {
+            audioSource.Play();
+        }
+
         Teleport();
     }
 

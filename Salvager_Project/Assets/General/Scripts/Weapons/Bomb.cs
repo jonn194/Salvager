@@ -64,10 +64,10 @@ public class Bomb : Bullet
     }
 
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
 
         Gizmos.DrawWireSphere(transform.position, range);
-    }
+    }*/
 }

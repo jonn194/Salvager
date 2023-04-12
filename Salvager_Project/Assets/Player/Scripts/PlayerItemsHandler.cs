@@ -13,6 +13,11 @@ public class PlayerItemsHandler : MonoBehaviour
     public PowerUp laser;
     public PowerUp bomber;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip pickUpClip;
+    public AudioClip healClip;
+
     public void EnergyCore()
     {
         playerStats.currentHP += 3;
@@ -53,9 +58,27 @@ public class PlayerItemsHandler : MonoBehaviour
         EventHandler.instance.PlayerPowerUp();
     }
 
-    public void PlayEffects()
+    public void PlayEffects(bool isHeal)
     {
         pickupParticles.Play();
+        PlayAudio(isHeal);
+    }
+
+    void PlayAudio(bool isHeal)
+    {
+        if (audioSource)
+        {
+            if(isHeal)
+            {
+                audioSource.clip = healClip;
+            }
+            else
+            {
+                audioSource.clip = pickUpClip;
+            }
+              
+            audioSource.Play();
+        }
     }
 
     public void DeactivateAll()

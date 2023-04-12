@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,11 @@ public class PowerLaser : PowerUp
     public LineRenderer lineRenderer;
     public ParticleSystem particleEffect;
     public Collider damageCollider;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip laserClip;
+
 
     public override void Startup()
     {
@@ -27,6 +33,14 @@ public class PowerLaser : PowerUp
         lineRenderer.gameObject.SetActive(true);
         damageCollider.enabled = true;
         particleEffect.Play();
+
+        if(audioSource)
+        {
+            audioSource.pitch = 1;
+            audioSource.clip = laserClip;
+            audioSource.Play();
+        }
+
         StartCoroutine(LaserDuration());
     }
 

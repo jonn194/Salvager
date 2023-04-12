@@ -8,6 +8,10 @@ public class PowerShield : PowerUp
     public int maxHits;
     int _currentHits;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip shieldHitClip;
+
     public override void Startup()
     {
         base.Startup();
@@ -18,6 +22,12 @@ public class PowerShield : PowerUp
     {
         effect.Play();
         _currentHits--;
+
+        if(audioSource)
+        {
+            audioSource.clip = shieldHitClip;
+            audioSource.Play();
+        }
 
         if ( _currentHits <= 0 )
         {

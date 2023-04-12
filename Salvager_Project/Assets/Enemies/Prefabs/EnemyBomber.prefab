@@ -19360,9 +19360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 3336438687591698116}
   damageTint: {r: 1, g: 1, b: 1, a: 0}
-  hitParticle: {fileID: 376795388793744441, guid: d7f17e297f7182f43ad3fc9977186585,
-    type: 3}
-  deadParticle: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
+  hitEffect: {fileID: 3353801280043008886}
+  deadEffect: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
   maxLife: 2
   currentLife: 0
@@ -24429,6 +24428,12 @@ PrefabInstance:
 --- !u!4 &1135109900407534145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2625885997219011854, guid: d7f17e297f7182f43ad3fc9977186585,
+    type: 3}
+  m_PrefabInstance: {fileID: 3148505518276390735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3353801280043008886 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 376795388793744441, guid: d7f17e297f7182f43ad3fc9977186585,
     type: 3}
   m_PrefabInstance: {fileID: 3148505518276390735}
   m_PrefabAsset: {fileID: 0}

@@ -35,34 +35,39 @@ public class Items : MonoBehaviour
         {
             PlayerItemsHandler itemsHandler = other.GetComponent<PlayerItemsHandler>();
 
-            itemsHandler.PlayEffects();
-
             switch(type)
             {
                 case ItemType.scraps:
                     GameManager.instance.currentScraps++;
+                    itemsHandler.PlayEffects(false);
                     EventHandler.instance.CurencyPickup(true);
                     break;
 
                 case ItemType.perk:
                     GameManager.instance.currentPerkCores++;
+                    itemsHandler.PlayEffects(false);
                     EventHandler.instance.CurencyPickup(false);
                     break;
 
 
                 case ItemType.energy:
+                    itemsHandler.PlayEffects(true);
                     itemsHandler.EnergyCore();
                     break;
                 case ItemType.shield:
+                    itemsHandler.PlayEffects(false);
                     itemsHandler.Shield();
                     break;
                 case ItemType.trishot:
+                    itemsHandler.PlayEffects(false);
                     itemsHandler.ModuleTrishot();
                     break;
                 case ItemType.laser:
+                    itemsHandler.PlayEffects(false);
                     itemsHandler.ModuleLaser();
                     break;
                 case ItemType.bomber:
+                    itemsHandler.PlayEffects(false);
                     itemsHandler.ModuleBomber();
                     break;
             }
