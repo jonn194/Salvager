@@ -57,6 +57,7 @@ MonoBehaviour:
   weapon: {fileID: 317793248090399327}
   maxLife: 5
   respawnTime: 5
+  _currentFill: 0
 --- !u!65 &8753851468818895652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,7 +114,7 @@ GameObject:
   - component: {fileID: 8447241456694901015}
   - component: {fileID: 5674090218498651156}
   - component: {fileID: 1851324695283675168}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5285,10 +5286,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6877943437000219992, guid: ba1d5cc2eac249d4db03319b995084d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -922126526412672014, guid: ba1d5cc2eac249d4db03319b995084d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -807476910728560352, guid: ba1d5cc2eac249d4db03319b995084d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ba1d5cc2eac249d4db03319b995084d8,
         type: 3}
       propertyPath: m_Name
       value: Boss_Protector
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ba1d5cc2eac249d4db03319b995084d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2689989805600430785, guid: ba1d5cc2eac249d4db03319b995084d8,
         type: 3}
@@ -5300,6 +5321,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 396cf1d2f59ac0048a84cfd34c5151ed, type: 2}
+    - target: {fileID: 5696291822892431419, guid: ba1d5cc2eac249d4db03319b995084d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201939042912628580, guid: ba1d5cc2eac249d4db03319b995084d8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1d5cc2eac249d4db03319b995084d8, type: 3}
 --- !u!137 &5161274412947008293 stripped

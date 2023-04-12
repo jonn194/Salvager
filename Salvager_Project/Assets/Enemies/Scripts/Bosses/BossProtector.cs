@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossProtector : MonoBehaviour
+public class BossProtector : MonoBehaviour, IDamageable
 {
     [Header("Visuals")]
     public Renderer mesh;
@@ -45,6 +45,7 @@ public class BossProtector : MonoBehaviour
             }
         }
 
+        mesh.material.SetFloat("_Fill", _currentFill);
     }
 
     public void Activate()
@@ -60,11 +61,9 @@ public class BossProtector : MonoBehaviour
     {
         while(true)
         {
-            mesh.material.SetFloat("_Fill", _currentFill);
-            
             if(positive)
             {
-                _currentFill += 10 * Time.deltaTime;
+                _currentFill += 5 * Time.deltaTime;
 
                 if (_currentFill >= 1)
                 {
@@ -73,7 +72,7 @@ public class BossProtector : MonoBehaviour
             }
             else
             {
-                _currentFill -= 5 * Time.deltaTime;
+                _currentFill -= 2.5f * Time.deltaTime;
 
                 if (_currentFill <= 0)
                 {

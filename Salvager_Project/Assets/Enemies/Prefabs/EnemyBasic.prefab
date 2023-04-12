@@ -57,8 +57,10 @@ MonoBehaviour:
   currentLife: 0
   score: 5
   moveSpeed: 9
-  destroyPosition: -20
+  destroyPosition: 25
+  reinforceLevel: 0
   player: {fileID: 0}
+  itemSpawner: {fileID: 0}
   spawner: {fileID: 0}
 --- !u!65 &5296563044671977198
 BoxCollider:

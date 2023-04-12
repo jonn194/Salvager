@@ -5444,7 +5444,7 @@ MonoBehaviour:
   currentLife: 0
   score: 20
   moveSpeed: 5
-  destroyPosition: -20
+  destroyPosition: 25
   reinforceLevel: 0
   player: {fileID: 0}
   itemSpawner: {fileID: 0}

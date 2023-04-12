@@ -5,7 +5,10 @@ using UnityEngine;
 public class BState_Death : BossState
 {
     [Header("Death State")]
+    public Renderer mesh;
     public ParticleSystem deadParticle;
+    public float fillSpeed;
+    float _currentFill = 1;
 
     public override void ExecuteState()
     {
@@ -14,7 +17,14 @@ public class BState_Death : BossState
 
     public override void UpdateState()
     {
-        base.UpdateState();
+        _currentFill -= fillSpeed * Time.deltaTime;
+
+        mesh.material.SetFloat("_Fill", _currentFill);
+
+        if(_currentFill <= 0)
+        {
+            FinishState();
+        }
     }
 
     public override void FinishState()

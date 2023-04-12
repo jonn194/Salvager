@@ -19617,8 +19617,10 @@ MonoBehaviour:
   currentLife: 0
   score: 9
   moveSpeed: 0
-  destroyPosition: -20
+  destroyPosition: 25
+  reinforceLevel: 0
   player: {fileID: 0}
+  itemSpawner: {fileID: 0}
   spawner: {fileID: 0}
   warningTime: 0.5
   teleportTime: 1

@@ -151,7 +151,6 @@ MonoBehaviour:
   animationStartDuration: 0
   possibleConnections: []
   shields: {fileID: 0}
-  _originalPos: {x: 0, y: 0, z: 0}
   movementSpeed: 5
   movementMaxX: 4
   shieldsSpeed: 3
@@ -1535,7 +1534,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af2118fd78d8c9c4082c9ccc301028ee, type: 2}
+      objectReference: {fileID: 2100000, guid: 71f8e5ab0a738c54f8dfb5d0212a0925, type: 2}
     - target: {fileID: 919132149155446097, guid: b59962050a47218438aa187a160db024,
         type: 3}
       propertyPath: m_Name

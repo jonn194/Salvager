@@ -32,7 +32,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public EnemySpawner spawner;
 
 
-
     public virtual void Start()
     {
         float randomScraps = Random.Range(0, 100);

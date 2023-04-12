@@ -19368,8 +19368,10 @@ MonoBehaviour:
   currentLife: 0
   score: 15
   moveSpeed: 5
-  destroyPosition: -20
+  destroyPosition: 25
+  reinforceLevel: 0
   player: {fileID: 0}
+  itemSpawner: {fileID: 0}
   spawner: {fileID: 0}
   distanceToExplode: 5
   explosionParticle: {fileID: 7465621646327065206}
