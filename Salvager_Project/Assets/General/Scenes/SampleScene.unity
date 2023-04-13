@@ -5268,7 +5268,7 @@ Transform:
   - {fileID: 1529184107}
   - {fileID: 1786932913}
   m_Father: {fileID: 179422000}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &42332353
 GameObject:
@@ -6626,18 +6626,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2074829614}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1235361718}
         m_TargetAssemblyTypeName: GameState, Assembly-CSharp
         m_MethodName: StartGame
@@ -7393,9 +7381,9 @@ Transform:
   - {fileID: 1566419026}
   - {fileID: 1357449896}
   - {fileID: 874699568}
+  - {fileID: 2074829613}
   - {fileID: 38771806}
   - {fileID: 2084535289}
-  - {fileID: 2074829613}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8545,18 +8533,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2074829614}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1440557056}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -12108,18 +12084,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2074829614}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1136339115}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -14688,18 +14652,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1235361720}
         m_TargetAssemblyTypeName: PlayerShipSelector, Assembly-CSharp
         m_MethodName: SelectShip
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1235361720}
-        m_TargetAssemblyTypeName: PlayerShipSelector, Assembly-CSharp
-        m_MethodName: DeactivateShips
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -42675,18 +42627,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2074829614}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 794133266}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -44020,6 +43960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2074829613}
+  - component: {fileID: 2074829615}
   - component: {fileID: 2074829614}
   m_Layer: 0
   m_Name: MenuAudio
@@ -44041,7 +43982,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 179422000}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2074829614
 AudioSource:
@@ -44140,6 +44081,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2074829615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074829612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af46c5b9d583eed43873d09b6ceb3492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2074829614}
+  mainButtons:
+  - {fileID: 283078477}
+  - {fileID: 1285451136}
+  - {fileID: 766888501}
+  - {fileID: 310360213}
+  - {fileID: 296164927}
+  - {fileID: 837811105}
+  - {fileID: 727003043}
+  - {fileID: 1801098838}
+  - {fileID: 1890131445}
+  - {fileID: 73566132}
+  - {fileID: 839024383}
+  - {fileID: 224672011}
+  - {fileID: 2078504649}
+  - {fileID: 1229416365}
+  - {fileID: 1057575588}
+  - {fileID: 2074427060}
+  - {fileID: 332072985}
+  - {fileID: 14126088}
+  - {fileID: 531368245}
+  - {fileID: 487350765}
+  - {fileID: 141240233}
+  - {fileID: 280087208}
+  - {fileID: 1994986308}
+  - {fileID: 487918216}
+  - {fileID: 2089474227}
+  perkButtons:
+  - {fileID: 996743476}
+  - {fileID: 1013790715}
+  - {fileID: 1810772019}
+  - {fileID: 2088088243}
+  - {fileID: 1481682884}
+  - {fileID: 1471625900}
+  - {fileID: 339765665}
+  toggles:
+  - {fileID: 1228152919}
+  - {fileID: 959930291}
+  - {fileID: 144990571}
+  - {fileID: 1332777493}
+  - {fileID: 4910477}
 --- !u!1 &2076361371
 GameObject:
   m_ObjectHideFlags: 0
@@ -44382,7 +44376,7 @@ Transform:
   - {fileID: 1296081632}
   - {fileID: 1319844304}
   m_Father: {fileID: 179422000}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2088088241
 GameObject:
