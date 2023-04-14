@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public bool gamePaused;
 
     [Header("Stats")]
+    public int maxDificulty;
     public int highScore;
     public int scrapAmount;
     public int perksAmount;

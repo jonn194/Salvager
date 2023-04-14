@@ -5509,7 +5509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Laser Module
   description: This item adds a temporal module that allows the ship to shoot a powerful
-    laser
+    laser.
   extraInfo: 'Duration: 7s'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &53500654
@@ -6904,7 +6904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Shield
   description: This item creates a shield arround the ship to protect it from incoming
-    attacks
+    attacks.
   extraInfo: 'Durability: 3 Hits'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1001 &159303694
@@ -10197,7 +10197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Scraps
-  description: This item is used to rebuild broken ships and enable their use
+  description: This item is used to rebuild broken ships and enable their use.
   extraInfo: 
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &350122716
@@ -10658,9 +10658,9 @@ MonoBehaviour:
   perksState: 01000000000000
   perksPrices: 000000000f000000320000006400000096000000c80000002c010000
   currentPerk: 0
-  logItemsState: 
-  logEnemiesState: 
-  logBossesState: 
+  logItemsState: 01010000000000
+  logEnemiesState: 010000000000000000
+  logBossesState: 0000000000
   masterActive: 1
   masterVolume: 0
   musicActive: 1
@@ -12107,6 +12107,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1136339120}
+        m_TargetAssemblyTypeName: GlossaryUI, Assembly-CSharp
+        m_MethodName: CheckDiscovered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 350122716}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -21396,7 +21408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Trishot Module
   description: This item adds a temporal module that allows the ship to shoot in
-    three directions
+    three directions.
   extraInfo: 'Duration: 12s'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &927339351
@@ -28440,7 +28452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Perk Fragment
-  description: This item is used to unlock different perks for the ship
+  description: This item is used to unlock different perks for the ship. It can only
+    be dropped by Prime Creatures.
   extraInfo: 
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &1529184106
@@ -34225,7 +34238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Energy Core
-  description: This item is used to restore the ship's durability during the exploration
+  description: This item is used to restore the ship's durability during the exploration.
   extraInfo: 'Repairs: 3'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1001 &1616710281
@@ -34358,7 +34371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bomber Module
   description: This item adds a temporal module that allows the ship to shoot bombs
-    far away
+    far away.
   extraInfo: 'Duration: 10s'
   itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
 --- !u!1 &1623574796
@@ -35350,10 +35363,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2103183601}
     m_Modifications:
+    - target: {fileID: 2153948596185275286, guid: 4fd281d44256b2942ae23505f1345036,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1078244477}
     - target: {fileID: 5296563044671977188, guid: 4fd281d44256b2942ae23505f1345036,
         type: 3}
       propertyPath: m_Name
       value: BossEpsilon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296563044671977188, guid: 4fd281d44256b2942ae23505f1345036,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5296563044671977192, guid: 4fd281d44256b2942ae23505f1345036,
         type: 3}

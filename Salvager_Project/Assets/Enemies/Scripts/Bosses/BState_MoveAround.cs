@@ -47,7 +47,7 @@ public class BState_MoveAround : BossState
 
     void ResetRotation()
     {
-        if(Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 1f)
+        if(Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 1.5f)
         {
             transform.parent.eulerAngles = _originalRotation;
             FinishState();

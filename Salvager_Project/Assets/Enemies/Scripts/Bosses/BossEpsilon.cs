@@ -51,6 +51,18 @@ public class BossEpsilon : Boss
         }
     }
 
+    public override void SetStatesDependencies()
+    {
+        sEnterLevel.animator = animator;
+        sDeath.animator = animator;
+        sSideMovement.animator = animator;
+
+        sBombsAttack.animator = animator;
+        sAlternatingLasers.animator = animator;
+        sMoveAround.animator = animator;
+        sTailAttack.animator = animator;
+    }
+
     public override void DestroyBoss()
     {
         bombsPools.ClearAll();

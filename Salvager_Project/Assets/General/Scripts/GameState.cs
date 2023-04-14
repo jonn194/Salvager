@@ -120,6 +120,7 @@ public class GameState : MonoBehaviour
 
         //UI
         CheckHighScore();
+        CheckUnlocks();
         AddRewards();
         GameplayEndUI();
     }
@@ -129,6 +130,19 @@ public class GameState : MonoBehaviour
         if(GameManager.instance.currentScore > GameManager.instance.highScore)
         {
             GameManager.instance.highScore = GameManager.instance.currentScore;
+        }
+    }
+
+    void CheckUnlocks()
+    {
+        if(enemySpawner.currentDificulty > GameManager.instance.maxDificulty)
+        {
+            GameManager.instance.maxDificulty = enemySpawner.currentDificulty;
+
+            for(int i = 0; i < enemySpawner.maxEnemyIndex[enemySpawner.currentDificulty]; i++)
+            {
+                GameManager.instance.logEnemiesState[i] = true;
+            }
         }
     }
 

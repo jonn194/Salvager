@@ -51,22 +51,27 @@ public class Items : MonoBehaviour
 
 
                 case ItemType.energy:
+                    GameManager.instance.logItemsState[2] = true;
                     itemsHandler.PlayEffects(true);
                     itemsHandler.EnergyCore();
                     break;
                 case ItemType.shield:
+                    GameManager.instance.logItemsState[3] = true;
                     itemsHandler.PlayEffects(false);
                     itemsHandler.Shield();
                     break;
                 case ItemType.trishot:
+                    GameManager.instance.logItemsState[4] = true;
                     itemsHandler.PlayEffects(false);
                     itemsHandler.ModuleTrishot();
                     break;
                 case ItemType.laser:
+                    GameManager.instance.logItemsState[5] = true;
                     itemsHandler.PlayEffects(false);
                     itemsHandler.ModuleLaser();
                     break;
                 case ItemType.bomber:
+                    GameManager.instance.logItemsState[6] = true;
                     itemsHandler.PlayEffects(false);
                     itemsHandler.ModuleBomber();
                     break;
