@@ -27,7 +27,7 @@ public class Boss : MonoBehaviour, IDamageable
 
     [Header("States")]
     public BossState sEnterLevel;
-    public BossState sDeath;
+    public BState_Death sDeath;
     protected BossState _currentState;
 
     public virtual void Start()
@@ -148,5 +148,7 @@ public class Boss : MonoBehaviour, IDamageable
     {
         GameManager.instance.currentScore += score;
         EventHandler.instance.LevelUp();
+
+        Destroy(gameObject);
     }
 }

@@ -7,17 +7,16 @@ using UnityEngine;
 public class SaveData
 {
     //PLAYER DATA
+    public int maxDificulty;
     public int highScore;
     public int scrapsAmount;
     public int perksAmount;
     
     //SHIPS
     public List<bool> shipsState = new List<bool>();
-    public List<int> shipsPrices = new List<int>();
     public List<int> shipsSelectedColor = new List<int>();
     public int currentShip;
-
-    public bool[,] availableColors = new bool[10, 4];
+    public List<bool> availableColors = new List<bool>();
 
     //PERKS
     public List<bool> perksState = new List<bool>();
@@ -29,8 +28,12 @@ public class SaveData
     public List<bool> logBossesState = new List<bool>();
 
     //SETTINGS
+    public bool masterActive;
+    public float masterVolume;
+    public bool musicActive;
     public float musicVolume;
-    public bool musicMuted;
+    public bool sfxActive;
     public float sfxVolume;
-    public bool sfxMuted;
+    public bool postProcessActive;
+    public bool rumbleActive;
 }

@@ -57,6 +57,8 @@ public class BossDelta : Boss
         sStretchAttack.animator = animator;
         sSwipeAttack.animator = animator;
         sTailAttack.animator = animator;
+
+        sDeath.bossRef = this;
     }
 
     void SpawnWeapons()
@@ -78,7 +80,9 @@ public class BossDelta : Boss
     }
     public override void DestroyBoss()
     {
-        foreach(BossDeltaWeapon weapon in spawnedWeapons)
+        GameManager.instance.logBossesState[3] = true;
+
+        foreach (BossDeltaWeapon weapon in spawnedWeapons)
         {
             Destroy(weapon);
         }

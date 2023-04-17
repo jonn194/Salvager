@@ -59,7 +59,15 @@ public class BossBeta : Boss
         sLaserSwipe.animator = animator;
         sSearchLaser.animator = animator;
 
+        sDeath.bossRef = this;
         sSearchLaser.player = player;
         sSpawnShields.shields = _spawnedShield;
+    }
+
+    public override void DestroyBoss()
+    {
+        GameManager.instance.logBossesState[1] = true;
+
+        base.DestroyBoss();
     }
 }

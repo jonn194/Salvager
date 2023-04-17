@@ -9,10 +9,12 @@ public class GlossaryUI : MonoBehaviour
     public Transform GlossaryContainer;
 
     [Header("Lists")]
-    public Transform enemiesParent;
-    public GlossaryItem[] enemies;
     public Transform itemsParent;
     public GlossaryItem[] items;
+    public Transform enemiesParent;
+    public GlossaryItem[] enemies;
+    public Transform bossesParent;
+    public GlossaryItem[] bosses;
 
 
     [Header("UI Elements")]
@@ -24,7 +26,7 @@ public class GlossaryUI : MonoBehaviour
     public RectTransform scrollArea;
     List<Button> _buttons = new List<Button>();
 
-    public enum WindowType { Items, Enemies, PrimeEnemies }
+    public enum WindowType { Items, Enemies, Bosses }
 
     WindowType _currentType = WindowType.Items;
     int _currentIndex = -1;
@@ -33,33 +35,42 @@ public class GlossaryUI : MonoBehaviour
     {
         GlossaryContainer.gameObject.SetActive(true);
 
-        enemies = enemiesParent.GetComponentsInChildren<GlossaryItem>();
         items = itemsParent.GetComponentsInChildren<GlossaryItem>();
+        enemies = enemiesParent.GetComponentsInChildren<GlossaryItem>();
+        bosses = bossesParent.GetComponentsInChildren<GlossaryItem> ();
 
         ButtonSetup();
         ShowItems();
         CheckDiscovered();
         DeactivateAllItems();
         DeactivateAllEnemies();
+        DeactivateAllBosses();
     }
 
     void Update()
     {
         if(_currentIndex >= 0)
         {
-            if (_currentType == WindowType.Enemies)
+            if (_currentType == WindowType.Items)
+            {
+                items[_currentIndex].gameObject.SetActive(true);
+                titleTxt.text = items[_currentIndex].itemName;
+                valueTxt.text = items[_currentIndex].extraInfo;
+                descriptionTxt.text = items[_currentIndex].description;
+            }
+            else if (_currentType == WindowType.Enemies)
             {
                 enemies[_currentIndex].gameObject.SetActive(true);
                 titleTxt.text = enemies[_currentIndex].itemName;
                 valueTxt.text = enemies[_currentIndex].extraInfo;
                 descriptionTxt.text = enemies[_currentIndex].description;
             }
-            else if (_currentType == WindowType.Items)
+            else if (_currentType == WindowType.Bosses)
             {
-                items[_currentIndex].gameObject.SetActive(true);
-                titleTxt.text = items[_currentIndex].itemName;
-                valueTxt.text = items[_currentIndex].extraInfo;
-                descriptionTxt.text = items[_currentIndex].description;
+                bosses[_currentIndex].gameObject.SetActive(true);
+                titleTxt.text = bosses[_currentIndex].itemName;
+                valueTxt.text = bosses[_currentIndex].extraInfo;
+                descriptionTxt.text = bosses[_currentIndex].description;
             }
         }
         else
@@ -85,6 +96,7 @@ public class GlossaryUI : MonoBehaviour
     void ShowItems()
     {
         DeactivateAllEnemies();
+        DeactivateAllBosses();
 
         for (int i = 0; i < items.Length; i++)
         {
@@ -96,11 +108,24 @@ public class GlossaryUI : MonoBehaviour
     void ShowEnemies()
     {
         DeactivateAllItems();
+        DeactivateAllBosses();
 
         for (int i = 0; i < enemies.Length; i++)
         {
             _buttons[i].gameObject.SetActive(true);
             _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = enemies[i].itemIcon;
+        }
+    }
+
+    void ShowBosses()
+    {
+        DeactivateAllItems();
+        DeactivateAllEnemies();
+
+        for (int i = 0; i < bosses.Length; i++)
+        {
+            _buttons[i].gameObject.SetActive(true);
+            _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = bosses[i].itemIcon;
         }
     }
 
@@ -128,10 +153,19 @@ public class GlossaryUI : MonoBehaviour
         }
     }
 
+    void DeactivateAllBosses()
+    {
+        foreach (GlossaryItem i in bosses)
+        {
+            i.gameObject.SetActive(false);
+        }
+    }
+
     public void DeactivateAll()
     {
-        DeactivateAllEnemies();
         DeactivateAllItems();
+        DeactivateAllEnemies();
+        DeactivateAllBosses();
         GlossaryContainer.gameObject.SetActive(false);
     }
 
@@ -146,6 +180,10 @@ public class GlossaryUI : MonoBehaviour
             else if (_currentType == WindowType.Enemies)
             {
                 enemies[_currentIndex].gameObject.SetActive(false);
+            }
+            else if (_currentType == WindowType.Bosses)
+            {
+                bosses[_currentIndex].gameObject.SetActive(false);
             }
         }
 
@@ -170,6 +208,12 @@ public class GlossaryUI : MonoBehaviour
         {
             scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 2000);
             ShowEnemies();
+            CheckDiscovered();
+        }
+        else if (_currentType == WindowType.Bosses)
+        {
+            scrollArea.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1000);
+            ShowBosses();
             CheckDiscovered();
         }
     }
@@ -197,6 +241,22 @@ public class GlossaryUI : MonoBehaviour
             for(int i = 0; i < enemies.Length; i++)
             {
                 if (GameManager.instance.logEnemiesState[i])
+                {
+                    _buttons[i].interactable = true;
+                    _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.white;
+                }
+                else
+                {
+                    _buttons[i].interactable = false;
+                    _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.black;
+                }
+            }
+        }
+        else if (_currentType == WindowType.Bosses)
+        {
+            for (int i = 0; i < bosses.Length; i++)
+            {
+                if (GameManager.instance.logBossesState[i])
                 {
                     _buttons[i].interactable = true;
                     _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.white;

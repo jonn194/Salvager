@@ -41,20 +41,36 @@ public class PlayerShipSelector : MonoBehaviour
 
     private void Start()
     {
+        //get the ships
         for (int i = 0; i < shipsContainer.transform.childCount; i++)
         {
             _ships.Add(shipsContainer.transform.GetChild(i).gameObject.GetComponent<MeshRenderer>());
         }
 
-        for(int i = 0; i < _ships.Count; i++)
-        {
-            Transform t = _ships[i].transform.GetChild(0);
-            _thrusters.Add(t.GetComponent<ParticleSystem>());
-        }
+        InitialSetup();
 
         UpdateScrapsUI();
         ColorButtonsSetup();
         DeactivateShips();
+    }
+
+    void InitialSetup()
+    {
+        //set the saved colors
+        for (int i = 0; i < _ships.Count; i++)
+        {
+            Transform t = _ships[i].transform.GetChild(0);
+            _thrusters.Add(t.GetComponent<ParticleSystem>());
+
+            _ships[i].material.SetFloat("_CurrentColor", GameManager.instance.shipsSelectedColor[i]);
+        }
+
+        //relocate to align to selected ship
+        _currentShip = GameManager.instance.currentShip;
+        shipsContainer.transform.localPosition = new Vector3(_currentShip * 5, 0, 0);
+
+        //set color
+        _currentColor = GameManager.instance.shipsSelectedColor[_currentShip];
     }
 
     public void Update()
@@ -143,10 +159,6 @@ public class PlayerShipSelector : MonoBehaviour
         {
             buttonSelect.gameObject.SetActive(true);
             buttonUnlock.gameObject.SetActive(false);
-
-            //COLORS
-            colorButtonsContainer.gameObject.SetActive(true);
-            SetColorSelectButtons();
         }
         else
         {
@@ -162,12 +174,10 @@ public class PlayerShipSelector : MonoBehaviour
             {
                 buttonUnlock.interactable = false;
             }
-
-            //COLORS
-            colorButtonsContainer.gameObject.SetActive(false);
-            colorButtonSelect.gameObject.SetActive(false);
-            colorButtonUnlock.gameObject.SetActive(false);
         }
+
+        //COLORS
+        EnableColorButtons();
     }
 
     IEnumerator SelectorCoroutine()
@@ -199,6 +209,10 @@ public class PlayerShipSelector : MonoBehaviour
     public void SelectShip()
     {
         GameManager.instance.currentShip = _currentShip;
+        //COLORS
+        EnableColorButtons();
+        ColorMarkers();
+        PreviewColor(GameManager.instance.shipsSelectedColor[_currentShip]);
     }
 
 
@@ -208,10 +222,29 @@ public class PlayerShipSelector : MonoBehaviour
         GameManager.instance.shipsState[_currentShip] = true;
 
         UpdateScrapsUI();
+        ColorMarkers();
     }
 
 
     //COLORS
+
+    void EnableColorButtons()
+    {
+        if (GameManager.instance.currentShip == _currentShip)
+        {
+            //COLORS
+            colorButtonsContainer.gameObject.SetActive(true);
+            SetColorSelectButtons();
+        }
+        else
+        {
+            //COLORS
+            colorButtonsContainer.gameObject.SetActive(false);
+            colorButtonSelect.gameObject.SetActive(false);
+            colorButtonUnlock.gameObject.SetActive(false);
+        }
+    }
+
     void ColorButtonsSetup()
     {
         colorButtons = colorButtonsContainer.GetComponentsInChildren<Button>().ToList();
@@ -225,22 +258,35 @@ public class PlayerShipSelector : MonoBehaviour
         colorButtons[6].onClick.AddListener(delegate { PreviewColor(6); });
         colorButtons[7].onClick.AddListener(delegate { PreviewColor(7); });
 
+        colorButtons[_currentColor].GetComponent<Image>().color = Color.yellow;
+
         SelectColor();
     }
 
     public void PreviewColor(int index)
     {
+        for (int i = 0; i < colorButtons.Count; i++)
+        {
+            if(i == index)
+            {
+                colorButtons[i].GetComponent<Image>().color = Color.yellow;
+            }
+            else
+            {
+                colorButtons[i].GetComponent<Image>().color = Color.white;
+            }
+        }
+
         int currentShip = GameManager.instance.currentShip;
         _currentColor = index;
         _ships[currentShip].material.SetFloat("_CurrentColor", index);
-        GameManager.instance.shipsSelectedColor[currentShip] = index;
 
         SetColorSelectButtons();
     }
 
     void SetColorSelectButtons()
     {
-        if (GameManager.instance.availableColors[_currentShip, _currentColor])
+        if (GameManager.instance.availableColors[(_currentShip * 8) + _currentColor])
         {
             colorButtonSelect.gameObject.SetActive(true);
             colorButtonUnlock.gameObject.SetActive(false);
@@ -281,15 +327,30 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void SelectColor()
     {
-        GameManager.instance.currentColor = _currentColor;
-        
-        //Turn check
-        foreach(Button b in colorButtons)
-        {
-            b.transform.GetChild(0).gameObject.SetActive(false);
-        }
+        GameManager.instance.shipsSelectedColor[_currentShip] = _currentColor;
+        ColorMarkers();
+    }
 
-        colorButtons[_currentColor].transform.GetChild(0).gameObject.SetActive(true);
+    void ColorMarkers()
+    {
+        for(int i = 0; i < colorButtons.Count; i++)
+        {
+            if (i == GameManager.instance.shipsSelectedColor[_currentShip])
+            {
+                colorButtons[i].transform.GetChild(1).gameObject.SetActive(true);
+                colorButtons[i].transform.GetChild(2).gameObject.SetActive(false);
+            }
+            else if (GameManager.instance.availableColors[(_currentShip * 8) + i])
+            {
+                colorButtons[i].transform.GetChild(1).gameObject.SetActive(false);
+                colorButtons[i].transform.GetChild(2).gameObject.SetActive(false);
+            }
+            else
+            {
+                colorButtons[i].transform.GetChild(1).gameObject.SetActive(false);
+                colorButtons[i].transform.GetChild(2).gameObject.SetActive(true);
+            }
+        }
     }
 
 
@@ -304,7 +365,17 @@ public class PlayerShipSelector : MonoBehaviour
             GameManager.instance.scrapAmount -= GameManager.instance.specialColorPrice;
         }
 
-        GameManager.instance.availableColors[_currentShip, _currentColor] = true;
+        GameManager.instance.availableColors[(_currentShip * 8) + _currentColor] = true;
         UpdateScrapsUI();
+        SetColorSelectButtons();
+        ColorMarkers();
+    }
+
+    public void ResetAllColors()
+    {
+        for (int i = 0; i < _ships.Count; i++)
+        {
+            _ships[i].material.SetFloat("_CurrentColor", GameManager.instance.shipsSelectedColor[i]);
+        }
     }
 }

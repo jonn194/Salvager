@@ -25,6 +25,13 @@ public class SettingsUI : MonoBehaviour
     public AudioMixer mixer;
     public Volume volume;
 
+    private void Start()
+    {
+        SettingsSetup();
+        UpdatePostProcess();
+        UpdateRumble();
+    }
+
     public void SettingsSetup()
     {
         masterToggle.isOn = GameManager.instance.masterActive;
@@ -38,6 +45,8 @@ public class SettingsUI : MonoBehaviour
 
         postProcessToggle.isOn = GameManager.instance.postProcessActive;
         rumbleToggle.isOn = GameManager.instance.rumbleActive;
+
+        UpdateAudio();
     }
 
     public void UpdateAudio()

@@ -30,8 +30,7 @@ public class GameManager : MonoBehaviour
     [Header("Colors")]
     public int basicColorPrice = 10;
     public int specialColorPrice = 30;
-    public bool[,] availableColors = new bool[10,8];
-    public int currentColor;
+    public List<bool> availableColors = new List<bool>();
 
     [Header("Perks")]
     public List<bool> perksState = new List<bool>();
@@ -65,34 +64,108 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < shipsPrices.Count; i++)
         {
-            availableColors[i, 0] = true;
-            availableColors[i, 4] = true;
+            for (int j = 0; j < 8; j++)
+            {
+                if(j == 0)
+                {
+                    availableColors.Add(true);
+                }
+                else
+                {
+                    availableColors.Add(false);
+                }
+            }
         }
 
-        availableColors[2, 2] = true;
-        availableColors[3, 3] = true;
-        availableColors[5, 1] = true;
-        availableColors[5, 2] = true;
-        availableColors[9, 3] = true;
+        LoadGame();
     }
 
-    void SaveGame()
+    private void Update()
     {
-        SaveData data = new SaveData(); //assign proper information
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            EraseGame();
+        }
+    }
+
+    public void SaveGame()
+    {
+        SaveData data = new SaveData();
+
+        data.maxDificulty = maxDificulty;
+        data.highScore = highScore;
+        data.scrapsAmount = scrapAmount;
+        data.perksAmount = perksAmount;
+
+        data.shipsState = shipsState;
+        data.shipsSelectedColor = shipsSelectedColor;
+        data.currentShip = currentShip;
+        data.availableColors = availableColors;
+
+        data.perksState = perksState;
+        data.currentPerk = currentPerk;
+
+        data.logItemsState = logItemsState;
+        data.logEnemiesState = logEnemiesState;
+        data.logBossesState = logBossesState;
+
+        data.masterActive = masterActive;
+        data.masterVolume = masterVolume;
+        data.musicActive = musicActive;
+        data.musicVolume = musicVolume;
+        data.sfxActive = sfxActive;
+        data.sfxVolume = sfxVolume;
+        data.postProcessActive = postProcessActive;
+        data.rumbleActive = rumbleActive;
+
         string jsonData = JsonUtility.ToJson(data);
 
         PlayerPrefs.SetString("SvgrSv", jsonData);
     }
 
-    void LoadGame()
+    public void LoadGame()
     {
-        string data = PlayerPrefs.GetString("SvgrSv");
-        SaveData loadedData = JsonUtility.FromJson<SaveData>(data);
+        if(PlayerPrefs.HasKey("SvgrSv"))
+        {
+            string stringData = PlayerPrefs.GetString("SvgrSv");
+            Debug.Log(stringData);
+            SaveData data = JsonUtility.FromJson<SaveData>(stringData);
+
+            maxDificulty = data.maxDificulty;
+            highScore = data.highScore;
+            scrapAmount = data.scrapsAmount;
+            perksAmount = data.perksAmount;
+
+            shipsState = data.shipsState;
+            shipsSelectedColor = data.shipsSelectedColor;
+            currentShip = data.currentShip;
+
+            if (data.availableColors.Count > 0)
+            {
+                availableColors = data.availableColors;
+            }
+
+            perksState = data.perksState;
+            currentPerk = data.currentPerk;
+
+            logItemsState = data.logItemsState;
+            logEnemiesState = data.logEnemiesState;
+            logBossesState = data.logBossesState;
+
+            masterActive = data.masterActive;
+            masterVolume = data.masterVolume;
+            musicActive = data.musicActive;
+            musicVolume = data.musicVolume;
+            sfxActive = data.sfxActive;
+            sfxVolume = data.sfxVolume;
+            postProcessActive = data.postProcessActive;
+            rumbleActive = data.rumbleActive;
+        }
     }
 
-    void EraseGame()
+    public void EraseGame()
     {
         PlayerPrefs.DeleteKey("SvgrSv");
     }

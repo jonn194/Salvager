@@ -5,6 +5,7 @@ using UnityEngine;
 public class BState_Death : BossState
 {
     [Header("Death State")]
+    public Boss bossRef;
     public Renderer mesh;
     public ParticleSystem deadParticle;
     public float fillSpeed;
@@ -29,6 +30,6 @@ public class BState_Death : BossState
 
     public override void FinishState()
     {
-        Destroy(transform.parent.gameObject);
+        bossRef.DestroyBoss();
     }
 }

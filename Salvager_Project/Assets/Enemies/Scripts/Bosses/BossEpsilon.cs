@@ -61,11 +61,16 @@ public class BossEpsilon : Boss
         sAlternatingLasers.animator = animator;
         sMoveAround.animator = animator;
         sTailAttack.animator = animator;
+
+        sDeath.bossRef = this;
     }
 
     public override void DestroyBoss()
     {
+        GameManager.instance.logBossesState[5] = true;
+
         bombsPools.ClearAll();
+
         Destroy(_spawnedWeapon);
 
         base.DestroyBoss();

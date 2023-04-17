@@ -127,6 +127,8 @@ public class GameState : MonoBehaviour
         CheckUnlocks();
         AddRewards();
         GameplayEndUI();
+
+        GameManager.instance.SaveGame();
     }
 
     void CheckHighScore()

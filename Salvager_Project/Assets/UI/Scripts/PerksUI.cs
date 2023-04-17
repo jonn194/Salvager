@@ -30,8 +30,10 @@ public class PerksUI : MonoBehaviour
     public void Start()
     {
         ButtonSetup();
-        ShowPerk(_buttons[0]);
+        ShowPerk(_buttons[GameManager.instance.currentPerk]);
         UpdatePerksUI();
+        SetMenuImage();
+        PerksMarkers();
     }
 
     void ButtonSetup()
@@ -89,7 +91,13 @@ public class PerksUI : MonoBehaviour
     public void SelectPerk()
     {
         GameManager.instance.currentPerk = _clickIndex;
-        mainMenuPerkImage.sprite = currentPerkImage.sprite;
+        SetMenuImage();
+        PerksMarkers();
+    }
+
+    void SetMenuImage()
+    {
+        mainMenuPerkImage.sprite = _items[GameManager.instance.currentPerk].itemIcon;
     }
 
     public void UnlockPerk()
@@ -97,5 +105,30 @@ public class PerksUI : MonoBehaviour
         GameManager.instance.perksAmount -= GameManager.instance.perksPrices[_clickIndex];
         GameManager.instance.perksState[_clickIndex] = true;
         UpdatePerksUI();
+        ShowPerk(_buttons[_clickIndex]);
+
+        PerksMarkers();
+    }
+
+    void PerksMarkers()
+    {
+        for (int i = 0; i < _buttons.Count; i++)
+        {
+            if (i == GameManager.instance.currentPerk)
+            {
+                _buttons[i].transform.GetChild(1).gameObject.SetActive(true);
+                _buttons[i].transform.GetChild(2).gameObject.SetActive(false);
+            }
+            else if (GameManager.instance.perksState[i])
+            {
+                _buttons[i].transform.GetChild(1).gameObject.SetActive(false);
+                _buttons[i].transform.GetChild(2).gameObject.SetActive(false);
+            }
+            else
+            {
+                _buttons[i].transform.GetChild(1).gameObject.SetActive(false);
+                _buttons[i].transform.GetChild(2).gameObject.SetActive(true);
+            }
+        }
     }
 }

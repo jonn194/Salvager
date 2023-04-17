@@ -52,11 +52,14 @@ public class BossAlpha : Boss
         sMultipleAttack.animator = animator;
         sHeadBashAttack.animator = animator;
 
+        sDeath.bossRef = this;
         sHeadBashAttack.player = player;
     }
 
     public override void DestroyBoss()
     {
+        GameManager.instance.logBossesState[0] = true;
+
         foreach(BulletPool b in bulletPools)
         {
             b.ClearAll();

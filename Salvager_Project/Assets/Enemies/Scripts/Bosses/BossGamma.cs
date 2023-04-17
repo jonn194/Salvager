@@ -65,6 +65,7 @@ public class BossGamma : Boss
         sShootProtectors.animator = animator;
         sExpandProtectors.animator = animator;
 
+        sDeath.bossRef = this;
         sShootProtectors.player = player;
     }
 
@@ -81,6 +82,8 @@ public class BossGamma : Boss
 
     public override void DestroyBoss()
     {
+        GameManager.instance.logBossesState[2] = true;
+
         _currentProtector.DestroyProtectors();
 
         base.DestroyBoss();

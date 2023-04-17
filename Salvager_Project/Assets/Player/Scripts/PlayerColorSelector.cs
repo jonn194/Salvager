@@ -29,7 +29,7 @@ public class PlayerColorSelector : MonoBehaviour
     {
         for (int i = 0; i < buttons.Count; i++)
         {
-            if (GameManager.instance.availableColors[GameManager.instance.currentShip, i])
+            if (GameManager.instance.availableColors[(GameManager.instance.currentShip * 8) + i])
             {
                 buttons[i].interactable = true;
             }

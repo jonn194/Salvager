@@ -25,7 +25,8 @@ public class PerksHandler : MonoBehaviour
 
     int baseHP;
 
-    public enum PerkTypes { ExtraLife, DoubleDamage, PiercingBullets, Magnet, RandomItem, Spikes}
+    public enum PerkTypes { None, ExtraLife, DoubleDamage, PiercingBullets, Magnet, RandomItem, Spikes}
+
 
     public void StartPerks()
     {
