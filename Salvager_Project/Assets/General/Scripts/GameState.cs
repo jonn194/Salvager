@@ -19,6 +19,7 @@ public class GameState : MonoBehaviour
 
     [Header("Enemies")]
     public EnemySpawner enemySpawner;
+    EnemySpawner _currentSpawner;
 
     [Header("Temp")]
     public Transform tempParent;
@@ -71,6 +72,10 @@ public class GameState : MonoBehaviour
 
         //player
         playerStats.StopPlayer(playerOriginalPos);
+
+        //enemies
+        _currentSpawner = Instantiate(enemySpawner, tempParent);
+        CheckUnlocks();
     }
 
     public void StartGame()
@@ -90,11 +95,10 @@ public class GameState : MonoBehaviour
 
 
         //enemies
-        EnemySpawner spawner = Instantiate(enemySpawner, tempParent);
-        spawner.transform.position = new Vector3(0, 0, 17);
-        spawner.transform.eulerAngles = new Vector3(0, 180, 0);
-        spawner.StartEnemies();
-        spawner.player = playerStats;
+        _currentSpawner.transform.position = new Vector3(0, 0, 17);
+        _currentSpawner.transform.eulerAngles = new Vector3(0, 180, 0);
+        _currentSpawner.StartEnemies();
+        _currentSpawner.player = playerStats;
 
         //score
         GameManager.instance.currentScore = 0;
@@ -135,14 +139,14 @@ public class GameState : MonoBehaviour
 
     void CheckUnlocks()
     {
-        if(enemySpawner.currentDificulty > GameManager.instance.maxDificulty)
+        if(_currentSpawner.currentDificulty > GameManager.instance.maxDificulty)
         {
-            GameManager.instance.maxDificulty = enemySpawner.currentDificulty;
+            GameManager.instance.maxDificulty = _currentSpawner.currentDificulty;
+        }
 
-            for(int i = 0; i < enemySpawner.maxEnemyIndex[enemySpawner.currentDificulty]; i++)
-            {
-                GameManager.instance.logEnemiesState[i] = true;
-            }
+        for (int i = 0; i <= _currentSpawner.maxEnemyIndex[_currentSpawner.currentDificulty]; i++)
+        {
+            GameManager.instance.logEnemiesState[i] = true;
         }
     }
 

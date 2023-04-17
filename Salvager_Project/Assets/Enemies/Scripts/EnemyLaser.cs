@@ -30,6 +30,7 @@ public class EnemyLaser : MonoBehaviour
 
     void ShootLaser()
     {
+        anim.ResetTrigger("Stop");
         warningEffect.Stop();
         warningEffect.gameObject.SetActive(false);
         shootingEffect.Play();

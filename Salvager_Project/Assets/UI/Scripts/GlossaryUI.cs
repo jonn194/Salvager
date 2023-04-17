@@ -183,10 +183,12 @@ public class GlossaryUI : MonoBehaviour
                 if (GameManager.instance.logItemsState[i])
                 {
                     _buttons[i].interactable = true;
+                    _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.white;
                 }
                 else
                 {
                     _buttons[i].interactable = false;
+                    _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.black;
                 }
             }
         }
@@ -197,10 +199,12 @@ public class GlossaryUI : MonoBehaviour
                 if (GameManager.instance.logEnemiesState[i])
                 {
                     _buttons[i].interactable = true;
+                    _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.white;
                 }
                 else
                 {
                     _buttons[i].interactable = false;
+                    _buttons[i].transform.GetChild(0).GetChild(0).GetComponent<Image>().color = Color.black;
                 }
             }
         }

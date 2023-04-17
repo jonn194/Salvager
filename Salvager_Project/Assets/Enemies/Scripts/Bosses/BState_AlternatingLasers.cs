@@ -63,7 +63,7 @@ public class BState_AlternatingLasers : BossState
 
             StartCoroutine(SetTimer());
         }
-        else if(_shootingCount == 4)
+        else if(_shootingCount >= 4)
         {
             FinishState();
         }

@@ -8,6 +8,7 @@ public class BState_MoveAround : BossState
     public BossProtectorManager protectors;
     public List<Vector3> targetLocations = new List<Vector3>();
     public float movementSpeed;
+    public float rotationsSpeed = 5;
 
     Vector3 _originalRotation;
     int _currentIndex;
@@ -39,7 +40,7 @@ public class BState_MoveAround : BossState
             Vector3 direction = targetLocations[_currentIndex] - transform.parent.position;
             Quaternion toRotation = Quaternion.LookRotation(direction);
 
-            transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, 5 * Time.deltaTime);
+            transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, rotationsSpeed * Time.deltaTime);
 
             transform.parent.position += transform.forward * movementSpeed * Time.deltaTime;
         }
@@ -47,15 +48,20 @@ public class BState_MoveAround : BossState
 
     void ResetRotation()
     {
-        if(Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 1.5f)
+        if (animationName != "None")
+        {
+            animator.SetBool(animationName, false);
+        }
+
+        if (Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 2.5f)
         {
             transform.parent.eulerAngles = _originalRotation;
             FinishState();
         }
         else
         {
-            Vector3 targetRotation = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, 5 * Time.deltaTime);
-            transform.parent.eulerAngles = targetRotation;
+            //Vector3 targetRotation = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, 5 * Time.deltaTime);
+            transform.parent.eulerAngles += transform.parent.up * rotationsSpeed * 100 * Time.deltaTime;
         }
     }
 

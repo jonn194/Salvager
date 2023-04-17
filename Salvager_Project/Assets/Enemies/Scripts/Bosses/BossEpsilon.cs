@@ -36,7 +36,7 @@ public class BossEpsilon : Boss
 
             sBombsAttack.possibleConnections = new List<BossState>() { sSideMovement, sAlternatingLasers, sMoveAround };
 
-            sAlternatingLasers.possibleConnections = new List<BossState>() { sSideMovement, sBombsAttack, sMoveAround };
+            sAlternatingLasers.possibleConnections = new List<BossState>() { sSideMovement, sBombsAttack};
 
             sMoveAround.possibleConnections = new List<BossState>() { sSideMovement, sBombsAttack, sAlternatingLasers };
 
