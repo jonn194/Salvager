@@ -13988,7 +13988,7 @@ MonoBehaviour:
   description: 'This prime creature can copy the habilities of other prime creatures,
     having a wider range of attacks, which makes it extremely dangerous. '
   extraInfo: 'HP: 120'
-  itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 3c9e6ff5560cc724591d790f4a3aa1b7, type: 3}
 --- !u!95 &612464607
 Animator:
   serializedVersion: 4
@@ -23922,7 +23922,7 @@ MonoBehaviour:
   description: This prime creature has a long body, which uses to attack from various
     directions. Its tail can stretch to gain more range.
   extraInfo: 'HP: 150'
-  itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 3c2aa662f7f31f84a90f889f5a226ad2, type: 3}
 --- !u!95 &1024866874
 Animator:
   serializedVersion: 4
@@ -30309,7 +30309,7 @@ MonoBehaviour:
   description: This prime creature summons and commands protectors to avoid taking
     damage. It can also uses the protectors to attack.
   extraInfo: 'HP: 50'
-  itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 7ec41da39ec0ca34496720da9484d74b, type: 3}
 --- !u!95 &1491542435
 Animator:
   serializedVersion: 4
@@ -36605,7 +36605,7 @@ MonoBehaviour:
   description: This prime creature uses it's three heads to cast dangerous laser
     beams. Together they can cast a huge and devastating beam.
   extraInfo: 'HP: 75'
-  itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 98c656111f7596640ad2cd7faf69f317, type: 3}
 --- !u!95 &1599154613
 Animator:
   serializedVersion: 4
@@ -44196,7 +44196,7 @@ MonoBehaviour:
   description: This prime creature shoots all kind of projectiles from it's mouth
     and tentacles, covering a great area.
   extraInfo: 'HP: 100'
-  itemIcon: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  itemIcon: {fileID: 21300000, guid: 2c20a4707fb34d244a6149a602f80945, type: 3}
 --- !u!95 &1891742259
 Animator:
   serializedVersion: 4
