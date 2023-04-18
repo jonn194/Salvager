@@ -36,4 +36,11 @@ public class SaveData
     public float sfxVolume;
     public bool postProcessActive;
     public bool rumbleActive;
+
+    //TUTORIAL
+    public bool firstTimeOpening;
+    public bool firstTimeCustomize;
+    public bool firstTimePerks;
+    public bool firstTimeLog;
+    public bool firstTimeGameplay;
 }

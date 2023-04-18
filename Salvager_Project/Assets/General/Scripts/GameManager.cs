@@ -53,6 +53,13 @@ public class GameManager : MonoBehaviour
     public bool postProcessActive = true;
     public bool rumbleActive = true;
 
+    [Header("Tutorial")]
+    public bool firstTimeOpening = true;
+    public bool firstTimeCustomize = true;
+    public bool firstTimePerks = true;
+    public bool firstTimeLog = true;
+    public bool firstTimeGameplay = true;
+
     private void Awake()
     {
         if (!instance)
@@ -120,6 +127,12 @@ public class GameManager : MonoBehaviour
         data.postProcessActive = postProcessActive;
         data.rumbleActive = rumbleActive;
 
+        data.firstTimeOpening = firstTimeOpening;
+        data.firstTimeCustomize = firstTimeCustomize;
+        data.firstTimePerks = firstTimePerks;
+        data.firstTimeLog = firstTimeLog;
+        data.firstTimeGameplay = firstTimeGameplay;
+
         string jsonData = JsonUtility.ToJson(data);
 
         PlayerPrefs.SetString("SvgrSv", jsonData);
@@ -162,6 +175,12 @@ public class GameManager : MonoBehaviour
             sfxVolume = data.sfxVolume;
             postProcessActive = data.postProcessActive;
             rumbleActive = data.rumbleActive;
+
+            firstTimeOpening = data.firstTimeOpening;
+            firstTimeCustomize = data.firstTimeCustomize;
+            firstTimePerks = data.firstTimePerks;
+            firstTimeLog = data.firstTimeLog;
+            firstTimeGameplay = data.firstTimeGameplay;
         }
     }
 
