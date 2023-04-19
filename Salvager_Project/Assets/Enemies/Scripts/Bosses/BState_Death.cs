@@ -14,6 +14,9 @@ public class BState_Death : BossState
     public override void ExecuteState()
     {
         base.ExecuteState();
+
+        ParticleSystem deadP = Instantiate(deadParticle, transform.parent.parent);
+        deadP.transform.position = transform.parent.position;
     }
 
     public override void UpdateState()
@@ -27,6 +30,7 @@ public class BState_Death : BossState
             FinishState();
         }
     }
+
 
     public override void FinishState()
     {

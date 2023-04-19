@@ -22,6 +22,7 @@ public class BState_TailAttack : BossState
         base.ExecuteState();
 
         weapon.gameObject.SetActive(true);
+        _sequence = 0;
         _index = Random.Range(0, originPositions.Count);
         _currentHoldTime = holdTime;
 

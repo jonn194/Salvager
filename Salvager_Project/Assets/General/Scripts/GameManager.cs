@@ -143,7 +143,6 @@ public class GameManager : MonoBehaviour
         if(PlayerPrefs.HasKey("SvgrSv"))
         {
             string stringData = PlayerPrefs.GetString("SvgrSv");
-            Debug.Log(stringData);
             SaveData data = JsonUtility.FromJson<SaveData>(stringData);
 
             maxDificulty = data.maxDificulty;

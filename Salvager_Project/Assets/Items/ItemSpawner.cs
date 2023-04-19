@@ -30,10 +30,10 @@ public class ItemSpawner : MonoBehaviour
     public void SpawnScraps(Transform itemPos)
     {
         int randomAmount = Random.Range(3, 15);
-        float randomY = Random.Range(-10, 10);
 
         for (int i = 0; i < randomAmount; i++)
         {
+            float randomY = Random.Range(-10, 10);
             Items newItem = Instantiate(scraps, transform.parent);
             newItem.transform.position = itemPos.position;
 
@@ -45,10 +45,10 @@ public class ItemSpawner : MonoBehaviour
     public void SpawnPerks(Transform itemPos)
     {
         int randomAmount = Random.Range(10, 20);
-        float randomY = Random.Range(-10, 10);
 
         for (int i = 0; i < randomAmount; i++)
         {
+            float randomY = Random.Range(-10, 10);
             Items newItem = Instantiate(perks, transform.parent);
             newItem.transform.position = itemPos.position;
 

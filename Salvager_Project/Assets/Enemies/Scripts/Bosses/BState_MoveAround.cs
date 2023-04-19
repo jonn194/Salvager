@@ -13,12 +13,17 @@ public class BState_MoveAround : BossState
     Vector3 _originalRotation;
     int _currentIndex;
 
+    private void Start()
+    {
+        targetLocations.Add(transform.parent.position);
+    }
+
     public override void ExecuteState()
     {
         base.ExecuteState();
         _originalRotation = transform.parent.eulerAngles;
         _currentIndex = 0;
-        targetLocations.Add(transform.parent.position);
+        targetLocations[targetLocations.Count - 1] = transform.parent.position;
     }
 
     public override void UpdateState()
@@ -40,7 +45,7 @@ public class BState_MoveAround : BossState
             Vector3 direction = targetLocations[_currentIndex] - transform.parent.position;
             Quaternion toRotation = Quaternion.LookRotation(direction);
 
-            transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, rotationsSpeed * Time.deltaTime);
+            transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, rotationsSpeed * 2 * Time.deltaTime);
 
             transform.parent.position += transform.forward * movementSpeed * Time.deltaTime;
         }
@@ -53,15 +58,16 @@ public class BState_MoveAround : BossState
             animator.SetBool(animationName, false);
         }
 
-        if (Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 2.5f)
+        if (Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 1.5f * rotationsSpeed)
         {
             transform.parent.eulerAngles = _originalRotation;
             FinishState();
         }
         else
         {
-            //Vector3 targetRotation = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, 5 * Time.deltaTime);
-            transform.parent.eulerAngles += transform.parent.up * rotationsSpeed * 100 * Time.deltaTime;
+            Vector3 targetRotation = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, rotationsSpeed * Time.deltaTime);
+            transform.parent.eulerAngles = targetRotation;
+            //transform.parent.eulerAngles += transform.parent.up * rotationsSpeed * 100 * Time.deltaTime;
         }
     }
 

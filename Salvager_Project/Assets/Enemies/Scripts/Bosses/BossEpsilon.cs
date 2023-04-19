@@ -21,6 +21,7 @@ public class BossEpsilon : Boss
         _spawnedWeapon.transform.position = transform.position;
         _spawnedWeapon.transform.rotation = transform.rotation;
         _spawnedWeapon.gameObject.SetActive(false);        
+        _spawnedWeapon.mainBoss = this;
         sTailAttack.weapon = _spawnedWeapon;
 
         base.Start();
@@ -67,7 +68,7 @@ public class BossEpsilon : Boss
 
     public override void DestroyBoss()
     {
-        GameManager.instance.logBossesState[5] = true;
+        GameManager.instance.logBossesState[4] = true;
 
         bombsPools.ClearAll();
 

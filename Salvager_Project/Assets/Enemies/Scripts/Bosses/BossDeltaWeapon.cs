@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossDeltaWeapon : MonoBehaviour, IDamageable
 {
-    public BossDelta mainBoss;
+    public Boss mainBoss;
 
     public void GetDamage(int dmg)
     {

@@ -176,6 +176,7 @@ public class EnemySpawner : MonoBehaviour
         newBoss.transform.position = transform.position;
         newBoss.transform.rotation = transform.rotation;
         newBoss.player = player;
+        newBoss.itemSpawner = itemSpawn;
 
 
         //stop incoming enemies

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_IntroBackground
-  m_Shader: {fileID: -6465566751694194690, guid: 61b8555d7b21f0c469b084310eb9f56c,
+  m_Name: M_LogoShake
+  m_Shader: {fileID: -6465566751694194690, guid: bd09977dbcaf73d4b84ee314934c4ec9,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -39,9 +39,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Density: 10
-    - _Frequency: 0.5
-    m_Colors:
-    - _BackgroundColor: {r: 0.12979436, g: 0.090512626, b: 0.16981131, a: 0}
-    - _MainColor: {r: 0.16844493, g: 0.11258456, b: 0.20754719, a: 0}
+    - _ShakeAmplitude: 2
+    - _Speed: 15
+    m_Colors: []
   m_BuildTextureStacks: []

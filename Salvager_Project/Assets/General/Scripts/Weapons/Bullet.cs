@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public float duration;
+    public float durationVariation = 0;
     protected float _currentDuration;
 
     public int maxHits = 1;
@@ -22,7 +23,9 @@ public class Bullet : MonoBehaviour
 
     public void Setup()
     {
-        _currentDuration = duration;
+        float randomDur = Random.Range(0, durationVariation);
+
+        _currentDuration = duration + randomDur;
         _currentHits = 0;
     }
 

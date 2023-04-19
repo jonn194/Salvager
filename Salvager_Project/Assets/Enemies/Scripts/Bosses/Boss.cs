@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
@@ -15,7 +16,6 @@ public class Boss : MonoBehaviour, IDamageable
     [Header("Graphics")]
     public Renderer mesh;
     public Animator animator;
-    public Image lifeBar;
     public ParticleSystem hitParticle;
     public Color damageTint;
     Color _originalTint;
@@ -24,6 +24,9 @@ public class Boss : MonoBehaviour, IDamageable
 
     [Header("Dependencies")]
     public PlayerStats player;
+    public ItemSpawner itemSpawner;
+    public BossCanvas bossCanvas;
+    BossCanvas _spawnedCanvas;
 
     [Header("States")]
     public BossState sEnterLevel;
@@ -35,6 +38,9 @@ public class Boss : MonoBehaviour, IDamageable
         //set base values
         _originalTint = mesh.material.GetColor("_EmissionColor");
         currentLife = maxLife;
+        _spawnedCanvas = Instantiate(bossCanvas, transform.parent);
+        _spawnedCanvas.transform.eulerAngles += transform.eulerAngles;
+        _spawnedCanvas.targetBoss = this.transform;
         
         //set event to change state
         EventHandler.instance.bossStateFinished += StateMachine;
@@ -70,7 +76,6 @@ public class Boss : MonoBehaviour, IDamageable
             //change state to death
             _currentState = sDeath;
             _currentState.ExecuteState();
-            DestroyBoss();
 
             //return to avoid further checks
             return;
@@ -80,18 +85,15 @@ public class Boss : MonoBehaviour, IDamageable
 
         _currentState = _currentState.possibleConnections[randomState];
         _currentState.ExecuteState();
+        Debug.Log(_currentState);
     }
 
-    void UpdateLifebar()
-    {
-        lifeBar.fillAmount = (float)((currentLife * 100f) / maxLife) / 100f;
-    }
 
     public virtual void GetDamage(int damage)
     {
         //remove life
         currentLife -= damage;
-        UpdateLifebar();
+        _spawnedCanvas.UpdateLifebar(currentLife, maxLife);
 
         //stop current particles
         hitParticle.Stop();
@@ -146,9 +148,12 @@ public class Boss : MonoBehaviour, IDamageable
 
     public virtual void DestroyBoss()
     {
+        itemSpawner.SpawnPerks(transform);
+
         GameManager.instance.currentScore += score;
         EventHandler.instance.LevelUp();
 
+        Destroy(_spawnedCanvas.gameObject);
         Destroy(gameObject);
     }
 }
