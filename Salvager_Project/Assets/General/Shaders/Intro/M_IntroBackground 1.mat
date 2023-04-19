@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_IntroBackground
+  m_Name: M_IntroBackground 1
   m_Shader: {fileID: -6465566751694194690, guid: 61b8555d7b21f0c469b084310eb9f56c,
     type: 3}
   m_ValidKeywords: []
@@ -42,5 +42,5 @@ Material:
     - _Density: 10
     m_Colors:
     - _BackgroundColor: {r: 0.12979436, g: 0.090512626, b: 0.16981131, a: 0}
-    - _MainColor: {r: 0.16844493, g: 0.11258456, b: 0.20754719, a: 0}
+    - _MainColor: {r: 0.12941177, g: 0.09019608, b: 0.16862746, a: 0}
   m_BuildTextureStacks: []
