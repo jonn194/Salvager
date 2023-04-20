@@ -48258,7 +48258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2074829616}
-  menuMusicClip: {fileID: 0}
+  menuMusicClip: {fileID: 8300000, guid: f0cd4c2f9675f9b42827414974f42c35, type: 3}
   gameplayMusicClip: {fileID: 8300000, guid: f1dc991e9a299614a94b27044117def0, type: 3}
   audioSource: {fileID: 2074829614}
   mainButtons:
@@ -48312,7 +48312,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -143781295326668444, guid: e5fc0a1ac98f512438a56cc2e19dfa52,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f0cd4c2f9675f9b42827414974f42c35, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.75
   m_Pitch: 1
