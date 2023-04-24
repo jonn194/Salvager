@@ -13,7 +13,9 @@ public class BossDelta : Boss
 
     public Collider mainCollider;
     public BossDeltaWeapon originalWeapon;
-    List<BossDeltaWeapon> spawnedWeapons = new List<BossDeltaWeapon>();
+    List<BossDeltaWeapon> _spawnedWeapons = new List<BossDeltaWeapon>();
+    public BossDeltaWeapon originalTailWeapon;
+    BossDeltaWeapon _spawnedTailWeapon;
 
     public override void Start()
     {
@@ -64,6 +66,7 @@ public class BossDelta : Boss
         sTailAttack.screenBoundaries = screenBoundaries;
 
         sInOutLevel.mainCollider = mainCollider;
+        sInOutLevel.hitParticles = hitParticle;
         sDeath.bossRef = this;
     }
 
@@ -75,26 +78,35 @@ public class BossDelta : Boss
             newWeapon.transform.position = transform.position;
             newWeapon.transform.rotation = transform.rotation;
             newWeapon.mainBoss = this;
-            spawnedWeapons.Add(newWeapon);
+            _spawnedWeapons.Add(newWeapon);
 
             newWeapon.gameObject.SetActive(false);
         }
 
-        sInOutLevel.weapons = spawnedWeapons;
-        sSwipeAttack.weapon = spawnedWeapons[0];
-        sTailAttack.weapon = spawnedWeapons[0];
+        sInOutLevel.weapons = _spawnedWeapons;
+
+        _spawnedTailWeapon = Instantiate(originalTailWeapon, transform.parent);
+        _spawnedTailWeapon.transform.position = transform.position;
+        _spawnedTailWeapon.transform.rotation = transform.rotation;
+        _spawnedTailWeapon.mainBoss = this;
+        _spawnedTailWeapon.gameObject.SetActive(false);
+
+        sSwipeAttack.weapon = _spawnedTailWeapon;
+        sTailAttack.weapon = _spawnedTailWeapon;
     }
 
     public override void CheckLife()
     {
         if(currentLife <= 0)
         {
-            foreach (BossDeltaWeapon weapon in spawnedWeapons)
+            foreach (BossDeltaWeapon weapon in _spawnedWeapons)
             {
                 weapon.destroyed = true;
             }
 
-            spawnedWeapons.Clear();
+            _spawnedWeapons.Clear();
+
+            _spawnedTailWeapon.destroyed = true;
         }
 
 

@@ -11,9 +11,44 @@ public class BossDeltaWeapon : MonoBehaviour, IDamageable
     public bool destroyed;
     float _currentFill = 1;
 
+    public Color damageTint;
+    Color _originalTint;
+    float _maxColorTime = 0.5f;
+    float _currentColorTime;
+
     public void GetDamage(int dmg)
     {
         mainBoss.GetDamage(dmg);
+
+        //change tint
+        mesh.material.SetColor("_EmissionColor", damageTint);
+
+        StopCoroutine(ResetColor());
+        _currentColorTime = 0;
+        StartCoroutine(ResetColor());
+    }
+
+    IEnumerator ResetColor()
+    {
+        Color currentColor = mesh.material.GetColor("_EmissionColor");
+        float progress = 0f;
+
+        while (true)
+        {
+            _currentColorTime += Time.deltaTime;
+            progress = ((_currentColorTime * 100) / _maxColorTime) / 100;
+
+            currentColor = Color.Lerp(currentColor, _originalTint, progress);
+
+            mesh.material.SetColor("_EmissionColor", currentColor);
+
+            if (_currentColorTime >= _maxColorTime)
+            {
+                yield break;
+            }
+
+            yield return null;
+        }
     }
 
     private void Update()

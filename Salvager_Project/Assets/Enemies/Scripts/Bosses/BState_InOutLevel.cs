@@ -10,6 +10,7 @@ public class BState_InOutLevel : BossState
     public float retreivePosition = 20;
 
     public Collider mainCollider;
+    public ParticleSystem hitParticles;
     public List<BossDeltaWeapon> weapons;
     public List<float> xPosition;
     public List<float> zPosition;
@@ -58,6 +59,7 @@ public class BState_InOutLevel : BossState
         if(Mathf.Abs(retreivePosition - transform.parent.position.z) <= 0.5f)
         {
             mainCollider.enabled = false;
+            hitParticles.gameObject.SetActive(false);
             _sequence++;
         }
     }
@@ -86,6 +88,7 @@ public class BState_InOutLevel : BossState
                 if (Mathf.Abs(-xPosition[i] * 3 - weapons[i].transform.position.x) <= 0.5f)
                 {
                     mainCollider.enabled = true;
+                    hitParticles.gameObject.SetActive(true);
                     _sequence++;
                 }
             }

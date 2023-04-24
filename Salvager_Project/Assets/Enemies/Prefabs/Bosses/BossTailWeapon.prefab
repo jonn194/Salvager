@@ -52,6 +52,7 @@ MonoBehaviour:
   weaponCollider: {fileID: 3502929476201992973}
   fillSpeed: 1
   destroyed: 0
+  damageTint: {r: 1, g: 1, b: 1, a: 1}
 --- !u!65 &3502929476201992973
 BoxCollider:
   m_ObjectHideFlags: 0

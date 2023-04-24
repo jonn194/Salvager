@@ -161,9 +161,9 @@ MonoBehaviour:
   animationName: Stretch
   animationStartDuration: 0
   possibleConnections: []
-  chargeSpeed: 4
+  chargeSpeed: 2
   attackSpeed: 5
-  holdTime: 0.5
+  holdTime: 1
   chargePosition: {x: 0, y: 0, z: 17}
   maxAttackX: 7
   maxAttackZ: -5
@@ -183,14 +183,14 @@ MonoBehaviour:
   stateDuration: 0
   screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
-  animationName: None
+  animationName: Stretch
   animationStartDuration: 0
   possibleConnections: []
   spawnPosition: {x: 17, y: 0, z: 15}
-  rotationSpeed: 150
+  rotationSpeed: 110
   ZVariation: 5
   weapon: {fileID: 0}
-  retreivePosition: 20
+  retreivePosition: 17
   mainMovementSpeed: 15
 --- !u!114 &7290269340501664117
 MonoBehaviour:
@@ -304,6 +304,8 @@ MonoBehaviour:
   sTailAttack: {fileID: 7290269340501664117}
   mainCollider: {fileID: 5296563044671977198}
   originalWeapon: {fileID: 6235180133342641438, guid: 37caa26ce276e464b97d5b2341774fe7,
+    type: 3}
+  originalTailWeapon: {fileID: 6235180133342641438, guid: 50a4208056d532f4e82167f8e6a8608a,
     type: 3}
 --- !u!65 &5296563044671977198
 BoxCollider:

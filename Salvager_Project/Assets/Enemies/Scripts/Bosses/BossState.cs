@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossState : MonoBehaviour
@@ -17,7 +18,7 @@ public class BossState : MonoBehaviour
 
     public virtual void ExecuteState()
     {
-        Debug.Log(this);
+        //Debug.Log(this);
         //screenBoundaries = GameManager.instance.CalculateScreenBounds();
 
         _currentDuration = stateDuration;
@@ -70,5 +71,17 @@ public class BossState : MonoBehaviour
             animator.SetBool(animationName, false);
         }
         EventHandler.instance.BossStateFinished();
+    }
+
+    public bool CheckRotation(Quaternion currentRotation, float targetAngle, float threshold)
+    {
+        if (Quaternion.Angle(Quaternion.Euler(0, targetAngle, 0), currentRotation) < threshold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
