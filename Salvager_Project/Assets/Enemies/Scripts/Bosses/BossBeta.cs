@@ -7,10 +7,14 @@ public class BossBeta : Boss
     [Header("Boss Beta")]
     public BossState sSideMovement;
     public BState_SpawnShield sSpawnShields;
-    public BossState sAlternatingLasers;
-    public BossState sLaserSwipe;
-    public BossState sSearchLaser;
+    public BState_AlternatingLasers sAlternatingLasers;
+    public BState_LaserSwipe sLaserSwipe;
+    public BState_LaserSearch sSearchLaser;
 
+    public List<EnemyLaser> laserSet01 = new List<EnemyLaser>();
+    public List<EnemyLaser> laserSet02 = new List<EnemyLaser>();
+    public List<EnemyLaser> lasersSwipe = new List<EnemyLaser>();
+    public EnemyLaser laserSearch;
     public EnemyShieldHandler originalShield;
     EnemyShieldHandler _spawnedShield;
 
@@ -48,6 +52,28 @@ public class BossBeta : Boss
         }
     }
 
+    public override void CheckLife()
+    {
+        if(currentLife <= 0)
+        {
+            foreach(EnemyLaser l in laserSet01)
+            {
+                l.StopLaser();
+            }
+            foreach (EnemyLaser l in laserSet02)
+            {
+                l.StopLaser();
+            }
+            foreach (EnemyLaser l in lasersSwipe)
+            {
+                l.StopLaser();
+            }
+            laserSearch.StopLaser();
+        }
+
+        base.CheckLife();
+    }
+
     public override void SetStatesDependencies()
     {
         sEnterLevel.animator = animator;
@@ -58,6 +84,13 @@ public class BossBeta : Boss
         sAlternatingLasers.animator = animator;
         sLaserSwipe.animator = animator;
         sSearchLaser.animator = animator;
+
+        sSideMovement.screenBoundaries = screenBoundaries;
+
+        sAlternatingLasers.set01 = laserSet01;
+        sAlternatingLasers.set02 = laserSet02;
+        sLaserSwipe.lasers = lasersSwipe;
+        sSearchLaser.laser = laserSearch;
 
         sDeath.bossRef = this;
         sSearchLaser.player = player;

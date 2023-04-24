@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour, IObservable
 {
     [Header("Dependencies")]
     public PlayerStats player;
@@ -22,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemies")]
     public List<Enemy> enemies = new List<Enemy>();
     public List<Boss> bosses = new List<Boss>();
+    Boss _currentBoss;
     float _randomX;
 
     [Header("Dificulty")]
@@ -35,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
     int _dificulty;
     int _maxDificulty;
     int _reinforceLevel;
+    Vector3 _screenBoundaries;
 
     private void Start()
     {
@@ -48,6 +48,7 @@ public class EnemySpawner : MonoBehaviour
         _currentSpawnFrequency = baseSpawnFrequency;
         _dificulty = 0;
         _reinforceLevel = 0;
+        _screenBoundaries = GameManager.instance.CalculateScreenBounds();
         StartCoroutine(SpawnTimer());
     }
 
@@ -81,12 +82,14 @@ public class EnemySpawner : MonoBehaviour
         newEnemy.itemSpawner = itemSpawn;
         newEnemy.spawner = this;
         newEnemy.reinforceLevel = _reinforceLevel;
+        newEnemy.screenBoundaries = _screenBoundaries;
 
         _currentEnemies++;
     }
 
     Vector3 RandomPosition()
     {
+        //float tempBoundary = _screenBoundaries.x - maxPosition;
         _randomX = Random.Range(-maxPosition, maxPosition);
 
         return new Vector3(_randomX, transform.position.y, transform.position.z);
@@ -119,7 +122,12 @@ public class EnemySpawner : MonoBehaviour
         {
             enemiesDestroyedByPlayer++;
 
-            CheckDificulty();
+            //checks the amount of enemies
+            if (enemiesDestroyedByPlayer >= enemiesToChange[_dificulty])
+            {
+                //create boss
+                SpawnBoss();
+            }
         }
     }
 
@@ -129,26 +137,11 @@ public class EnemySpawner : MonoBehaviour
         {
             _dificulty = currentDificulty;
 
-            //checks the amount of enemies
-            if (enemiesDestroyedByPlayer >= enemiesToChange[_dificulty])
-            {
-                //create boss
-                SpawnBoss();
-            }
         }
         else
         {
+            ReinforceEnemies();
             _dificulty = _maxDificulty - 1;
-
-            //checks the amount of enemies
-            if (enemiesDestroyedByPlayer >= enemiesToChange[_dificulty])
-            {
-                //enemies are reinforced
-                ReinforceEnemies();
-
-                //create boss
-                SpawnBoss();
-            }
         }
     }
 
@@ -162,9 +155,6 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnBoss()
     {
-        //increase dificulty
-        currentDificulty++;
-
         //resets destroyed enemies count
         enemiesDestroyedByPlayer = 0;
 
@@ -177,7 +167,9 @@ public class EnemySpawner : MonoBehaviour
         newBoss.transform.rotation = transform.rotation;
         newBoss.player = player;
         newBoss.itemSpawner = itemSpawn;
+        newBoss.screenBoundaries = _screenBoundaries;
 
+        _currentBoss = newBoss;
 
         //stop incoming enemies
         StopAllCoroutines();
@@ -185,6 +177,11 @@ public class EnemySpawner : MonoBehaviour
 
     void LevelUp()
     {
+        //increase dificulty
+        currentDificulty++;
+
+        CheckDificulty();
+
         //adjust spawn frequency
         if (_currentSpawnFrequency > minSpawnFrequency)
         {
@@ -198,8 +195,24 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnTimer());
     }
 
-    private void OnDrawGizmos()
+    //INTERFACE
+    public void ObserverSuscribe()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(maxPosition, 0.5f, 0.5f));
+        EventHandler.instance.levelUp += LevelUp;
     }
+
+    public void ObserverUnsuscribe()
+    {
+        EventHandler.instance.levelUp -= LevelUp;
+
+        if(_currentBoss != null)
+        {
+            _currentBoss.ObserverUnsuscribe();
+        }
+    }
+
+    /*private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector3(_screenBoundaries.x, 0.5f, 0.5f));
+    }*/
 }

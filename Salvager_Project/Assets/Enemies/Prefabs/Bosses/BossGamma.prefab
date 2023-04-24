@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Enter
   animationStartDuration: 0
@@ -72,15 +73,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Death
   animationStartDuration: 0
   possibleConnections: []
   bossRef: {fileID: 0}
-  mesh: {fileID: 0}
+  mesh: {fileID: 814798338459664052}
   deadParticle: {fileID: 9212767789805533541, guid: 824fd27264c151f438ae8f6484c751ab,
     type: 3}
-  fillSpeed: 0
+  fillSpeed: 1.5
 --- !u!114 &6735306134253366108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 4
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: None
   animationStartDuration: 0
@@ -117,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Move
   animationStartDuration: 0
@@ -126,7 +130,7 @@ MonoBehaviour:
   - {x: -7, y: 0, z: -7}
   - {x: 0, y: 0, z: -15}
   - {x: 7, y: 0, z: -7}
-  movementSpeed: 30
+  movementSpeed: 20
   rotationsSpeed: 5
 --- !u!114 &4016224884067257730
 MonoBehaviour:
@@ -142,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 6
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Align
   animationStartDuration: 0
@@ -165,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Shoot
   animationStartDuration: 0
@@ -185,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 7
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Align
   animationStartDuration: 0
@@ -243,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d58dd636336654bb174526e67378d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 50
+  maxLife: 30
   currentLife: 0
   score: 80
   mesh: {fileID: 814798338459664052}
@@ -254,6 +261,7 @@ MonoBehaviour:
   itemSpawner: {fileID: 0}
   bossCanvas: {fileID: 5152941896127273568, guid: 3aa404d4e9fc36546ab0611c5d444b25,
     type: 3}
+  screenBoundaries: {x: 0, y: 0, z: 0}
   sEnterLevel: {fileID: 4016820682276892497}
   sDeath: {fileID: 8074568719016916566}
   sSideMovement: {fileID: 6735306134253366108}

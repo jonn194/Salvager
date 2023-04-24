@@ -5,7 +5,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Boss : MonoBehaviour, IDamageable
+public class Boss : MonoBehaviour, IDamageable, IObservable
 {
     [Header("Stats")]
     public int maxLife;
@@ -26,13 +26,14 @@ public class Boss : MonoBehaviour, IDamageable
     public PlayerStats player;
     public ItemSpawner itemSpawner;
     public BossCanvas bossCanvas;
+    public Vector3 screenBoundaries;
     BossCanvas _spawnedCanvas;
 
     [Header("States")]
     public BossState sEnterLevel;
     public BState_Death sDeath;
     protected BossState _currentState;
-
+    
     public virtual void Start()
     {
         //set base values
@@ -41,9 +42,9 @@ public class Boss : MonoBehaviour, IDamageable
         _spawnedCanvas = Instantiate(bossCanvas, transform.parent);
         _spawnedCanvas.transform.eulerAngles += transform.eulerAngles;
         _spawnedCanvas.targetBoss = this.transform;
-        
-        //set event to change state
-        EventHandler.instance.bossStateFinished += StateMachine;
+
+        //suscribe to observer to change states
+        ObserverSuscribe();
 
         //set states dependencies and connections
         SetStatesDependencies();
@@ -71,7 +72,7 @@ public class Boss : MonoBehaviour, IDamageable
 
     public virtual void StateMachine()
     {
-        if(currentLife <= 0)
+        if (currentLife <= 0)
         {          
             //change state to death
             _currentState = sDeath;
@@ -85,7 +86,6 @@ public class Boss : MonoBehaviour, IDamageable
 
         _currentState = _currentState.possibleConnections[randomState];
         _currentState.ExecuteState();
-        Debug.Log(_currentState);
     }
 
 
@@ -101,19 +101,7 @@ public class Boss : MonoBehaviour, IDamageable
         //change tint
         mesh.material.SetColor("_EmissionColor", damageTint);
 
-        //if life hits a specific value
-        if(currentLife <= 0)
-        {
-            StateMachine();
-        }
-        else if(currentLife <= maxLife / 2 && !_halfLifeChecked)
-        {
-            //make sure it doesn't enter twice
-            _halfLifeChecked = true;
-
-            //add new states
-            SetStatesConnections();
-        }
+        CheckLife();
 
         StopCoroutine(ResetColor());
         _currentColorTime = 0;
@@ -121,6 +109,23 @@ public class Boss : MonoBehaviour, IDamageable
 
         //play new particles
         hitParticle.Play();
+    }
+
+    public virtual void CheckLife()
+    {
+        //if life hits a specific value
+        if (currentLife <= 0)
+        {
+            StateMachine();
+        }
+        else if (currentLife <= maxLife / 2 && !_halfLifeChecked)
+        {
+            //make sure it doesn't enter twice
+            _halfLifeChecked = true;
+
+            //add new states
+            SetStatesConnections();
+        }
     }
 
     IEnumerator ResetColor()
@@ -148,6 +153,8 @@ public class Boss : MonoBehaviour, IDamageable
 
     public virtual void DestroyBoss()
     {
+        //unsuscribe from observer
+        ObserverUnsuscribe();
         itemSpawner.SpawnPerks(transform);
 
         GameManager.instance.currentScore += score;
@@ -155,5 +162,28 @@ public class Boss : MonoBehaviour, IDamageable
 
         Destroy(_spawnedCanvas.gameObject);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == K.LAYER_PLAYER)
+        {
+            other.GetComponent<PlayerStats>().GetDamage();
+        }
+        else if (other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
+        {
+            other.GetComponent<PowerShield>().GetHit();
+        }
+    }
+
+    //INTERFACE
+    public void ObserverSuscribe()
+    {
+        EventHandler.instance.bossStateFinished += StateMachine;
+    }
+
+    public void ObserverUnsuscribe()
+    {
+        EventHandler.instance.bossStateFinished -= StateMachine;
     }
 }

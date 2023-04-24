@@ -63,16 +63,29 @@ public class BossEpsilon : Boss
         sMoveAround.animator = animator;
         sTailAttack.animator = animator;
 
+        sSideMovement.screenBoundaries = screenBoundaries;
+        sBombsAttack.screenBoundaries = screenBoundaries;
+        sMoveAround.screenBoundaries = screenBoundaries;
+        sTailAttack.screenBoundaries = screenBoundaries;
+
         sDeath.bossRef = this;
+    }
+
+    public override void CheckLife()
+    {
+        if (currentLife <= 0)
+        {
+            bombsPools.ClearAll();
+
+            _spawnedWeapon.destroyed = true;
+        }
+
+        base.CheckLife();
     }
 
     public override void DestroyBoss()
     {
         GameManager.instance.logBossesState[4] = true;
-
-        bombsPools.ClearAll();
-
-        Destroy(_spawnedWeapon);
 
         base.DestroyBoss();
     }

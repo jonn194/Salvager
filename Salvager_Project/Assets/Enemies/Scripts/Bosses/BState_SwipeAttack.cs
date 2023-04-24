@@ -62,7 +62,7 @@ public class BState_SwipeAttack : BossState
         {
             weapon.transform.eulerAngles += weapon.transform.up * rotationSpeed * _direction * Time.deltaTime;
 
-            if (Mathf.Abs(180 - weapon.transform.eulerAngles.y) <= 1f)
+            if (Mathf.Abs(180 - weapon.transform.eulerAngles.y) <= 1f * rotationSpeed)
             {
                 _sequence++;
             }
@@ -81,7 +81,7 @@ public class BState_SwipeAttack : BossState
     {
         transform.parent.position -= transform.parent.forward * mainMovementSpeed * Time.deltaTime;
 
-        if (Mathf.Abs(retreivePosition - transform.parent.position.z) <= 0.5f)
+        if (Mathf.Abs(retreivePosition - transform.parent.position.z) <= 0.5f * rotationSpeed)
         {
             _sequence++;
         }
@@ -91,7 +91,7 @@ public class BState_SwipeAttack : BossState
     {
         transform.parent.position += transform.parent.forward * mainMovementSpeed * Time.deltaTime;
 
-        if (Mathf.Abs(_originalPos - transform.parent.position.z) <= 0.5f)
+        if (Mathf.Abs(_originalPos - transform.parent.position.z) <= 0.5f * rotationSpeed)
         {
             _sequence++;
         }

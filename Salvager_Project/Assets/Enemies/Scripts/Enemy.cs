@@ -31,13 +31,14 @@ public class Enemy : MonoBehaviour, IDamageable
     public PlayerStats player;
     public ItemSpawner itemSpawner;
     public EnemySpawner spawner;
+    public Vector3 screenBoundaries;
 
 
     public virtual void Start()
     {
         float randomScraps = Random.Range(0, 100);
 
-        if(randomScraps <= 25)
+        if(randomScraps <= 20)
         {
             _hasScraps = true;
             Material newMat = new Material(mesh.material);

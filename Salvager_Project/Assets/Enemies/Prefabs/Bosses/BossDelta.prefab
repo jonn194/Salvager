@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Enter
   animationStartDuration: 0
@@ -72,15 +73,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Death
   animationStartDuration: 0
   possibleConnections: []
   bossRef: {fileID: 0}
-  mesh: {fileID: 0}
+  mesh: {fileID: 170358315344462746}
   deadParticle: {fileID: 9212767789805533541, guid: 824fd27264c151f438ae8f6484c751ab,
     type: 3}
-  fillSpeed: 0
+  fillSpeed: 1.5
 --- !u!114 &6735306134253366108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 4
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: None
   animationStartDuration: 0
@@ -117,13 +120,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: None
   animationStartDuration: 0
   possibleConnections: []
-  weaponMovementSpeed: 15
-  mainMovementSpeed: 8
+  weaponMovementSpeed: 25
+  mainMovementSpeed: 15
   retreivePosition: 25
+  mainCollider: {fileID: 0}
   weapons: []
   xPosition:
   - -18
@@ -151,13 +156,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Stretch
   animationStartDuration: 0
   possibleConnections: []
-  chargeSpeed: 2
-  attackSpeed: 4
-  holdTime: 1
+  chargeSpeed: 4
+  attackSpeed: 5
+  holdTime: 0.5
   chargePosition: {x: 0, y: 0, z: 17}
   maxAttackX: 7
   maxAttackZ: -5
@@ -175,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: None
   animationStartDuration: 0
@@ -183,7 +190,7 @@ MonoBehaviour:
   rotationSpeed: 150
   ZVariation: 5
   weapon: {fileID: 0}
-  retreivePosition: 25
+  retreivePosition: 20
   mainMovementSpeed: 15
 --- !u!114 &7290269340501664117
 MonoBehaviour:
@@ -199,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Straight
   animationStartDuration: 0
@@ -214,8 +222,8 @@ MonoBehaviour:
   originRotations:
   - {x: 0, y: 180, z: 0}
   - {x: 0, y: 180, z: 0}
-  - {x: 0, y: 90, z: 0}
   - {x: 0, y: -90, z: 0}
+  - {x: 0, y: 90, z: 0}
   warningPositions:
   - {x: -5, y: 0, z: -38}
   - {x: 5, y: 0, z: -38}
@@ -275,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316cf25862f295c47a403277d27c83b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 150
+  maxLife: 75
   currentLife: 0
   score: 150
   mesh: {fileID: 170358315344462746}
@@ -286,6 +294,7 @@ MonoBehaviour:
   itemSpawner: {fileID: 0}
   bossCanvas: {fileID: 5152941896127273568, guid: 3aa404d4e9fc36546ab0611c5d444b25,
     type: 3}
+  screenBoundaries: {x: 0, y: 0, z: 0}
   sEnterLevel: {fileID: 4016820682276892497}
   sDeath: {fileID: 8074568719016916566}
   sSideMovement: {fileID: 6735306134253366108}
@@ -293,6 +302,7 @@ MonoBehaviour:
   sStretchAttack: {fileID: 430794894818574847}
   sSwipeAttack: {fileID: 8016507077460304266}
   sTailAttack: {fileID: 7290269340501664117}
+  mainCollider: {fileID: 5296563044671977198}
   originalWeapon: {fileID: 6235180133342641438, guid: 37caa26ce276e464b97d5b2341774fe7,
     type: 3}
 --- !u!65 &5296563044671977198

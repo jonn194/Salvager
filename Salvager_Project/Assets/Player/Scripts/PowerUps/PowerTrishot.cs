@@ -6,7 +6,6 @@ public class PowerTrishot : PowerUp
 {
     public List<Shooting> cannons = new List<Shooting>();
 
-
     public override void Startup()
     {
         base.Startup();

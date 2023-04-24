@@ -47,7 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  duration: 1.5
+  duration: 2
+  durationVariation: 0
+  maxHits: 1
+  damage: 1
 --- !u!65 &5237808777974190721
 BoxCollider:
   m_ObjectHideFlags: 0

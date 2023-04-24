@@ -11,7 +11,7 @@ public class BossDelta : Boss
     public BState_SwipeAttack sSwipeAttack;
     public BState_TailAttack sTailAttack;
 
-
+    public Collider mainCollider;
     public BossDeltaWeapon originalWeapon;
     List<BossDeltaWeapon> spawnedWeapons = new List<BossDeltaWeapon>();
 
@@ -58,6 +58,12 @@ public class BossDelta : Boss
         sSwipeAttack.animator = animator;
         sTailAttack.animator = animator;
 
+        sSideMovement.screenBoundaries = screenBoundaries;
+        sInOutLevel.screenBoundaries = screenBoundaries;
+        sSwipeAttack.screenBoundaries = screenBoundaries;
+        sTailAttack.screenBoundaries = screenBoundaries;
+
+        sInOutLevel.mainCollider = mainCollider;
         sDeath.bossRef = this;
     }
 
@@ -78,16 +84,26 @@ public class BossDelta : Boss
         sSwipeAttack.weapon = spawnedWeapons[0];
         sTailAttack.weapon = spawnedWeapons[0];
     }
+
+    public override void CheckLife()
+    {
+        if(currentLife <= 0)
+        {
+            foreach (BossDeltaWeapon weapon in spawnedWeapons)
+            {
+                weapon.destroyed = true;
+            }
+
+            spawnedWeapons.Clear();
+        }
+
+
+        base.CheckLife();
+    }
     public override void DestroyBoss()
     {
         GameManager.instance.logBossesState[3] = true;
 
-        foreach (BossDeltaWeapon weapon in spawnedWeapons)
-        {
-            Destroy(weapon);
-        }
-
-        spawnedWeapons.Clear();
         base.DestroyBoss();
     }
 }

@@ -147,4 +147,16 @@ public class BossProtector : MonoBehaviour, IDamageable
             yield return null;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == K.LAYER_PLAYER)
+        {
+            other.GetComponent<PlayerStats>().GetDamage();
+        }
+        else if (other.gameObject.layer == K.LAYER_PLAYER_SHIELD)
+        {
+            other.GetComponent<PowerShield>().GetHit();
+        }
+    }
 }

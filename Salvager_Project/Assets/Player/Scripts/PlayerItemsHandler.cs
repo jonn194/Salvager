@@ -8,10 +8,10 @@ public class PlayerItemsHandler : MonoBehaviour
     
     [Header("Dependencies")]
     public PlayerStats playerStats;
-    public PowerUp shield;
-    public PowerUp trishot;
-    public PowerUp laser;
-    public PowerUp bomber;
+    public PowerShield shield;
+    public PowerTrishot trishot;
+    public PowerLaser laser;
+    public PowerBomber bomber;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -85,7 +85,12 @@ public class PlayerItemsHandler : MonoBehaviour
     {
         shield.Deactivate();
         trishot.Deactivate();
+        /*foreach(Shooting s in trishot.cannons)
+        {
+            s.bulletPool.ClearAll();
+        }*/
         laser.Deactivate();
         bomber.Deactivate();
+        //bomber.cannon.bulletPool.ClearAll();
     }
 }

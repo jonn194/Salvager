@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BossGamma : Boss
 {
@@ -65,6 +64,9 @@ public class BossGamma : Boss
         sShootProtectors.animator = animator;
         sExpandProtectors.animator = animator;
 
+        sSideMovement.screenBoundaries = screenBoundaries;
+        sMoveAround.screenBoundaries = screenBoundaries;
+
         sDeath.bossRef = this;
         sShootProtectors.player = player;
     }
@@ -80,11 +82,22 @@ public class BossGamma : Boss
         }
     }
 
+    public override void CheckLife()
+    {
+        if(currentLife <= 0)
+        {
+            if(_currentProtector != null)
+            {
+                _currentProtector.DestroyProtectors();
+            }
+        }
+
+        base.CheckLife();
+    }
+
     public override void DestroyBoss()
     {
         GameManager.instance.logBossesState[2] = true;
-
-        _currentProtector.DestroyProtectors();
 
         base.DestroyBoss();
     }

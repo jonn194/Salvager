@@ -15,10 +15,12 @@ public class PlayerShipSelector : MonoBehaviour
     public TMP_Text scrapsTxt;
 
     [Header("Ships")]
+    public float offsetZ = 2;
     public Transform shipsContainer;
     public List<ParticleSystem> _thrusters = new List<ParticleSystem>();
     public Color lockedColor;
     List<MeshRenderer> _ships = new List<MeshRenderer>();
+    public List<Color> shipsOriginalColors = new List<Color>();
 
     public Button buttonSelect;
     public Button buttonUnlock;
@@ -67,7 +69,7 @@ public class PlayerShipSelector : MonoBehaviour
 
         //relocate to align to selected ship
         _currentShip = GameManager.instance.currentShip;
-        shipsContainer.transform.localPosition = new Vector3(_currentShip * 5, 0, 0);
+        shipsContainer.transform.localPosition = new Vector3(_currentShip * 5, 0, offsetZ);
 
         //set color
         _currentColor = GameManager.instance.shipsSelectedColor[_currentShip];
@@ -178,6 +180,7 @@ public class PlayerShipSelector : MonoBehaviour
 
         //COLORS
         EnableColorButtons();
+        RecolorColorButtons();
     }
 
     IEnumerator SelectorCoroutine()
@@ -186,10 +189,11 @@ public class PlayerShipSelector : MonoBehaviour
         {
             _currentSelectorTime += Time.deltaTime;
             
-            shipsContainer.transform.localPosition = Vector3.Lerp(shipsContainer.transform.localPosition, new Vector3(_currentShip * 5, 0, 0), _currentSelectorTime);
+            shipsContainer.transform.localPosition = Vector3.Lerp(shipsContainer.transform.localPosition, new Vector3(_currentShip * 5, 0, offsetZ), _currentSelectorTime);
             
             if(_currentSelectorTime >= _maxSelectorTime)
             {
+                shipsContainer.transform.localPosition = new Vector3(_currentShip * 5, 0, offsetZ);
                 buttonLeft.interactable = true;
                 buttonRight.interactable = true;
                 break;
@@ -201,7 +205,7 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void SetAtCurrent()
     {
-        shipsContainer.transform.localPosition = new Vector3(GameManager.instance.currentShip * 5, 0, 0);
+        shipsContainer.transform.localPosition = new Vector3(GameManager.instance.currentShip * 5, 0, offsetZ);
         _currentShip = GameManager.instance.currentShip;
         buttonUnlock.gameObject.SetActive(false);
     }
@@ -243,6 +247,37 @@ public class PlayerShipSelector : MonoBehaviour
             colorButtonSelect.gameObject.SetActive(false);
             colorButtonUnlock.gameObject.SetActive(false);
         }
+
+        RecolorColorButtons();
+    }
+
+    void RecolorColorButtons()
+    {
+        Vector4 currentHues = _ships[_currentShip].material.GetVector("_Hues");
+
+        colorButtons[0].transform.GetChild(0).GetComponent<Image>().color = shipsOriginalColors[_currentShip];
+
+
+        colorButtons[1].transform.GetChild(0).GetComponent<Image>().color = RecalculateHue(currentHues[1]);
+        colorButtons[2].transform.GetChild(0).GetComponent<Image>().color = RecalculateHue(currentHues[2]);
+        colorButtons[3].transform.GetChild(0).GetComponent<Image>().color = RecalculateHue(currentHues[3]);
+    }
+
+    Color RecalculateHue(float currentHue)
+    {
+        float h, s, v;
+        Color.RGBToHSV(shipsOriginalColors[_currentShip], out h, out s, out v);
+        float tempH;
+
+        tempH = h + currentHue;
+
+
+        if (tempH > 1)
+        {
+            tempH -= 1;
+        }
+
+        return Color.HSVToRGB(tempH, s, v);
     }
 
     void ColorButtonsSetup()
@@ -261,6 +296,7 @@ public class PlayerShipSelector : MonoBehaviour
         colorButtons[_currentColor].GetComponent<Image>().color = Color.yellow;
 
         SelectColor();
+        RecolorColorButtons();
     }
 
     public void PreviewColor(int index)

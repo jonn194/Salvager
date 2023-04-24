@@ -21,7 +21,7 @@ float3 HueShift(float3 In, float Offset)
 }
 
 
-void SkinSelector_float(float4 BaseTexture, float Mask, float CurrentColor, float4 Hues, bool HueAsTint, float4 Special01, float4 Special02, float4 Special03, out float3 Color)
+void SkinSelector_float(float4 BaseTexture, float Mask, float CurrentColor, float4 Hues, bool HueAsTint, float4 Special01, float4 Special02, float4 Special03, float4 Special04, out float3 Color)
 {
 	Color = (1, 1, 1);
     float3 BaseTint = float3(1, 0, 0);
@@ -74,5 +74,9 @@ void SkinSelector_float(float4 BaseTexture, float Mask, float CurrentColor, floa
     else if (CurrentColor == 6)
     {
         Color = lerp(BaseTexture, Special03, Mask);
+    }
+    else if (CurrentColor == 7)
+    {
+        Color = lerp(BaseTexture, Special04, Mask);
     }
 }

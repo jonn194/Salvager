@@ -62,6 +62,7 @@
     <Compile Include="Assets\Enemies\Scripts\Bosses\BossEpsilon.cs" />
     <Compile Include="Assets\UI\Scripts\GlossaryUI.cs" />
     <Compile Include="Assets\UI\Scripts\BackgroundWarnings.cs" />
+    <Compile Include="Assets\General\Scripts\IObservable.cs" />
     <Compile Include="Assets\Player\Scripts\PlayerColorSelector.cs" />
     <Compile Include="Assets\UI\Scripts\BuyButton.cs" />
     <Compile Include="Assets\General\Scripts\PerksHandler.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Assets\General\Scripts\Weapons\BulletPool.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BState_LaserSearch.cs" />
     <Compile Include="Assets\Enemies\Scripts\EnemySerpent.cs" />
+    <Compile Include="Assets\UI\Scripts\PauseUI.cs" />
     <Compile Include="Assets\Player\Scripts\PlayerItemsHandler.cs" />
     <Compile Include="Assets\General\Scripts\Rendering\OutlineNormalsCalculator.cs" />
     <Compile Include="Assets\General\Scripts\Weapons\Bomb.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="Assets\General\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Player\Scripts\PowerUps\SingleSpike.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BState_EnterLevel.cs" />
+    <Compile Include="Assets\General\Scripts\Debugger.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BossBeta.cs" />
     <Compile Include="Assets\General\Scripts\EventHandler.cs" />
     <Compile Include="Assets\UI\Scripts\GameplayUI.cs" />
@@ -136,6 +139,7 @@
     <Compile Include="Assets\Player\Scripts\PlayerShipSelector.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BState_MultipleShooting.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BState_AlternatingLasers.cs" />
+    <Compile Include="Assets\General\Scripts\ScreenTest.cs" />
     <Compile Include="Assets\UI\Scripts\UIManager.cs" />
     <Compile Include="Assets\Enemies\Scripts\Bosses\BState_LaserSwipe.cs" />
     <Compile Include="Assets\General\Scripts\Rendering\BlitRenderFeature.cs" />

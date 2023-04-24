@@ -1,7 +1,6 @@
 using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BState_HeadBash : BossState
@@ -16,6 +15,9 @@ public class BState_HeadBash : BossState
     public float returnRotation = 10;
     public float lookingTime;
 
+    public ParticleSystem waitParticle;
+    public ParticleSystem trailParticle;
+
     int _sequence;
     float _currentLookingTime;
     float _currentBashWaitTime;
@@ -23,15 +25,14 @@ public class BState_HeadBash : BossState
     Vector3 _originalRotation;
 
     public override void ExecuteState()
-    {
-        base.ExecuteState();
-        
+    {       
         _sequence = 0;
 
         _currentLookingTime = lookingTime;
         _currentBashWaitTime = bashWaitTime;
         _returnPosition = new Vector3(0, transform.parent.position.y, transform.parent.position.z);
         _originalRotation = transform.parent.eulerAngles;
+        waitParticle.Play();
     }
 
     public override void UpdateState()
@@ -70,6 +71,9 @@ public class BState_HeadBash : BossState
         if(_currentLookingTime <= 0)
         {
             _sequence++;
+            animator.SetBool(animationName, true);
+            waitParticle.Stop();
+            trailParticle.Play();
         }
     }
 
@@ -79,6 +83,7 @@ public class BState_HeadBash : BossState
            transform.parent.position.z <= -bashLimitZ || transform.parent.position.z >= bashLimitZ)
         {
             _currentBashWaitTime -= Time.deltaTime;
+            animator.SetBool(animationName, false);
         }
         else
         {
@@ -88,6 +93,7 @@ public class BState_HeadBash : BossState
         if(_currentBashWaitTime <= 0)
         {
             _sequence++;
+            trailParticle.Stop();
         }
     }
 
@@ -120,11 +126,16 @@ public class BState_HeadBash : BossState
             transform.parent.eulerAngles -= transform.parent.up * returnRotation * Time.deltaTime;
         }
 
-        if(Vector3.Distance(_originalRotation, transform.parent.eulerAngles) <= 0.5f)
+        if(Vector3.Distance(_originalRotation, transform.parent.eulerAngles) <= 1f * returnRotation)
         {
             transform.parent.eulerAngles = _originalRotation;
 
             FinishState();
         }
+    }
+
+    public override void FinishState()
+    {
+        EventHandler.instance.BossStateFinished();
     }
 }

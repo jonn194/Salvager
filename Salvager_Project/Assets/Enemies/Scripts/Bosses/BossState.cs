@@ -7,16 +7,19 @@ public class BossState : MonoBehaviour
     public PlayerStats player;
     public float stateDuration;
     protected float _currentDuration;
+    public Vector3 screenBoundaries;
     public Animator animator;
     public string animationName = "None";
     public float animationStartDuration = 0;
-    [HideInInspector] public List<BossState> possibleConnections;
+    public List<BossState> possibleConnections;
 
     protected float _currentAnimationStart;
 
     public virtual void ExecuteState()
     {
-        //Debug.Log(this);
+        Debug.Log(this);
+        //screenBoundaries = GameManager.instance.CalculateScreenBounds();
+
         _currentDuration = stateDuration;
         _currentAnimationStart = animationStartDuration;
         if (animationName != "None")

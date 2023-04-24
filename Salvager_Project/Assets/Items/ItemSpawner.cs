@@ -29,31 +29,29 @@ public class ItemSpawner : MonoBehaviour
 
     public void SpawnScraps(Transform itemPos)
     {
-        int randomAmount = Random.Range(3, 15);
+        int randomValue = Random.Range(1, 5);
 
-        for (int i = 0; i < randomAmount; i++)
-        {
-            float randomY = Random.Range(-10, 10);
-            Items newItem = Instantiate(scraps, transform.parent);
-            newItem.transform.position = itemPos.position;
+        float randomY = Random.Range(-10, 10);
+        Items newItem = Instantiate(scraps, transform.parent);
+        newItem.transform.position = itemPos.position;
+        newItem.value = randomValue;
 
-            Vector3 baseAngle = newItem.transform.eulerAngles;
-            newItem.transform.eulerAngles = new Vector3(baseAngle.x, baseAngle.y + randomY, baseAngle.z);
-        }
+        Vector3 baseAngle = newItem.transform.eulerAngles;
+        newItem.transform.eulerAngles = new Vector3(baseAngle.x, baseAngle.y + randomY, baseAngle.z);
+        
     }
 
     public void SpawnPerks(Transform itemPos)
     {
-        int randomAmount = Random.Range(10, 20);
+        int randomValue = Random.Range(2, 8);
 
-        for (int i = 0; i < randomAmount; i++)
-        {
-            float randomY = Random.Range(-10, 10);
-            Items newItem = Instantiate(perks, transform.parent);
-            newItem.transform.position = itemPos.position;
+        float randomY = Random.Range(-10, 10);
+        Items newItem = Instantiate(perks, transform.parent);
+        newItem.transform.position = itemPos.position;
+        newItem.value = randomValue;
 
-            Vector3 baseAngle = newItem.transform.eulerAngles;
-            newItem.transform.eulerAngles = new Vector3(baseAngle.x, baseAngle.y + randomY, baseAngle.z);
-        }
+        Vector3 baseAngle = newItem.transform.eulerAngles;
+        newItem.transform.eulerAngles = new Vector3(baseAngle.x, baseAngle.y + randomY, baseAngle.z);
+        
     }
 }

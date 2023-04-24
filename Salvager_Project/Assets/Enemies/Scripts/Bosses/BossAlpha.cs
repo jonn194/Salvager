@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
 
 public class BossAlpha : Boss
 {
     [Header("Boss Alpha")]
     public BossState sSideMovement;
-    public BossState sCanonAttack;
-    public BossState sBombsAttack;
-    public BossState sMultipleAttack;
+    public BState_CanonShooting sCanonAttack;
+    public BState_CanonShooting sBombsAttack;
+    public BState_MultipleShooting sMultipleAttack;
     public BossState sHeadBashAttack;
 
-    public List<BulletPool> bulletPools = new List<BulletPool>();
+    public BulletPool bulletPool;
+    public BulletPool canonPool;
+    public BulletPool bombPool;
 
     public override void SetStatesConnections()
     {
@@ -20,7 +21,7 @@ public class BossAlpha : Boss
 
         if (currentLife > maxLife/2)
         {
-            sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement };
+            sEnterLevel.possibleConnections = new List<BossState>() { sSideMovement, sCanonAttack };
 
             sSideMovement.possibleConnections = new List<BossState>() { sCanonAttack, sMultipleAttack, sBombsAttack };
 
@@ -52,6 +53,11 @@ public class BossAlpha : Boss
         sMultipleAttack.animator = animator;
         sHeadBashAttack.animator = animator;
 
+        sSideMovement.screenBoundaries = screenBoundaries;
+        sCanonAttack.screenBoundaries = screenBoundaries;
+        sBombsAttack.screenBoundaries= screenBoundaries;
+        sHeadBashAttack.screenBoundaries = screenBoundaries;
+
         sDeath.bossRef = this;
         sHeadBashAttack.player = player;
     }
@@ -60,10 +66,9 @@ public class BossAlpha : Boss
     {
         GameManager.instance.logBossesState[0] = true;
 
-        foreach(BulletPool b in bulletPools)
-        {
-            b.ClearAll();
-        }
+        bulletPool.ClearAll();
+        canonPool.ClearAll();
+        bombPool.ClearAll();
 
         base.DestroyBoss();
     }

@@ -109,7 +109,7 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SquareDensity: 100
+    - _SquareDensity: 45
     - _SrcBlend: 5
     - _Surface: 1
     - _WorkflowMode: 1
@@ -122,6 +122,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Glow: {r: 1, g: 0.7001361, b: 0, a: 0}
     - _GlowColor: {r: 0, g: 12.54902, b: 23.968628, a: 1}
+    - _LightDir: {r: -46.6, g: 140, b: 26.775, a: 0}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tint: {r: 0.45594507, g: 0.8517789, b: 0.8867924, a: 0.5686275}

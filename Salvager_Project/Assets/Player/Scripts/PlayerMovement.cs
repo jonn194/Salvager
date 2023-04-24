@@ -6,9 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [Header("Movement")]
-    public Camera topCamera;
     public Camera angleCamera;
     public float lerpSpeed;
+    public Vector2 deadArea = new Vector2(8, 20);
 
     [Header("Tilt")]
     public Transform shipsContainer;
@@ -49,18 +49,29 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
         //topdownCamera
-        _mousePos = Input.mousePosition;
-        _mousePos.z = topCamera.transform.position.y;
-        Vector3 topPos = topCamera.ScreenToWorldPoint(_mousePos);
+        #if UNITY_EDITOR
+            _mousePos = Input.mousePosition;
+        #elif UNITY_ANDROID
+            _mousePos = Input.GetTouch(0).position;
+        #endif
 
-        Vector3 narrowPos = angleCamera.ScreenToWorldPoint(_mousePos);
+        _mousePos.z = angleCamera.transform.position.y;//
+        Vector3 topPos = angleCamera.ScreenToWorldPoint(_mousePos);//
 
-        Vector3 finalPos = new Vector3(narrowPos.x, topPos.y, topPos.z);
+        //Vector3 narrowPos = angleCamera.ScreenToWorldPoint(_mousePos);
 
-        transform.position = Vector3.Lerp(transform.position, finalPos, lerpSpeed * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        //Vector3 finalPos = new Vector3(narrowPos.x, topPos.y, topPos.z);
 
-        TiltShip(finalPos);
+        if(!(topPos.x > deadArea.x && topPos.z > deadArea.y))
+        {
+            transform.position = Vector3.Lerp(transform.position, topPos, lerpSpeed * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
+            TiltShip(topPos);
+        }
+        else
+        { 
+        }
     }
 
     void TiltShip(Vector3 mousePos)

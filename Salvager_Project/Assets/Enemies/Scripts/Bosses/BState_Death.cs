@@ -34,6 +34,7 @@ public class BState_Death : BossState
 
     public override void FinishState()
     {
+        base.FinishState();
         bossRef.DestroyBoss();
     }
 }

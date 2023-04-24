@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainBoss: {fileID: 0}
+  mesh: {fileID: 4502525925720484108}
+  weaponCollider: {fileID: 3502929476201992973}
+  fillSpeed: 1
+  destroyed: 0
 --- !u!65 &3502929476201992973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -179,6 +183,12 @@ PrefabInstance:
 --- !u!4 &3330134460804993635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e1a5efd4ff6bca448995dfd1592f80ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 3007765565313709448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4502525925720484108 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e1a5efd4ff6bca448995dfd1592f80ea,
     type: 3}
   m_PrefabInstance: {fileID: 3007765565313709448}
   m_PrefabAsset: {fileID: 0}

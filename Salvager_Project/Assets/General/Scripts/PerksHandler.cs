@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PerksHandler : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PerksHandler : MonoBehaviour
     public Bullet piercingBullet;
 
     [Header("Player Items")]
+    public Button itemButton;
     public PlayerItemsHandler playerItems;
 
     [Header("Player Magnet")]
@@ -87,23 +89,31 @@ public class PerksHandler : MonoBehaviour
     {
         if (currentPerk == (int)PerkTypes.RandomItem)
         {
-            int randomItem = Random.Range(0, 4);
+            itemButton.gameObject.SetActive(true);
+        }
+    }
 
-            switch(randomItem)
-            {
-                case 0:
-                    playerItems.Shield();
-                    break;
-                case 1:
-                    playerItems.ModuleTrishot();
-                    break;
-                case 2:
-                    playerItems.ModuleLaser();
-                    break;
-                case 3:
-                    playerItems.ModuleBomber();
-                    break;
-            }
+    public void ActivateRandomItem()
+    {
+        int randomItem = Random.Range(0, 5);
+
+        switch (randomItem)
+        {
+            case 0:
+                playerItems.EnergyCore();
+                break;
+            case 1:
+                playerItems.Shield();
+                break;
+            case 2:
+                playerItems.ModuleTrishot();
+                break;
+            case 3:
+                playerItems.ModuleLaser();
+                break;
+            case 4:
+                playerItems.ModuleBomber();
+                break;
         }
     }
 

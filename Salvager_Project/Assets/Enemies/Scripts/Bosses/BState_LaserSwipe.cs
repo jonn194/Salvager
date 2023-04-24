@@ -10,11 +10,13 @@ public class BState_LaserSwipe : BossState
     public List<EnemyLaser> lasers = new List<EnemyLaser>();
 
     public float laserDuration;
-
     public float laserSpeed;
-
     public float originalX;
 
+    public float movementSpeed;
+    public float movementMaxX;
+
+    float _direction = 1;
     bool _shooting;
 
     public override void ExecuteState()
@@ -36,10 +38,25 @@ public class BState_LaserSwipe : BossState
         lasers[0].transform.position += lasers[0].transform.right * laserSpeed * Time.deltaTime;
         lasers[1].transform.position -= lasers[1].transform.right * laserSpeed * Time.deltaTime;
 
+        //MoveBoss();
 
         if (Mathf.Abs(-originalX - lasers[0].transform.position.x) <= 0.5f)
         {
             FinishState();
+        }
+    }
+
+    void MoveBoss()
+    {
+        transform.parent.position += transform.parent.right * movementSpeed * _direction * Time.deltaTime;
+
+        if (transform.parent.position.x <= -movementMaxX)
+        {
+            _direction = -1;
+        }
+        else if (transform.parent.position.x >= movementMaxX)
+        {
+            _direction = 1;
         }
     }
 
@@ -74,8 +91,12 @@ public class BState_LaserSwipe : BossState
         
         if (_shooting)
         {
-            lasers[0].StopLaser();
-            lasers[1].StopLaser();
+            foreach(EnemyLaser l in lasers)
+            {
+                lasers[0].StopLaser();
+                lasers[1].StopLaser();
+            }
+            
             _shooting = false;
         }
         

@@ -187,4 +187,9 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("SvgrSv");
     }
+
+    public Vector3 CalculateScreenBounds()
+    {
+        return Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -Camera.main.transform.position.y));
+    }
 }

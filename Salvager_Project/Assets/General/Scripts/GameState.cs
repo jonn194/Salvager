@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 
-public class GameState : MonoBehaviour
+public class GameState : MonoBehaviour, IObservable
 {
     [Header("Camera")]
     public Camera cam;
@@ -35,7 +36,7 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         playerOriginalPos = playerStats.transform.position;
-        EventHandler.instance.playerHPChanged += CheckPlayerHP;
+        ObserverSuscribe();
 
         Setup();
     }
@@ -69,6 +70,7 @@ public class GameState : MonoBehaviour
         cam.transform.position = camMenu.position;
         cam.transform.rotation = camMenu.rotation;
         cam.fieldOfView = camAngleMenu;
+        cam.orthographic = false;
 
         //player
         playerStats.StopPlayer(playerOriginalPos);
@@ -86,6 +88,11 @@ public class GameState : MonoBehaviour
         cam.transform.position = camGameplay.position;
         cam.transform.rotation = camGameplay.rotation;
         cam.fieldOfView = camAngleGameplay;
+        cam.orthographic = true;
+        cam.orthographicSize = 18;
+
+
+        Vector3 screenBoundaries = GameManager.instance.CalculateScreenBounds();
 
         //perks
         perksHandler.StartPerks();
@@ -95,7 +102,7 @@ public class GameState : MonoBehaviour
 
 
         //enemies
-        _currentSpawner.transform.position = new Vector3(0, 0, 17);
+        _currentSpawner.transform.position = new Vector3(0, 0, 18);
         _currentSpawner.transform.eulerAngles = new Vector3(0, 180, 0);
         _currentSpawner.StartEnemies();
         _currentSpawner.player = playerStats;
@@ -112,6 +119,7 @@ public class GameState : MonoBehaviour
     public void EndGame()
     {
         GameManager.instance.gameStarted = true;
+        _currentSpawner.ObserverUnsuscribe();
 
         //temp objects
         for (int i = 0; i < tempParent.childCount; i++)
@@ -169,5 +177,17 @@ public class GameState : MonoBehaviour
         gameplayCanvas.gameObject.SetActive(false);
         endgameCanvas.gameObject.SetActive(true);
         endgameCanvas.Setup();
+    }
+
+
+    //INTERFACE
+    public void ObserverSuscribe()
+    {
+        EventHandler.instance.playerHPChanged += CheckPlayerHP;
+    }
+
+    public void ObserverUnsuscribe()
+    {
+        EventHandler.instance.playerHPChanged -= CheckPlayerHP;
     }
 }

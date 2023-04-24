@@ -15,9 +15,13 @@ public class GameplayUI : MonoBehaviour
 
     [Header("Icons")]
     public Image shield;
+    Image _shieldTimer;
     public Image trishot;
+    Image _trishotTimer;
     public Image laser;
+    Image _laserTimer;
     public Image bomber;
+    Image _bomberTimer;
 
     [Header("Texts")]
     public TMP_Text currentScoreTxt;
@@ -33,6 +37,12 @@ public class GameplayUI : MonoBehaviour
         EventHandler.instance.playerHPChanged += UpdateLifebar;
         EventHandler.instance.scrapPickup += UpdateScrap;
         EventHandler.instance.perksPickup += UpdatePerk;
+
+
+        _shieldTimer = shield.transform.GetChild(0).GetComponent<Image>();
+        _trishotTimer = trishot.transform.GetChild(0).GetComponent<Image>();
+        _laserTimer = laser.transform.GetChild(0).GetComponent<Image>();
+        _bomberTimer = bomber.transform.GetChild(0).GetComponent<Image>();
     }
 
     void UpdateLifebar()
@@ -48,10 +58,45 @@ public class GameplayUI : MonoBehaviour
 
     void UpdatePowerUp()
     {
-            shield.fillAmount = (float)((items.shield.currentLifetime * 100f) / items.shield.maxLifetime) / 100f;
-            trishot.fillAmount = (float)((items.trishot.currentLifetime * 100f) / items.trishot.maxLifetime) / 100f;
-            laser.fillAmount = (float)((items.laser.currentLifetime * 100f) / items.laser.maxLifetime) / 100f;
-            bomber.fillAmount = (float)((items.bomber.currentLifetime * 100f) / items.bomber.maxLifetime) / 100f;
+        if (items.shield.currentLifetime > 0)
+        {
+            shield.gameObject.SetActive(true);
+            _shieldTimer.fillAmount = (float)((items.shield.currentLifetime * 100f) / items.shield.maxLifetime) / 100f;
+        }
+        else
+        {
+            shield.gameObject.SetActive(false);
+        }
+
+        if (items.trishot.currentLifetime > 0)
+        {
+            trishot.gameObject.SetActive(true);
+            _trishotTimer.fillAmount = (float)((items.trishot.currentLifetime * 100f) / items.trishot.maxLifetime) / 100f;
+        }
+        else
+        {
+            trishot.gameObject.SetActive(false);
+        }
+
+        if (items.laser.currentLifetime > 0)
+        {
+            laser.gameObject.SetActive(true);
+            _laserTimer.fillAmount = (float)((items.laser.currentLifetime * 100f) / items.laser.maxLifetime) / 100f;
+        }
+        else
+        {
+            laser.gameObject.SetActive(false);
+        }
+
+        if (items.bomber.currentLifetime > 0)
+        {
+            bomber.gameObject.SetActive(true);
+            _bomberTimer.fillAmount = (float)((items.bomber.currentLifetime * 100f) / items.bomber.maxLifetime) / 100f;
+        }
+        else
+        {
+            bomber.gameObject.SetActive(false);
+        }
     }
 
     void UpdateScore()

@@ -8,6 +8,7 @@ public class Items : MonoBehaviour
 
     public ItemType type;
 
+    public int value;
     public float verticalSpeed;
     public float horizontalSpeed;
     public float lifetime = 2;
@@ -38,13 +39,13 @@ public class Items : MonoBehaviour
             switch(type)
             {
                 case ItemType.scraps:
-                    GameManager.instance.currentScraps++;
+                    GameManager.instance.currentScraps += value;
                     itemsHandler.PlayEffects(false);
                     EventHandler.instance.CurencyPickup(true);
                     break;
 
                 case ItemType.perk:
-                    GameManager.instance.currentPerkCores++;
+                    GameManager.instance.currentPerkCores += value;
                     itemsHandler.PlayEffects(false);
                     EventHandler.instance.CurencyPickup(false);
                     break;

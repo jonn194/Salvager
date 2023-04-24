@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainBoss: {fileID: 0}
+  mesh: {fileID: 1977923201692988702}
+  weaponCollider: {fileID: 3502929476201992973}
+  fillSpeed: 1
+  destroyed: 0
 --- !u!65 &3502929476201992973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -491,6 +495,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd6ee5b6543931438c0d9eb74741f48, type: 3}
+--- !u!137 &1977923201692988702 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -1695773353734847330, guid: 2fd6ee5b6543931438c0d9eb74741f48,
+    type: 3}
+  m_PrefabInstance: {fileID: 8288199681895707008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8398967907062339179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2fd6ee5b6543931438c0d9eb74741f48,

@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Enter
   animationStartDuration: 0
@@ -105,15 +106,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Death
   animationStartDuration: 0
   possibleConnections: []
   bossRef: {fileID: 0}
-  mesh: {fileID: 0}
+  mesh: {fileID: 8475806108775023366}
   deadParticle: {fileID: 9212767789805533541, guid: 824fd27264c151f438ae8f6484c751ab,
     type: 3}
-  fillSpeed: 0
+  fillSpeed: 1.5
 --- !u!114 &6735306134253366108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 4
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: None
   animationStartDuration: 0
@@ -150,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 4
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Shields
   animationStartDuration: 0
@@ -157,7 +161,7 @@ MonoBehaviour:
   shields: {fileID: 0}
   movementSpeed: 5
   movementMaxX: 4
-  shieldsSpeed: 3
+  shieldsSpeed: 5
 --- !u!114 &3888479259718542972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Alternate
   animationStartDuration: 0
@@ -198,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Swipe
   animationStartDuration: 0
@@ -208,6 +214,8 @@ MonoBehaviour:
   laserDuration: 0.75
   laserSpeed: 2.5
   originalX: 7.5
+  movementSpeed: 3
+  movementMaxX: 7
 --- !u!114 &5155987074403259814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 2
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Search
   animationStartDuration: 0
@@ -349,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813e7671a603ef94684cec4254e414e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 75
+  maxLife: 50
   currentLife: 0
   score: 75
   mesh: {fileID: 8475806108775023366}
@@ -360,6 +369,7 @@ MonoBehaviour:
   itemSpawner: {fileID: 0}
   bossCanvas: {fileID: 5152941896127273568, guid: 3aa404d4e9fc36546ab0611c5d444b25,
     type: 3}
+  screenBoundaries: {x: 0, y: 0, z: 0}
   sEnterLevel: {fileID: 4016820682276892497}
   sDeath: {fileID: 8074568719016916566}
   sSideMovement: {fileID: 6735306134253366108}
@@ -367,6 +377,17 @@ MonoBehaviour:
   sAlternatingLasers: {fileID: 3888479259718542972}
   sLaserSwipe: {fileID: 6019274654063669606}
   sSearchLaser: {fileID: 5155987074403259814}
+  laserSet01:
+  - {fileID: 1411280001176828454}
+  - {fileID: 6133422016183670059}
+  laserSet02:
+  - {fileID: 4440007637193766200}
+  - {fileID: 1000048882934373887}
+  - {fileID: 65235378253627494}
+  lasersSwipe:
+  - {fileID: 3734354895034246031}
+  - {fileID: 8145232048046849756}
+  laserSearch: {fileID: 4592740441774369954}
   originalShield: {fileID: 3735159827951414546, guid: 5ec4a152ad1c6cc44a2ced8a87c8fcea,
     type: 3}
 --- !u!65 &5296563044671977198

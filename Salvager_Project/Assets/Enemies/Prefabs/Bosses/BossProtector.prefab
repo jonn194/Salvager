@@ -55,7 +55,7 @@ MonoBehaviour:
   hitParticle: {fileID: 993567889422286006}
   boxCollider: {fileID: 8753851468818895652}
   weapon: {fileID: 317793248090399327}
-  maxLife: 5
+  maxLife: 3
   respawnTime: 5
   _currentFill: 0
 --- !u!65 &8753851468818895652
@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnStart: 0
-  shootTimer: 1.2
+  shootTimer: 1.5
   bulletPool: {fileID: 0}
   shootEffect: {fileID: 5674090218498651156}
+  shootAudio: {fileID: 0}
+  shootClip: {fileID: 0}
 --- !u!1 &5071003948900579137
 GameObject:
   m_ObjectHideFlags: 0

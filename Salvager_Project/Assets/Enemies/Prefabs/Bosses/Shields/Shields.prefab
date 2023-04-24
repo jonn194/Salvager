@@ -49,6 +49,7 @@ MonoBehaviour:
   shields:
   - {fileID: 1780025396582815293}
   - {fileID: 877259500895655607}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &500078206897898321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 4824819193525020066, guid: fde078b359349e844a09b6eaf5c50dac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4824819193525020066, guid: fde078b359349e844a09b6eaf5c50dac,
         type: 3}
@@ -156,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 4824819193525020066, guid: fde078b359349e844a09b6eaf5c50dac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 4824819193525020066, guid: fde078b359349e844a09b6eaf5c50dac,
         type: 3}

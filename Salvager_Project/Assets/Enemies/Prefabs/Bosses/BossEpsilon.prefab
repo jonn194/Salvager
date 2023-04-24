@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Enter
   animationStartDuration: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Death
   animationStartDuration: 0
@@ -95,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 4
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: None
   animationStartDuration: 0
@@ -117,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 6
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: CanonHold
   animationStartDuration: 0
@@ -140,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Alternate
   animationStartDuration: 0
@@ -166,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: MoveAround
   animationStartDuration: 0
@@ -191,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   stateDuration: 0
+  screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: TailAttack
   animationStartDuration: 0
@@ -5222,7 +5229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be36e4ab4a2d77a47a00f3340b0fbfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 120
+  maxLife: 60
   currentLife: 0
   score: 150
   mesh: {fileID: 2528959067324655616}
@@ -5233,6 +5240,7 @@ MonoBehaviour:
   itemSpawner: {fileID: 0}
   bossCanvas: {fileID: 5152941896127273568, guid: 3aa404d4e9fc36546ab0611c5d444b25,
     type: 3}
+  screenBoundaries: {x: 0, y: 0, z: 0}
   sEnterLevel: {fileID: 4016820682276892497}
   sDeath: {fileID: 8074568719016916566}
   sSideMovement: {fileID: 6735306134253366108}

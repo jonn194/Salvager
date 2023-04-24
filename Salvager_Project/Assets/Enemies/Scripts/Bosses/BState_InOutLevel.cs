@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BState_InOutLevel : BossState
@@ -10,6 +9,7 @@ public class BState_InOutLevel : BossState
     public float mainMovementSpeed = 3;
     public float retreivePosition = 20;
 
+    public Collider mainCollider;
     public List<BossDeltaWeapon> weapons;
     public List<float> xPosition;
     public List<float> zPosition;
@@ -57,6 +57,7 @@ public class BState_InOutLevel : BossState
 
         if(Mathf.Abs(retreivePosition - transform.parent.position.z) <= 0.5f)
         {
+            mainCollider.enabled = false;
             _sequence++;
         }
     }
@@ -84,6 +85,7 @@ public class BState_InOutLevel : BossState
             {
                 if (Mathf.Abs(-xPosition[i] * 3 - weapons[i].transform.position.x) <= 0.5f)
                 {
+                    mainCollider.enabled = true;
                     _sequence++;
                 }
             }
