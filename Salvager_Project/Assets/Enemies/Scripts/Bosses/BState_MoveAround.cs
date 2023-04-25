@@ -10,7 +10,7 @@ public class BState_MoveAround : BossState
     public float movementSpeed;
     public float rotationsSpeed = 5;
 
-    Vector3 _originalRotation;
+    Quaternion _originalRotation;
     int _currentIndex;
 
     private void Start()
@@ -21,7 +21,7 @@ public class BState_MoveAround : BossState
     public override void ExecuteState()
     {
         base.ExecuteState();
-        _originalRotation = transform.parent.eulerAngles;
+        _originalRotation = transform.parent.rotation;
         _currentIndex = 0;
         targetLocations[targetLocations.Count - 1] = transform.parent.position;
     }
@@ -58,16 +58,12 @@ public class BState_MoveAround : BossState
             animator.SetBool(animationName, false);
         }
 
-        if (Mathf.Abs(_originalRotation.y - transform.parent.eulerAngles.y) <= 1.5f * rotationsSpeed)
+        transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, _originalRotation, rotationsSpeed * Time.deltaTime);
+
+        if (CheckRotation(transform.parent.rotation, _originalRotation, 1f))
         {
-            transform.parent.eulerAngles = _originalRotation;
+            transform.parent.rotation = _originalRotation;
             FinishState();
-        }
-        else
-        {
-            Vector3 targetRotation = Vector3.Lerp(transform.parent.eulerAngles, _originalRotation, rotationsSpeed * Time.deltaTime);
-            transform.parent.eulerAngles = targetRotation;
-            //transform.parent.eulerAngles += transform.parent.up * rotationsSpeed * 100 * Time.deltaTime;
         }
     }
 

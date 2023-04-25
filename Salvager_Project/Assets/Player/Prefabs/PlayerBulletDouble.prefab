@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   duration: 1
+  durationVariation: 0
+  minMaxHeight: {x: -20, y: 18}
   maxHits: 1
   damage: 2
 --- !u!65 &5237808777974190721

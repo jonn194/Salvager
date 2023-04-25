@@ -126,9 +126,10 @@ MonoBehaviour:
   animationStartDuration: 0
   possibleConnections: []
   weaponMovementSpeed: 25
-  mainMovementSpeed: 15
+  mainMovementSpeed: 5
   retreivePosition: 25
   mainCollider: {fileID: 0}
+  hitParticles: {fileID: 0}
   weapons: []
   xPosition:
   - -18
@@ -190,8 +191,8 @@ MonoBehaviour:
   rotationSpeed: 110
   ZVariation: 5
   weapon: {fileID: 0}
-  retreivePosition: 17
-  mainMovementSpeed: 15
+  retreivePosition: 15
+  mainMovementSpeed: 3
 --- !u!114 &7290269340501664117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ MonoBehaviour:
   animationStartDuration: 0
   possibleConnections: []
   weapon: {fileID: 0}
-  attackSpeed: 40
+  attackSpeed: 5
   holdTime: 0.75
   originPositions:
   - {x: -5, y: 0, z: -50}
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316cf25862f295c47a403277d27c83b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 75
+  maxLife: 85
   currentLife: 0
   score: 150
   mesh: {fileID: 170358315344462746}

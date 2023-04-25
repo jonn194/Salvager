@@ -11,18 +11,17 @@ public class BossBeta : Boss
     public BState_LaserSwipe sLaserSwipe;
     public BState_LaserSearch sSearchLaser;
 
-    public List<EnemyLaser> laserSet01 = new List<EnemyLaser>();
-    public List<EnemyLaser> laserSet02 = new List<EnemyLaser>();
-    public List<EnemyLaser> lasersSwipe = new List<EnemyLaser>();
+    public EnemyLaser originalLaser;
+    List<EnemyLaser> _laserSet01 = new List<EnemyLaser>();
+    List<EnemyLaser> _laserSet02 = new List<EnemyLaser>();
+    List<EnemyLaser> _lasersSwipe = new List<EnemyLaser>();
     public EnemyLaser laserSearch;
     public EnemyShieldHandler originalShield;
     EnemyShieldHandler _spawnedShield;
 
     public override void Start()
     {
-        _spawnedShield = Instantiate(originalShield, transform.parent);
-        _spawnedShield.transform.position = new Vector3(0, 0, 10f);
-        _spawnedShield.transform.rotation = transform.rotation;
+        CreateWeapons();
 
         base.Start();
     }
@@ -52,26 +51,38 @@ public class BossBeta : Boss
         }
     }
 
-    public override void CheckLife()
+    void CreateWeapons()
     {
-        if(currentLife <= 0)
+        //shields
+        _spawnedShield = Instantiate(originalShield, transform.parent);
+        _spawnedShield.transform.position = new Vector3(0, 0, 10f);
+        _spawnedShield.transform.rotation = transform.rotation;
+
+        //swipe lasers
+        for (int i = 0; i < 2; i++)
         {
-            foreach(EnemyLaser l in laserSet01)
-            {
-                l.StopLaser();
-            }
-            foreach (EnemyLaser l in laserSet02)
-            {
-                l.StopLaser();
-            }
-            foreach (EnemyLaser l in lasersSwipe)
-            {
-                l.StopLaser();
-            }
-            laserSearch.StopLaser();
+            EnemyLaser newLaser = Instantiate(originalLaser, transform.parent);
+            newLaser.transform.position = transform.position;
+            newLaser.transform.rotation = transform.rotation;
+            _lasersSwipe.Add(newLaser);
         }
 
-        base.CheckLife();
+        //alternating lasers
+        for (int i = 0; i < 2; i++)
+        {
+            EnemyLaser newLaser = Instantiate(originalLaser, transform.parent);
+            newLaser.transform.position = transform.position;
+            newLaser.transform.rotation = transform.rotation;
+            _laserSet01.Add(newLaser);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            EnemyLaser newLaser = Instantiate(originalLaser, transform.parent);
+            newLaser.transform.position = transform.position;
+            newLaser.transform.rotation = transform.rotation;
+            _laserSet02.Add(newLaser);
+        }
     }
 
     public override void SetStatesDependencies()
@@ -87,9 +98,10 @@ public class BossBeta : Boss
 
         sSideMovement.screenBoundaries = screenBoundaries;
 
-        sAlternatingLasers.set01 = laserSet01;
-        sAlternatingLasers.set02 = laserSet02;
-        sLaserSwipe.lasers = lasersSwipe;
+        sAlternatingLasers.set01 = _laserSet01;
+        sAlternatingLasers.set02 = _laserSet02;
+
+        sLaserSwipe.lasers = _lasersSwipe;
         sSearchLaser.laser = laserSearch;
 
         sDeath.bossRef = this;
@@ -97,9 +109,55 @@ public class BossBeta : Boss
         sSpawnShields.shields = _spawnedShield;
     }
 
+    public override void CheckLife()
+    {
+        if (currentLife <= 0)
+        {
+            _spawnedShield.shields[0].DestroyShield();
+            _spawnedShield.shields[1].DestroyShield();
+
+            foreach (EnemyLaser l in _laserSet01)
+            {
+                l.StopLaser();
+            }
+            foreach (EnemyLaser l in _laserSet02)
+            {
+                l.StopLaser();
+            }
+            foreach (EnemyLaser l in _lasersSwipe)
+            {
+                l.StopLaser();
+            }
+            laserSearch.StopLaser();
+        }
+
+        base.CheckLife();
+    }
+
     public override void DestroyBoss()
     {
         GameManager.instance.logBossesState[1] = true;
+
+        Destroy(_spawnedShield.gameObject);
+
+        foreach (EnemyLaser l in _lasersSwipe)
+        {
+            Destroy(l.gameObject);
+        }
+
+        foreach (EnemyLaser l in _laserSet01)
+        {
+            Destroy(l.gameObject);
+        }
+
+        foreach (EnemyLaser l in _laserSet02)
+        {
+            Destroy(l.gameObject);
+        }
+
+        _lasersSwipe.Clear();
+        _laserSet01.Clear();
+        _laserSet02.Clear();
 
         base.DestroyBoss();
     }

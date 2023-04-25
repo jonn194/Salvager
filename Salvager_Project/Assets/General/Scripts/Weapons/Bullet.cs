@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float duration;
     public float durationVariation = 0;
     protected float _currentDuration;
+    public Vector2 minMaxHeight = new Vector2(-20, 17);
 
     public int maxHits = 1;
     public int damage = 1;
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
         _currentDuration -= Time.deltaTime;
 
         Movement();
+        CheckBoundaries();
         CheckActive();
     }
 
@@ -37,6 +39,14 @@ public class Bullet : MonoBehaviour
     void Movement()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
+    }
+
+    void CheckBoundaries()
+    {
+        if(transform.position.z < minMaxHeight.x || transform.position.z > minMaxHeight.y)
+        {
+            Deactivate();
+        }
     }
 
     virtual public void CheckActive()

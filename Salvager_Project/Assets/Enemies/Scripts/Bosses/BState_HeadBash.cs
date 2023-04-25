@@ -22,7 +22,7 @@ public class BState_HeadBash : BossState
     float _currentLookingTime;
     float _currentBashWaitTime;
     Vector3 _returnPosition;
-    Vector3 _originalRotation;
+    Quaternion _originalRotation;
 
     public override void ExecuteState()
     {       
@@ -31,7 +31,7 @@ public class BState_HeadBash : BossState
         _currentLookingTime = lookingTime;
         _currentBashWaitTime = bashWaitTime;
         _returnPosition = new Vector3(0, transform.parent.position.y, transform.parent.position.z);
-        _originalRotation = transform.parent.eulerAngles;
+        _originalRotation = transform.parent.rotation;
         waitParticle.Play();
     }
 
@@ -103,7 +103,7 @@ public class BState_HeadBash : BossState
         Vector3 direction = _returnPosition - transform.parent.position;
         Quaternion toRotation = Quaternion.LookRotation(direction);
 
-        transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, 10 * Time.deltaTime);
+        transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, toRotation, 7 * Time.deltaTime);
 
 
         transform.parent.position += transform.forward * returnSpeed * Time.deltaTime;
@@ -119,16 +119,16 @@ public class BState_HeadBash : BossState
     {
         if(transform.parent.eulerAngles.y < 180)
         {
-            transform.parent.eulerAngles += transform.parent.up * returnRotation * Time.deltaTime;
+            transform.parent.Rotate(transform.parent.up * returnRotation * Time.deltaTime);
         }
         else
         {
-            transform.parent.eulerAngles -= transform.parent.up * returnRotation * Time.deltaTime;
+            transform.parent.Rotate(transform.parent.up * -returnRotation * Time.deltaTime);
         }
 
-        if(Vector3.Distance(_originalRotation, transform.parent.eulerAngles) <= 1f * returnRotation)
+        if(CheckRotation(transform.parent.rotation, _originalRotation, 1f))
         {
-            transform.parent.eulerAngles = _originalRotation;
+            transform.parent.rotation = _originalRotation;
 
             FinishState();
         }

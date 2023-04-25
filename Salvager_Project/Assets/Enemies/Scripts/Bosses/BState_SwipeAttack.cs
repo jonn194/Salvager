@@ -15,7 +15,8 @@ public class BState_SwipeAttack : BossState
 
     float _direction = 1;
     int _sequence;
-    float _originalPos;
+    Vector3 _originalPos;
+    Vector3 _retreiveVector;
     public override void ExecuteState()
     {
         base.ExecuteState();
@@ -28,8 +29,12 @@ public class BState_SwipeAttack : BossState
         float randomVariation = Random.Range(0, ZVariation);
         float newX = spawnPosition.x;
 
+        //set positions
+        _originalPos = transform.parent.position;
+        _retreiveVector = new Vector3(transform.parent.position.x, transform.parent.position.y, retreivePosition);
 
-        if(randomSide < 5)
+
+        if (randomSide < 5)
         {
             newX = -spawnPosition.x;
         }
@@ -47,9 +52,6 @@ public class BState_SwipeAttack : BossState
             _direction = 1;
             weapon.transform.eulerAngles = new Vector3(0, -45, 0);
         }
-        
-        //get original position in Z
-        _originalPos = transform.parent.position.z;
     }
 
     public override void UpdateState()
@@ -80,9 +82,10 @@ public class BState_SwipeAttack : BossState
 
     void HideBoss()
     {
-        transform.parent.position -= transform.parent.forward * mainMovementSpeed * Time.deltaTime;
+        Vector3 temp = Vector3.Lerp(transform.parent.position, _retreiveVector, mainMovementSpeed * Time.deltaTime);
+        transform.parent.position = temp;
 
-        if (Mathf.Abs(retreivePosition - transform.parent.position.z) <= 0.5f * mainMovementSpeed)
+        if (CheckDistance(transform.parent.position, _retreiveVector, 0.5f))
         {
             _sequence++;
         }
@@ -90,9 +93,10 @@ public class BState_SwipeAttack : BossState
 
     void RestoreBoss()
     {
-        transform.parent.position += transform.parent.forward * mainMovementSpeed * Time.deltaTime;
+        Vector3 temp = Vector3.Lerp(transform.parent.position, _originalPos, mainMovementSpeed * Time.deltaTime);
+        transform.parent.position = temp;
 
-        if (Mathf.Abs(_originalPos - transform.parent.position.z) <= 0.5f * mainMovementSpeed)
+        if (CheckDistance(transform.parent.position, _originalPos, 0.5f))
         {
             _sequence++;
         }

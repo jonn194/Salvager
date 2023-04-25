@@ -130,7 +130,7 @@ MonoBehaviour:
   - {x: -7, y: 0, z: -7}
   - {x: 0, y: 0, z: -15}
   - {x: 7, y: 0, z: -7}
-  movementSpeed: 20
+  movementSpeed: 25
   rotationsSpeed: 5
 --- !u!114 &4016224884067257730
 MonoBehaviour:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  stateDuration: 7
+  stateDuration: 4
   screenBoundaries: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   animationName: Align
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d58dd636336654bb174526e67378d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 30
+  maxLife: 50
   currentLife: 0
   score: 80
   mesh: {fileID: 814798338459664052}

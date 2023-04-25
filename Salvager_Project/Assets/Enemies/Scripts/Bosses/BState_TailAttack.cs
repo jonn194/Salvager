@@ -51,7 +51,7 @@ public class BState_TailAttack : BossState
         }
         else if (_sequence == 4)
         {
-            Move(originPositions[_index], -attackSpeed);
+            Move(originPositions[_index], attackSpeed);
         }
         else if (_sequence == 5)
         {
@@ -61,26 +61,16 @@ public class BState_TailAttack : BossState
 
     void Move(Vector3 target, float speed)
     {
-        weapon.transform.position -= weapon.transform.forward * speed * Time.deltaTime;
+        Vector3 temp = Vector3.Lerp(weapon.transform.position, target, speed * Time.deltaTime);
+        weapon.transform.position = temp;
 
-        if (CheckDistances(target, weapon.transform.position))
+        if (CheckDistance(target, weapon.transform.position, 0.5f))
         {
             _sequence++;
             _currentHoldTime = holdTime;
         }
     }
 
-    bool CheckDistances(Vector3 a, Vector3 b)
-    {
-        if (Vector3.Distance(a, b) <= 0.5f)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
     void Hold()
     {
@@ -98,7 +88,7 @@ public class BState_TailAttack : BossState
         base.FinishState();
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         foreach(Vector3 v in originPositions)
         {
@@ -117,5 +107,5 @@ public class BState_TailAttack : BossState
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(v, 0.5f);
         }
-    }
+    }*/
 }

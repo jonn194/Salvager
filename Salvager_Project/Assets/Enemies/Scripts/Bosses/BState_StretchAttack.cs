@@ -71,7 +71,7 @@ public class BState_StretchAttack : BossState
 
         transform.parent.position = targetPos;
 
-        if(CheckDistances(target, transform.parent.position))
+        if(CheckDistance(target, transform.parent.position, 0.5f))
         {
             _sequence++;
         }
@@ -85,18 +85,6 @@ public class BState_StretchAttack : BossState
         {
             _sequence++;
             animator.SetBool(animationName, false);
-        }
-    }
-
-    bool CheckDistances(Vector3 a, Vector3 b)
-    {
-        if(Vector3.Distance(a, b) <= 0.5f)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 }

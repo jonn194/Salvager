@@ -17,7 +17,8 @@ public class BState_InOutLevel : BossState
     public List<Vector3> rotations;
 
     int _sequence;
-    float _originalPos;
+    Vector3 _originalPos;
+    Vector3 _retreiveVector;
     List<int> _currentlyMoving = new List<int>();
 
     public override void ExecuteState()
@@ -25,7 +26,8 @@ public class BState_InOutLevel : BossState
         base.ExecuteState();
         
         _sequence = 0;
-        _originalPos = transform.parent.position.z;
+        _originalPos = transform.parent.position;
+        _retreiveVector = new Vector3(transform.parent.position.x, transform.parent.position.y, retreivePosition);
         _currentlyMoving.Add(0);
 
         for (int i = 0; i < weapons.Count; i++)
@@ -54,9 +56,10 @@ public class BState_InOutLevel : BossState
 
     void HideMainBoss()
     {
-        transform.parent.position -= transform.parent.forward * mainMovementSpeed * Time.deltaTime;
+        Vector3 temp = Vector3.Lerp(transform.parent.position, _retreiveVector, mainMovementSpeed * Time.deltaTime);
+        transform.parent.position = temp;
 
-        if(Mathf.Abs(retreivePosition - transform.parent.position.z) <= 0.5f)
+        if (CheckDistance(transform.parent.position, _retreiveVector, 0.5f))
         {
             mainCollider.enabled = false;
             hitParticles.gameObject.SetActive(false);
@@ -98,9 +101,10 @@ public class BState_InOutLevel : BossState
 
     void RestoreMainBoss()
     {
-        transform.parent.position += transform.parent.forward * mainMovementSpeed * Time.deltaTime;
+        Vector3 temp = Vector3.Lerp(transform.parent.position, _originalPos, mainMovementSpeed * Time.deltaTime);
+        transform.parent.position = temp;
 
-        if (Mathf.Abs(_originalPos - transform.parent.position.z) <= 0.5f)
+        if (CheckDistance(transform.parent.position, _originalPos, 0.5f))
         {
             FinishState();
         }

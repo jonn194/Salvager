@@ -7,6 +7,7 @@ public class PowerLaser : PowerUp
 {
     public float laserDuration;
     public float laserTimer;
+    public float maxDamageRange = 18;
     public LineRenderer lineRenderer;
     public ParticleSystem particleEffect;
     public Collider damageCollider;
@@ -72,7 +73,10 @@ public class PowerLaser : PowerUp
     {
         if(other.gameObject.layer == K.LAYER_ENEMY)
         {
-            other.gameObject.GetComponent<Enemy>().GetDamage(1);
+            if(other.transform.position.z < maxDamageRange)
+            {
+                other.gameObject.GetComponent<Enemy>().GetDamage(1);
+            }
         }
     }
 }

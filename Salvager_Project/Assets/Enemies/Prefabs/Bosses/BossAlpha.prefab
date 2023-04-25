@@ -206,7 +206,7 @@ MonoBehaviour:
   - {fileID: 7276636399371923919}
   - {fileID: 7360369801787315573}
   - {fileID: 83373204818244680}
-  rotationSpeed: 25
+  rotationSpeed: 30
   rotationAngle: 70
 --- !u!114 &5269781448106420410
 MonoBehaviour:
@@ -256,7 +256,7 @@ MonoBehaviour:
   bashLimitX: 8
   bashLimitZ: 15
   returnSpeed: 16
-  returnRotation: 100
+  returnRotation: 150
   lookingTime: 2
   waitParticle: {fileID: 1183848810623898286}
   trailParticle: {fileID: 5583202498902574734}
@@ -39356,7 +39356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955137fe7e3fcad4bb0520ad6cc92092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 50
+  maxLife: 80
   currentLife: 0
   score: 100
   mesh: {fileID: 8714619582459629700}

@@ -23,10 +23,10 @@ public class BState_LaserSwipe : BossState
     {
         base.ExecuteState();
 
-        lasers[0].transform.position = new Vector3(originalX, lasers[0].transform.position.y, lasers[0].transform.position.z);
+        lasers[0].transform.position = new Vector3(originalX, lasers[0].transform.position.y, transform.parent.position.z - 3);
         lasers[0].StartLaser();
 
-        lasers[1].transform.position = new Vector3(-originalX, lasers[1].transform.position.y, lasers[1].transform.position.z);
+        lasers[1].transform.position = new Vector3(-originalX, lasers[1].transform.position.y, transform.parent.position.z - 3);
         lasers[1].StartLaser();
 
         _shooting = true;
@@ -38,9 +38,9 @@ public class BState_LaserSwipe : BossState
         lasers[0].transform.position += lasers[0].transform.right * laserSpeed * Time.deltaTime;
         lasers[1].transform.position -= lasers[1].transform.right * laserSpeed * Time.deltaTime;
 
-        //MoveBoss();
+        MoveBoss();
 
-        if (Mathf.Abs(-originalX - lasers[0].transform.position.x) <= 0.5f)
+        if (lasers[0].transform.position.x <= -originalX)
         {
             FinishState();
         }

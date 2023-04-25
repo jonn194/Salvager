@@ -90,8 +90,7 @@ public class BState_AlignProtectors : BossState
         Vector3 targetLocation = Vector3.Lerp(transform.parent.position, _originalPosition, movementSpeed * Time.deltaTime);
         transform.parent.position = targetLocation;
 
-        if (_returned.Count == protectors.circlePositions.Count &&
-            Vector3.Distance(transform.parent.position, _originalPosition) <= 0.5f)
+        if (_returned.Count == protectors.circlePositions.Count && CheckDistance(transform.parent.position, _originalPosition, 0.5f))
         {
             FinishState();
         }

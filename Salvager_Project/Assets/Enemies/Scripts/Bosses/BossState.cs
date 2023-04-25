@@ -84,4 +84,28 @@ public class BossState : MonoBehaviour
             return false;
         }
     }
+
+    public bool CheckRotation(Quaternion currentRotation, Quaternion targetAngle, float threshold)
+    {
+        if (Quaternion.Angle(targetAngle, currentRotation) < threshold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CheckDistance(Vector3 a, Vector3 b, float threshold)
+    {
+        if (Vector3.Distance(a, b) <= threshold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

@@ -7,22 +7,21 @@ public class BossEpsilon : Boss
     [Header("Boss Epsilon")]
     public BossState sSideMovement;
     public BossState sBombsAttack;
-    public BossState sAlternatingLasers;
+    public BState_AlternatingLasers sAlternatingLasers;
     public BossState sMoveAround;
     public BState_TailAttack sTailAttack;
 
     public BulletPool bombsPools;
+    public EnemyLaser originalLaser;
     public BossDeltaWeapon originalWeapon;
+    List<EnemyLaser> _laserSet01 = new List<EnemyLaser>();
+    List<EnemyLaser> _laserSet02 = new List<EnemyLaser>();
     BossDeltaWeapon _spawnedWeapon;
+
 
     public override void Start()
     {
-        _spawnedWeapon = Instantiate(originalWeapon, transform.parent);
-        _spawnedWeapon.transform.position = transform.position;
-        _spawnedWeapon.transform.rotation = transform.rotation;
-        _spawnedWeapon.gameObject.SetActive(false);        
-        _spawnedWeapon.mainBoss = this;
-        sTailAttack.weapon = _spawnedWeapon;
+        CreateWeapons();
 
         base.Start();
     }
@@ -52,6 +51,33 @@ public class BossEpsilon : Boss
         }
     }
 
+    void CreateWeapons()
+    {
+        //tail
+        _spawnedWeapon = Instantiate(originalWeapon, transform.parent);
+        _spawnedWeapon.transform.position = transform.position;
+        _spawnedWeapon.transform.rotation = transform.rotation;
+        _spawnedWeapon.gameObject.SetActive(false);
+        _spawnedWeapon.mainBoss = this;
+
+        //alternating lasers
+        for (int i = 0; i < 2; i++)
+        {
+            EnemyLaser newLaser = Instantiate(originalLaser, transform.parent);
+            newLaser.transform.position = transform.position;
+            newLaser.transform.rotation = transform.rotation;
+            _laserSet01.Add(newLaser);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            EnemyLaser newLaser = Instantiate(originalLaser, transform.parent);
+            newLaser.transform.position = transform.position;
+            newLaser.transform.rotation = transform.rotation;
+            _laserSet02.Add(newLaser);
+        }
+    }
+
     public override void SetStatesDependencies()
     {
         sEnterLevel.animator = animator;
@@ -68,6 +94,10 @@ public class BossEpsilon : Boss
         sMoveAround.screenBoundaries = screenBoundaries;
         sTailAttack.screenBoundaries = screenBoundaries;
 
+        sTailAttack.weapon = _spawnedWeapon;
+        sAlternatingLasers.set01 = _laserSet01;
+        sAlternatingLasers.set02 = _laserSet02;
+
         sDeath.bossRef = this;
     }
 
@@ -76,6 +106,15 @@ public class BossEpsilon : Boss
         if (currentLife <= 0)
         {
             bombsPools.ClearAll();
+
+            foreach (EnemyLaser l in _laserSet01)
+            {
+                l.StopLaser();
+            }
+            foreach (EnemyLaser l in _laserSet02)
+            {
+                l.StopLaser();
+            }
 
             _spawnedWeapon.destroyed = true;
         }
@@ -86,6 +125,19 @@ public class BossEpsilon : Boss
     public override void DestroyBoss()
     {
         GameManager.instance.logBossesState[4] = true;
+
+        foreach (EnemyLaser l in _laserSet01)
+        {
+            Destroy(l.gameObject);
+        }
+
+        foreach (EnemyLaser l in _laserSet02)
+        {
+            Destroy(l.gameObject);
+        }
+
+        _laserSet01.Clear();
+        _laserSet02.Clear();
 
         base.DestroyBoss();
     }
