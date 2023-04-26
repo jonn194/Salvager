@@ -5439,7 +5439,7 @@ MonoBehaviour:
   hitEffect: {fileID: 3353801280043008886}
   deadEffect: {fileID: 9212767789805533541, guid: e70a40b37f44d284680bc7c576b71129,
     type: 3}
-  maxLife: 4
+  maxLife: 2
   currentLife: 0
   score: 20
   moveSpeed: 5
@@ -5451,7 +5451,7 @@ MonoBehaviour:
   screenBoundaries: {x: 0, y: 0, z: 0}
   verticalTime: 1
   horizontalTime: 1
-  bulletPool: {fileID: 0}
+  bulletPool: {fileID: 5715744926569094845}
 --- !u!65 &5296563044671977198
 BoxCollider:
   m_ObjectHideFlags: 0

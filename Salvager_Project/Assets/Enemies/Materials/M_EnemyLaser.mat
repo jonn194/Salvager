@@ -61,6 +61,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -130,7 +134,7 @@ Material:
     - _Color: {r: 0.93092537, g: 0, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Hues: {r: 0, g: 0.25, b: 0.5, a: 0.75}
-    - _MainColor: {r: 3.9999995, g: 0, b: 0.25287244, a: 1}
+    - _MainColor: {r: 1.7411765, g: 0, b: 0.1254902, a: 1}
     - _MainSpeed: {r: -0.5, g: 0.2, b: 0, a: 0}
     - _MainTiling: {r: 0.5, g: 1, b: 0, a: 0}
     - _SecondaryColor: {r: 0.25212926, g: 0, b: 0.65494406, a: 1}

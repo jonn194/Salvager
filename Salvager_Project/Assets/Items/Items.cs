@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Bson;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,16 +13,65 @@ public class Items : MonoBehaviour
     public float verticalSpeed;
     public float horizontalSpeed;
     public float lifetime = 2;
+    float _currentLifetime;
+
+    public List<Renderer> renderers;
+
+    float _blinkTime = 0.2f;
+    float _currentBlinkTime;
+
+    private void Start()
+    {
+        _currentLifetime = lifetime;
+        _currentBlinkTime = _blinkTime;
+    }
 
     private void Update()
     {
-        transform.position += (-transform.forward * verticalSpeed + transform.right * horizontalSpeed) * Time.deltaTime;
+        if(transform.position.x > 0)
+        {
+            transform.position += (-transform.forward * verticalSpeed + transform.right * -horizontalSpeed) * Time.deltaTime;
+        }
+        else
+        {
+            transform.position += (-transform.forward * verticalSpeed + transform.right * horizontalSpeed) * Time.deltaTime;
+        }
 
-        lifetime -= Time.deltaTime;
+        _currentLifetime -= Time.deltaTime;
 
-        if(lifetime <= 0)
+        if(_currentLifetime <= lifetime/2)
+        {
+            BlinkItem();
+        }
+        if(_currentLifetime <= 0)
         {
             DestroyObject();
+        }
+    }
+
+    void BlinkItem()
+    {
+        _currentBlinkTime -= Time.deltaTime;
+
+        if(_currentBlinkTime <= 0)
+        {
+            ToggleRender();
+            _currentBlinkTime = _blinkTime;
+        }
+    }
+
+    void ToggleRender()
+    {
+        foreach(Renderer r in renderers)
+        {
+            if(r.enabled)
+            {
+                r.enabled = false;
+            }
+            else
+            {
+                r.enabled = true;
+            }
         }
     }
 

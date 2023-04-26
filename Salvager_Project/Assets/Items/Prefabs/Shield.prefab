@@ -60,9 +60,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  verticalSpeed: 2
-  horizontalSpeed: 2
-  lifetime: 10
+  value: 0
+  verticalSpeed: 1
+  horizontalSpeed: 0.25
+  lifetime: 5
+  renderers:
+  - {fileID: 8473125244786855876}
 --- !u!1001 &7086135997519942464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,6 +163,12 @@ PrefabInstance:
 --- !u!4 &7340227855557964971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 708daec2ac77cb94fb842b179b23e26a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7086135997519942464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8473125244786855876 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 708daec2ac77cb94fb842b179b23e26a,
     type: 3}
   m_PrefabInstance: {fileID: 7086135997519942464}
   m_PrefabAsset: {fileID: 0}

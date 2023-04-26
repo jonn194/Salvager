@@ -9,7 +9,7 @@ PlayerSettings:
   AndroidFilterTouchesWhenObscured: 1
   AndroidEnableSustainedPerformanceMode: 0
   defaultScreenOrientation: 0
-  targetDevice: 2
+  targetDevice: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Moontastic Studios
@@ -157,7 +157,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.MoontasticStudios.Salvager
     Standalone: com.UnityTechnologies.com.unity.template.urp-blank
-    iPhone: com.Unity-Technologies.com.unity.template.urp-blank
+    iPhone: com.Moontastic-Studios.Salvager
   buildNumber:
     Standalone: 0
     iPhone: 0

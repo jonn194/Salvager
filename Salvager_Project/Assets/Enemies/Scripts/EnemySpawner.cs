@@ -162,7 +162,7 @@ public class EnemySpawner : MonoBehaviour, IObservable
         EventHandler.instance.BossIncoming();
 
         Boss newBoss;
-        if(currentDificulty != 0 && (currentDificulty - 1) % 5 == 0)
+        if(currentDificulty != 0 && currentDificulty % 5 == 0)
         {
             newBoss = Instantiate(bossEpsilon, transform.parent);
         }

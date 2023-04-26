@@ -17,13 +17,10 @@ public class ItemSpawner : MonoBehaviour
         if(randomChance < itemChance)
         {
             int randomItem = Random.Range(0, items.Count);
-            float randomY = Random.Range(-10, 10);
 
             Items newItem = Instantiate(items[randomItem], transform.parent);
             newItem.transform.position = itemPos.position;
-
-            Vector3 baseAngle = newItem.transform.eulerAngles;
-            newItem.transform.eulerAngles = new Vector3(baseAngle.x, baseAngle.y + randomY, baseAngle.z);
+            newItem.transform.rotation = Quaternion.identity;
         }
     }
 
@@ -31,27 +28,22 @@ public class ItemSpawner : MonoBehaviour
     {
         int randomValue = Random.Range(1, 5);
 
-        float randomY = Random.Range(-10, 10);
+
         Items newItem = Instantiate(scraps, transform.parent);
         newItem.transform.position = itemPos.position;
         newItem.value = randomValue;
-
-        Vector3 baseAngle = newItem.transform.eulerAngles;
-        newItem.transform.eulerAngles = new Vector3(baseAngle.x, baseAngle.y + randomY, baseAngle.z);
-        
+        newItem.transform.rotation = Quaternion.identity;
     }
 
     public void SpawnPerks(Transform itemPos)
     {
         int randomValue = Random.Range(2, 8);
 
-        float randomY = Random.Range(-10, 10);
-        Items newItem = Instantiate(perks, transform.parent);
-        newItem.transform.position = itemPos.position;
-        newItem.value = randomValue;
 
-        Vector3 baseAngle = newItem.transform.eulerAngles;
-        newItem.transform.eulerAngles = new Vector3(baseAngle.x, baseAngle.y + randomY, baseAngle.z);
+        Items newItem = Instantiate(perks, transform.parent);
+        newItem.transform.position = new Vector3(0,0,5);//itemPos.position;
+        newItem.value = randomValue;
+        newItem.transform.rotation = Quaternion.identity;
         
     }
 }

@@ -60,9 +60,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  verticalSpeed: 0.5
-  horizontalSpeed: 2.5
-  lifetime: 10
+  value: 0
+  verticalSpeed: 1
+  horizontalSpeed: 0.25
+  lifetime: 5
+  renderers:
+  - {fileID: 6705556308771933736}
+  - {fileID: 3819866455179275895}
 --- !u!1001 &1470610634455626546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,6 +169,18 @@ PrefabInstance:
 --- !u!4 &1432727327826957529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dade11c1671e29a40a8ed2d4166bc645,
+    type: 3}
+  m_PrefabInstance: {fileID: 1470610634455626546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3819866455179275895 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2407821449898728773, guid: dade11c1671e29a40a8ed2d4166bc645,
+    type: 3}
+  m_PrefabInstance: {fileID: 1470610634455626546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6705556308771933736 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5288989012115635482, guid: dade11c1671e29a40a8ed2d4166bc645,
     type: 3}
   m_PrefabInstance: {fileID: 1470610634455626546}
   m_PrefabAsset: {fileID: 0}

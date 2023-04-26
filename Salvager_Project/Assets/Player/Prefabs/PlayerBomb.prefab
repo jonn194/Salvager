@@ -51,7 +51,7 @@ MonoBehaviour:
   durationVariation: 0
   minMaxHeight: {x: -20, y: 18}
   maxHits: 1
-  damage: 1
+  damage: 2
   range: 3
   explosionEffect: {fileID: 8362382545850971136, guid: cfeeaee2ac0239f45b114d5d68112948,
     type: 3}
