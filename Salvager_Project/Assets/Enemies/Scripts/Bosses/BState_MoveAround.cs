@@ -60,7 +60,7 @@ public class BState_MoveAround : BossState
 
         transform.parent.rotation = Quaternion.Lerp(transform.parent.rotation, _originalRotation, rotationsSpeed * Time.deltaTime);
 
-        if (CheckRotation(transform.parent.rotation, _originalRotation, 1f))
+        if (CheckRotation(transform.parent.rotation, _originalRotation, 2.5f))
         {
             transform.parent.rotation = _originalRotation;
             FinishState();
@@ -72,7 +72,7 @@ public class BState_MoveAround : BossState
         base.FinishState();
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         if(targetLocations.Count > 0)
         {
@@ -81,5 +81,5 @@ public class BState_MoveAround : BossState
                 Gizmos.DrawWireSphere(target, 0.5f);
             }
         }
-    }
+    }*/
 }

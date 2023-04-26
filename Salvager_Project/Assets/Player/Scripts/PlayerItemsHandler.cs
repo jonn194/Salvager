@@ -32,30 +32,60 @@ public class PlayerItemsHandler : MonoBehaviour
 
     public void Shield()
     {
-        shield.gameObject.SetActive(true);
-        shield.Startup();
-        EventHandler.instance.PlayerPowerUp();
+        if(shield.gameObject.activeSelf)
+        {
+            shield.Refill();
+        }
+        else
+        {
+            shield.gameObject.SetActive(true);
+            shield.Startup();
+            EventHandler.instance.PlayerPowerUp();
+        }
     }
 
     public void ModuleTrishot()
     {
-        trishot.gameObject.SetActive(true);
-        trishot.Startup();
-        EventHandler.instance.PlayerPowerUp();
+        if (trishot.gameObject.activeSelf)
+        {
+            trishot.Refill();
+        }
+        else
+        {
+            trishot.gameObject.SetActive(true);
+            trishot.Startup();
+            EventHandler.instance.PlayerPowerUp();
+        }
+
     }
 
     public void ModuleLaser()
     {
-        laser.gameObject.SetActive(true);
-        laser.Startup();
-        EventHandler.instance.PlayerPowerUp();
+        if (laser.gameObject.activeSelf)
+        {
+            laser.Refill();
+        }
+        else
+        {
+            laser.gameObject.SetActive(true);
+            laser.Startup();
+            EventHandler.instance.PlayerPowerUp();
+        }
     }
 
     public void ModuleBomber()
     {
-        bomber.gameObject.SetActive(true);
-        bomber.Startup();
-        EventHandler.instance.PlayerPowerUp();
+        if (bomber.gameObject.activeSelf)
+        {
+            bomber.Refill();
+        }
+        else
+        {
+            bomber.gameObject.SetActive(true);
+            bomber.Startup();
+            EventHandler.instance.PlayerPowerUp();
+        }
+
     }
 
     public void PlayEffects(bool isHeal)

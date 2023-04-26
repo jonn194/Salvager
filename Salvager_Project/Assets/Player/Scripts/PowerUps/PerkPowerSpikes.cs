@@ -5,6 +5,7 @@ using UnityEngine;
 public class PerkPowerSpikes : MonoBehaviour
 {
     public List<SingleSpike> spikes = new List<SingleSpike>();
+    public List<ParticleSystem> spawnParticles = new List<ParticleSystem>();
     public int damage;
     public float timeInactive;
 
@@ -26,6 +27,11 @@ public class PerkPowerSpikes : MonoBehaviour
         foreach(SingleSpike s in spikes)
         {
             s.gameObject.SetActive(true);
+        }
+
+        foreach(ParticleSystem p in spawnParticles)
+        {
+            p.Play();
         }
     }
 

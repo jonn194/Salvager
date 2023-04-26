@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 813e7671a603ef94684cec4254e414e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 60
+  maxLife: 50
   currentLife: 0
   score: 75
   mesh: {fileID: 8475806108775023366}

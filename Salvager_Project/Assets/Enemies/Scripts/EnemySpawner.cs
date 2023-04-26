@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour, IObservable
     [Header("Enemies")]
     public List<Enemy> enemies = new List<Enemy>();
     public List<Boss> bosses = new List<Boss>();
+    public Boss bossEpsilon;
     Boss _currentBoss;
     float _randomX;
 
@@ -160,9 +161,17 @@ public class EnemySpawner : MonoBehaviour, IObservable
 
         EventHandler.instance.BossIncoming();
 
-        int randomBoss = Random.Range(0, bosses.Count);
+        Boss newBoss;
+        if(currentDificulty != 0 && (currentDificulty - 1) % 5 == 0)
+        {
+            newBoss = Instantiate(bossEpsilon, transform.parent);
+        }
+        else
+        {
+            int randomBoss = Random.Range(0, bosses.Count);
+            newBoss = Instantiate(bosses[randomBoss], transform.parent);
+        }
 
-        Boss newBoss = Instantiate(bosses[randomBoss], transform.parent);
         newBoss.transform.position = transform.position;
         newBoss.transform.rotation = transform.rotation;
         newBoss.player = player;

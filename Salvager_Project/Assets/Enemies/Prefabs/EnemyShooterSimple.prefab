@@ -5395,7 +5395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5296563044671977192}
   - component: {fileID: 4734974803506469922}
-  - component: {fileID: 2247857454469505161}
   - component: {fileID: 5296563044671977198}
   - component: {fileID: 1475557427571271209}
   m_Layer: 8
@@ -5449,26 +5448,10 @@ MonoBehaviour:
   player: {fileID: 0}
   itemSpawner: {fileID: 0}
   spawner: {fileID: 0}
+  screenBoundaries: {x: 0, y: 0, z: 0}
   verticalTime: 1
   horizontalTime: 1
-  bulletPool: {fileID: 2247857454469505161}
---- !u!114 &2247857454469505161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5296563044671977188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e864adf18ee1b94a8cb206efbde559d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generateOnAwake: 1
-  bulletPrefab: {fileID: 5237808777974190727, guid: 3643466afe449f145831bb731dd6ce75,
-    type: 3}
-  amount: 5
-  spawnedBullets: []
+  bulletPool: {fileID: 0}
 --- !u!65 &5296563044671977198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5698,6 +5681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5648445445802632281}
+  - component: {fileID: 5715744926569094845}
   - component: {fileID: 9050849837053698791}
   - component: {fileID: 7351209224062888454}
   m_Layer: 8
@@ -5723,6 +5707,23 @@ Transform:
   m_Father: {fileID: 5296563044671977192}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5715744926569094845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7812477996118438133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e864adf18ee1b94a8cb206efbde559d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateOnAwake: 1
+  bulletPrefab: {fileID: 5237808777974190727, guid: 3643466afe449f145831bb731dd6ce75,
+    type: 3}
+  amount: 5
+  spawnedBullets: []
 --- !u!114 &9050849837053698791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5737,7 +5738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 1
   shootTimer: 1
-  bulletPool: {fileID: 2247857454469505161}
+  bulletPool: {fileID: 5715744926569094845}
   shootEffect: {fileID: 3483223272102521951}
   shootAudio: {fileID: 7351209224062888454}
   shootClip: {fileID: 8300000, guid: 24d6cc151ea0b934b83c0fbec7f3db00, type: 3}

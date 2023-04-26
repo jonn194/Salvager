@@ -109,7 +109,7 @@ public class BState_HeadBash : BossState
         transform.parent.position += transform.forward * returnSpeed * Time.deltaTime;
         
 
-        if (Vector3.Distance(_returnPosition, transform.parent.position) <= 0.1f)
+        if (CheckDistance(transform.parent.position, _returnPosition, 1f))
         {
             _sequence++;
         }
@@ -126,7 +126,7 @@ public class BState_HeadBash : BossState
             transform.parent.Rotate(transform.parent.up * -returnRotation * Time.deltaTime);
         }
 
-        if(CheckRotation(transform.parent.rotation, _originalRotation, 1f))
+        if(CheckRotation(transform.parent.rotation, _originalRotation, 2.5f))
         {
             transform.parent.rotation = _originalRotation;
 

@@ -212,6 +212,9 @@ public class PlayerShipSelector : MonoBehaviour
 
     public void SelectShip()
     {
+        //reset color from preview to selected before changing ship
+        PreviewColor(GameManager.instance.shipsSelectedColor[_currentShip]);
+
         GameManager.instance.currentShip = _currentShip;
         //COLORS
         EnableColorButtons();

@@ -14,6 +14,11 @@ public class PowerUp : MonoBehaviour
         currentLifetime = maxLifetime;
     }
 
+    virtual public void Refill()
+    {
+        currentLifetime = maxLifetime;
+    }
+
     private void Update()
     {
         currentLifetime -= Time.deltaTime;

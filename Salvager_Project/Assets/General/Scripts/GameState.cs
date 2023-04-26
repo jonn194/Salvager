@@ -92,7 +92,7 @@ public class GameState : MonoBehaviour, IObservable
         cam.orthographicSize = 18;
 
 
-        Vector3 screenBoundaries = GameManager.instance.CalculateScreenBounds();
+        //Vector3 screenBoundaries = GameManager.instance.CalculateScreenBounds();
 
         //perks
         perksHandler.StartPerks();
@@ -118,7 +118,7 @@ public class GameState : MonoBehaviour, IObservable
 
     public void EndGame()
     {
-        GameManager.instance.gameStarted = true;
+        GameManager.instance.gameStarted = false;
         _currentSpawner.ObserverUnsuscribe();
 
         //temp objects
@@ -129,6 +129,7 @@ public class GameState : MonoBehaviour, IObservable
         }
 
         playerStats.playerDead = false;
+        perksHandler.DeactivateAll();
 
         //UI
         CheckHighScore();
@@ -162,8 +163,8 @@ public class GameState : MonoBehaviour, IObservable
 
     void AddRewards()
     {
-        GameManager.instance.scrapAmount = GameManager.instance.currentScraps;
-        GameManager.instance.perksAmount = GameManager.instance.currentPerkCores;
+        GameManager.instance.scrapAmount += GameManager.instance.currentScraps;
+        GameManager.instance.perksAmount += GameManager.instance.currentPerkCores;
     }
 
     void GameplayStartUI()

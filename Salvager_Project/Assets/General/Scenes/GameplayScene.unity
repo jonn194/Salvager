@@ -23966,7 +23966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: None
-  description: 
+  description: No perk equiped.
   extraInfo: 
   itemIcon: {fileID: -1817817108, guid: 1f50f92171f514e41b53e0827bb3c1cc, type: 3}
 --- !u!114 &996743476
@@ -30893,7 +30893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Random Item
-  description: Your ship will start with an item already equiped.
+  description: Your ship will be able to equip a random item once.
   extraInfo: 
   itemIcon: {fileID: -1306586462, guid: ab64b84f270eb134aaf91ea364928f18, type: 3}
 --- !u!1 &1478984755

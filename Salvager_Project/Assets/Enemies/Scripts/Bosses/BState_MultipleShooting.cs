@@ -63,7 +63,7 @@ public class BState_MultipleShooting : BossState
     {
         transform.parent.Rotate(transform.up * rotationSpeed * 3 * -_direction * Time.deltaTime);
 
-        if (CheckRotation(transform.parent.rotation, _currentInitialAngleY, 1f))
+        if (CheckRotation(transform.parent.rotation, _currentInitialAngleY, 2f))
         {
             transform.parent.eulerAngles = new Vector3(transform.parent.eulerAngles.x, _currentInitialAngleY, transform.parent.eulerAngles.z);
 
@@ -81,7 +81,7 @@ public class BState_MultipleShooting : BossState
     {
         transform.parent.Rotate(transform.up * rotationSpeed * _direction * Time.deltaTime);
 
-        if (CheckRotation(transform.parent.rotation, _currentTargetAngleY, 1f))
+        if (CheckRotation(transform.parent.rotation, _currentTargetAngleY, 2f))
         {
             transform.parent.eulerAngles = new Vector3(transform.parent.eulerAngles.x, _currentTargetAngleY, transform.parent.eulerAngles.z);
 
@@ -98,7 +98,7 @@ public class BState_MultipleShooting : BossState
     {
         transform.parent.Rotate(transform.up * rotationSpeed * 3 * -_direction * Time.deltaTime);
 
-        if (CheckRotation(transform.parent.rotation, _originalAngleY, 1f))
+        if (CheckRotation(transform.parent.rotation, _originalAngleY, 2f))
         {
             transform.parent.eulerAngles = new Vector3(transform.parent.eulerAngles.x, _originalAngleY, transform.parent.eulerAngles.z);
 

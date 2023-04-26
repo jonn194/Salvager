@@ -29,13 +29,16 @@ public class PerksHandler : MonoBehaviour
 
     public enum PerkTypes { None, ExtraLife, DoubleDamage, PiercingBullets, Magnet, RandomItem, Spikes}
 
+    private void Start()
+    {
+        //getPresets
+        baseHP = playerStats.maxHP;
+    }
 
     public void StartPerks()
     {
         int currentPerk = GameManager.instance.currentPerk;
 
-        //getPresets
-        baseHP = playerStats.maxHP;
 
         CheckLife(currentPerk);
         CheckBullets(currentPerk);
@@ -48,7 +51,7 @@ public class PerksHandler : MonoBehaviour
     {
         if (currentPerk == (int)PerkTypes.ExtraLife)
         {
-            playerStats.maxHP += playerStats.maxHP / 2;
+            playerStats.maxHP += 2;
         }
         else
         {
@@ -91,6 +94,10 @@ public class PerksHandler : MonoBehaviour
         {
             itemButton.gameObject.SetActive(true);
         }
+        else
+        {
+            itemButton.gameObject.SetActive(false);
+        }
     }
 
     public void ActivateRandomItem()
@@ -127,5 +134,15 @@ public class PerksHandler : MonoBehaviour
         {
             spikes.gameObject.SetActive(false);
         }
+    }
+
+    public void DeactivateAll()
+    {
+        playerStats.maxHP = baseHP;
+        playerBullets.bulletPrefab = basicBullet;
+        magnet.gameObject.SetActive(false);
+        itemButton.gameObject.SetActive(false);
+        spikes.gameObject.SetActive(false);
+
     }
 }

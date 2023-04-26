@@ -64,7 +64,7 @@ public class BState_SwipeAttack : BossState
         {
             weapon.transform.Rotate(weapon.transform.up * rotationSpeed * _direction * Time.deltaTime);
 
-            if (CheckRotation(weapon.transform.rotation, 180, 1f))
+            if (CheckRotation(weapon.transform.rotation, 180, 2.5f))
             {
                 animator.SetBool(animationName, false);
                 _sequence++;
@@ -85,7 +85,7 @@ public class BState_SwipeAttack : BossState
         Vector3 temp = Vector3.Lerp(transform.parent.position, _retreiveVector, mainMovementSpeed * Time.deltaTime);
         transform.parent.position = temp;
 
-        if (CheckDistance(transform.parent.position, _retreiveVector, 0.5f))
+        if (CheckDistance(transform.parent.position, _retreiveVector, 1f))
         {
             _sequence++;
         }
@@ -96,7 +96,7 @@ public class BState_SwipeAttack : BossState
         Vector3 temp = Vector3.Lerp(transform.parent.position, _originalPos, mainMovementSpeed * Time.deltaTime);
         transform.parent.position = temp;
 
-        if (CheckDistance(transform.parent.position, _originalPos, 0.5f))
+        if (CheckDistance(transform.parent.position, _originalPos, 1f))
         {
             _sequence++;
         }

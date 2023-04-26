@@ -50,7 +50,7 @@ MonoBehaviour:
   maxPosition: 9
   maxAngle: 15
   baseSpawnFrequency: 1
-  minSpawnFrequency: 0.2
+  minSpawnFrequency: 0.3
   enemies:
   - {fileID: 5296563044671977193, guid: 27c6bd90352366940975f39fb9c2a731, type: 3}
   - {fileID: -881888281385916633, guid: 65fa6c1e55f42394e8f39a987cf110b2, type: 3}
@@ -67,11 +67,13 @@ MonoBehaviour:
   - {fileID: 4264090731186471378, guid: 8e8b3d8b3adfcaa43a4fc25e162c986e, type: 3}
   - {fileID: 7743361342890023692, guid: 4ee4f746a5216dd48b8b211a1606e07e, type: 3}
   - {fileID: 3286403983990688781, guid: 158f29de1f8278640959c5557db2e212, type: 3}
+  bossEpsilon: {fileID: 2153948596185275286, guid: 4fd281d44256b2942ae23505f1345036,
+    type: 3}
   enemiesDestroyedByPlayer: 0
   currentDificulty: 0
-  frequencyOffset: 0.2
-  enemiesToChange: 14000000320000004b0000006400000096000000
-  maxEnemiesAmounts: 060000000a0000000f0000001400000019000000
+  frequencyOffset: 0.1
+  enemiesToChange: 140000001e000000280000003700000046000000
+  maxEnemiesAmounts: 06000000080000000a0000000c0000000e000000
   maxEnemyIndex: 0100000003000000050000000700000009000000
 --- !u!114 &-5064568785256733228
 MonoBehaviour:
