@@ -127,9 +127,24 @@ public class PlayerShipSelector : MonoBehaviour
         }
 
         //selector effect
+        _currentShip = GameManager.instance.currentShip;
+        _currentColor = GameManager.instance.shipsSelectedColor[_currentShip];
         selectorEffect.gameObject.SetActive(true);
         selectorEffect.Play();
         UpdateScrapsUI();
+        SetButtons();
+
+        for (int i = 0; i < colorButtons.Count; i++)
+        {
+            if (i == _currentColor)
+            {
+                colorButtons[i].GetComponent<Image>().color = Color.yellow;
+            }
+            else
+            {
+                colorButtons[i].GetComponent<Image>().color = Color.white;
+            }
+        }
     }
 
     public void MoveSelector(int direction)
